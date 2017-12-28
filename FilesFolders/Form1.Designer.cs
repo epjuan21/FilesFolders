@@ -34,6 +34,7 @@
             this.carpetasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rIPSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.prgBarAC = new System.Windows.Forms.ProgressBar();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblTotalUS = new System.Windows.Forms.Label();
@@ -47,7 +48,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblTotalAC = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblStatus = new System.Windows.Forms.Label();
+            this.lblStatusAP = new System.Windows.Forms.Label();
             this.btnAC = new System.Windows.Forms.Button();
             this.prgBarAP = new System.Windows.Forms.ProgressBar();
             this.btnAP = new System.Windows.Forms.Button();
@@ -55,7 +56,7 @@
             this.btnRuta = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.prgBarAC = new System.Windows.Forms.ProgressBar();
+            this.lblStatusAC = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -86,7 +87,7 @@
             // 
             this.salirToolStripMenuItem.Image = global::FilesFolders.Properties.Resources.Shutdown_48px;
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -101,17 +102,18 @@
             // rIPSToolStripMenuItem
             // 
             this.rIPSToolStripMenuItem.Name = "rIPSToolStripMenuItem";
-            this.rIPSToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rIPSToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
             this.rIPSToolStripMenuItem.Text = "RIPS";
             this.rIPSToolStripMenuItem.Click += new System.EventHandler(this.rIPSToolStripMenuItem_Click);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblStatusAC);
             this.panel1.Controls.Add(this.prgBarAC);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.lblStatus);
+            this.panel1.Controls.Add(this.lblStatusAP);
             this.panel1.Controls.Add(this.btnAC);
             this.panel1.Controls.Add(this.prgBarAP);
             this.panel1.Controls.Add(this.btnAP);
@@ -121,6 +123,13 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(698, 257);
             this.panel1.TabIndex = 1;
+            // 
+            // prgBarAC
+            // 
+            this.prgBarAC.Location = new System.Drawing.Point(96, 68);
+            this.prgBarAC.Name = "prgBarAC";
+            this.prgBarAC.Size = new System.Drawing.Size(331, 23);
+            this.prgBarAC.TabIndex = 11;
             // 
             // button1
             // 
@@ -251,14 +260,14 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "____________________________________________________________________";
             // 
-            // lblStatus
+            // lblStatusAP
             // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(433, 102);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(49, 13);
-            this.lblStatus.TabIndex = 7;
-            this.lblStatus.Text = "Progreso";
+            this.lblStatusAP.AutoSize = true;
+            this.lblStatusAP.Location = new System.Drawing.Point(433, 102);
+            this.lblStatusAP.Name = "lblStatusAP";
+            this.lblStatusAP.Size = new System.Drawing.Size(49, 13);
+            this.lblStatusAP.TabIndex = 7;
+            this.lblStatusAP.Text = "Progreso";
             // 
             // btnAC
             // 
@@ -305,12 +314,14 @@
             this.btnRuta.UseVisualStyleBackColor = true;
             this.btnRuta.Click += new System.EventHandler(this.button1_Click);
             // 
-            // prgBarAC
+            // lblStatusAC
             // 
-            this.prgBarAC.Location = new System.Drawing.Point(96, 68);
-            this.prgBarAC.Name = "prgBarAC";
-            this.prgBarAC.Size = new System.Drawing.Size(331, 23);
-            this.prgBarAC.TabIndex = 11;
+            this.lblStatusAC.AutoSize = true;
+            this.lblStatusAC.Location = new System.Drawing.Point(433, 73);
+            this.lblStatusAC.Name = "lblStatusAC";
+            this.lblStatusAC.Size = new System.Drawing.Size(49, 13);
+            this.lblStatusAC.TabIndex = 12;
+            this.lblStatusAC.Text = "Progreso";
             // 
             // Form1
             // 
@@ -351,7 +362,7 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ProgressBar prgBarAP;
         private System.Windows.Forms.Button btnAC;
-        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Label lblStatusAP;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label6;
@@ -365,6 +376,7 @@
         private System.Windows.Forms.Label lblTotalUS;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ProgressBar prgBarAC;
+        private System.Windows.Forms.Label lblStatusAC;
     }
 }
 

@@ -37,7 +37,7 @@ namespace FilesFolders
             lblTotalAM.Text = string.Empty;
             lblTotalAT.Text = string.Empty;
             lblTotalUS.Text = string.Empty;
-            lblStatus.Text = string.Empty;
+            lblStatusAP.Text = string.Empty;
 
             // Inhabilitar Botones Hasta Seleccionar Ruta
             btnAC.Enabled = false;
@@ -102,85 +102,37 @@ namespace FilesFolders
 
         private void btnAC_Click(object sender, EventArgs e)
         {
-            DirectoryInfo di = new DirectoryInfo(dirPath);
-            foreach (var fi in di.GetFiles("*AC*", SearchOption.AllDirectories))
-            {
-
-                String pathAc = fi.FullName;
-
-                List<String> lines = new List<String>();
-
-                int contadorErrores = 0;
-
-                if (File.Exists(pathAc))
-                {
-                    using (StreamReader reader = new StreamReader(pathAc))
-                    {
-                        String line;
-
-                        while ((line = reader.ReadLine()) != null)
-                        {
-                            if (line.Contains(","))
-                            {
-                                String[] split = line.Split(',');
-
-                                // Codigo CUPS Archivo AC - Posoción 6
-
-                                if (split[6] == "890300")
-                                {
-                                    split[6] = "890301";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                else if (split[6] == "890200")
-                                {
-                                    split[6] = "890201";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-
-                            }
-
-                            lines.Add(line);
-
-                        }
-                    }
-
-                    using (StreamWriter writer = new StreamWriter(pathAc, false))
-                    {
-                        foreach (String line in lines)
-                        {
-                            writer.WriteLine(line);
-                        }
-                    }
-                    
-                }
-            }
-        }
-
-        private void btnAP_Click(object sender, EventArgs e)
-        {
             bgwAC = new BackgroundWorker();
             bgwAC.WorkerReportsProgress = true;
             bgwAC.WorkerSupportsCancellation = true;
 
-            bgwAC.DoWork += new DoWorkEventHandler(bgw_DoWork);
-            bgwAC.ProgressChanged += new ProgressChangedEventHandler(bgw_ProgressChanged);
-            bgwAC.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bgw_RunWorkerCompleted);
+            bgwAC.DoWork += new DoWorkEventHandler(bgwAC_DoWork);
+            bgwAC.ProgressChanged += new ProgressChangedEventHandler(bgwAC_ProgressChanged);
+            bgwAC.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bgwAC_RunWorkerCompleted);
 
             bgwAC.RunWorkerAsync();
         }
 
-        private void bgw_DoWork(object sender, DoWorkEventArgs e)
+        private void btnAP_Click(object sender, EventArgs e)
         {
+            bgwAP = new BackgroundWorker();
+            bgwAP.WorkerReportsProgress = true;
+            bgwAP.WorkerSupportsCancellation = true;
 
+            bgwAP.DoWork += new DoWorkEventHandler(bgwAP_DoWork);
+            bgwAP.ProgressChanged += new ProgressChangedEventHandler(bgwAP_ProgressChanged);
+            bgwAP.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bgwAP_RunWorkerCompleted);
+
+            bgwAP.RunWorkerAsync();
+        }
+
+        private void bgwAP_DoWork(object sender, DoWorkEventArgs e)
+        {
             DirectoryInfo di = new DirectoryInfo(dirPath);
-
             int contadorErrores = 0;
 
-            foreach (var fi in di.GetFiles("*AC*", SearchOption.AllDirectories))
+            foreach (var fi in di.GetFiles("*AP*", SearchOption.AllDirectories))
             {
-
                 String pathAc = fi.FullName;
                 List<String> lines = new List<String>();
 
@@ -227,7 +179,64 @@ namespace FilesFolders
                     }
 
                 }
+            }
 
+            for (int i = 1; i <= contadorErrores; i++)
+            {
+                bgwAP.ReportProgress(Convert.ToInt32(i * 100 / contadorErrores));
+                Thread.Sleep(50);
+            }
+        }
+
+        private void bgwAC_DoWork(object sender, DoWorkEventArgs e)
+        {
+            DirectoryInfo di = new DirectoryInfo(dirPath);
+            int contadorErrores = 0;
+
+            foreach (var fi in di.GetFiles("*AC*", SearchOption.AllDirectories))
+            {
+                String pathAc = fi.FullName;
+                List<String> lines = new List<String>();
+
+                if (File.Exists(pathAc))
+                {
+                    using (StreamReader reader = new StreamReader(pathAc))
+                    {
+                        String line;
+
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            if (line.Contains(","))
+                            {
+                                String[] split = line.Split(',');
+
+                                // Codigo CUPS Archivo AC - Posoción 6
+                                if (split[6] == "890300")
+                                {
+                                    split[6] = "890301";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                else if (split[6] == "890200")
+                                {
+                                    split[6] = "890201";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                            }
+
+                            lines.Add(line);
+                        }
+                    }
+
+                    using (StreamWriter writer = new StreamWriter(pathAc, false))
+                    {
+                        foreach (String line in lines)
+                        {
+                            writer.WriteLine(line);
+                        }
+                    }
+                }
             }
 
             for (int i = 1; i <= contadorErrores; i++)
@@ -238,16 +247,27 @@ namespace FilesFolders
 
         }
 
-        private void bgw_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        private void bgwAC_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            prgBarAC.Value = e.ProgressPercentage;
+            lblStatusAC.Text = "Procesando...... " + prgBarAC.Value.ToString() + "%";
+        }
+
+        private void bgwAP_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             prgBarAP.Value = e.ProgressPercentage;
-            lblStatus.Text = "Procesando...... " + prgBarAP.Value.ToString() + "%";
-
+            lblStatusAP.Text = "Procesando...... " + prgBarAP.Value.ToString() + "%";
         }
 
-        private void bgw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void bgwAC_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            lblStatus.Text = "Finalizado";
+            lblStatusAC.Text = "Finalizado";
         }
+
+        private void bgwAP_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            lblStatusAP.Text = "Finalizado";
+        }
+
     }
 }
