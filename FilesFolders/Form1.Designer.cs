@@ -30,16 +30,14 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.carpetasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rIPSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.lblStatusUS = new System.Windows.Forms.Label();
             this.prgBarUS = new System.Windows.Forms.ProgressBar();
-            this.btnUS = new System.Windows.Forms.Button();
             this.lblStatusAC = new System.Windows.Forms.Label();
             this.prgBarAC = new System.Windows.Forms.ProgressBar();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblTotalUS = new System.Windows.Forms.Label();
             this.lblTotalAT = new System.Windows.Forms.Label();
@@ -60,7 +58,14 @@
             this.btnRuta = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnUS = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblUS = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.lblAC = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -87,14 +92,6 @@
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
-            // salirToolStripMenuItem
-            // 
-            this.salirToolStripMenuItem.Image = global::FilesFolders.Properties.Resources.Shutdown_48px;
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
-            this.salirToolStripMenuItem.Text = "Salir";
-            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
-            // 
             // carpetasToolStripMenuItem
             // 
             this.carpetasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -112,6 +109,11 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.lblAC);
+            this.panel1.Controls.Add(this.lblTitle);
+            this.panel1.Controls.Add(this.lblUS);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.lblStatusUS);
             this.panel1.Controls.Add(this.prgBarUS);
@@ -132,10 +134,20 @@
             this.panel1.Size = new System.Drawing.Size(698, 257);
             this.panel1.TabIndex = 1;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(96, 187);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(126, 23);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "Correcíón Documentos";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // lblStatusUS
             // 
             this.lblStatusUS.AutoSize = true;
-            this.lblStatusUS.Location = new System.Drawing.Point(433, 73);
+            this.lblStatusUS.Location = new System.Drawing.Point(514, 83);
             this.lblStatusUS.Name = "lblStatusUS";
             this.lblStatusUS.Size = new System.Drawing.Size(49, 13);
             this.lblStatusUS.TabIndex = 15;
@@ -143,25 +155,15 @@
             // 
             // prgBarUS
             // 
-            this.prgBarUS.Location = new System.Drawing.Point(96, 68);
+            this.prgBarUS.Location = new System.Drawing.Point(96, 97);
             this.prgBarUS.Name = "prgBarUS";
             this.prgBarUS.Size = new System.Drawing.Size(331, 23);
             this.prgBarUS.TabIndex = 14;
             // 
-            // btnUS
-            // 
-            this.btnUS.Location = new System.Drawing.Point(12, 68);
-            this.btnUS.Name = "btnUS";
-            this.btnUS.Size = new System.Drawing.Size(75, 23);
-            this.btnUS.TabIndex = 13;
-            this.btnUS.Text = "Corregir US";
-            this.btnUS.UseVisualStyleBackColor = true;
-            this.btnUS.Click += new System.EventHandler(this.btnUS_Click);
-            // 
             // lblStatusAC
             // 
             this.lblStatusAC.AutoSize = true;
-            this.lblStatusAC.Location = new System.Drawing.Point(433, 102);
+            this.lblStatusAC.Location = new System.Drawing.Point(514, 112);
             this.lblStatusAC.Name = "lblStatusAC";
             this.lblStatusAC.Size = new System.Drawing.Size(49, 13);
             this.lblStatusAC.TabIndex = 12;
@@ -169,20 +171,10 @@
             // 
             // prgBarAC
             // 
-            this.prgBarAC.Location = new System.Drawing.Point(96, 97);
+            this.prgBarAC.Location = new System.Drawing.Point(96, 126);
             this.prgBarAC.Name = "prgBarAC";
             this.prgBarAC.Size = new System.Drawing.Size(331, 23);
             this.prgBarAC.TabIndex = 11;
-            // 
-            // button1
-            // 
-            this.button1.Image = global::FilesFolders.Properties.Resources.Shutdown_32px;
-            this.button1.Location = new System.Drawing.Point(640, 214);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(45, 40);
-            this.button1.TabIndex = 10;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
@@ -306,7 +298,7 @@
             // lblStatusAP
             // 
             this.lblStatusAP.AutoSize = true;
-            this.lblStatusAP.Location = new System.Drawing.Point(433, 131);
+            this.lblStatusAP.Location = new System.Drawing.Point(514, 141);
             this.lblStatusAP.Name = "lblStatusAP";
             this.lblStatusAP.Size = new System.Drawing.Size(49, 13);
             this.lblStatusAP.TabIndex = 7;
@@ -314,28 +306,26 @@
             // 
             // btnAC
             // 
-            this.btnAC.Location = new System.Drawing.Point(12, 97);
+            this.btnAC.Location = new System.Drawing.Point(51, 126);
             this.btnAC.Name = "btnAC";
-            this.btnAC.Size = new System.Drawing.Size(75, 23);
+            this.btnAC.Size = new System.Drawing.Size(36, 23);
             this.btnAC.TabIndex = 6;
-            this.btnAC.Text = "Corregir AC";
             this.btnAC.UseVisualStyleBackColor = true;
             this.btnAC.Click += new System.EventHandler(this.btnAC_Click);
             // 
             // prgBarAP
             // 
-            this.prgBarAP.Location = new System.Drawing.Point(96, 126);
+            this.prgBarAP.Location = new System.Drawing.Point(96, 155);
             this.prgBarAP.Name = "prgBarAP";
             this.prgBarAP.Size = new System.Drawing.Size(331, 23);
             this.prgBarAP.TabIndex = 5;
             // 
             // btnAP
             // 
-            this.btnAP.Location = new System.Drawing.Point(12, 126);
+            this.btnAP.Location = new System.Drawing.Point(51, 155);
             this.btnAP.Name = "btnAP";
-            this.btnAP.Size = new System.Drawing.Size(75, 23);
+            this.btnAP.Size = new System.Drawing.Size(36, 23);
             this.btnAP.TabIndex = 4;
-            this.btnAP.Text = "Corregir AP";
             this.btnAP.UseVisualStyleBackColor = true;
             this.btnAP.Click += new System.EventHandler(this.btnAP_Click);
             // 
@@ -357,15 +347,81 @@
             this.btnRuta.UseVisualStyleBackColor = true;
             this.btnRuta.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnUS
             // 
-            this.button2.Location = new System.Drawing.Point(13, 189);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(126, 23);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Correcíón Documentos";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnUS.Location = new System.Drawing.Point(51, 97);
+            this.btnUS.Name = "btnUS";
+            this.btnUS.Size = new System.Drawing.Size(36, 23);
+            this.btnUS.TabIndex = 13;
+            this.btnUS.UseVisualStyleBackColor = true;
+            this.btnUS.Click += new System.EventHandler(this.btnUS_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(640, 214);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(45, 40);
+            this.button1.TabIndex = 10;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+            this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+            // 
+            // lblUS
+            // 
+            this.lblUS.AutoSize = true;
+            this.lblUS.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUS.Location = new System.Drawing.Point(14, 102);
+            this.lblUS.Name = "lblUS";
+            this.lblUS.Size = new System.Drawing.Size(24, 13);
+            this.lblUS.TabIndex = 17;
+            this.lblUS.Text = "US";
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lblTitle.Location = new System.Drawing.Point(12, 62);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(142, 21);
+            this.lblTitle.TabIndex = 18;
+            this.lblTitle.Text = "Corregir Archivos";
+            // 
+            // lblAC
+            // 
+            this.lblAC.AutoSize = true;
+            this.lblAC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAC.Location = new System.Drawing.Point(14, 131);
+            this.lblAC.Name = "lblAC";
+            this.lblAC.Size = new System.Drawing.Size(23, 13);
+            this.lblAC.TabIndex = 19;
+            this.lblAC.Text = "AC";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(14, 160);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(23, 13);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "AP";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(14, 197);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(33, 13);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "DOC";
             // 
             // Form1
             // 
@@ -425,6 +481,11 @@
         private System.Windows.Forms.ProgressBar prgBarUS;
         private System.Windows.Forms.Button btnUS;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label lblAC;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label lblUS;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label2;
     }
 }
 

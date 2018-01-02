@@ -63,6 +63,16 @@ namespace FilesFolders.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_Play32_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_Play32_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Shutdown_32px {
             get {
                 object obj = ResourceManager.GetObject("Shutdown_32px", resourceCulture);

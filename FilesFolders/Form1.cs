@@ -20,68 +20,6 @@ namespace FilesFolders
             InitializeComponent();
         }
 
-        public void CorregirDocumentoAC(String TipoDocumento, String NumeroDocumento, String TipoDocumentoCorrecto)
-        {
-            DirectoryInfo di = new DirectoryInfo(dirPath);
-            int contadorErrores = 0;
-
-            foreach (var fi in di.GetFiles("*AC*", SearchOption.AllDirectories))
-            {
-                String NombreArchivo = fi.Name;
-                String pathUS = fi.FullName;
-                List<String> lines = new List<String>();
-
-                if (File.Exists(pathUS))
-                {
-                    using (StreamReader reader = new StreamReader(pathUS, Encoding.GetEncoding("Windows-1252")))
-                    {
-                        String line;
-
-                        while ((line = reader.ReadLine()) != null)
-                        {
-                            if (line.Contains(","))
-                            {
-                                if (NombreArchivo.StartsWith("AC"))
-                                {
-                                    String[] split = line.Split(',');
-
-                                    // Tipo Documento AC - Posición 2
-                                    string TipoDocumentoAC = split[2];
-                                    // Número Documento AC - Posición 3
-                                    string NumeroDocumentoAC = split[3];
-
-                                    // Si el Número de Documento que viene por parametro 
-                                    // es igual al Número de Documento del Archivo AC
-                                    // Se Actualiza el Tipo de Documento
-                                    if (NumeroDocumentoAC == NumeroDocumento)
-                                    {
-                                        //MessageBox.Show("Tipo Documento AC: " + TipoDocumentoAC);
-                                        //MessageBox.Show("Tipo Documento Correcto AC: " + TipoDocumentoCorrecto);
-                                        //MessageBox.Show("Documento " + NumeroDocumento);
-
-                                        split[2] = TipoDocumentoCorrecto;
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                }
-                            }
-
-                            lines.Add(line);
-                        }
-                    }
-
-                    using (StreamWriter writer = new StreamWriter(pathUS, false, Encoding.GetEncoding("Windows-1252")))
-                    {
-                        foreach (String line in lines)
-                        {
-                            writer.WriteLine(line);
-                        }
-                    }
-                }
-            }
-        }
-
-
         #region Variables
         string dirPath;
         BackgroundWorker bgwAC;
@@ -159,9 +97,9 @@ namespace FilesFolders
                 lblTotalUS.Text = CantidadUS.ToString();
 
                 // Habilitamos los Botones
+                btnUS.Enabled = true;
                 btnAC.Enabled = true;
                 btnAP.Enabled = true;
-                btnUS.Enabled = true;
             }
         }
         #endregion
@@ -187,12 +125,12 @@ namespace FilesFolders
 
             foreach (var fi in di.GetFiles("*US*", SearchOption.AllDirectories))
             {
-                String pathUS = fi.FullName;
+                String path = fi.FullName;
                 List<String> lines = new List<String>();
 
-                if (File.Exists(pathUS))
+                if (File.Exists(path))
                 {
-                    using (StreamReader reader = new StreamReader(pathUS, Encoding.GetEncoding("Windows-1252")))
+                    using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("Windows-1252")))
                     {
                         String line;
 
@@ -223,7 +161,7 @@ namespace FilesFolders
                         }
                     }
 
-                    using (StreamWriter writer = new StreamWriter(pathUS, false, Encoding.GetEncoding("Windows-1252")))
+                    using (StreamWriter writer = new StreamWriter(path, false, Encoding.GetEncoding("Windows-1252")))
                     {
                         foreach (String line in lines)
                         {
@@ -274,12 +212,12 @@ namespace FilesFolders
 
             foreach (var fi in di.GetFiles("*AC*", SearchOption.AllDirectories))
             {
-                String pathAc = fi.FullName;
+                String path = fi.FullName;
                 List<String> lines = new List<String>();
 
-                if (File.Exists(pathAc))
+                if (File.Exists(path))
                 {
-                    using (StreamReader reader = new StreamReader(pathAc))
+                    using (StreamReader reader = new StreamReader(path))
                     {
                         String line;
 
@@ -337,7 +275,7 @@ namespace FilesFolders
                         }
                     }
 
-                    using (StreamWriter writer = new StreamWriter(pathAc, false))
+                    using (StreamWriter writer = new StreamWriter(path, false))
                     {
                         foreach (String line in lines)
                         {
@@ -389,12 +327,12 @@ namespace FilesFolders
 
             foreach (var fi in di.GetFiles("*AP*", SearchOption.AllDirectories))
             {
-                String pathAc = fi.FullName;
+                String path = fi.FullName;
                 List<String> lines = new List<String>();
 
-                if (File.Exists(pathAc))
+                if (File.Exists(path))
                 {
-                    using (StreamReader reader = new StreamReader(pathAc))
+                    using (StreamReader reader = new StreamReader(path))
                     {
                         String line;
 
@@ -412,9 +350,15 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-                                else if (split[6] == "021145")
+                                if (split[6] == "021145")
                                 {
                                     split[6] = "871060";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "995200")
+                                {
+                                    split[6] = "993122";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -424,7 +368,7 @@ namespace FilesFolders
                         }
                     }
 
-                    using (StreamWriter writer = new StreamWriter(pathAc, false))
+                    using (StreamWriter writer = new StreamWriter(path, false))
                     {
                         foreach (String line in lines)
                         {
@@ -452,6 +396,7 @@ namespace FilesFolders
             lblStatusAP.Visible = true;
             lblStatusAP.Text = "Finalizado";
         }
+
         #endregion
 
         #region Prueba Correción Documentos
@@ -463,12 +408,12 @@ namespace FilesFolders
             foreach (var fi in di.GetFiles("*.txt*", SearchOption.AllDirectories))
             {
                 String NombreArchivo = fi.Name;
-                String pathUS = fi.FullName;
+                String path = fi.FullName;
                 List<String> lines = new List<String>();
 
-                if (File.Exists(pathUS))
+                if (File.Exists(path))
                 {
-                    using (StreamReader reader = new StreamReader(pathUS, Encoding.GetEncoding("Windows-1252")))
+                    using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("Windows-1252")))
                     {
                         String line;
 
@@ -498,22 +443,20 @@ namespace FilesFolders
                                     // Se Cambia el Tipo de Documento por CC
                                     if (TipoDocumento == "TI" && Edad >= 18 && UnidadMedidaEdad == "1" && LongitudNumeroDocumento == 10)
                                     {
-                                        CorregirDocumentoAC(TipoDocumento, NumeroDocumento, "CC");
-                                        //MessageBox.Show("Tipo Documento: " + TipoDocumento + " NumeroDocumento: " + NumeroDocumento + " Edad: " + Edad + " Unidad de Medida de la Edad: " + UnidadMedidaEdad);
+                                        CorregirDocumento(TipoDocumento, NumeroDocumento, "CC");
 
                                         split[0] = "CC";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
                                 }
-
                             }
 
                             lines.Add(line);
                         }
                     }
 
-                    using (StreamWriter writer = new StreamWriter(pathUS, false, Encoding.GetEncoding("Windows-1252")))
+                    using (StreamWriter writer = new StreamWriter(path, false, Encoding.GetEncoding("Windows-1252")))
                     {
                         foreach (String line in lines)
                         {
@@ -524,6 +467,60 @@ namespace FilesFolders
             }
         }
         #endregion
+
+        public void CorregirDocumento(String TipoDocumento, String NumeroDocumento, String TipoDocumentoCorrecto)
+        {
+            DirectoryInfo di = new DirectoryInfo(dirPath);
+
+            foreach (var fi in di.GetFiles("AC*", SearchOption.AllDirectories).Union(di.GetFiles("*AP*", SearchOption.AllDirectories).Union(di.GetFiles("*AM*",SearchOption.AllDirectories))))
+            {
+                String NombreArchivo = fi.Name;
+                String path = fi.FullName;
+                List<String> lines = new List<String>();
+
+                if (File.Exists(path))
+                {
+                    using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("Windows-1252")))
+                    {
+                        String line;
+
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            if (line.Contains(","))
+                            {
+                                
+                                String[] split = line.Split(',');
+
+                                // Tipo Documento AP - Posición 2
+                                string TipoDocumentoAP = split[2];
+                                // Número Documento AC - Posición 3
+                                string NumeroDocumentoAP = split[3];
+
+                                // Si el Número de Documento que viene por parametro 
+                                // es igual al Número de Documento del Archivo AC
+                                // Se Actualiza el Tipo de Documento
+                                if (NumeroDocumentoAP == NumeroDocumento)
+                                {
+                                    split[2] = TipoDocumentoCorrecto;
+                                    line = String.Join(",", split);
+                                }
+                                
+                            }
+
+                            lines.Add(line);
+                        }
+                    }
+
+                    using (StreamWriter writer = new StreamWriter(path, false, Encoding.GetEncoding("Windows-1252")))
+                    {
+                        foreach (String line in lines)
+                        {
+                            writer.WriteLine(line);
+                        }
+                    }
+                }
+            }
+        }
 
     }
 }
