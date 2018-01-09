@@ -362,6 +362,43 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                // Corrección Finalidad
+                                if (split[6] == "871121")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "939402")
+                                {
+                                    split[8] = "2";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "865101")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "895100")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "579500")
+                                {
+                                    split[8] = "2";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "907106")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                             }
 
                             lines.Add(line);
@@ -387,13 +424,13 @@ namespace FilesFolders
 
         private void bgwAP_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
+            lblStatusAP.Visible = true;
             prgBarAP.Value = e.ProgressPercentage;
             lblStatusAP.Text = "Procesando...... " + prgBarAP.Value.ToString() + "%";
         }
 
         private void bgwAP_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            lblStatusAP.Visible = true;
+        {            
             lblStatusAP.Text = "Finalizado";
         }
 

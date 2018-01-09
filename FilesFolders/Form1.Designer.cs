@@ -205,7 +205,7 @@
             // lblStatusUS
             // 
             this.lblStatusUS.AutoSize = true;
-            this.lblStatusUS.Location = new System.Drawing.Point(514, 83);
+            this.lblStatusUS.Location = new System.Drawing.Point(433, 101);
             this.lblStatusUS.Name = "lblStatusUS";
             this.lblStatusUS.Size = new System.Drawing.Size(49, 13);
             this.lblStatusUS.TabIndex = 15;
@@ -231,7 +231,7 @@
             // lblStatusAC
             // 
             this.lblStatusAC.AutoSize = true;
-            this.lblStatusAC.Location = new System.Drawing.Point(514, 112);
+            this.lblStatusAC.Location = new System.Drawing.Point(433, 130);
             this.lblStatusAC.Name = "lblStatusAC";
             this.lblStatusAC.Size = new System.Drawing.Size(49, 13);
             this.lblStatusAC.TabIndex = 12;
@@ -376,7 +376,7 @@
             // lblStatusAP
             // 
             this.lblStatusAP.AutoSize = true;
-            this.lblStatusAP.Location = new System.Drawing.Point(514, 141);
+            this.lblStatusAP.Location = new System.Drawing.Point(433, 159);
             this.lblStatusAP.Name = "lblStatusAP";
             this.lblStatusAP.Size = new System.Drawing.Size(49, 13);
             this.lblStatusAP.TabIndex = 7;
