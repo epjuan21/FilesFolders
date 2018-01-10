@@ -28,18 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.carpetasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rIPSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblStatusDoc = new System.Windows.Forms.Label();
+            this.prgBarDoc = new System.Windows.Forms.ProgressBar();
+            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblAC = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblUS = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnDoc = new System.Windows.Forms.Button();
             this.lblStatusUS = new System.Windows.Forms.Label();
             this.prgBarUS = new System.Windows.Forms.ProgressBar();
             this.btnUS = new System.Windows.Forms.Button();
@@ -116,12 +120,15 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.lblStatusDoc);
+            this.panel1.Controls.Add(this.prgBarDoc);
+            this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.lblAC);
             this.panel1.Controls.Add(this.lblTitle);
             this.panel1.Controls.Add(this.lblUS);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.btnDoc);
             this.panel1.Controls.Add(this.lblStatusUS);
             this.panel1.Controls.Add(this.prgBarUS);
             this.panel1.Controls.Add(this.btnUS);
@@ -138,14 +145,41 @@
             this.panel1.Controls.Add(this.btnRuta);
             this.panel1.Location = new System.Drawing.Point(0, 27);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(698, 257);
+            this.panel1.Size = new System.Drawing.Size(698, 308);
             this.panel1.TabIndex = 1;
+            // 
+            // lblStatusDoc
+            // 
+            this.lblStatusDoc.AutoSize = true;
+            this.lblStatusDoc.Location = new System.Drawing.Point(433, 228);
+            this.lblStatusDoc.Name = "lblStatusDoc";
+            this.lblStatusDoc.Size = new System.Drawing.Size(49, 13);
+            this.lblStatusDoc.TabIndex = 24;
+            this.lblStatusDoc.Text = "Progreso";
+            // 
+            // prgBarDoc
+            // 
+            this.prgBarDoc.Location = new System.Drawing.Point(96, 223);
+            this.prgBarDoc.Name = "prgBarDoc";
+            this.prgBarDoc.Size = new System.Drawing.Size(331, 23);
+            this.prgBarDoc.TabIndex = 23;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.DarkGreen;
+            this.label9.Location = new System.Drawing.Point(13, 190);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(173, 21);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Corregir Documentos";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(14, 197);
+            this.label8.Location = new System.Drawing.Point(12, 228);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(33, 13);
             this.label8.TabIndex = 21;
@@ -176,11 +210,11 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblTitle.Location = new System.Drawing.Point(12, 62);
+            this.lblTitle.Location = new System.Drawing.Point(13, 62);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(142, 21);
+            this.lblTitle.Size = new System.Drawing.Size(223, 21);
             this.lblTitle.TabIndex = 18;
-            this.lblTitle.Text = "Corregir Archivos";
+            this.lblTitle.Text = "Corregir Estructura Archivos";
             // 
             // lblUS
             // 
@@ -192,15 +226,15 @@
             this.lblUS.TabIndex = 17;
             this.lblUS.Text = "US";
             // 
-            // button2
+            // btnDoc
             // 
-            this.button2.Location = new System.Drawing.Point(96, 187);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(126, 23);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Correcíón Documentos";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnDoc.Image = global::FilesFolders.Properties.Resources.icons8_Play32_32;
+            this.btnDoc.Location = new System.Drawing.Point(51, 223);
+            this.btnDoc.Name = "btnDoc";
+            this.btnDoc.Size = new System.Drawing.Size(36, 23);
+            this.btnDoc.TabIndex = 16;
+            this.btnDoc.UseVisualStyleBackColor = true;
+            this.btnDoc.Click += new System.EventHandler(this.btnDoc_Click);
             // 
             // lblStatusUS
             // 
@@ -247,7 +281,7 @@
             // button1
             // 
             this.button1.Image = global::FilesFolders.Properties.Resources.Shutdown_32px;
-            this.button1.Location = new System.Drawing.Point(640, 214);
+            this.button1.Location = new System.Drawing.Point(650, 265);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(45, 40);
             this.button1.TabIndex = 10;
@@ -431,10 +465,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(698, 329);
+            this.ClientSize = new System.Drawing.Size(698, 373);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Corrección RIPS";
@@ -484,12 +519,15 @@
         private System.Windows.Forms.Label lblStatusUS;
         private System.Windows.Forms.ProgressBar prgBarUS;
         private System.Windows.Forms.Button btnUS;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnDoc;
         private System.Windows.Forms.Label lblAC;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblUS;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblStatusDoc;
+        private System.Windows.Forms.ProgressBar prgBarDoc;
     }
 }
 

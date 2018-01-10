@@ -25,6 +25,7 @@ namespace FilesFolders
         BackgroundWorker bgwAC;
         BackgroundWorker bgwAP;
         BackgroundWorker bgwUS;
+        BackgroundWorker bgwDOC;
         #endregion
 
         #region FormLoad
@@ -45,11 +46,13 @@ namespace FilesFolders
             lblStatusUS.Visible = false;
             lblStatusAC.Visible = false;
             lblStatusAP.Visible = false;
+            lblStatusDoc.Visible = false;
 
             // Inhabilitar Botones Hasta Seleccionar Ruta
             btnAC.Enabled = false;
             btnAP.Enabled = false;
             btnUS.Enabled = false;
+            btnDoc.Enabled = false;
         }
         #endregion
 
@@ -100,6 +103,7 @@ namespace FilesFolders
                 btnUS.Enabled = true;
                 btnAC.Enabled = true;
                 btnAP.Enabled = true;
+                btnDoc.Enabled = true;
             }
         }
         #endregion
@@ -226,8 +230,20 @@ namespace FilesFolders
                             if (line.Contains(","))
                             {
                                 String[] split = line.Split(',');
+                                // Número Factura - Posición 0
 
-                                // Codigo CUPS Archivo AC - Posoción 6
+                                string NumeroFactura = split[0];
+
+                                if (NumeroFactura.Length == 9)
+                                {
+                                    split[0] = NumeroFactura.Substring(3, 8);
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+
+
+                                // Codigo CUPS Archivo AC - Posición 6
                                 if (split[6] == "890300")
                                 {
                                     split[6] = "890301";
@@ -241,6 +257,12 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 // Finalidad - Posicion 7
+                                if (split[6] == "890701" && split[7] == "")
+                                {
+                                    split[7] = "10";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "890201" && split[7] == "")
                                 {
                                     split[7] = "10";
@@ -248,6 +270,12 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 // Causa Externa - Posicion 8
+                                if (split[6] == "890701" && split[8] == "")
+                                {
+                                    split[8] = "13";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "890201" && split[8] == "")
                                 {
                                     split[8] = "13";
@@ -341,18 +369,30 @@ namespace FilesFolders
                             if (line.Contains(","))
                             {
                                 String[] split = line.Split(',');
-
+                               
+                                #region CUPS
                                 // Codigo CUPS Archivo AP - Posoción 6
-
+                                if (split[6] == "021145")
+                                {
+                                    split[6] = "871060";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "021146")
                                 {
                                     split[6] = "873311";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-                                if (split[6] == "021145")
+                                if (split[6] == "542801")
                                 {
-                                    split[6] = "871060";
+                                    split[6] = "542700";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "873211")
+                                {
+                                    split[6] = "873210";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -362,26 +402,49 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-                                // Corrección Finalidad
-                                if (split[6] == "871121")
+                                #endregion
+
+                                #region Ambito
+                                if (split[6] == "873112")
                                 {
-                                    split[8] = "1";
+                                    split[7] = "1";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-                                if (split[6] == "939402")
+                                if (split[6] == "897011")
                                 {
-                                    split[8] = "2";
+                                    split[7] = "2";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-                                if (split[6] == "865101")
+                                if (split[6] == "901235")
                                 {
-                                    split[8] = "1";
+                                    split[7] = "1";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-                                if (split[6] == "895100")
+                                if (split[6] == "906127")
+                                {
+                                    split[7] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "911018" && split[7] == "")
+                                {
+                                    split[7] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "963300" && split[7] == "")
+                                {
+                                    split[7] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                #endregion
+
+                                #region Finalidad
+                                if (split[6] == "542801")
                                 {
                                     split[8] = "1";
                                     line = String.Join(",", split);
@@ -393,12 +456,163 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "861101")
+                                {
+                                    split[8] = "2";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "865101")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "869500" && split[8] == "")
+                                {
+                                    split[8] = "2";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "871121")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "872002" && split[8] == "")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "873112")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "873122")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "873210")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "873313" && split[8] == "")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "873431")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "895100")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "897011")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "901235" && split[8] == "")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "902204")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "902208")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "903825")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "903841")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "903856")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "906127")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "907106")
                                 {
                                     split[8] = "1";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "911018" && split[8] == "")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "935400")
+                                {
+                                    split[8] = "2";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "936800")
+                                {
+                                    split[8] = "2";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "939402")
+                                {
+                                    split[8] = "2";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "950601")
+                                {
+                                    split[8] = "4";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "963300" && split[8] == "")
+                                {
+                                    split[8] = "2";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                #endregion
                             }
 
                             lines.Add(line);
@@ -436,8 +650,22 @@ namespace FilesFolders
 
         #endregion
 
-        #region Prueba Correción Documentos
-        private void button2_Click(object sender, EventArgs e)
+        #region Correción Documentos
+        private void btnDoc_Click(object sender, EventArgs e)
+        {
+            bgwDOC = new BackgroundWorker();
+            bgwDOC.WorkerReportsProgress = true;
+            bgwDOC.WorkerSupportsCancellation = true;
+
+            bgwDOC.DoWork += new DoWorkEventHandler(bgwDOC_DoWork);
+            bgwDOC.ProgressChanged += new ProgressChangedEventHandler(bgwDOC_ProgressChanged);
+            bgwDOC.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bgwDOC_RunWorkerCompleted);
+
+            bgwDOC.RunWorkerAsync();
+
+        }
+
+        private void bgwDOC_DoWork(object sender, DoWorkEventArgs e)
         {
             DirectoryInfo di = new DirectoryInfo(dirPath);
             int contadorErrores = 0;
@@ -502,7 +730,26 @@ namespace FilesFolders
                     }
                 }
             }
+
+            for (int i = 1; i <= contadorErrores; i++)
+            {
+                bgwDOC.ReportProgress(Convert.ToInt32(i * 100 / contadorErrores));
+                Thread.Sleep(100);
+            }
         }
+
+        private void bgwDOC_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            lblStatusDoc.Visible = true;
+            prgBarDoc.Value = e.ProgressPercentage;
+            lblStatusDoc.Text = "Procesando...... " + prgBarDoc.Value.ToString() + "%"; ;
+        }
+
+        private void bgwDOC_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            lblStatusDoc.Text = "Finalizado";
+        }
+
         #endregion
 
         public void CorregirDocumento(String TipoDocumento, String NumeroDocumento, String TipoDocumentoCorrecto)
@@ -540,8 +787,7 @@ namespace FilesFolders
                                 {
                                     split[2] = TipoDocumentoCorrecto;
                                     line = String.Join(",", split);
-                                }
-                                
+                                }   
                             }
 
                             lines.Add(line);
