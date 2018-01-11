@@ -169,10 +169,17 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-                                else if (split[11] == "91" && split[12] == "591")
+                                if (split[11] == "91" && split[12] == "591")
                                 {
                                     split[11] = "05";
                                     split[12] = "091";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[11] == "11" && split[12] == "005")
+                                {
+                                    split[11] = "11";
+                                    split[12] = "001";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -296,6 +303,14 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                // Finalidad 07 Detección de alteraciones del adulto
+                                if (split[7] == "07" && split[9] == "I10X")
+                                {
+                                    split[7] = "10";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
                                 #endregion
 
                                 #region Causa Externa
@@ -431,6 +446,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "232100")
+                                {
+                                    split[6] = "232104";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "542801")
                                 {
                                     split[6] = "542700";
@@ -443,9 +464,21 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "903825")
+                                {
+                                    split[6] = "903895";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "995200")
                                 {
                                     split[6] = "993122";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "997300")
+                                {
+                                    split[6] = "997301";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -668,13 +701,18 @@ namespace FilesFolders
                                 #endregion
 
                                 #region Personal
-                                // Personal que Atiende
+                                // Personal que Atiende - Posición 9
                                 if (split[9] == "0")
                                 {
                                     split[9] = "";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                #endregion
+
+                                #region Diagnostico Principal
+                                // Diagnóstico Principal - Posición 10
+    
                                 #endregion
                             }
 

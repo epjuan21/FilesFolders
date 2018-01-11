@@ -375,7 +375,7 @@
             // button1
             // 
             this.button1.Image = global::FilesFolders.Properties.Resources.Shutdown_32px;
-            this.button1.Location = new System.Drawing.Point(650, 265);
+            this.button1.Location = new System.Drawing.Point(640, 345);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(45, 40);
             this.button1.TabIndex = 10;
