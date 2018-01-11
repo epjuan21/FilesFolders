@@ -24,6 +24,8 @@ namespace FilesFolders
         string dirPath;
         BackgroundWorker bgwAC;
         BackgroundWorker bgwAP;
+        BackgroundWorker bgwAT;
+        BackgroundWorker bgwAU;
         BackgroundWorker bgwUS;
         BackgroundWorker bgwDOC;
         #endregion
@@ -40,12 +42,15 @@ namespace FilesFolders
             lblTotalAM.Text = string.Empty;
             lblTotalAT.Text = string.Empty;
             lblTotalUS.Text = string.Empty;
+            lblStatusAU.Text = string.Empty;
             lblStatusAP.Text = string.Empty;
 
             // Oculta Etiqueta de Progreso
             lblStatusUS.Visible = false;
             lblStatusAC.Visible = false;
             lblStatusAP.Visible = false;
+            lblStatusAT.Visible = false;
+            lblStatusAU.Visible = false;
             lblStatusDoc.Visible = false;
 
             // Inhabilitar Botones Hasta Seleccionar Ruta
@@ -53,6 +58,10 @@ namespace FilesFolders
             btnAP.Enabled = false;
             btnUS.Enabled = false;
             btnDoc.Enabled = false;
+            btnAT.Enabled = false;
+            btnAU.Enabled = false;
+
+            chkBoxLonDoc.Enabled = false;
         }
         #endregion
 
@@ -95,6 +104,10 @@ namespace FilesFolders
                 int CantidadAT = Directory.GetFiles(dirPath, "*AT*", SearchOption.AllDirectories).Length;
                 lblTotalAT.Text = CantidadAT.ToString();
 
+                // Obtenemos la Cantidad de Archivos AU
+                int CantidadAU = Directory.GetFiles(dirPath, "*AU*", SearchOption.AllDirectories).Length;
+                lblTotalAU.Text = CantidadAU.ToString();
+
                 // Obtenemos la Cantidad de Archivos US
                 int CantidadUS = Directory.GetFiles(dirPath, "*US*", SearchOption.AllDirectories).Length;
                 lblTotalUS.Text = CantidadUS.ToString();
@@ -104,6 +117,10 @@ namespace FilesFolders
                 btnAC.Enabled = true;
                 btnAP.Enabled = true;
                 btnDoc.Enabled = true;
+                btnAT.Enabled = true;
+                btnAU.Enabled = true;
+
+                chkBoxLonDoc.Enabled = true;
             }
         }
         #endregion
@@ -230,19 +247,20 @@ namespace FilesFolders
                             if (line.Contains(","))
                             {
                                 String[] split = line.Split(',');
-                                // Número Factura - Posición 0
 
+                                #region Factura
+                                // Número Factura - Posición 0
                                 string NumeroFactura = split[0];
 
                                 if (NumeroFactura.Length == 9)
                                 {
-                                    split[0] = NumeroFactura.Substring(3, 8);
+                                    split[0] = NumeroFactura.Substring(3, 6);
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                #endregion
 
-
-
+                                #region CUPS
                                 // Codigo CUPS Archivo AC - Posición 6
                                 if (split[6] == "890300")
                                 {
@@ -256,6 +274,15 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "890600")
+                                {
+                                    split[6] = "890601";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                #endregion
+
+                                #region Finalidad
                                 // Finalidad - Posicion 7
                                 if (split[6] == "890701" && split[7] == "")
                                 {
@@ -269,6 +296,9 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                #endregion
+
+                                #region Causa Externa
                                 // Causa Externa - Posicion 8
                                 if (split[6] == "890701" && split[8] == "")
                                 {
@@ -282,6 +312,9 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                #endregion
+
+                                #region Diagnóstico Principal
                                 // Código del diagnóstico principal - Posicion  9
                                 if (split[9] == "")
                                 {
@@ -296,7 +329,9 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-                                
+                                #endregion
+
+
                             }
 
                             lines.Add(line);
@@ -369,7 +404,19 @@ namespace FilesFolders
                             if (line.Contains(","))
                             {
                                 String[] split = line.Split(',');
-                               
+
+                                #region Numero Factura
+                                // Número Factura - Posición 0
+                                string NumeroFactura = split[0];
+
+                                if (NumeroFactura.Length == 9)
+                                {
+                                    split[0] = NumeroFactura.Substring(3, 6);
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                #endregion
+
                                 #region CUPS
                                 // Codigo CUPS Archivo AP - Posoción 6
                                 if (split[6] == "021145")
@@ -516,6 +563,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "892901")
+                                {
+                                    split[8] = "4";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "895100")
                                 {
                                     split[8] = "1";
@@ -613,6 +666,16 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 #endregion
+
+                                #region Personal
+                                // Personal que Atiende
+                                if (split[9] == "0")
+                                {
+                                    split[9] = "";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                #endregion
                             }
 
                             lines.Add(line);
@@ -648,6 +711,178 @@ namespace FilesFolders
             lblStatusAP.Text = "Finalizado";
         }
 
+        #endregion
+
+        #region AT
+        private void btnAT_Click(object sender, EventArgs e)
+        {
+            bgwAT = new BackgroundWorker();
+            bgwAT.WorkerReportsProgress = true;
+            bgwAT.WorkerSupportsCancellation = true;
+
+            bgwAT.DoWork += new DoWorkEventHandler(bgwAT_DoWork);
+            bgwAT.ProgressChanged += new ProgressChangedEventHandler(bgwAT_ProgressChanged);
+            bgwAT.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bgwAT_RunWorkerCompleted);
+
+            bgwAT.RunWorkerAsync();
+        }
+
+        private void bgwAT_DoWork(object sender, DoWorkEventArgs e)
+        {
+            DirectoryInfo di = new DirectoryInfo(dirPath);
+            int contadorErrores = 0;
+
+            foreach (var fi in di.GetFiles("*AT*", SearchOption.AllDirectories))
+            {
+                String path = fi.FullName;
+                List<String> lines = new List<String>();
+
+                if (File.Exists(path))
+                {
+                    using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("Windows-1252")))
+                    {
+                        String line;
+
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            if (line.Contains(","))
+                            {
+                                String[] split = line.Split(',');
+
+                                // Número Factura - Posición 0
+                                string NumeroFactura = split[0];
+
+                                if (NumeroFactura.Length == 9)
+                                {
+                                    split[0] = NumeroFactura.Substring(3, 6);
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                // Código del Servicio - Posición 6
+                                // Se elimina el codigo del servicio
+                                // Aplica para el validador de SAVIASALUD
+                                if (split[6] != "")
+                                {
+                                    split[6] = "";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                            }
+
+                            lines.Add(line);
+                        }
+                    }
+
+                    using (StreamWriter writer = new StreamWriter(path, false, Encoding.GetEncoding("Windows-1252")))
+                    {
+                        foreach (String line in lines)
+                        {
+                            writer.WriteLine(line);
+                        }
+                    }
+                }
+            }
+
+            for (int i = 1; i <= contadorErrores; i++)
+            {
+                bgwAT.ReportProgress(Convert.ToInt32(i * 100 / contadorErrores));
+                Thread.Sleep(100);
+            }
+        }
+
+        private void bgwAT_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            lblStatusAT.Visible = true;
+            prgBarAT.Value = e.ProgressPercentage;
+            lblStatusAT.Text = "Procesando...... " + prgBarAT.Value.ToString() + "%";
+        }
+
+        private void bgwAT_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            lblStatusAT.Text = "Finalizado";
+        }
+        #endregion
+
+        #region AU
+        private void btnAU_Click(object sender, EventArgs e)
+        {
+            bgwAU = new BackgroundWorker();
+            bgwAU.WorkerReportsProgress = true;
+            bgwAU.WorkerSupportsCancellation = true;
+
+            bgwAU.DoWork += new DoWorkEventHandler(bgwAU_DoWork);
+            bgwAU.ProgressChanged += new ProgressChangedEventHandler(bgwAU_ProgressChanged);
+            bgwAU.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bgwAU_RunWorkerCompleted);
+
+            bgwAU.RunWorkerAsync();
+        }
+
+        private void bgwAU_DoWork(object sender, DoWorkEventArgs e)
+        {
+            DirectoryInfo di = new DirectoryInfo(dirPath);
+            int contadorErrores = 0;
+
+            foreach (var fi in di.GetFiles("*AU*", SearchOption.AllDirectories))
+            {
+                String path = fi.FullName;
+                List<String> lines = new List<String>();
+
+                if (File.Exists(path))
+                {
+                    using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("Windows-1252")))
+                    {
+                        String line;
+
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            if (line.Contains(","))
+                            {
+                                String[] split = line.Split(',');
+
+                                // Número Factura - Posición 0
+                                string NumeroFactura = split[0];
+
+                                if (NumeroFactura.Length == 9)
+                                {
+                                    split[0] = NumeroFactura.Substring(3, 6);
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                            }
+
+                            lines.Add(line);
+                        }
+                    }
+
+                    using (StreamWriter writer = new StreamWriter(path, false, Encoding.GetEncoding("Windows-1252")))
+                    {
+                        foreach (String line in lines)
+                        {
+                            writer.WriteLine(line);
+                        }
+                    }
+                }
+            }
+
+            for (int i = 1; i <= contadorErrores; i++)
+            {
+                bgwAU.ReportProgress(Convert.ToInt32(i * 100 / contadorErrores));
+                Thread.Sleep(100);
+            }
+        }
+
+        private void bgwAU_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            lblStatusAU.Visible = true;
+            prgBarAU.Value = e.ProgressPercentage;
+            lblStatusAU.Text = "Procesando...... " + prgBarAU.Value.ToString() + "%";
+        }
+
+        private void bgwAU_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            lblStatusAU.Text = "Finalizado";
+        }
         #endregion
 
         #region Correción Documentos
@@ -714,6 +949,28 @@ namespace FilesFolders
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
+                                    // Para SAVIASALUD
+                                    // Si Es Mayor de 18 Años y Tiene Tipo de Documento TI
+                                    // Se Cambia el Tipo de Documento por CC Aún si la Longitud del Número de Documento es mayor a 10
+                                    if (TipoDocumento == "TI" && Edad >= 18 && UnidadMedidaEdad == "1" && chkBoxLonDoc.CheckState == CheckState.Checked)
+                                    {
+                                        CorregirDocumento(TipoDocumento, NumeroDocumento, "CC");
+
+                                        split[0] = "CC";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+
+                                    // Si es Mayor o igual de 7 Años y Menor o Igual de 17 y Tiene Tipo de Documento RC
+                                    // Se cambia el Tipo de Documento por TI
+                                    if (TipoDocumento == "RC" && (Edad >= 7 && Edad <= 17) && UnidadMedidaEdad == "1" && LongitudNumeroDocumento == 10)
+                                    {
+                                        CorregirDocumento(TipoDocumento, NumeroDocumento, "TI");
+
+                                        split[0] = "TI";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                 }
                             }
 
@@ -756,7 +1013,7 @@ namespace FilesFolders
         {
             DirectoryInfo di = new DirectoryInfo(dirPath);
 
-            foreach (var fi in di.GetFiles("AC*", SearchOption.AllDirectories).Union(di.GetFiles("*AP*", SearchOption.AllDirectories).Union(di.GetFiles("*AM*",SearchOption.AllDirectories))))
+            foreach (var fi in di.GetFiles("AC*", SearchOption.AllDirectories).Union(di.GetFiles("*AP*", SearchOption.AllDirectories).Union(di.GetFiles("*AM*",SearchOption.AllDirectories)).Union((di.GetFiles("*AT*", SearchOption.AllDirectories))).Union((di.GetFiles("*AU*", SearchOption.AllDirectories)))))
             {
                 String NombreArchivo = fi.Name;
                 String path = fi.FullName;
@@ -775,15 +1032,13 @@ namespace FilesFolders
                                 
                                 String[] split = line.Split(',');
 
-                                // Tipo Documento AP - Posición 2
-                                string TipoDocumentoAP = split[2];
-                                // Número Documento AC - Posición 3
-                                string NumeroDocumentoAP = split[3];
+                                // Número Documento: AC, AM, AP, AT, AU - Posición 3
+                                string NumeroDocumentoArchivo = split[3];
 
                                 // Si el Número de Documento que viene por parametro 
-                                // es igual al Número de Documento del Archivo AC
+                                // es igual al Número de Documento del Archivo
                                 // Se Actualiza el Tipo de Documento
-                                if (NumeroDocumentoAP == NumeroDocumento)
+                                if (NumeroDocumentoArchivo == NumeroDocumento)
                                 {
                                     split[2] = TipoDocumentoCorrecto;
                                     line = String.Join(",", split);
@@ -804,6 +1059,5 @@ namespace FilesFolders
                 }
             }
         }
-
     }
 }

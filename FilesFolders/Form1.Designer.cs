@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -35,11 +36,19 @@
             this.carpetasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rIPSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblStatusAU = new System.Windows.Forms.Label();
+            this.prgBarAU = new System.Windows.Forms.ProgressBar();
+            this.btnAU = new System.Windows.Forms.Button();
+            this.lblAU = new System.Windows.Forms.Label();
+            this.lblStatusAT = new System.Windows.Forms.Label();
+            this.prgBarAT = new System.Windows.Forms.ProgressBar();
+            this.btnAT = new System.Windows.Forms.Button();
+            this.lblAT = new System.Windows.Forms.Label();
             this.lblStatusDoc = new System.Windows.Forms.Label();
             this.prgBarDoc = new System.Windows.Forms.ProgressBar();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblAP = new System.Windows.Forms.Label();
             this.lblAC = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblUS = new System.Windows.Forms.Label();
@@ -51,6 +60,8 @@
             this.prgBarAC = new System.Windows.Forms.ProgressBar();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblTotalAU = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.lblTotalUS = new System.Windows.Forms.Label();
             this.lblTotalAT = new System.Windows.Forms.Label();
             this.lblTotalAM = new System.Windows.Forms.Label();
@@ -70,6 +81,8 @@
             this.btnRuta = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.chkBoxLonDoc = new System.Windows.Forms.CheckBox();
+            this.tltDocLong = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -120,11 +133,20 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.chkBoxLonDoc);
+            this.panel1.Controls.Add(this.lblStatusAU);
+            this.panel1.Controls.Add(this.prgBarAU);
+            this.panel1.Controls.Add(this.btnAU);
+            this.panel1.Controls.Add(this.lblAU);
+            this.panel1.Controls.Add(this.lblStatusAT);
+            this.panel1.Controls.Add(this.prgBarAT);
+            this.panel1.Controls.Add(this.btnAT);
+            this.panel1.Controls.Add(this.lblAT);
             this.panel1.Controls.Add(this.lblStatusDoc);
             this.panel1.Controls.Add(this.prgBarDoc);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.lblAP);
             this.panel1.Controls.Add(this.lblAC);
             this.panel1.Controls.Add(this.lblTitle);
             this.panel1.Controls.Add(this.lblUS);
@@ -145,13 +167,85 @@
             this.panel1.Controls.Add(this.btnRuta);
             this.panel1.Location = new System.Drawing.Point(0, 27);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(698, 308);
+            this.panel1.Size = new System.Drawing.Size(698, 399);
             this.panel1.TabIndex = 1;
+            // 
+            // lblStatusAU
+            // 
+            this.lblStatusAU.AutoSize = true;
+            this.lblStatusAU.Location = new System.Drawing.Point(433, 218);
+            this.lblStatusAU.Name = "lblStatusAU";
+            this.lblStatusAU.Size = new System.Drawing.Size(49, 13);
+            this.lblStatusAU.TabIndex = 32;
+            this.lblStatusAU.Text = "Progreso";
+            // 
+            // prgBarAU
+            // 
+            this.prgBarAU.Location = new System.Drawing.Point(96, 213);
+            this.prgBarAU.Name = "prgBarAU";
+            this.prgBarAU.Size = new System.Drawing.Size(331, 23);
+            this.prgBarAU.TabIndex = 31;
+            // 
+            // btnAU
+            // 
+            this.btnAU.Image = global::FilesFolders.Properties.Resources.icons8_Play32_32;
+            this.btnAU.Location = new System.Drawing.Point(51, 213);
+            this.btnAU.Name = "btnAU";
+            this.btnAU.Size = new System.Drawing.Size(36, 23);
+            this.btnAU.TabIndex = 30;
+            this.btnAU.UseVisualStyleBackColor = true;
+            this.btnAU.Click += new System.EventHandler(this.btnAU_Click);
+            // 
+            // lblAU
+            // 
+            this.lblAU.AutoSize = true;
+            this.lblAU.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAU.Location = new System.Drawing.Point(15, 218);
+            this.lblAU.Name = "lblAU";
+            this.lblAU.Size = new System.Drawing.Size(24, 13);
+            this.lblAU.TabIndex = 29;
+            this.lblAU.Text = "AU";
+            // 
+            // lblStatusAT
+            // 
+            this.lblStatusAT.AutoSize = true;
+            this.lblStatusAT.Location = new System.Drawing.Point(433, 189);
+            this.lblStatusAT.Name = "lblStatusAT";
+            this.lblStatusAT.Size = new System.Drawing.Size(49, 13);
+            this.lblStatusAT.TabIndex = 28;
+            this.lblStatusAT.Text = "Progreso";
+            // 
+            // prgBarAT
+            // 
+            this.prgBarAT.Location = new System.Drawing.Point(96, 184);
+            this.prgBarAT.Name = "prgBarAT";
+            this.prgBarAT.Size = new System.Drawing.Size(331, 23);
+            this.prgBarAT.TabIndex = 27;
+            // 
+            // btnAT
+            // 
+            this.btnAT.Image = global::FilesFolders.Properties.Resources.icons8_Play32_32;
+            this.btnAT.Location = new System.Drawing.Point(51, 184);
+            this.btnAT.Name = "btnAT";
+            this.btnAT.Size = new System.Drawing.Size(36, 23);
+            this.btnAT.TabIndex = 26;
+            this.btnAT.UseVisualStyleBackColor = true;
+            this.btnAT.Click += new System.EventHandler(this.btnAT_Click);
+            // 
+            // lblAT
+            // 
+            this.lblAT.AutoSize = true;
+            this.lblAT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAT.Location = new System.Drawing.Point(15, 189);
+            this.lblAT.Name = "lblAT";
+            this.lblAT.Size = new System.Drawing.Size(23, 13);
+            this.lblAT.TabIndex = 25;
+            this.lblAT.Text = "AT";
             // 
             // lblStatusDoc
             // 
             this.lblStatusDoc.AutoSize = true;
-            this.lblStatusDoc.Location = new System.Drawing.Point(433, 228);
+            this.lblStatusDoc.Location = new System.Drawing.Point(433, 320);
             this.lblStatusDoc.Name = "lblStatusDoc";
             this.lblStatusDoc.Size = new System.Drawing.Size(49, 13);
             this.lblStatusDoc.TabIndex = 24;
@@ -159,7 +253,7 @@
             // 
             // prgBarDoc
             // 
-            this.prgBarDoc.Location = new System.Drawing.Point(96, 223);
+            this.prgBarDoc.Location = new System.Drawing.Point(96, 315);
             this.prgBarDoc.Name = "prgBarDoc";
             this.prgBarDoc.Size = new System.Drawing.Size(331, 23);
             this.prgBarDoc.TabIndex = 23;
@@ -169,7 +263,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label9.Location = new System.Drawing.Point(13, 190);
+            this.label9.Location = new System.Drawing.Point(14, 255);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(173, 21);
             this.label9.TabIndex = 22;
@@ -179,21 +273,21 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(12, 228);
+            this.label8.Location = new System.Drawing.Point(12, 320);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(33, 13);
             this.label8.TabIndex = 21;
             this.label8.Text = "DOC";
             // 
-            // label2
+            // lblAP
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(14, 160);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(23, 13);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "AP";
+            this.lblAP.AutoSize = true;
+            this.lblAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAP.Location = new System.Drawing.Point(14, 160);
+            this.lblAP.Name = "lblAP";
+            this.lblAP.Size = new System.Drawing.Size(23, 13);
+            this.lblAP.TabIndex = 20;
+            this.lblAP.Text = "AP";
             // 
             // lblAC
             // 
@@ -229,7 +323,7 @@
             // btnDoc
             // 
             this.btnDoc.Image = global::FilesFolders.Properties.Resources.icons8_Play32_32;
-            this.btnDoc.Location = new System.Drawing.Point(51, 223);
+            this.btnDoc.Location = new System.Drawing.Point(51, 315);
             this.btnDoc.Name = "btnDoc";
             this.btnDoc.Size = new System.Drawing.Size(36, 23);
             this.btnDoc.TabIndex = 16;
@@ -290,6 +384,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblTotalAU);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.lblTotalUS);
             this.groupBox1.Controls.Add(this.lblTotalAT);
             this.groupBox1.Controls.Add(this.lblTotalAM);
@@ -302,15 +398,33 @@
             this.groupBox1.Controls.Add(this.lblTotalAC);
             this.groupBox1.Location = new System.Drawing.Point(580, 20);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(105, 152);
+            this.groupBox1.Size = new System.Drawing.Size(105, 187);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Total Archivos";
             // 
+            // lblTotalAU
+            // 
+            this.lblTotalAU.AutoSize = true;
+            this.lblTotalAU.Location = new System.Drawing.Point(36, 119);
+            this.lblTotalAU.Name = "lblTotalAU";
+            this.lblTotalAU.Size = new System.Drawing.Size(14, 13);
+            this.lblTotalAU.TabIndex = 20;
+            this.lblTotalAU.Text = "#";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(5, 119);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(25, 13);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "AU:";
+            // 
             // lblTotalUS
             // 
             this.lblTotalUS.AutoSize = true;
-            this.lblTotalUS.Location = new System.Drawing.Point(37, 123);
+            this.lblTotalUS.Location = new System.Drawing.Point(36, 143);
             this.lblTotalUS.Name = "lblTotalUS";
             this.lblTotalUS.Size = new System.Drawing.Size(14, 13);
             this.lblTotalUS.TabIndex = 18;
@@ -319,7 +433,7 @@
             // lblTotalAT
             // 
             this.lblTotalAT.AutoSize = true;
-            this.lblTotalAT.Location = new System.Drawing.Point(37, 98);
+            this.lblTotalAT.Location = new System.Drawing.Point(36, 95);
             this.lblTotalAT.Name = "lblTotalAT";
             this.lblTotalAT.Size = new System.Drawing.Size(14, 13);
             this.lblTotalAT.TabIndex = 17;
@@ -328,7 +442,7 @@
             // lblTotalAM
             // 
             this.lblTotalAM.AutoSize = true;
-            this.lblTotalAM.Location = new System.Drawing.Point(37, 73);
+            this.lblTotalAM.Location = new System.Drawing.Point(36, 71);
             this.lblTotalAM.Name = "lblTotalAM";
             this.lblTotalAM.Size = new System.Drawing.Size(14, 13);
             this.lblTotalAM.TabIndex = 16;
@@ -337,7 +451,7 @@
             // lblTotalAP
             // 
             this.lblTotalAP.AutoSize = true;
-            this.lblTotalAP.Location = new System.Drawing.Point(37, 48);
+            this.lblTotalAP.Location = new System.Drawing.Point(36, 47);
             this.lblTotalAP.Name = "lblTotalAP";
             this.lblTotalAP.Size = new System.Drawing.Size(14, 13);
             this.lblTotalAP.TabIndex = 15;
@@ -355,7 +469,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(5, 123);
+            this.label6.Location = new System.Drawing.Point(5, 143);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(25, 13);
             this.label6.TabIndex = 13;
@@ -364,7 +478,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(5, 98);
+            this.label5.Location = new System.Drawing.Point(5, 95);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(24, 13);
             this.label5.TabIndex = 12;
@@ -373,7 +487,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(5, 73);
+            this.label4.Location = new System.Drawing.Point(4, 71);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(26, 13);
             this.label4.TabIndex = 11;
@@ -382,7 +496,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 48);
+            this.label3.Location = new System.Drawing.Point(5, 47);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(24, 13);
             this.label3.TabIndex = 10;
@@ -391,7 +505,7 @@
             // lblTotalAC
             // 
             this.lblTotalAC.AutoSize = true;
-            this.lblTotalAC.Location = new System.Drawing.Point(37, 23);
+            this.lblTotalAC.Location = new System.Drawing.Point(36, 23);
             this.lblTotalAC.Name = "lblTotalAC";
             this.lblTotalAC.Size = new System.Drawing.Size(14, 13);
             this.lblTotalAC.TabIndex = 3;
@@ -461,11 +575,22 @@
             this.btnRuta.UseVisualStyleBackColor = true;
             this.btnRuta.Click += new System.EventHandler(this.button1_Click);
             // 
+            // chkBoxLonDoc
+            // 
+            this.chkBoxLonDoc.AutoSize = true;
+            this.chkBoxLonDoc.Location = new System.Drawing.Point(18, 288);
+            this.chkBoxLonDoc.Name = "chkBoxLonDoc";
+            this.chkBoxLonDoc.Size = new System.Drawing.Size(232, 17);
+            this.chkBoxLonDoc.TabIndex = 33;
+            this.chkBoxLonDoc.Text = "Incluir Documentos de Longitud Mayor a 10";
+            this.tltDocLong.SetToolTip(this.chkBoxLonDoc, resources.GetString("chkBoxLonDoc.ToolTip"));
+            this.chkBoxLonDoc.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(698, 373);
+            this.ClientSize = new System.Drawing.Size(698, 462);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -524,10 +649,22 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblUS;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblAP;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblStatusDoc;
         private System.Windows.Forms.ProgressBar prgBarDoc;
+        private System.Windows.Forms.Label lblAT;
+        private System.Windows.Forms.Label lblStatusAT;
+        private System.Windows.Forms.ProgressBar prgBarAT;
+        private System.Windows.Forms.Button btnAT;
+        private System.Windows.Forms.Label lblStatusAU;
+        private System.Windows.Forms.ProgressBar prgBarAU;
+        private System.Windows.Forms.Button btnAU;
+        private System.Windows.Forms.Label lblAU;
+        private System.Windows.Forms.Label lblTotalAU;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox chkBoxLonDoc;
+        private System.Windows.Forms.ToolTip tltDocLong;
     }
 }
 
