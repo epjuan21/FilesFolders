@@ -35,7 +35,10 @@
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.carpetasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rIPSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.parametrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.entidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnlRIPS = new System.Windows.Forms.Panel();
+            this.chkBoxLonDoc = new System.Windows.Forms.CheckBox();
             this.lblStatusAU = new System.Windows.Forms.Label();
             this.prgBarAU = new System.Windows.Forms.ProgressBar();
             this.btnAU = new System.Windows.Forms.Button();
@@ -58,7 +61,6 @@
             this.btnUS = new System.Windows.Forms.Button();
             this.lblStatusAC = new System.Windows.Forms.Label();
             this.prgBarAC = new System.Windows.Forms.ProgressBar();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblTotalAU = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -79,20 +81,36 @@
             this.btnAP = new System.Windows.Forms.Button();
             this.txtRuta = new System.Windows.Forms.TextBox();
             this.btnRuta = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.chkBoxLonDoc = new System.Windows.Forms.CheckBox();
             this.tltDocLong = new System.Windows.Forms.ToolTip(this.components);
+            this.pnlEntidades = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.lblCodigo = new System.Windows.Forms.Label();
+            this.lblRegimen = new System.Windows.Forms.Label();
+            this.txtNombreEntidad = new System.Windows.Forms.TextBox();
+            this.txtCodigoEntidad = new System.Windows.Forms.TextBox();
+            this.cbRegimenEntidad = new System.Windows.Forms.ComboBox();
+            this.btnGrabar = new System.Windows.Forms.Button();
+            this.lblIdEntidad = new System.Windows.Forms.Label();
+            this.txtIdEntidad = new System.Windows.Forms.TextBox();
+            this.btnBorrarEntidad = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlRIPS.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.pnlEntidades.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
-            this.carpetasToolStripMenuItem});
+            this.carpetasToolStripMenuItem,
+            this.parametrosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(698, 24);
@@ -131,44 +149,69 @@
             this.rIPSToolStripMenuItem.Text = "RIPS";
             this.rIPSToolStripMenuItem.Click += new System.EventHandler(this.rIPSToolStripMenuItem_Click);
             // 
-            // panel1
+            // parametrosToolStripMenuItem
             // 
-            this.panel1.Controls.Add(this.chkBoxLonDoc);
-            this.panel1.Controls.Add(this.lblStatusAU);
-            this.panel1.Controls.Add(this.prgBarAU);
-            this.panel1.Controls.Add(this.btnAU);
-            this.panel1.Controls.Add(this.lblAU);
-            this.panel1.Controls.Add(this.lblStatusAT);
-            this.panel1.Controls.Add(this.prgBarAT);
-            this.panel1.Controls.Add(this.btnAT);
-            this.panel1.Controls.Add(this.lblAT);
-            this.panel1.Controls.Add(this.lblStatusDoc);
-            this.panel1.Controls.Add(this.prgBarDoc);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.lblAP);
-            this.panel1.Controls.Add(this.lblAC);
-            this.panel1.Controls.Add(this.lblTitle);
-            this.panel1.Controls.Add(this.lblUS);
-            this.panel1.Controls.Add(this.btnDoc);
-            this.panel1.Controls.Add(this.lblStatusUS);
-            this.panel1.Controls.Add(this.prgBarUS);
-            this.panel1.Controls.Add(this.btnUS);
-            this.panel1.Controls.Add(this.lblStatusAC);
-            this.panel1.Controls.Add(this.prgBarAC);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.lblStatusAP);
-            this.panel1.Controls.Add(this.btnAC);
-            this.panel1.Controls.Add(this.prgBarAP);
-            this.panel1.Controls.Add(this.btnAP);
-            this.panel1.Controls.Add(this.txtRuta);
-            this.panel1.Controls.Add(this.btnRuta);
-            this.panel1.Location = new System.Drawing.Point(0, 27);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(698, 399);
-            this.panel1.TabIndex = 1;
+            this.parametrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.entidadesToolStripMenuItem});
+            this.parametrosToolStripMenuItem.Name = "parametrosToolStripMenuItem";
+            this.parametrosToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.parametrosToolStripMenuItem.Text = "Parametros";
+            // 
+            // entidadesToolStripMenuItem
+            // 
+            this.entidadesToolStripMenuItem.Name = "entidadesToolStripMenuItem";
+            this.entidadesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.entidadesToolStripMenuItem.Text = "Entidades";
+            this.entidadesToolStripMenuItem.Click += new System.EventHandler(this.entidadesToolStripMenuItem_Click);
+            // 
+            // pnlRIPS
+            // 
+            this.pnlRIPS.Controls.Add(this.chkBoxLonDoc);
+            this.pnlRIPS.Controls.Add(this.lblStatusAU);
+            this.pnlRIPS.Controls.Add(this.prgBarAU);
+            this.pnlRIPS.Controls.Add(this.btnAU);
+            this.pnlRIPS.Controls.Add(this.lblAU);
+            this.pnlRIPS.Controls.Add(this.lblStatusAT);
+            this.pnlRIPS.Controls.Add(this.prgBarAT);
+            this.pnlRIPS.Controls.Add(this.btnAT);
+            this.pnlRIPS.Controls.Add(this.lblAT);
+            this.pnlRIPS.Controls.Add(this.lblStatusDoc);
+            this.pnlRIPS.Controls.Add(this.prgBarDoc);
+            this.pnlRIPS.Controls.Add(this.label9);
+            this.pnlRIPS.Controls.Add(this.label8);
+            this.pnlRIPS.Controls.Add(this.lblAP);
+            this.pnlRIPS.Controls.Add(this.lblAC);
+            this.pnlRIPS.Controls.Add(this.lblTitle);
+            this.pnlRIPS.Controls.Add(this.lblUS);
+            this.pnlRIPS.Controls.Add(this.btnDoc);
+            this.pnlRIPS.Controls.Add(this.lblStatusUS);
+            this.pnlRIPS.Controls.Add(this.prgBarUS);
+            this.pnlRIPS.Controls.Add(this.btnUS);
+            this.pnlRIPS.Controls.Add(this.lblStatusAC);
+            this.pnlRIPS.Controls.Add(this.prgBarAC);
+            this.pnlRIPS.Controls.Add(this.groupBox1);
+            this.pnlRIPS.Controls.Add(this.label1);
+            this.pnlRIPS.Controls.Add(this.lblStatusAP);
+            this.pnlRIPS.Controls.Add(this.btnAC);
+            this.pnlRIPS.Controls.Add(this.prgBarAP);
+            this.pnlRIPS.Controls.Add(this.btnAP);
+            this.pnlRIPS.Controls.Add(this.txtRuta);
+            this.pnlRIPS.Controls.Add(this.btnRuta);
+            this.pnlRIPS.Location = new System.Drawing.Point(0, 27);
+            this.pnlRIPS.Name = "pnlRIPS";
+            this.pnlRIPS.Size = new System.Drawing.Size(698, 359);
+            this.pnlRIPS.TabIndex = 1;
+            // 
+            // chkBoxLonDoc
+            // 
+            this.chkBoxLonDoc.AutoSize = true;
+            this.chkBoxLonDoc.Location = new System.Drawing.Point(18, 288);
+            this.chkBoxLonDoc.Name = "chkBoxLonDoc";
+            this.chkBoxLonDoc.Size = new System.Drawing.Size(232, 17);
+            this.chkBoxLonDoc.TabIndex = 33;
+            this.chkBoxLonDoc.Text = "Incluir Documentos de Longitud Mayor a 10";
+            this.tltDocLong.SetToolTip(this.chkBoxLonDoc, resources.GetString("chkBoxLonDoc.ToolTip"));
+            this.chkBoxLonDoc.UseVisualStyleBackColor = true;
             // 
             // lblStatusAU
             // 
@@ -372,16 +415,6 @@
             this.prgBarAC.Size = new System.Drawing.Size(331, 23);
             this.prgBarAC.TabIndex = 11;
             // 
-            // button1
-            // 
-            this.button1.Image = global::FilesFolders.Properties.Resources.Shutdown_32px;
-            this.button1.Location = new System.Drawing.Point(640, 345);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(45, 40);
-            this.button1.TabIndex = 10;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblTotalAU);
@@ -575,24 +608,159 @@
             this.btnRuta.UseVisualStyleBackColor = true;
             this.btnRuta.Click += new System.EventHandler(this.button1_Click);
             // 
-            // chkBoxLonDoc
+            // button1
             // 
-            this.chkBoxLonDoc.AutoSize = true;
-            this.chkBoxLonDoc.Location = new System.Drawing.Point(18, 288);
-            this.chkBoxLonDoc.Name = "chkBoxLonDoc";
-            this.chkBoxLonDoc.Size = new System.Drawing.Size(232, 17);
-            this.chkBoxLonDoc.TabIndex = 33;
-            this.chkBoxLonDoc.Text = "Incluir Documentos de Longitud Mayor a 10";
-            this.tltDocLong.SetToolTip(this.chkBoxLonDoc, resources.GetString("chkBoxLonDoc.ToolTip"));
-            this.chkBoxLonDoc.UseVisualStyleBackColor = true;
+            this.button1.Image = global::FilesFolders.Properties.Resources.Shutdown_32px;
+            this.button1.Location = new System.Drawing.Point(640, 410);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(45, 40);
+            this.button1.TabIndex = 10;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+            // 
+            // pnlEntidades
+            // 
+            this.pnlEntidades.Controls.Add(this.btnBorrarEntidad);
+            this.pnlEntidades.Controls.Add(this.txtIdEntidad);
+            this.pnlEntidades.Controls.Add(this.lblIdEntidad);
+            this.pnlEntidades.Controls.Add(this.btnGrabar);
+            this.pnlEntidades.Controls.Add(this.cbRegimenEntidad);
+            this.pnlEntidades.Controls.Add(this.txtCodigoEntidad);
+            this.pnlEntidades.Controls.Add(this.txtNombreEntidad);
+            this.pnlEntidades.Controls.Add(this.lblRegimen);
+            this.pnlEntidades.Controls.Add(this.lblCodigo);
+            this.pnlEntidades.Controls.Add(this.lblNombre);
+            this.pnlEntidades.Controls.Add(this.label10);
+            this.pnlEntidades.Controls.Add(this.dataGridView1);
+            this.pnlEntidades.Location = new System.Drawing.Point(0, 27);
+            this.pnlEntidades.Name = "pnlEntidades";
+            this.pnlEntidades.Size = new System.Drawing.Size(697, 291);
+            this.pnlEntidades.TabIndex = 2;
+            this.pnlEntidades.Visible = false;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(223, 33);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(462, 150);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(220, 14);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(68, 17);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Entidades";
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(12, 63);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(83, 13);
+            this.lblNombre.TabIndex = 2;
+            this.lblNombre.Text = "Nombre Entidad";
+            // 
+            // lblCodigo
+            // 
+            this.lblCodigo.AutoSize = true;
+            this.lblCodigo.Location = new System.Drawing.Point(12, 114);
+            this.lblCodigo.Name = "lblCodigo";
+            this.lblCodigo.Size = new System.Drawing.Size(79, 13);
+            this.lblCodigo.TabIndex = 3;
+            this.lblCodigo.Text = "Código Entidad";
+            // 
+            // lblRegimen
+            // 
+            this.lblRegimen.AutoSize = true;
+            this.lblRegimen.Location = new System.Drawing.Point(12, 164);
+            this.lblRegimen.Name = "lblRegimen";
+            this.lblRegimen.Size = new System.Drawing.Size(88, 13);
+            this.lblRegimen.TabIndex = 4;
+            this.lblRegimen.Text = "Régimen Entidad";
+            // 
+            // txtNombreEntidad
+            // 
+            this.txtNombreEntidad.Location = new System.Drawing.Point(11, 80);
+            this.txtNombreEntidad.Name = "txtNombreEntidad";
+            this.txtNombreEntidad.Size = new System.Drawing.Size(182, 20);
+            this.txtNombreEntidad.TabIndex = 5;
+            // 
+            // txtCodigoEntidad
+            // 
+            this.txtCodigoEntidad.Location = new System.Drawing.Point(11, 130);
+            this.txtCodigoEntidad.Name = "txtCodigoEntidad";
+            this.txtCodigoEntidad.Size = new System.Drawing.Size(100, 20);
+            this.txtCodigoEntidad.TabIndex = 6;
+            // 
+            // cbRegimenEntidad
+            // 
+            this.cbRegimenEntidad.FormattingEnabled = true;
+            this.cbRegimenEntidad.Items.AddRange(new object[] {
+            "CONTRIBUTIVO",
+            "SUBSIDIADO",
+            "VINCULADO",
+            "PARTICULAR",
+            "OTRO"});
+            this.cbRegimenEntidad.Location = new System.Drawing.Point(11, 180);
+            this.cbRegimenEntidad.Name = "cbRegimenEntidad";
+            this.cbRegimenEntidad.Size = new System.Drawing.Size(100, 21);
+            this.cbRegimenEntidad.TabIndex = 7;
+            // 
+            // btnGrabar
+            // 
+            this.btnGrabar.Location = new System.Drawing.Point(11, 230);
+            this.btnGrabar.Name = "btnGrabar";
+            this.btnGrabar.Size = new System.Drawing.Size(100, 23);
+            this.btnGrabar.TabIndex = 8;
+            this.btnGrabar.Text = "Grabar";
+            this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
+            // 
+            // lblIdEntidad
+            // 
+            this.lblIdEntidad.AutoSize = true;
+            this.lblIdEntidad.Location = new System.Drawing.Point(12, 17);
+            this.lblIdEntidad.Name = "lblIdEntidad";
+            this.lblIdEntidad.Size = new System.Drawing.Size(16, 13);
+            this.lblIdEntidad.TabIndex = 9;
+            this.lblIdEntidad.Text = "Id";
+            // 
+            // txtIdEntidad
+            // 
+            this.txtIdEntidad.Enabled = false;
+            this.txtIdEntidad.Location = new System.Drawing.Point(11, 34);
+            this.txtIdEntidad.Name = "txtIdEntidad";
+            this.txtIdEntidad.Size = new System.Drawing.Size(100, 20);
+            this.txtIdEntidad.TabIndex = 10;
+            // 
+            // btnBorrarEntidad
+            // 
+            this.btnBorrarEntidad.Location = new System.Drawing.Point(11, 260);
+            this.btnBorrarEntidad.Name = "btnBorrarEntidad";
+            this.btnBorrarEntidad.Size = new System.Drawing.Size(100, 23);
+            this.btnBorrarEntidad.TabIndex = 11;
+            this.btnBorrarEntidad.Text = "Borrar";
+            this.btnBorrarEntidad.UseVisualStyleBackColor = true;
+            this.btnBorrarEntidad.Click += new System.EventHandler(this.btnBorrarEntidad_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(698, 462);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlRIPS);
+            this.Controls.Add(this.pnlEntidades);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
@@ -601,10 +769,13 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlRIPS.ResumeLayout(false);
+            this.pnlRIPS.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.pnlEntidades.ResumeLayout(false);
+            this.pnlEntidades.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -616,7 +787,6 @@
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem carpetasToolStripMenuItem;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtRuta;
         private System.Windows.Forms.Button btnRuta;
         private System.Windows.Forms.ToolStripMenuItem rIPSToolStripMenuItem;
@@ -665,6 +835,22 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox chkBoxLonDoc;
         private System.Windows.Forms.ToolTip tltDocLong;
+        private System.Windows.Forms.ToolStripMenuItem parametrosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem entidadesToolStripMenuItem;
+        private System.Windows.Forms.Panel pnlRIPS;
+        private System.Windows.Forms.Panel pnlEntidades;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnGrabar;
+        private System.Windows.Forms.ComboBox cbRegimenEntidad;
+        private System.Windows.Forms.TextBox txtCodigoEntidad;
+        private System.Windows.Forms.TextBox txtNombreEntidad;
+        private System.Windows.Forms.Label lblRegimen;
+        private System.Windows.Forms.Label lblCodigo;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtIdEntidad;
+        private System.Windows.Forms.Label lblIdEntidad;
+        private System.Windows.Forms.Button btnBorrarEntidad;
     }
 }
 

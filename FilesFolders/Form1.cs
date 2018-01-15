@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Globalization;
+using FilesFolders.Data;
 
 namespace FilesFolders
 {
@@ -34,7 +35,7 @@ namespace FilesFolders
         private void Form1_Load(object sender, EventArgs e)
         {
             // Cuando carga el Formulario se oculta el Panel1
-            panel1.Visible = false;
+            pnlRIPS.Visible = false;
 
             // Ocultar Valores Totales de Archivos
             lblTotalAC.Text = string.Empty;
@@ -62,6 +63,9 @@ namespace FilesFolders
             btnAU.Enabled = false;
 
             chkBoxLonDoc.Enabled = false;
+
+ 
+
         }
         #endregion
 
@@ -72,7 +76,24 @@ namespace FilesFolders
         }
         private void rIPSToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            panel1.Visible = true;
+            pnlRIPS.Visible = true;
+            pnlEntidades.Visible = false;
+
+        }
+
+        private void entidadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pnlRIPS.Visible = false;
+            pnlEntidades.Visible = true;
+
+            string sql = "Select Id, Nombre, Codigo, Regimen From Entidades";
+            DataAccess.ExecuteSQL(sql);
+            DataTable dt = DataAccess.GetDataTable(sql);
+            dataGridView1.DataSource = dt;
+
+            // Inhabilitar Boton de Borrar Hasta que se Seleccione un Item
+            btnBorrarEntidad.Enabled = false;
+
         }
         #endregion
 
@@ -712,7 +733,7 @@ namespace FilesFolders
 
                                 #region Diagnostico Principal
                                 // Diagnóstico Principal - Posición 10
-    
+
                                 #endregion
                             }
 
@@ -745,7 +766,7 @@ namespace FilesFolders
         }
 
         private void bgwAP_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {            
+        {
             lblStatusAP.Text = "Finalizado";
         }
 
@@ -1051,7 +1072,7 @@ namespace FilesFolders
         {
             DirectoryInfo di = new DirectoryInfo(dirPath);
 
-            foreach (var fi in di.GetFiles("AC*", SearchOption.AllDirectories).Union(di.GetFiles("*AP*", SearchOption.AllDirectories).Union(di.GetFiles("*AM*",SearchOption.AllDirectories)).Union((di.GetFiles("*AT*", SearchOption.AllDirectories))).Union((di.GetFiles("*AU*", SearchOption.AllDirectories)))))
+            foreach (var fi in di.GetFiles("AC*", SearchOption.AllDirectories).Union(di.GetFiles("*AP*", SearchOption.AllDirectories).Union(di.GetFiles("*AM*", SearchOption.AllDirectories)).Union((di.GetFiles("*AT*", SearchOption.AllDirectories))).Union((di.GetFiles("*AU*", SearchOption.AllDirectories)))))
             {
                 String NombreArchivo = fi.Name;
                 String path = fi.FullName;
@@ -1067,7 +1088,7 @@ namespace FilesFolders
                         {
                             if (line.Contains(","))
                             {
-                                
+
                                 String[] split = line.Split(',');
 
                                 // Número Documento: AC, AM, AP, AT, AU - Posición 3
@@ -1080,7 +1101,7 @@ namespace FilesFolders
                                 {
                                     split[2] = TipoDocumentoCorrecto;
                                     line = String.Join(",", split);
-                                }   
+                                }
                             }
 
                             lines.Add(line);
@@ -1095,6 +1116,89 @@ namespace FilesFolders
                         }
                     }
                 }
+            }
+        }
+
+        public void DataBind()
+        {
+            string sql = "Select Id, Nombre, Codigo, Regimen From Entidades";
+            DataAccess.ExecuteSQL(sql);
+            DataTable dt = DataAccess.GetDataTable(sql);
+            dataGridView1.DataSource = dt;
+        }
+
+        private void btnGrabar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtNombreEntidad.Text == string.Empty || txtCodigoEntidad.Text == string.Empty)
+                {
+                    MessageBox.Show("Ingrese Nombre Datos");
+                }
+                else if (cbRegimenEntidad.Text == string.Empty)
+                {
+                    MessageBox.Show("Ingrese Régimen");
+                }
+                else
+                {
+                    if (txtIdEntidad.Text == "")
+                    {
+                        string sql = "Insert Into Entidades Values(null,'" + txtNombreEntidad.Text + "','" + txtCodigoEntidad.Text + "', '" + cbRegimenEntidad.Text + "')";
+                        DataAccess.ExecuteSQL(sql);
+                        DataBind();
+
+                    }
+
+                    else
+                    {
+                        string sqlupdate = "Update Entidades Set Nombre = '" + txtNombreEntidad.Text + "', Codigo = '" + txtCodigoEntidad.Text + "', Regimen = '" + cbRegimenEntidad.Text + "' Where Id = '" + txtIdEntidad.Text + "'";
+                        DataAccess.ExecuteSQL(sqlupdate);
+                        DataBind();
+                    }
+                }
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow rowupdate in dataGridView1.SelectedRows)
+            {
+                txtIdEntidad.Text = rowupdate.Cells[0].Value.ToString();
+                txtNombreEntidad.Text = rowupdate.Cells[1].Value.ToString();
+                txtCodigoEntidad.Text = rowupdate.Cells[2].Value.ToString();
+                cbRegimenEntidad.Text = rowupdate.Cells[3].Value.ToString();
+                btnGrabar.Text = "Actualizar";
+                btnBorrarEntidad.Enabled = true;
+
+            }
+        }
+
+        private void btnBorrarEntidad_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult result = MessageBox.Show("Seguro que quiere borrar la Entidad?", "Borrar Entidad", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+                if (result == DialogResult.Yes)
+                {
+                    string sqldel = "Delete From Entidades Where Id = '" + txtIdEntidad.Text + "'";
+                    DataAccess.ExecuteSQL(sqldel);
+                    MessageBox.Show("Entidad borrada");
+                    DataBind();
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }
