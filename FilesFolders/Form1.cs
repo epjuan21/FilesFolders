@@ -545,6 +545,15 @@ namespace FilesFolders
                                 #endregion
 
                                 #region Finalidad
+                                // Finalidad - Posición 8
+                                // 1 - Diagnóstico
+                                // 2 - Terapéutico
+                                if (split[6] == "542700")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "542801")
                                 {
                                     split[8] = "1";
@@ -572,6 +581,18 @@ namespace FilesFolders
                                 if (split[6] == "869500" && split[8] == "")
                                 {
                                     split[8] = "2";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "870001")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "871111")
+                                {
+                                    split[8] = "1";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -606,6 +627,12 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 if (split[6] == "873313" && split[8] == "")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "873333" && split[8] == "")
                                 {
                                     split[8] = "1";
                                     line = String.Join(",", split);
@@ -671,6 +698,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "903895")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "906127")
                                 {
                                     split[8] = "1";
@@ -686,6 +719,12 @@ namespace FilesFolders
                                 if (split[6] == "911018" && split[8] == "")
                                 {
                                     split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "935304" && split[8] == "")
+                                {
+                                    split[8] = "2";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -1030,6 +1069,17 @@ namespace FilesFolders
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
+
+                                    // Si La Unidad de Medida de la Edad esta en Meses y Tiene Tipo de Documento CC y Edad Menor a 13
+                                    // Se cambia Tipo de Documento CC Por RC
+                                    if (TipoDocumento == "CC" && Edad < 13 && UnidadMedidaEdad == "2")
+                                    {
+                                        CorregirDocumento(TipoDocumento, NumeroDocumento, "RC");
+
+                                        split[0] = "RC";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                 }
                             }
 
@@ -1050,7 +1100,7 @@ namespace FilesFolders
             for (int i = 1; i <= contadorErrores; i++)
             {
                 bgwDOC.ReportProgress(Convert.ToInt32(i * 100 / contadorErrores));
-                Thread.Sleep(100);
+                Thread.Sleep(50);
             }
         }
 
