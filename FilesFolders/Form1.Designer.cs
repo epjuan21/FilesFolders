@@ -86,18 +86,20 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tltDocLong = new System.Windows.Forms.ToolTip(this.components);
             this.pnlEntidades = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label10 = new System.Windows.Forms.Label();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.lblCodigo = new System.Windows.Forms.Label();
-            this.lblRegimen = new System.Windows.Forms.Label();
-            this.txtNombreEntidad = new System.Windows.Forms.TextBox();
-            this.txtCodigoEntidad = new System.Windows.Forms.TextBox();
-            this.cbRegimenEntidad = new System.Windows.Forms.ComboBox();
-            this.btnGrabar = new System.Windows.Forms.Button();
-            this.lblIdEntidad = new System.Windows.Forms.Label();
-            this.txtIdEntidad = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.btnBorrarEntidad = new System.Windows.Forms.Button();
+            this.txtIdEntidad = new System.Windows.Forms.TextBox();
+            this.lblIdEntidad = new System.Windows.Forms.Label();
+            this.btnGrabar = new System.Windows.Forms.Button();
+            this.cbRegimenEntidad = new System.Windows.Forms.ComboBox();
+            this.txtCodigoEntidad = new System.Windows.Forms.TextBox();
+            this.txtNombreEntidad = new System.Windows.Forms.TextBox();
+            this.lblRegimen = new System.Windows.Forms.Label();
+            this.lblCodigo = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button3 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.pnlRIPS.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -160,7 +162,7 @@
             // entidadesToolStripMenuItem
             // 
             this.entidadesToolStripMenuItem.Name = "entidadesToolStripMenuItem";
-            this.entidadesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.entidadesToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.entidadesToolStripMenuItem.Text = "Entidades";
             this.entidadesToolStripMenuItem.Click += new System.EventHandler(this.entidadesToolStripMenuItem_Click);
             // 
@@ -197,9 +199,9 @@
             this.pnlRIPS.Controls.Add(this.btnAP);
             this.pnlRIPS.Controls.Add(this.txtRuta);
             this.pnlRIPS.Controls.Add(this.btnRuta);
-            this.pnlRIPS.Location = new System.Drawing.Point(0, 27);
+            this.pnlRIPS.Location = new System.Drawing.Point(1, 27);
             this.pnlRIPS.Name = "pnlRIPS";
-            this.pnlRIPS.Size = new System.Drawing.Size(698, 359);
+            this.pnlRIPS.Size = new System.Drawing.Size(695, 359);
             this.pnlRIPS.TabIndex = 1;
             // 
             // chkBoxLonDoc
@@ -620,6 +622,8 @@
             // 
             // pnlEntidades
             // 
+            this.pnlEntidades.Controls.Add(this.button3);
+            this.pnlEntidades.Controls.Add(this.button2);
             this.pnlEntidades.Controls.Add(this.btnBorrarEntidad);
             this.pnlEntidades.Controls.Add(this.txtIdEntidad);
             this.pnlEntidades.Controls.Add(this.lblIdEntidad);
@@ -638,68 +642,52 @@
             this.pnlEntidades.TabIndex = 2;
             this.pnlEntidades.Visible = false;
             // 
-            // dataGridView1
+            // button2
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(223, 33);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(462, 150);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.button2.Location = new System.Drawing.Point(212, 229);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Reader";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label10
+            // btnBorrarEntidad
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(220, 14);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(68, 17);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Entidades";
+            this.btnBorrarEntidad.Location = new System.Drawing.Point(11, 260);
+            this.btnBorrarEntidad.Name = "btnBorrarEntidad";
+            this.btnBorrarEntidad.Size = new System.Drawing.Size(100, 23);
+            this.btnBorrarEntidad.TabIndex = 11;
+            this.btnBorrarEntidad.Text = "Borrar";
+            this.btnBorrarEntidad.UseVisualStyleBackColor = true;
+            this.btnBorrarEntidad.Click += new System.EventHandler(this.btnBorrarEntidad_Click);
             // 
-            // lblNombre
+            // txtIdEntidad
             // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(12, 63);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(83, 13);
-            this.lblNombre.TabIndex = 2;
-            this.lblNombre.Text = "Nombre Entidad";
+            this.txtIdEntidad.Enabled = false;
+            this.txtIdEntidad.Location = new System.Drawing.Point(11, 34);
+            this.txtIdEntidad.Name = "txtIdEntidad";
+            this.txtIdEntidad.Size = new System.Drawing.Size(100, 20);
+            this.txtIdEntidad.TabIndex = 10;
             // 
-            // lblCodigo
+            // lblIdEntidad
             // 
-            this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(12, 114);
-            this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(79, 13);
-            this.lblCodigo.TabIndex = 3;
-            this.lblCodigo.Text = "Código Entidad";
+            this.lblIdEntidad.AutoSize = true;
+            this.lblIdEntidad.Location = new System.Drawing.Point(12, 17);
+            this.lblIdEntidad.Name = "lblIdEntidad";
+            this.lblIdEntidad.Size = new System.Drawing.Size(16, 13);
+            this.lblIdEntidad.TabIndex = 9;
+            this.lblIdEntidad.Text = "Id";
             // 
-            // lblRegimen
+            // btnGrabar
             // 
-            this.lblRegimen.AutoSize = true;
-            this.lblRegimen.Location = new System.Drawing.Point(12, 164);
-            this.lblRegimen.Name = "lblRegimen";
-            this.lblRegimen.Size = new System.Drawing.Size(88, 13);
-            this.lblRegimen.TabIndex = 4;
-            this.lblRegimen.Text = "Régimen Entidad";
-            // 
-            // txtNombreEntidad
-            // 
-            this.txtNombreEntidad.Location = new System.Drawing.Point(11, 80);
-            this.txtNombreEntidad.Name = "txtNombreEntidad";
-            this.txtNombreEntidad.Size = new System.Drawing.Size(182, 20);
-            this.txtNombreEntidad.TabIndex = 5;
-            // 
-            // txtCodigoEntidad
-            // 
-            this.txtCodigoEntidad.Location = new System.Drawing.Point(11, 130);
-            this.txtCodigoEntidad.Name = "txtCodigoEntidad";
-            this.txtCodigoEntidad.Size = new System.Drawing.Size(100, 20);
-            this.txtCodigoEntidad.TabIndex = 6;
+            this.btnGrabar.Location = new System.Drawing.Point(11, 230);
+            this.btnGrabar.Name = "btnGrabar";
+            this.btnGrabar.Size = new System.Drawing.Size(100, 23);
+            this.btnGrabar.TabIndex = 8;
+            this.btnGrabar.Text = "Grabar";
+            this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // cbRegimenEntidad
             // 
@@ -715,42 +703,78 @@
             this.cbRegimenEntidad.Size = new System.Drawing.Size(100, 21);
             this.cbRegimenEntidad.TabIndex = 7;
             // 
-            // btnGrabar
+            // txtCodigoEntidad
             // 
-            this.btnGrabar.Location = new System.Drawing.Point(11, 230);
-            this.btnGrabar.Name = "btnGrabar";
-            this.btnGrabar.Size = new System.Drawing.Size(100, 23);
-            this.btnGrabar.TabIndex = 8;
-            this.btnGrabar.Text = "Grabar";
-            this.btnGrabar.UseVisualStyleBackColor = true;
-            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
+            this.txtCodigoEntidad.Location = new System.Drawing.Point(11, 130);
+            this.txtCodigoEntidad.Name = "txtCodigoEntidad";
+            this.txtCodigoEntidad.Size = new System.Drawing.Size(100, 20);
+            this.txtCodigoEntidad.TabIndex = 6;
             // 
-            // lblIdEntidad
+            // txtNombreEntidad
             // 
-            this.lblIdEntidad.AutoSize = true;
-            this.lblIdEntidad.Location = new System.Drawing.Point(12, 17);
-            this.lblIdEntidad.Name = "lblIdEntidad";
-            this.lblIdEntidad.Size = new System.Drawing.Size(16, 13);
-            this.lblIdEntidad.TabIndex = 9;
-            this.lblIdEntidad.Text = "Id";
+            this.txtNombreEntidad.Location = new System.Drawing.Point(11, 80);
+            this.txtNombreEntidad.Name = "txtNombreEntidad";
+            this.txtNombreEntidad.Size = new System.Drawing.Size(182, 20);
+            this.txtNombreEntidad.TabIndex = 5;
             // 
-            // txtIdEntidad
+            // lblRegimen
             // 
-            this.txtIdEntidad.Enabled = false;
-            this.txtIdEntidad.Location = new System.Drawing.Point(11, 34);
-            this.txtIdEntidad.Name = "txtIdEntidad";
-            this.txtIdEntidad.Size = new System.Drawing.Size(100, 20);
-            this.txtIdEntidad.TabIndex = 10;
+            this.lblRegimen.AutoSize = true;
+            this.lblRegimen.Location = new System.Drawing.Point(12, 164);
+            this.lblRegimen.Name = "lblRegimen";
+            this.lblRegimen.Size = new System.Drawing.Size(88, 13);
+            this.lblRegimen.TabIndex = 4;
+            this.lblRegimen.Text = "Régimen Entidad";
             // 
-            // btnBorrarEntidad
+            // lblCodigo
             // 
-            this.btnBorrarEntidad.Location = new System.Drawing.Point(11, 260);
-            this.btnBorrarEntidad.Name = "btnBorrarEntidad";
-            this.btnBorrarEntidad.Size = new System.Drawing.Size(100, 23);
-            this.btnBorrarEntidad.TabIndex = 11;
-            this.btnBorrarEntidad.Text = "Borrar";
-            this.btnBorrarEntidad.UseVisualStyleBackColor = true;
-            this.btnBorrarEntidad.Click += new System.EventHandler(this.btnBorrarEntidad_Click);
+            this.lblCodigo.AutoSize = true;
+            this.lblCodigo.Location = new System.Drawing.Point(12, 114);
+            this.lblCodigo.Name = "lblCodigo";
+            this.lblCodigo.Size = new System.Drawing.Size(79, 13);
+            this.lblCodigo.TabIndex = 3;
+            this.lblCodigo.Text = "Código Entidad";
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(12, 63);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(83, 13);
+            this.lblNombre.TabIndex = 2;
+            this.lblNombre.Text = "Nombre Entidad";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(220, 14);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(68, 17);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Entidades";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(223, 33);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(462, 150);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(321, 229);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
@@ -851,6 +875,8 @@
         private System.Windows.Forms.TextBox txtIdEntidad;
         private System.Windows.Forms.Label lblIdEntidad;
         private System.Windows.Forms.Button btnBorrarEntidad;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }
 

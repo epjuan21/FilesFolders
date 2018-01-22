@@ -70,6 +70,35 @@ namespace FilesFolders.Data
 
         }
 
+        public static string ExecuteReader(string sql)
+        {
+            SQLiteCommand cmd = new SQLiteCommand(sql, Connection);
+
+            SQLiteDataReader reader = cmd.ExecuteReader();
+
+            string result = string.Empty;
+
+            try
+            {
+                while (reader.Read())
+                {
+                    result = reader.GetString(0);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                reader.Close();
+
+            }
+            return result;
+
+        }
+
 
 
     }

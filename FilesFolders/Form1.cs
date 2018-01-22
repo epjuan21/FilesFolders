@@ -1251,5 +1251,23 @@ namespace FilesFolders
                 throw;
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string sql = "Select Regimen From Entidades Where Codigo = 'ESS091'";
+            
+            
+            string resultado = DataAccess.ExecuteReader(sql);
+
+            MessageBox.Show("Resultado: " + resultado);
+
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+
+        }
     }
 }
