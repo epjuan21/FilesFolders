@@ -182,6 +182,21 @@ namespace FilesFolders
                             {
                                 String[] split = line.Split(',');
 
+                                #region TipoUsuario
+                                // Tipo de Usuario - Posición 3
+                                if (split[3] == "8")
+                                {
+                                    string codigoEntidad = split[2];
+                                    string tipoUsuario = string.Empty;
+
+                                    tipoUsuario = CorregirTipoUsuario(codigoEntidad);
+
+                                    split[3] = tipoUsuario;
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                #endregion
+
                                 // Codigo Departamento y Municipio Archivo US - Posoción 6
                                 if (split[11] == "30" && split[12] == "530")
                                 {
@@ -1169,6 +1184,25 @@ namespace FilesFolders
             }
         }
 
+        public string CorregirTipoUsuario(String Entidad)
+        {
+            string tipoUsuario = string.Empty;
+            string sql = "Select Regimen From Entidades Where Codigo = '" + Entidad + "'";
+            string regimen = DataAccess.ExecuteReader(sql);
+
+
+            if (regimen == "SUBSIDIADO")
+            {
+                tipoUsuario = "2";
+            }
+            else if (regimen == "CONTRIBUTIVO")
+            {
+                tipoUsuario = "1";
+            }
+            return tipoUsuario;
+        }
+
+
         public void DataBind()
         {
             string sql = "Select Id, Nombre, Codigo, Regimen From Entidades";
@@ -1254,18 +1288,10 @@ namespace FilesFolders
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string sql = "Select Regimen From Entidades Where Codigo = 'ESS091'";
             
             
-            string resultado = DataAccess.ExecuteReader(sql);
+            
 
-            MessageBox.Show("Resultado: " + resultado);
-
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
 
 
         }

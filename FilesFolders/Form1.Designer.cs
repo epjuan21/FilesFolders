@@ -86,6 +86,7 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tltDocLong = new System.Windows.Forms.ToolTip(this.components);
             this.pnlEntidades = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnBorrarEntidad = new System.Windows.Forms.Button();
             this.txtIdEntidad = new System.Windows.Forms.TextBox();
@@ -99,7 +100,6 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button3 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.pnlRIPS.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -162,7 +162,7 @@
             // entidadesToolStripMenuItem
             // 
             this.entidadesToolStripMenuItem.Name = "entidadesToolStripMenuItem";
-            this.entidadesToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.entidadesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.entidadesToolStripMenuItem.Text = "Entidades";
             this.entidadesToolStripMenuItem.Click += new System.EventHandler(this.entidadesToolStripMenuItem_Click);
             // 
@@ -199,7 +199,7 @@
             this.pnlRIPS.Controls.Add(this.btnAP);
             this.pnlRIPS.Controls.Add(this.txtRuta);
             this.pnlRIPS.Controls.Add(this.btnRuta);
-            this.pnlRIPS.Location = new System.Drawing.Point(1, 27);
+            this.pnlRIPS.Location = new System.Drawing.Point(0, 27);
             this.pnlRIPS.Name = "pnlRIPS";
             this.pnlRIPS.Size = new System.Drawing.Size(695, 359);
             this.pnlRIPS.TabIndex = 1;
@@ -642,6 +642,15 @@
             this.pnlEntidades.TabIndex = 2;
             this.pnlEntidades.Visible = false;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(321, 229);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(212, 229);
@@ -765,16 +774,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(462, 150);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(321, 229);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
