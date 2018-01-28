@@ -27,8 +27,8 @@ namespace FilesFolders
         BackgroundWorker bgwAP;
         BackgroundWorker bgwAT;
         BackgroundWorker bgwAU;
-        BackgroundWorker bgwUS;
         BackgroundWorker bgwDOC;
+        CWork bgwUS = new CWork();
         #endregion
 
         #region FormLoad
@@ -63,9 +63,6 @@ namespace FilesFolders
             btnAU.Enabled = false;
 
             chkBoxLonDoc.Enabled = false;
-
- 
-
         }
         #endregion
 
@@ -149,15 +146,7 @@ namespace FilesFolders
         #region US
         private void btnUS_Click(object sender, EventArgs e)
         {
-            bgwUS = new BackgroundWorker();
-            bgwUS.WorkerReportsProgress = true;
-            bgwUS.WorkerSupportsCancellation = true;
-
-            bgwUS.DoWork += new DoWorkEventHandler(bgwUS_DoWork);
-            bgwUS.ProgressChanged += new ProgressChangedEventHandler(bgwUS_ProgressChanged);
-            bgwUS.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bgwUS_RunWorkerCompleted);
-
-            bgwUS.RunWorkerAsync();
+            bgwUS.ODoWorker(bgwUS_DoWork, bgwUS_ProgressChanged, bgwUS_RunWorkerCompleted);
         }
 
         private void bgwUS_DoWork(object sender, DoWorkEventArgs e)
@@ -197,6 +186,7 @@ namespace FilesFolders
                                 }
                                 #endregion
 
+                                #region Departamento y Municipio
                                 // Codigo Departamento y Municipio Archivo US - Posoción 6
                                 if (split[11] == "30" && split[12] == "530")
                                 {
@@ -219,6 +209,8 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                #endregion
+
                             }
 
                             lines.Add(line);
@@ -1201,7 +1193,6 @@ namespace FilesFolders
             }
             return tipoUsuario;
         }
-
 
         public void DataBind()
         {
