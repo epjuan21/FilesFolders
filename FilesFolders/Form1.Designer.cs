@@ -86,8 +86,6 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tltDocLong = new System.Windows.Forms.ToolTip(this.components);
             this.pnlEntidades = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.btnBorrarEntidad = new System.Windows.Forms.Button();
             this.txtIdEntidad = new System.Windows.Forms.TextBox();
             this.lblIdEntidad = new System.Windows.Forms.Label();
@@ -100,6 +98,10 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Regimen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.pnlRIPS.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -162,7 +164,7 @@
             // entidadesToolStripMenuItem
             // 
             this.entidadesToolStripMenuItem.Name = "entidadesToolStripMenuItem";
-            this.entidadesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.entidadesToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.entidadesToolStripMenuItem.Text = "Entidades";
             this.entidadesToolStripMenuItem.Click += new System.EventHandler(this.entidadesToolStripMenuItem_Click);
             // 
@@ -622,8 +624,6 @@
             // 
             // pnlEntidades
             // 
-            this.pnlEntidades.Controls.Add(this.button3);
-            this.pnlEntidades.Controls.Add(this.button2);
             this.pnlEntidades.Controls.Add(this.btnBorrarEntidad);
             this.pnlEntidades.Controls.Add(this.txtIdEntidad);
             this.pnlEntidades.Controls.Add(this.lblIdEntidad);
@@ -641,25 +641,6 @@
             this.pnlEntidades.Size = new System.Drawing.Size(697, 291);
             this.pnlEntidades.TabIndex = 2;
             this.pnlEntidades.Visible = false;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(321, 229);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(212, 229);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Reader";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnBorrarEntidad
             // 
@@ -769,11 +750,49 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.Nombre,
+            this.Codigo,
+            this.Regimen});
             this.dataGridView1.Location = new System.Drawing.Point(223, 33);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(462, 150);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // Id
+            // 
+            this.Id.FillWeight = 27.36041F;
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Nombre
+            // 
+            this.Nombre.FillWeight = 110F;
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Codigo
+            // 
+            this.Codigo.FillWeight = 54.72083F;
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Regimen
+            // 
+            this.Regimen.FillWeight = 54.72083F;
+            this.Regimen.HeaderText = "Regimen";
+            this.Regimen.Name = "Regimen";
+            this.Regimen.ReadOnly = true;
+            this.Regimen.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // Form1
             // 
@@ -874,8 +893,10 @@
         private System.Windows.Forms.TextBox txtIdEntidad;
         private System.Windows.Forms.Label lblIdEntidad;
         private System.Windows.Forms.Button btnBorrarEntidad;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Regimen;
     }
 }
 

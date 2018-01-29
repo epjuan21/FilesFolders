@@ -44,8 +44,7 @@ namespace FilesFolders
             lblTotalAM.Text = string.Empty;
             lblTotalAT.Text = string.Empty;
             lblTotalUS.Text = string.Empty;
-            lblStatusAU.Text = string.Empty;
-            lblStatusAP.Text = string.Empty;
+            lblTotalAU.Text = string.Empty;
 
             // Oculta Etiqueta de Progreso
             lblStatusUS.Visible = false;
@@ -64,6 +63,15 @@ namespace FilesFolders
             btnAU.Enabled = false;
 
             chkBoxLonDoc.Enabled = false;
+
+            string sql = "Select Id, TipoUsuario From TipoUsuario";
+            DataAccess.ExecuteSQL(sql);
+            DataTable dt = DataAccess.GetDataTable(sql);
+            cbRegimenEntidad.DataSource = dt;
+            cbRegimenEntidad.DisplayMember = "TipoUsuario";
+            cbRegimenEntidad.ValueMember = "id";
+
+            cbRegimenEntidad.DropDownStyle = ComboBoxStyle.DropDownList;
         }
         #endregion
 
@@ -76,7 +84,6 @@ namespace FilesFolders
         {
             pnlRIPS.Visible = true;
             pnlEntidades.Visible = false;
-
         }
 
         private void entidadesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -84,11 +91,9 @@ namespace FilesFolders
             pnlRIPS.Visible = false;
             pnlEntidades.Visible = true;
 
-            string sql = "Select Id, Nombre, Codigo, Regimen From Entidades";
-            DataAccess.ExecuteSQL(sql);
-            DataTable dt = DataAccess.GetDataTable(sql);
-            dataGridView1.DataSource = dt;
-
+            // Muestro datos en el DataGridView
+            DataBind();
+            
             // Inhabilitar Boton de Borrar Hasta que se Seleccione un Item
             btnBorrarEntidad.Enabled = false;
 
@@ -1139,17 +1144,15 @@ namespace FilesFolders
         public string CorregirTipoUsuario(String Entidad)
         {
             string tipoUsuario = string.Empty;
-            string sql = "Select Regimen From Entidades Where Codigo = '" + Entidad + "'";
+            string sql = "Select CodigoTipo From Entidades Where Codigo = '" + Entidad + "'";
             string regimen = DataAccess.ExecuteReader(sql);
 
-
-            if (regimen == "SUBSIDIADO")
+            for (int i = 1; i <= 5; i++)
             {
-                tipoUsuario = "2";
-            }
-            else if (regimen == "CONTRIBUTIVO")
-            {
-                tipoUsuario = "1";
+                if (i.ToString() == regimen)
+                {
+                    tipoUsuario = regimen;
+                }
             }
             return tipoUsuario;
         }
@@ -1159,7 +1162,15 @@ namespace FilesFolders
             string sql = "Select Id, Nombre, Codigo, Regimen From Entidades";
             DataAccess.ExecuteSQL(sql);
             DataTable dt = DataAccess.GetDataTable(sql);
-            dataGridView1.DataSource = dt;
+
+            foreach (DataRow row in dt.Rows)
+            {
+                int n = dataGridView1.Rows.Add();
+                dataGridView1.Rows[n].Cells["Id"].Value = row["Id"];
+                dataGridView1.Rows[n].Cells["Nombre"].Value = row["Nombre"];
+                dataGridView1.Rows[n].Cells["Codigo"].Value = row["Codigo"];
+                dataGridView1.Rows[n].Cells["Regimen"].Value = row["Regimen"];
+            }
         }
 
         private void btnGrabar_Click(object sender, EventArgs e)
@@ -1178,10 +1189,14 @@ namespace FilesFolders
                 {
                     if (txtIdEntidad.Text == "")
                     {
-                        string sql = "Insert Into Entidades Values(null,'" + txtNombreEntidad.Text + "','" + txtCodigoEntidad.Text + "', '" + cbRegimenEntidad.Text + "')";
+                        string sql = "Insert Into Entidades Values(null,'" + txtNombreEntidad.Text + "','" + txtCodigoEntidad.Text + "', '" + cbRegimenEntidad.Text + "', '" + cbRegimenEntidad.SelectedValue + "')";
                         DataAccess.ExecuteSQL(sql);
                         DataBind();
 
+                        txtIdEntidad.Text = string.Empty;
+                        txtNombreEntidad.Text = string.Empty;
+                        txtCodigoEntidad.Text = string.Empty;
+                        cbRegimenEntidad.Text = string.Empty;
                     }
 
                     else
@@ -1211,7 +1226,6 @@ namespace FilesFolders
                 cbRegimenEntidad.Text = rowupdate.Cells[3].Value.ToString();
                 btnGrabar.Text = "Actualizar";
                 btnBorrarEntidad.Enabled = true;
-
             }
         }
 
@@ -1227,6 +1241,15 @@ namespace FilesFolders
                     DataAccess.ExecuteSQL(sqldel);
                     MessageBox.Show("Entidad borrada");
                     DataBind();
+
+                    txtIdEntidad.Text = string.Empty;
+                    txtNombreEntidad.Text = string.Empty;
+                    txtCodigoEntidad.Text = string.Empty;
+                    cbRegimenEntidad.Text = string.Empty;
+
+                    btnGrabar.Text = "Grabar";
+
+
                 }
 
             }
@@ -1236,15 +1259,6 @@ namespace FilesFolders
                 throw;
             }
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            
-            
-            
-
-
-
-        }
     }
 }
+
