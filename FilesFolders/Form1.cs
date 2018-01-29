@@ -23,11 +23,12 @@ namespace FilesFolders
 
         #region Variables
         string dirPath;
-        BackgroundWorker bgwAC;
-        BackgroundWorker bgwAP;
-        BackgroundWorker bgwAT;
-        BackgroundWorker bgwAU;
-        BackgroundWorker bgwDOC;
+
+        CWork bgwAC = new CWork();
+        CWork bgwAP = new CWork();
+        CWork bgwAT = new CWork();
+        CWork bgwAU = new CWork();
+        CWork bgwDOC = new CWork();
         CWork bgwUS = new CWork();
         #endregion
 
@@ -250,15 +251,7 @@ namespace FilesFolders
         #region AC
         private void btnAC_Click(object sender, EventArgs e)
         {
-            bgwAC = new BackgroundWorker();
-            bgwAC.WorkerReportsProgress = true;
-            bgwAC.WorkerSupportsCancellation = true;
-
-            bgwAC.DoWork += new DoWorkEventHandler(bgwAC_DoWork);
-            bgwAC.ProgressChanged += new ProgressChangedEventHandler(bgwAC_ProgressChanged);
-            bgwAC.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bgwAC_RunWorkerCompleted);
-
-            bgwAC.RunWorkerAsync();
+            bgwAC.ODoWorker(bgwAC_DoWork, bgwAC_ProgressChanged, bgwAC_RunWorkerCompleted);
         }
 
         private void bgwAC_DoWork(object sender, DoWorkEventArgs e)
@@ -415,15 +408,7 @@ namespace FilesFolders
         #region AP
         private void btnAP_Click(object sender, EventArgs e)
         {
-            bgwAP = new BackgroundWorker();
-            bgwAP.WorkerReportsProgress = true;
-            bgwAP.WorkerSupportsCancellation = true;
-
-            bgwAP.DoWork += new DoWorkEventHandler(bgwAP_DoWork);
-            bgwAP.ProgressChanged += new ProgressChangedEventHandler(bgwAP_ProgressChanged);
-            bgwAP.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bgwAP_RunWorkerCompleted);
-
-            bgwAP.RunWorkerAsync();
+            bgwAP.ODoWorker(bgwAP_DoWork, bgwAP_ProgressChanged, bgwAP_RunWorkerCompleted);
         }
 
         private void bgwAP_DoWork(object sender, DoWorkEventArgs e)
@@ -800,7 +785,7 @@ namespace FilesFolders
             for (int i = 1; i <= contadorErrores; i++)
             {
                 bgwAP.ReportProgress(Convert.ToInt32(i * 100 / contadorErrores));
-                Thread.Sleep(100);
+                Thread.Sleep(50);
             }
         }
 
@@ -821,15 +806,7 @@ namespace FilesFolders
         #region AT
         private void btnAT_Click(object sender, EventArgs e)
         {
-            bgwAT = new BackgroundWorker();
-            bgwAT.WorkerReportsProgress = true;
-            bgwAT.WorkerSupportsCancellation = true;
-
-            bgwAT.DoWork += new DoWorkEventHandler(bgwAT_DoWork);
-            bgwAT.ProgressChanged += new ProgressChangedEventHandler(bgwAT_ProgressChanged);
-            bgwAT.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bgwAT_RunWorkerCompleted);
-
-            bgwAT.RunWorkerAsync();
+            bgwAT.ODoWorker(bgwAT_DoWork, bgwAT_ProgressChanged, bgwAT_RunWorkerCompleted);
         }
 
         private void bgwAT_DoWork(object sender, DoWorkEventArgs e)
@@ -912,15 +889,7 @@ namespace FilesFolders
         #region AU
         private void btnAU_Click(object sender, EventArgs e)
         {
-            bgwAU = new BackgroundWorker();
-            bgwAU.WorkerReportsProgress = true;
-            bgwAU.WorkerSupportsCancellation = true;
-
-            bgwAU.DoWork += new DoWorkEventHandler(bgwAU_DoWork);
-            bgwAU.ProgressChanged += new ProgressChangedEventHandler(bgwAU_ProgressChanged);
-            bgwAU.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bgwAU_RunWorkerCompleted);
-
-            bgwAU.RunWorkerAsync();
+            bgwAU.ODoWorker(bgwAU_DoWork, bgwAU_ProgressChanged, bgwAU_RunWorkerCompleted);
         }
 
         private void bgwAU_DoWork(object sender, DoWorkEventArgs e)
@@ -993,16 +962,7 @@ namespace FilesFolders
         #region Correción Documentos
         private void btnDoc_Click(object sender, EventArgs e)
         {
-            bgwDOC = new BackgroundWorker();
-            bgwDOC.WorkerReportsProgress = true;
-            bgwDOC.WorkerSupportsCancellation = true;
-
-            bgwDOC.DoWork += new DoWorkEventHandler(bgwDOC_DoWork);
-            bgwDOC.ProgressChanged += new ProgressChangedEventHandler(bgwDOC_ProgressChanged);
-            bgwDOC.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bgwDOC_RunWorkerCompleted);
-
-            bgwDOC.RunWorkerAsync();
-
+            bgwDOC.ODoWorker(bgwAU_DoWork, bgwAU_ProgressChanged, bgwAU_RunWorkerCompleted);
         }
 
         private void bgwDOC_DoWork(object sender, DoWorkEventArgs e)

@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace FilesFolders
 {
+    // Clase que inicializa el Objeto BackgrounWorker
     class CWorker
     {
-        public BackgroundWorker OWorker { get; set; }
+        protected BackgroundWorker OWorker { get; set; }
 
         public CWorker()
         {

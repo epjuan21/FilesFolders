@@ -7,17 +7,15 @@ using System.Threading.Tasks;
 
 namespace FilesFolders
 {
+    // Hereda de CWorker
     class CWork : CWorker
     {
         public void ODoWorker(DoWorkEventHandler DoWork, ProgressChangedEventHandler ProgressChanged, RunWorkerCompletedEventHandler RunWorkerCompleted)
         {
-
             OWorker.DoWork += new DoWorkEventHandler(DoWork);
             OWorker.ProgressChanged += new ProgressChangedEventHandler(ProgressChanged);
             OWorker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(RunWorkerCompleted);
             OWorker.RunWorkerAsync();
-
-
         }
 
         public void ReportProgress(int percentProgress)
