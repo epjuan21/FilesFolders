@@ -488,6 +488,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "906916")
+                                {
+                                    split[6] = "906915";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "995200")
                                 {
                                     split[6] = "993122";
@@ -635,6 +641,18 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "873411" && split[8] == "")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "873420" && split[8] == "")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "873431")
                                 {
                                     split[8] = "1";
@@ -701,7 +719,25 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "904509")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "906127")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "906249")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "906916")
                                 {
                                     split[8] = "1";
                                     line = String.Join(",", split);
