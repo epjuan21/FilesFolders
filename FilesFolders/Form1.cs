@@ -1159,6 +1159,15 @@ namespace FilesFolders
 
         public void DataBind()
         {
+            if (dataGridView1.DataSource != null)
+            {
+                dataGridView1.DataSource = null;
+            }
+            else
+            {
+                this.dataGridView1.Rows.Clear();
+            }
+
             string sql = "Select Id, Nombre, Codigo, Regimen From Entidades";
             DataAccess.ExecuteSQL(sql);
             DataTable dt = DataAccess.GetDataTable(sql);

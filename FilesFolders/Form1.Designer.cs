@@ -134,7 +134,7 @@
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -149,7 +149,7 @@
             // rIPSToolStripMenuItem
             // 
             this.rIPSToolStripMenuItem.Name = "rIPSToolStripMenuItem";
-            this.rIPSToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
+            this.rIPSToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.rIPSToolStripMenuItem.Text = "RIPS";
             this.rIPSToolStripMenuItem.Click += new System.EventHandler(this.rIPSToolStripMenuItem_Click);
             // 
@@ -164,7 +164,7 @@
             // entidadesToolStripMenuItem
             // 
             this.entidadesToolStripMenuItem.Name = "entidadesToolStripMenuItem";
-            this.entidadesToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.entidadesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.entidadesToolStripMenuItem.Text = "Entidades";
             this.entidadesToolStripMenuItem.Click += new System.EventHandler(this.entidadesToolStripMenuItem_Click);
             // 
