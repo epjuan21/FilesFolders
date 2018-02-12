@@ -134,7 +134,7 @@
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -149,7 +149,7 @@
             // rIPSToolStripMenuItem
             // 
             this.rIPSToolStripMenuItem.Name = "rIPSToolStripMenuItem";
-            this.rIPSToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rIPSToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
             this.rIPSToolStripMenuItem.Text = "RIPS";
             this.rIPSToolStripMenuItem.Click += new System.EventHandler(this.rIPSToolStripMenuItem_Click);
             // 
@@ -164,7 +164,7 @@
             // entidadesToolStripMenuItem
             // 
             this.entidadesToolStripMenuItem.Name = "entidadesToolStripMenuItem";
-            this.entidadesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.entidadesToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.entidadesToolStripMenuItem.Text = "Entidades";
             this.entidadesToolStripMenuItem.Click += new System.EventHandler(this.entidadesToolStripMenuItem_Click);
             // 
@@ -235,7 +235,7 @@
             // 
             // btnAU
             // 
-            this.btnAU.Image = global::FilesFolders.Properties.Resources.icons8_Play32_32;
+            this.btnAU.Image = ((System.Drawing.Image)(resources.GetObject("btnAU.Image")));
             this.btnAU.Location = new System.Drawing.Point(51, 213);
             this.btnAU.Name = "btnAU";
             this.btnAU.Size = new System.Drawing.Size(36, 23);
@@ -271,7 +271,7 @@
             // 
             // btnAT
             // 
-            this.btnAT.Image = global::FilesFolders.Properties.Resources.icons8_Play32_32;
+            this.btnAT.Image = ((System.Drawing.Image)(resources.GetObject("btnAT.Image")));
             this.btnAT.Location = new System.Drawing.Point(51, 184);
             this.btnAT.Name = "btnAT";
             this.btnAT.Size = new System.Drawing.Size(36, 23);
@@ -369,7 +369,7 @@
             // 
             // btnDoc
             // 
-            this.btnDoc.Image = global::FilesFolders.Properties.Resources.icons8_Play32_32;
+            this.btnDoc.Image = ((System.Drawing.Image)(resources.GetObject("btnDoc.Image")));
             this.btnDoc.Location = new System.Drawing.Point(51, 315);
             this.btnDoc.Name = "btnDoc";
             this.btnDoc.Size = new System.Drawing.Size(36, 23);
@@ -395,7 +395,7 @@
             // 
             // btnUS
             // 
-            this.btnUS.Image = global::FilesFolders.Properties.Resources.icons8_Play32_32;
+            this.btnUS.Image = ((System.Drawing.Image)(resources.GetObject("btnUS.Image")));
             this.btnUS.Location = new System.Drawing.Point(51, 97);
             this.btnUS.Name = "btnUS";
             this.btnUS.Size = new System.Drawing.Size(36, 23);
@@ -569,7 +569,7 @@
             // 
             // btnAC
             // 
-            this.btnAC.Image = global::FilesFolders.Properties.Resources.icons8_Play32_32;
+            this.btnAC.Image = ((System.Drawing.Image)(resources.GetObject("btnAC.Image")));
             this.btnAC.Location = new System.Drawing.Point(51, 126);
             this.btnAC.Name = "btnAC";
             this.btnAC.Size = new System.Drawing.Size(36, 23);
@@ -586,7 +586,7 @@
             // 
             // btnAP
             // 
-            this.btnAP.Image = global::FilesFolders.Properties.Resources.icons8_Play32_32;
+            this.btnAP.Image = ((System.Drawing.Image)(resources.GetObject("btnAP.Image")));
             this.btnAP.Location = new System.Drawing.Point(51, 155);
             this.btnAP.Name = "btnAP";
             this.btnAP.Size = new System.Drawing.Size(36, 23);
@@ -614,7 +614,7 @@
             // 
             // button1
             // 
-            this.button1.Image = global::FilesFolders.Properties.Resources.Shutdown_32px;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.Location = new System.Drawing.Point(640, 410);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(45, 40);

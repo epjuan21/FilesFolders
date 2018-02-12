@@ -1003,7 +1003,7 @@ namespace FilesFolders
         #region Correción Documentos
         private void btnDoc_Click(object sender, EventArgs e)
         {
-            bgwDOC.ODoWorker(bgwAU_DoWork, bgwAU_ProgressChanged, bgwAU_RunWorkerCompleted);
+            bgwDOC.ODoWorker(bgwDOC_DoWork, bgwDOC_ProgressChanged, bgwDOC_RunWorkerCompleted);
         }
 
         private void bgwDOC_DoWork(object sender, DoWorkEventArgs e)
