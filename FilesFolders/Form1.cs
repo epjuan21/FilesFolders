@@ -179,7 +179,7 @@ namespace FilesFolders
 
                                 #region TipoUsuario
                                 // Tipo de Usuario - Posición 3
-                                if (split[3] == "8")
+                                if (split[3] == "8" || split[3] == "6")
                                 {
                                     string codigoEntidad = split[2];
                                     string tipoUsuario = string.Empty;
@@ -190,6 +190,29 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                #endregion
+
+                                #region Apellidos y Nombres
+                                
+                                // Primer Apellido - Posición 4
+                                string primerApellido = split[4];
+                                split[4] = primerApellido.Trim();
+
+                                // Segundo Apellido - Posición 5
+                                string segundoApellido = split[5];
+                                split[5] = segundoApellido.Trim();
+
+                                // Primer Nombre - Posición 6
+                                string primerNombre = split[6];
+                                split[6] = primerNombre.Trim();
+
+                                // Segundo Nombre - Posición 7
+                                string segundoNombre = split[7];
+                                split[7] = segundoNombre.Trim();
+                                
+                                line = String.Join(",", split);
+                                contadorErrores++;
+
                                 #endregion
 
                                 #region Departamento y Municipio
@@ -372,6 +395,25 @@ namespace FilesFolders
                                 }
                                 #endregion
 
+                                #region Valor Cuota Moderadora
+                                // Valor de la cuota moderadora - Posición 15
+                                string valorCuota = split[15];
+
+                                // Valor consulta - Posición 14
+                                string valorConsulta = split[14];
+
+                                // Valor Neto - Posición 16
+                                string valorNeto = split[16];
+
+                                if (valorCuota != "0.00" && chkBoxValCm.CheckState == CheckState.Checked)
+                                {
+                                    split[16] = valorConsulta;
+                                    split[15] = "0.00";
+
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                #endregion
 
                             }
 
@@ -476,6 +518,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "873123")
+                                {
+                                    split[6] = "873122";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "873211")
                                 {
                                     split[6] = "873210";
@@ -575,6 +623,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "861201")
+                                {
+                                    split[8] = "2";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "865101")
                                 {
                                     split[8] = "1";
@@ -618,6 +672,18 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 if (split[6] == "873122")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "873204")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "873206")
                                 {
                                     split[8] = "1";
                                     line = String.Join(",", split);
@@ -677,7 +743,19 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "901104" && split[8] == "")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "901235" && split[8] == "")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "901304" && split[8] == "")
                                 {
                                     split[8] = "1";
                                     line = String.Join(",", split);

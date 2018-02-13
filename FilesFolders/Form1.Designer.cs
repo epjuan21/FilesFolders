@@ -102,6 +102,7 @@
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Regimen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chkBoxValCm = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.pnlRIPS.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -170,6 +171,7 @@
             // 
             // pnlRIPS
             // 
+            this.pnlRIPS.Controls.Add(this.chkBoxValCm);
             this.pnlRIPS.Controls.Add(this.chkBoxLonDoc);
             this.pnlRIPS.Controls.Add(this.lblStatusAU);
             this.pnlRIPS.Controls.Add(this.prgBarAU);
@@ -203,13 +205,13 @@
             this.pnlRIPS.Controls.Add(this.btnRuta);
             this.pnlRIPS.Location = new System.Drawing.Point(0, 27);
             this.pnlRIPS.Name = "pnlRIPS";
-            this.pnlRIPS.Size = new System.Drawing.Size(695, 359);
+            this.pnlRIPS.Size = new System.Drawing.Size(695, 377);
             this.pnlRIPS.TabIndex = 1;
             // 
             // chkBoxLonDoc
             // 
             this.chkBoxLonDoc.AutoSize = true;
-            this.chkBoxLonDoc.Location = new System.Drawing.Point(18, 288);
+            this.chkBoxLonDoc.Location = new System.Drawing.Point(18, 319);
             this.chkBoxLonDoc.Name = "chkBoxLonDoc";
             this.chkBoxLonDoc.Size = new System.Drawing.Size(232, 17);
             this.chkBoxLonDoc.TabIndex = 33;
@@ -220,7 +222,7 @@
             // lblStatusAU
             // 
             this.lblStatusAU.AutoSize = true;
-            this.lblStatusAU.Location = new System.Drawing.Point(433, 218);
+            this.lblStatusAU.Location = new System.Drawing.Point(433, 251);
             this.lblStatusAU.Name = "lblStatusAU";
             this.lblStatusAU.Size = new System.Drawing.Size(49, 13);
             this.lblStatusAU.TabIndex = 32;
@@ -228,7 +230,7 @@
             // 
             // prgBarAU
             // 
-            this.prgBarAU.Location = new System.Drawing.Point(96, 213);
+            this.prgBarAU.Location = new System.Drawing.Point(96, 246);
             this.prgBarAU.Name = "prgBarAU";
             this.prgBarAU.Size = new System.Drawing.Size(331, 23);
             this.prgBarAU.TabIndex = 31;
@@ -236,7 +238,7 @@
             // btnAU
             // 
             this.btnAU.Image = ((System.Drawing.Image)(resources.GetObject("btnAU.Image")));
-            this.btnAU.Location = new System.Drawing.Point(51, 213);
+            this.btnAU.Location = new System.Drawing.Point(51, 246);
             this.btnAU.Name = "btnAU";
             this.btnAU.Size = new System.Drawing.Size(36, 23);
             this.btnAU.TabIndex = 30;
@@ -247,7 +249,7 @@
             // 
             this.lblAU.AutoSize = true;
             this.lblAU.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAU.Location = new System.Drawing.Point(15, 218);
+            this.lblAU.Location = new System.Drawing.Point(15, 251);
             this.lblAU.Name = "lblAU";
             this.lblAU.Size = new System.Drawing.Size(24, 13);
             this.lblAU.TabIndex = 29;
@@ -256,7 +258,7 @@
             // lblStatusAT
             // 
             this.lblStatusAT.AutoSize = true;
-            this.lblStatusAT.Location = new System.Drawing.Point(433, 189);
+            this.lblStatusAT.Location = new System.Drawing.Point(433, 222);
             this.lblStatusAT.Name = "lblStatusAT";
             this.lblStatusAT.Size = new System.Drawing.Size(49, 13);
             this.lblStatusAT.TabIndex = 28;
@@ -264,7 +266,7 @@
             // 
             // prgBarAT
             // 
-            this.prgBarAT.Location = new System.Drawing.Point(96, 184);
+            this.prgBarAT.Location = new System.Drawing.Point(96, 217);
             this.prgBarAT.Name = "prgBarAT";
             this.prgBarAT.Size = new System.Drawing.Size(331, 23);
             this.prgBarAT.TabIndex = 27;
@@ -272,7 +274,7 @@
             // btnAT
             // 
             this.btnAT.Image = ((System.Drawing.Image)(resources.GetObject("btnAT.Image")));
-            this.btnAT.Location = new System.Drawing.Point(51, 184);
+            this.btnAT.Location = new System.Drawing.Point(51, 217);
             this.btnAT.Name = "btnAT";
             this.btnAT.Size = new System.Drawing.Size(36, 23);
             this.btnAT.TabIndex = 26;
@@ -283,7 +285,7 @@
             // 
             this.lblAT.AutoSize = true;
             this.lblAT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAT.Location = new System.Drawing.Point(15, 189);
+            this.lblAT.Location = new System.Drawing.Point(15, 222);
             this.lblAT.Name = "lblAT";
             this.lblAT.Size = new System.Drawing.Size(23, 13);
             this.lblAT.TabIndex = 25;
@@ -292,7 +294,7 @@
             // lblStatusDoc
             // 
             this.lblStatusDoc.AutoSize = true;
-            this.lblStatusDoc.Location = new System.Drawing.Point(433, 320);
+            this.lblStatusDoc.Location = new System.Drawing.Point(433, 351);
             this.lblStatusDoc.Name = "lblStatusDoc";
             this.lblStatusDoc.Size = new System.Drawing.Size(49, 13);
             this.lblStatusDoc.TabIndex = 24;
@@ -300,7 +302,7 @@
             // 
             // prgBarDoc
             // 
-            this.prgBarDoc.Location = new System.Drawing.Point(96, 315);
+            this.prgBarDoc.Location = new System.Drawing.Point(96, 346);
             this.prgBarDoc.Name = "prgBarDoc";
             this.prgBarDoc.Size = new System.Drawing.Size(331, 23);
             this.prgBarDoc.TabIndex = 23;
@@ -310,7 +312,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label9.Location = new System.Drawing.Point(14, 255);
+            this.label9.Location = new System.Drawing.Point(14, 286);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(173, 21);
             this.label9.TabIndex = 22;
@@ -320,7 +322,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(12, 320);
+            this.label8.Location = new System.Drawing.Point(12, 351);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(33, 13);
             this.label8.TabIndex = 21;
@@ -330,7 +332,7 @@
             // 
             this.lblAP.AutoSize = true;
             this.lblAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAP.Location = new System.Drawing.Point(14, 160);
+            this.lblAP.Location = new System.Drawing.Point(14, 193);
             this.lblAP.Name = "lblAP";
             this.lblAP.Size = new System.Drawing.Size(23, 13);
             this.lblAP.TabIndex = 20;
@@ -370,7 +372,7 @@
             // btnDoc
             // 
             this.btnDoc.Image = ((System.Drawing.Image)(resources.GetObject("btnDoc.Image")));
-            this.btnDoc.Location = new System.Drawing.Point(51, 315);
+            this.btnDoc.Location = new System.Drawing.Point(51, 346);
             this.btnDoc.Name = "btnDoc";
             this.btnDoc.Size = new System.Drawing.Size(36, 23);
             this.btnDoc.TabIndex = 16;
@@ -561,7 +563,7 @@
             // lblStatusAP
             // 
             this.lblStatusAP.AutoSize = true;
-            this.lblStatusAP.Location = new System.Drawing.Point(433, 159);
+            this.lblStatusAP.Location = new System.Drawing.Point(433, 192);
             this.lblStatusAP.Name = "lblStatusAP";
             this.lblStatusAP.Size = new System.Drawing.Size(49, 13);
             this.lblStatusAP.TabIndex = 7;
@@ -579,7 +581,7 @@
             // 
             // prgBarAP
             // 
-            this.prgBarAP.Location = new System.Drawing.Point(96, 155);
+            this.prgBarAP.Location = new System.Drawing.Point(96, 188);
             this.prgBarAP.Name = "prgBarAP";
             this.prgBarAP.Size = new System.Drawing.Size(331, 23);
             this.prgBarAP.TabIndex = 5;
@@ -587,7 +589,7 @@
             // btnAP
             // 
             this.btnAP.Image = ((System.Drawing.Image)(resources.GetObject("btnAP.Image")));
-            this.btnAP.Location = new System.Drawing.Point(51, 155);
+            this.btnAP.Location = new System.Drawing.Point(51, 188);
             this.btnAP.Name = "btnAP";
             this.btnAP.Size = new System.Drawing.Size(36, 23);
             this.btnAP.TabIndex = 4;
@@ -794,6 +796,16 @@
             this.Regimen.ReadOnly = true;
             this.Regimen.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
+            // chkBoxValCm
+            // 
+            this.chkBoxValCm.AutoSize = true;
+            this.chkBoxValCm.Location = new System.Drawing.Point(15, 160);
+            this.chkBoxValCm.Name = "chkBoxValCm";
+            this.chkBoxValCm.Size = new System.Drawing.Size(153, 17);
+            this.chkBoxValCm.TabIndex = 34;
+            this.chkBoxValCm.Text = "Corregir Cuota Moderadora";
+            this.chkBoxValCm.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -897,6 +909,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Regimen;
+        private System.Windows.Forms.CheckBox chkBoxValCm;
     }
 }
 
