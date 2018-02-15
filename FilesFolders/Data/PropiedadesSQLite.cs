@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
+using System.IO;
 
 namespace FilesFolders.Data
 {
-    class PropiedadesSQLite
+    public class PropiedadesSQLite
     {
-        public string ConnectionString { get; set; }
-        public SQLiteConnection Connection { get; set; }
+        public static string ConnectionString { get; set; }
 
     }
 }

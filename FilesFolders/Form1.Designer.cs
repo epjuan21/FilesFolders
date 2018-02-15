@@ -38,6 +38,7 @@
             this.parametrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlRIPS = new System.Windows.Forms.Panel();
+            this.chkBoxValCm = new System.Windows.Forms.CheckBox();
             this.chkBoxLonDoc = new System.Windows.Forms.CheckBox();
             this.lblStatusAU = new System.Windows.Forms.Label();
             this.prgBarAU = new System.Windows.Forms.ProgressBar();
@@ -102,12 +103,33 @@
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Regimen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chkBoxValCm = new System.Windows.Forms.CheckBox();
+            this.rIPSIndividualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.rIPSDataSet = new FilesFolders.RIPSDataSet();
+            this.entidadSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.entidadSetTableAdapter = new FilesFolders.RIPSDataSetTableAdapters.EntidadSetTableAdapter();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.regimenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pnlRIPSIndividual = new System.Windows.Forms.Panel();
+            this.btnRutaIndividual = new System.Windows.Forms.Button();
+            this.txtRutaIndividual = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             this.pnlRIPS.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.pnlEntidades.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rIPSDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.entidadSetBindingSource)).BeginInit();
+            this.pnlRIPSIndividual.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -118,7 +140,7 @@
             this.parametrosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(698, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(738, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -142,7 +164,8 @@
             // carpetasToolStripMenuItem
             // 
             this.carpetasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.rIPSToolStripMenuItem});
+            this.rIPSToolStripMenuItem,
+            this.rIPSIndividualToolStripMenuItem});
             this.carpetasToolStripMenuItem.Name = "carpetasToolStripMenuItem";
             this.carpetasToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.carpetasToolStripMenuItem.Text = "Edición";
@@ -150,8 +173,8 @@
             // rIPSToolStripMenuItem
             // 
             this.rIPSToolStripMenuItem.Name = "rIPSToolStripMenuItem";
-            this.rIPSToolStripMenuItem.Size = new System.Drawing.Size(97, 22);
-            this.rIPSToolStripMenuItem.Text = "RIPS";
+            this.rIPSToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rIPSToolStripMenuItem.Text = "RIPS Masivo";
             this.rIPSToolStripMenuItem.Click += new System.EventHandler(this.rIPSToolStripMenuItem_Click);
             // 
             // parametrosToolStripMenuItem
@@ -165,7 +188,7 @@
             // entidadesToolStripMenuItem
             // 
             this.entidadesToolStripMenuItem.Name = "entidadesToolStripMenuItem";
-            this.entidadesToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.entidadesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.entidadesToolStripMenuItem.Text = "Entidades";
             this.entidadesToolStripMenuItem.Click += new System.EventHandler(this.entidadesToolStripMenuItem_Click);
             // 
@@ -203,10 +226,20 @@
             this.pnlRIPS.Controls.Add(this.btnAP);
             this.pnlRIPS.Controls.Add(this.txtRuta);
             this.pnlRIPS.Controls.Add(this.btnRuta);
-            this.pnlRIPS.Location = new System.Drawing.Point(0, 27);
+            this.pnlRIPS.Location = new System.Drawing.Point(591, 72);
             this.pnlRIPS.Name = "pnlRIPS";
             this.pnlRIPS.Size = new System.Drawing.Size(695, 377);
             this.pnlRIPS.TabIndex = 1;
+            // 
+            // chkBoxValCm
+            // 
+            this.chkBoxValCm.AutoSize = true;
+            this.chkBoxValCm.Location = new System.Drawing.Point(15, 160);
+            this.chkBoxValCm.Name = "chkBoxValCm";
+            this.chkBoxValCm.Size = new System.Drawing.Size(153, 17);
+            this.chkBoxValCm.TabIndex = 34;
+            this.chkBoxValCm.Text = "Corregir Cuota Moderadora";
+            this.chkBoxValCm.UseVisualStyleBackColor = true;
             // 
             // chkBoxLonDoc
             // 
@@ -638,7 +671,7 @@
             this.pnlEntidades.Controls.Add(this.lblNombre);
             this.pnlEntidades.Controls.Add(this.label10);
             this.pnlEntidades.Controls.Add(this.dataGridView1);
-            this.pnlEntidades.Location = new System.Drawing.Point(0, 27);
+            this.pnlEntidades.Location = new System.Drawing.Point(640, 395);
             this.pnlEntidades.Name = "pnlEntidades";
             this.pnlEntidades.Size = new System.Drawing.Size(697, 291);
             this.pnlEntidades.TabIndex = 2;
@@ -796,21 +829,148 @@
             this.Regimen.ReadOnly = true;
             this.Regimen.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // chkBoxValCm
+            // rIPSIndividualToolStripMenuItem
             // 
-            this.chkBoxValCm.AutoSize = true;
-            this.chkBoxValCm.Location = new System.Drawing.Point(15, 160);
-            this.chkBoxValCm.Name = "chkBoxValCm";
-            this.chkBoxValCm.Size = new System.Drawing.Size(153, 17);
-            this.chkBoxValCm.TabIndex = 34;
-            this.chkBoxValCm.Text = "Corregir Cuota Moderadora";
-            this.chkBoxValCm.UseVisualStyleBackColor = true;
+            this.rIPSIndividualToolStripMenuItem.Name = "rIPSIndividualToolStripMenuItem";
+            this.rIPSIndividualToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rIPSIndividualToolStripMenuItem.Text = "RIPS Individual";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dataGridView2);
+            this.panel1.Location = new System.Drawing.Point(12, 301);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(458, 244);
+            this.panel1.TabIndex = 11;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AutoGenerateColumns = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nombreDataGridViewTextBoxColumn,
+            this.codigoDataGridViewTextBoxColumn,
+            this.regimenDataGridViewTextBoxColumn});
+            this.dataGridView2.DataSource = this.entidadSetBindingSource;
+            this.dataGridView2.Location = new System.Drawing.Point(25, 65);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.Size = new System.Drawing.Size(379, 150);
+            this.dataGridView2.TabIndex = 0;
+            // 
+            // rIPSDataSet
+            // 
+            this.rIPSDataSet.DataSetName = "RIPSDataSet";
+            this.rIPSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // entidadSetBindingSource
+            // 
+            this.entidadSetBindingSource.DataMember = "EntidadSet";
+            this.entidadSetBindingSource.DataSource = this.rIPSDataSet;
+            // 
+            // entidadSetTableAdapter
+            // 
+            this.entidadSetTableAdapter.ClearBeforeFill = true;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // codigoDataGridViewTextBoxColumn
+            // 
+            this.codigoDataGridViewTextBoxColumn.DataPropertyName = "Codigo";
+            this.codigoDataGridViewTextBoxColumn.HeaderText = "Codigo";
+            this.codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
+            this.codigoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // regimenDataGridViewTextBoxColumn
+            // 
+            this.regimenDataGridViewTextBoxColumn.DataPropertyName = "Regimen";
+            this.regimenDataGridViewTextBoxColumn.HeaderText = "Regimen";
+            this.regimenDataGridViewTextBoxColumn.Name = "regimenDataGridViewTextBoxColumn";
+            this.regimenDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pnlRIPSIndividual
+            // 
+            this.pnlRIPSIndividual.Controls.Add(this.groupBox2);
+            this.pnlRIPSIndividual.Controls.Add(this.label11);
+            this.pnlRIPSIndividual.Controls.Add(this.txtRutaIndividual);
+            this.pnlRIPSIndividual.Controls.Add(this.btnRutaIndividual);
+            this.pnlRIPSIndividual.Location = new System.Drawing.Point(0, 27);
+            this.pnlRIPSIndividual.Name = "pnlRIPSIndividual";
+            this.pnlRIPSIndividual.Size = new System.Drawing.Size(578, 222);
+            this.pnlRIPSIndividual.TabIndex = 12;
+            // 
+            // btnRutaIndividual
+            // 
+            this.btnRutaIndividual.Location = new System.Drawing.Point(12, 19);
+            this.btnRutaIndividual.Name = "btnRutaIndividual";
+            this.btnRutaIndividual.Size = new System.Drawing.Size(75, 23);
+            this.btnRutaIndividual.TabIndex = 0;
+            this.btnRutaIndividual.Text = "Ruta";
+            this.btnRutaIndividual.UseVisualStyleBackColor = true;
+            this.btnRutaIndividual.Click += new System.EventHandler(this.btnRutaIndividual_Click);
+            // 
+            // txtRutaIndividual
+            // 
+            this.txtRutaIndividual.Location = new System.Drawing.Point(93, 21);
+            this.txtRutaIndividual.Name = "txtRutaIndividual";
+            this.txtRutaIndividual.Size = new System.Drawing.Size(474, 20);
+            this.txtRutaIndividual.TabIndex = 1;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(34, 184);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(82, 13);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Lineas Archivos";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(20, 20);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(40, 25);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "US";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(66, 19);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(23, 25);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "#";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(12, 59);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(555, 100);
+            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Lineas";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(698, 462);
+            this.ClientSize = new System.Drawing.Size(738, 479);
+            this.Controls.Add(this.pnlRIPSIndividual);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlRIPS);
             this.Controls.Add(this.pnlEntidades);
             this.Controls.Add(this.menuStrip1);
@@ -830,6 +990,14 @@
             this.pnlEntidades.ResumeLayout(false);
             this.pnlEntidades.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rIPSDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.entidadSetBindingSource)).EndInit();
+            this.pnlRIPSIndividual.ResumeLayout(false);
+            this.pnlRIPSIndividual.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -910,6 +1078,22 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Regimen;
         private System.Windows.Forms.CheckBox chkBoxValCm;
+        private System.Windows.Forms.ToolStripMenuItem rIPSIndividualToolStripMenuItem;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private RIPSDataSet rIPSDataSet;
+        private System.Windows.Forms.BindingSource entidadSetBindingSource;
+        private RIPSDataSetTableAdapters.EntidadSetTableAdapter entidadSetTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn regimenDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Panel pnlRIPSIndividual;
+        private System.Windows.Forms.TextBox txtRutaIndividual;
+        private System.Windows.Forms.Button btnRutaIndividual;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
 

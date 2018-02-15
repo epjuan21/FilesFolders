@@ -35,8 +35,17 @@ namespace FilesFolders
         #region FormLoad
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'rIPSDataSet.EntidadSet' Puede moverla o quitarla según sea necesario.
+            this.entidadSetTableAdapter.Fill(this.rIPSDataSet.EntidadSet);
+
+            using (RIPSModelContainer conexion = new RIPSModelContainer())
+            {
+                this.dataGridView2.DataSource = conexion.EntidadSet.ToList();
+            }
+            
             // Cuando carga el Formulario se oculta el Panel1
             pnlRIPS.Visible = false;
+            panel1.Visible = false;
 
             // Ocultar Valores Totales de Archivos
             lblTotalAC.Text = string.Empty;
@@ -72,6 +81,7 @@ namespace FilesFolders
             cbRegimenEntidad.ValueMember = "id";
 
             cbRegimenEntidad.DropDownStyle = ComboBoxStyle.DropDownList;
+
         }
         #endregion
 
@@ -83,7 +93,9 @@ namespace FilesFolders
         private void rIPSToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlRIPS.Visible = true;
+            pnlRIPS.Location = new Point(0,27);
             pnlEntidades.Visible = false;
+            panel1.Visible = false;
         }
 
         private void entidadesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -100,7 +112,7 @@ namespace FilesFolders
         }
         #endregion
 
-        #region Ruta
+        #region Ruta Cargue Masivo
         // Seleccionamos la Carpeta donde se ecuentran los RIPS
         private void button1_Click(object sender, EventArgs e)
         {
@@ -148,6 +160,41 @@ namespace FilesFolders
             }
         }
         #endregion
+
+        #region Ruta Cargue Individual
+        private void btnRutaIndividual_Click(object sender, EventArgs e)
+        {
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                txtRutaIndividual.Text = folderBrowserDialog1.SelectedPath;
+
+                // Se guarda la ruta de la Carpeta en la variable dirPath
+                dirPath = folderBrowserDialog1.SelectedPath;
+
+                DirectoryInfo di = new DirectoryInfo(dirPath);
+
+                foreach (var fi in di.GetFiles("*US*", SearchOption.TopDirectoryOnly))
+                {
+                    String path = fi.FullName;
+                    List<String> lines = new List<String>();
+
+                    if (File.Exists(path))
+                    {
+                        using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("Windows-1252")))
+                        {
+                            string LineasUS = File.ReadAllLines(path).Length.ToString();
+
+                            label13.Text = LineasUS;
+
+                        }
+                    }
+                }
+
+
+            }
+        }
+        #endregion
+
 
         #region US
         private void btnUS_Click(object sender, EventArgs e)
@@ -1382,6 +1429,7 @@ namespace FilesFolders
                 throw;
             }
         }
+
     }
 }
 

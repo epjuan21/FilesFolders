@@ -5,14 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
 using System.Data;
+using System.IO;
 
 namespace FilesFolders.Data
 {
     class DataAccess
     {
+        static string CurrentDirectory = Directory.GetCurrentDirectory();
+        static string Parent = Directory.GetParent(Directory.GetCurrentDirectory()).ToString();
 
-        static string _ConnectionString = "DataSource=RIPSDB.db";
+        //static string _ConnectionString = "DataSource=RIPSDB.db";
+        static string _ConnectionString = "DataSource="+ CurrentDirectory + "\\RIPSDB.db";
 
+        PropiedadesSQLite Rut = new PropiedadesSQLite();
+        
         static SQLiteConnection _Connection = null;
 
         public static SQLiteConnection Connection
@@ -67,7 +73,6 @@ namespace FilesFolders.Data
         {
             SQLiteCommand cmd = new SQLiteCommand(sql, Connection);
             return cmd.ExecuteNonQuery();
-
         }
 
         public static string ExecuteReader(string sql)
