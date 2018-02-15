@@ -23,11 +23,5 @@ namespace FilesFolders.ManejoArchivos
             get { return Directory; }
             set { Directory = value; }
         }
-
-        public CVariables()
-        {
-            Directory = new DirectoryInfo(ReturnPath);
-        }
-
     }
 }

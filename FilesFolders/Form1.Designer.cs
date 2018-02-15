@@ -35,6 +35,7 @@
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.carpetasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rIPSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rIPSIndividualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.parametrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlRIPS = new System.Windows.Forms.Panel();
@@ -103,22 +104,21 @@
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Regimen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rIPSIndividualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.rIPSDataSet = new FilesFolders.RIPSDataSet();
-            this.entidadSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.entidadSetTableAdapter = new FilesFolders.RIPSDataSetTableAdapters.EntidadSetTableAdapter();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.regimenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.entidadSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.rIPSDataSet = new FilesFolders.RIPSDataSet();
+            this.entidadSetTableAdapter = new FilesFolders.RIPSDataSetTableAdapters.EntidadSetTableAdapter();
             this.pnlRIPSIndividual = new System.Windows.Forms.Panel();
-            this.btnRutaIndividual = new System.Windows.Forms.Button();
-            this.txtRutaIndividual = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtRutaIndividual = new System.Windows.Forms.TextBox();
+            this.btnRutaIndividual = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.pnlRIPS.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -126,8 +126,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rIPSDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.entidadSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rIPSDataSet)).BeginInit();
             this.pnlRIPSIndividual.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -177,6 +177,13 @@
             this.rIPSToolStripMenuItem.Text = "RIPS Masivo";
             this.rIPSToolStripMenuItem.Click += new System.EventHandler(this.rIPSToolStripMenuItem_Click);
             // 
+            // rIPSIndividualToolStripMenuItem
+            // 
+            this.rIPSIndividualToolStripMenuItem.Name = "rIPSIndividualToolStripMenuItem";
+            this.rIPSIndividualToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rIPSIndividualToolStripMenuItem.Text = "RIPS Individual";
+            this.rIPSIndividualToolStripMenuItem.Click += new System.EventHandler(this.rIPSIndividualToolStripMenuItem_Click);
+            // 
             // parametrosToolStripMenuItem
             // 
             this.parametrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -188,7 +195,7 @@
             // entidadesToolStripMenuItem
             // 
             this.entidadesToolStripMenuItem.Name = "entidadesToolStripMenuItem";
-            this.entidadesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.entidadesToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.entidadesToolStripMenuItem.Text = "Entidades";
             this.entidadesToolStripMenuItem.Click += new System.EventHandler(this.entidadesToolStripMenuItem_Click);
             // 
@@ -829,16 +836,10 @@
             this.Regimen.ReadOnly = true;
             this.Regimen.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // rIPSIndividualToolStripMenuItem
-            // 
-            this.rIPSIndividualToolStripMenuItem.Name = "rIPSIndividualToolStripMenuItem";
-            this.rIPSIndividualToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.rIPSIndividualToolStripMenuItem.Text = "RIPS Individual";
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.dataGridView2);
-            this.panel1.Location = new System.Drawing.Point(12, 301);
+            this.panel1.Location = new System.Drawing.Point(23, 294);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(458, 244);
             this.panel1.TabIndex = 11;
@@ -858,20 +859,6 @@
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.Size = new System.Drawing.Size(379, 150);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // rIPSDataSet
-            // 
-            this.rIPSDataSet.DataSetName = "RIPSDataSet";
-            this.rIPSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // entidadSetBindingSource
-            // 
-            this.entidadSetBindingSource.DataMember = "EntidadSet";
-            this.entidadSetBindingSource.DataSource = this.rIPSDataSet;
-            // 
-            // entidadSetTableAdapter
-            // 
-            this.entidadSetTableAdapter.ClearBeforeFill = true;
             // 
             // nombreDataGridViewTextBoxColumn
             // 
@@ -894,6 +881,20 @@
             this.regimenDataGridViewTextBoxColumn.Name = "regimenDataGridViewTextBoxColumn";
             this.regimenDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // entidadSetBindingSource
+            // 
+            this.entidadSetBindingSource.DataMember = "EntidadSet";
+            this.entidadSetBindingSource.DataSource = this.rIPSDataSet;
+            // 
+            // rIPSDataSet
+            // 
+            this.rIPSDataSet.DataSetName = "RIPSDataSet";
+            this.rIPSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // entidadSetTableAdapter
+            // 
+            this.entidadSetTableAdapter.ClearBeforeFill = true;
+            // 
             // pnlRIPSIndividual
             // 
             this.pnlRIPSIndividual.Controls.Add(this.groupBox2);
@@ -904,53 +905,6 @@
             this.pnlRIPSIndividual.Name = "pnlRIPSIndividual";
             this.pnlRIPSIndividual.Size = new System.Drawing.Size(578, 222);
             this.pnlRIPSIndividual.TabIndex = 12;
-            // 
-            // btnRutaIndividual
-            // 
-            this.btnRutaIndividual.Location = new System.Drawing.Point(12, 19);
-            this.btnRutaIndividual.Name = "btnRutaIndividual";
-            this.btnRutaIndividual.Size = new System.Drawing.Size(75, 23);
-            this.btnRutaIndividual.TabIndex = 0;
-            this.btnRutaIndividual.Text = "Ruta";
-            this.btnRutaIndividual.UseVisualStyleBackColor = true;
-            this.btnRutaIndividual.Click += new System.EventHandler(this.btnRutaIndividual_Click);
-            // 
-            // txtRutaIndividual
-            // 
-            this.txtRutaIndividual.Location = new System.Drawing.Point(93, 21);
-            this.txtRutaIndividual.Name = "txtRutaIndividual";
-            this.txtRutaIndividual.Size = new System.Drawing.Size(474, 20);
-            this.txtRutaIndividual.TabIndex = 1;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(34, 184);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(82, 13);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "Lineas Archivos";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(20, 20);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(40, 25);
-            this.label12.TabIndex = 3;
-            this.label12.Text = "US";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(66, 19);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(23, 25);
-            this.label13.TabIndex = 4;
-            this.label13.Text = "#";
             // 
             // groupBox2
             // 
@@ -963,6 +917,53 @@
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Lineas";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(66, 19);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(23, 25);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "#";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(20, 20);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(40, 25);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "US";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(34, 184);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(82, 13);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Lineas Archivos";
+            // 
+            // txtRutaIndividual
+            // 
+            this.txtRutaIndividual.Location = new System.Drawing.Point(93, 21);
+            this.txtRutaIndividual.Name = "txtRutaIndividual";
+            this.txtRutaIndividual.Size = new System.Drawing.Size(474, 20);
+            this.txtRutaIndividual.TabIndex = 1;
+            // 
+            // btnRutaIndividual
+            // 
+            this.btnRutaIndividual.Location = new System.Drawing.Point(12, 19);
+            this.btnRutaIndividual.Name = "btnRutaIndividual";
+            this.btnRutaIndividual.Size = new System.Drawing.Size(75, 23);
+            this.btnRutaIndividual.TabIndex = 0;
+            this.btnRutaIndividual.Text = "Ruta";
+            this.btnRutaIndividual.UseVisualStyleBackColor = true;
+            this.btnRutaIndividual.Click += new System.EventHandler(this.btnRutaIndividual_Click);
             // 
             // Form1
             // 
@@ -979,6 +980,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Corrección RIPS";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -992,8 +994,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rIPSDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.entidadSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rIPSDataSet)).EndInit();
             this.pnlRIPSIndividual.ResumeLayout(false);
             this.pnlRIPSIndividual.PerformLayout();
             this.groupBox2.ResumeLayout(false);

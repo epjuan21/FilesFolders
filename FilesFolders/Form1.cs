@@ -11,6 +11,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Globalization;
 using FilesFolders.Data;
+using FilesFolders.ManejoArchivos;
 
 namespace FilesFolders
 {
@@ -36,16 +37,17 @@ namespace FilesFolders
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'rIPSDataSet.EntidadSet' Puede moverla o quitarla según sea necesario.
-            this.entidadSetTableAdapter.Fill(this.rIPSDataSet.EntidadSet);
+            //this.entidadSetTableAdapter.Fill(this.rIPSDataSet.EntidadSet);
 
-            using (RIPSModelContainer conexion = new RIPSModelContainer())
-            {
-                this.dataGridView2.DataSource = conexion.EntidadSet.ToList();
-            }
+            //using (RIPSModelContainer conexion = new RIPSModelContainer())
+            //{
+            //    this.dataGridView2.DataSource = conexion.EntidadSet.ToList();
+            //}
             
             // Cuando carga el Formulario se oculta el Panel1
             pnlRIPS.Visible = false;
             panel1.Visible = false;
+            pnlRIPSIndividual.Visible = false;
 
             // Ocultar Valores Totales de Archivos
             lblTotalAC.Text = string.Empty;
@@ -96,6 +98,14 @@ namespace FilesFolders
             pnlRIPS.Location = new Point(0,27);
             pnlEntidades.Visible = false;
             panel1.Visible = false;
+        }
+
+        private void rIPSIndividualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pnlRIPSIndividual.Visible = true;
+            pnlRIPSIndividual.Location = new Point(0, 27);
+            pnlEntidades.Visible = false;
+            pnlRIPS.Visible = false;
         }
 
         private void entidadesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -180,11 +190,16 @@ namespace FilesFolders
 
                     if (File.Exists(path))
                     {
+
+                        CArchivos cArchivos = new CArchivos();
+
+                        cArchivos.ContarLineas(path);
+
                         using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("Windows-1252")))
                         {
                             string LineasUS = File.ReadAllLines(path).Length.ToString();
 
-                            label13.Text = LineasUS;
+                            label13.Text = cArchivos.ContarLineas(path); ;
 
                         }
                     }
@@ -742,6 +757,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "873312" && split[8] == "")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "873313" && split[8] == "")
                                 {
                                     split[8] = "1";
@@ -755,6 +776,12 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 if (split[6] == "873411" && split[8] == "")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "873412" && split[8] == "")
                                 {
                                     split[8] = "1";
                                     line = String.Join(",", split);
@@ -820,6 +847,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "903809")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "903825")
                                 {
                                     split[8] = "1";
@@ -857,6 +890,18 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 if (split[6] == "906249")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "906317")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "906915")
                                 {
                                     split[8] = "1";
                                     line = String.Join(",", split);
@@ -1429,7 +1474,6 @@ namespace FilesFolders
                 throw;
             }
         }
-
     }
 }
 
