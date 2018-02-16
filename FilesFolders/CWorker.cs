@@ -14,9 +14,11 @@ namespace FilesFolders
 
         public CWorker()
         {
-            OWorker = new BackgroundWorker();
-            OWorker.WorkerReportsProgress = true;
-            OWorker.WorkerSupportsCancellation = true;
+            OWorker = new BackgroundWorker
+            {
+                WorkerReportsProgress = true,
+                WorkerSupportsCancellation = true
+            };
         }
     }
 }

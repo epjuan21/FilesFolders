@@ -31,6 +31,8 @@ namespace FilesFolders
         CWork bgwAU = new CWork();
         CWork bgwDOC = new CWork();
         CWork bgwUS = new CWork();
+
+        CArchivos cArchivos = new CArchivos();
         #endregion
 
         #region FormLoad
@@ -97,6 +99,7 @@ namespace FilesFolders
             pnlRIPS.Visible = true;
             pnlRIPS.Location = new Point(0,27);
             pnlEntidades.Visible = false;
+            pnlRIPSIndividual.Visible = false;
             panel1.Visible = false;
         }
 
@@ -181,29 +184,14 @@ namespace FilesFolders
                 // Se guarda la ruta de la Carpeta en la variable dirPath
                 dirPath = folderBrowserDialog1.SelectedPath;
 
-                DirectoryInfo di = new DirectoryInfo(dirPath);
-
-                foreach (var fi in di.GetFiles("*US*", SearchOption.TopDirectoryOnly))
-                {
-                    String path = fi.FullName;
-                    List<String> lines = new List<String>();
-
-                    if (File.Exists(path))
-                    {
-
-                        CArchivos cArchivos = new CArchivos();
-
-                        cArchivos.ContarLineas(path);
-
-                        using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("Windows-1252")))
-                        {
-                            string LineasUS = File.ReadAllLines(path).Length.ToString();
-
-                            label13.Text = cArchivos.ContarLineas(path); ;
-
-                        }
-                    }
-                }
+                lblLineasUS.Text = cArchivos.Lineas(dirPath, "*US*");
+                lblLineasAC.Text = cArchivos.Lineas(dirPath, "*AC*");
+                lblLineasAH.Text = cArchivos.Lineas(dirPath, "*AH*");
+                lblLineasAP.Text = cArchivos.Lineas(dirPath, "*AP*");
+                lblLineasAM.Text = cArchivos.Lineas(dirPath, "*AM*");
+                lblLineasAN.Text = cArchivos.Lineas(dirPath, "*AN*");
+                lblLineasAT.Text = cArchivos.Lineas(dirPath, "*AT*");
+                lblLineasAU.Text = cArchivos.Lineas(dirPath, "*AU*");
 
 
             }
