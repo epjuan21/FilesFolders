@@ -33,6 +33,7 @@ namespace FilesFolders
         CWork bgwUS = new CWork();
 
         CArchivos cArchivos = new CArchivos();
+        CArchivos oAC = new CArchivos();
         #endregion
 
         #region FormLoad
@@ -185,7 +186,7 @@ namespace FilesFolders
                 dirPath = folderBrowserDialog1.SelectedPath;
 
                 lblLineasUS.Text = cArchivos.Lineas(dirPath, "*US*");
-                lblLineasAC.Text = cArchivos.Lineas(dirPath, "*AC*");
+                lblLineasAC.Text = oAC.Lineas(dirPath, "*AC*");
                 lblLineasAH.Text = cArchivos.Lineas(dirPath, "*AH*");
                 lblLineasAP.Text = cArchivos.Lineas(dirPath, "*AP*");
                 lblLineasAM.Text = cArchivos.Lineas(dirPath, "*AM*");
