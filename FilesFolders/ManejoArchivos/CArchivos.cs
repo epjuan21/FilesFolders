@@ -8,10 +8,18 @@ using System.Windows.Forms;
 
 namespace FilesFolders.ManejoArchivos
 {
-    class CArchivos: CVariables
+    class CArchivos
     {
+
         private string NumeroLineas;
-        private DirectoryInfo directory;             
+        private DirectoryInfo directory;
+
+        public CArchivos()
+        {
+            NumeroLineas = "0";
+        }
+
+
 
 
         /// <summary>
@@ -31,6 +39,7 @@ namespace FilesFolders.ManejoArchivos
             else
             {
                 MessageBox.Show("Archivo no Existe");
+                return NumeroLineas = "0";
             }
 
             return NumeroLineas;
@@ -46,7 +55,7 @@ namespace FilesFolders.ManejoArchivos
         {
             directory = new DirectoryInfo(directoryPath);
 
-            List<string> files = new List<string>();    
+            List<string> files = new List<string>();
 
             foreach (var file in directory.GetFiles(searchPattern, SearchOption.TopDirectoryOnly))
             {
@@ -58,19 +67,28 @@ namespace FilesFolders.ManejoArchivos
 
             return files;
         }
-        
+
         public string Lineas(string directoryPath, string searchPattern)
         {
             directory = new DirectoryInfo(directoryPath);
 
             foreach (var item in directory.GetFiles(searchPattern))
             {
-                String nameFile = item.FullName;
-                string NumeroLineas = ContarLineas(nameFile);
+                if (item == null)
+                {
+                    NumeroLineas = "0";
+                }
+                else
+                {
+                    String nameFile = item.FullName;
+                    NumeroLineas = ContarLineas(nameFile);
+                }
+
             }
 
             return NumeroLineas;
         }
+
 
     }
 }
