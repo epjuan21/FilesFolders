@@ -185,14 +185,14 @@ namespace FilesFolders
                 // Se guarda la ruta de la Carpeta en la variable dirPath
                 dirPath = folderBrowserDialog1.SelectedPath;
 
-                lblLineasUS.Text = cArchivos.Lineas(dirPath, "*US*");
-                lblLineasAC.Text = cArchivos.Lineas(dirPath, "*AC*");
-                lblLineasAH.Text = cArchivos.Lineas(dirPath, "*AH*");
-                lblLineasAP.Text = cArchivos.Lineas(dirPath, "*AP*");
-                lblLineasAM.Text = cArchivos.Lineas(dirPath, "*AM*");
-                lblLineasAN.Text = cArchivos.Lineas(dirPath, "*AN*");
-                lblLineasAT.Text = cArchivos.Lineas(dirPath, "*AT*");
-                lblLineasAU.Text = cArchivos.Lineas(dirPath, "*AU*");
+                //lblLineasUS.Text = cArchivos.Lineas(dirPath, "*US*");
+                //lblLineasAC.Text = cArchivos.Lineas(dirPath, "*AC*");
+                //lblLineasAH.Text = cArchivos.Lineas(dirPath, "*AH*");
+                //lblLineasAP.Text = cArchivos.Lineas(dirPath, "*AP*");
+                //lblLineasAM.Text = cArchivos.Lineas(dirPath, "*AM*");
+                //lblLineasAN.Text = cArchivos.Lineas(dirPath, "*AN*");
+                //lblLineasAT.Text = cArchivos.Lineas(dirPath, "*AT*");
+                //lblLineasAU.Text = cArchivos.Lineas(dirPath, "*AU*");
 
 
             }
