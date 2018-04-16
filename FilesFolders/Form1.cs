@@ -124,6 +124,16 @@ namespace FilesFolders
             btnBorrarEntidad.Enabled = false;
 
         }
+
+        private void rIPSCarpetasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pnlRIPSCarpetas.Visible = true;
+            pnlRIPSCarpetas.Location = new Point(0, 27);
+            pnlEntidades.Visible = false;
+            pnlRIPSIndividual.Visible = false;
+            pnlRIPS.Visible = false;
+        }
+
         #endregion
 
         #region Ruta Cargue Masivo

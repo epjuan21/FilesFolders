@@ -135,6 +135,11 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txtRutaIndividual = new System.Windows.Forms.TextBox();
             this.btnRutaIndividual = new System.Windows.Forms.Button();
+            this.rIPSCarpetasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnlRIPSCarpetas = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.btnRutaCarpeta = new System.Windows.Forms.Button();
+            this.txtRutaCarpeta = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.pnlRIPS.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -146,6 +151,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.rIPSDataSet)).BeginInit();
             this.pnlRIPSIndividual.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.pnlRIPSCarpetas.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -173,7 +179,7 @@
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -181,7 +187,8 @@
             // 
             this.carpetasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rIPSToolStripMenuItem,
-            this.rIPSIndividualToolStripMenuItem});
+            this.rIPSIndividualToolStripMenuItem,
+            this.rIPSCarpetasToolStripMenuItem});
             this.carpetasToolStripMenuItem.Name = "carpetasToolStripMenuItem";
             this.carpetasToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.carpetasToolStripMenuItem.Text = "Edición";
@@ -189,14 +196,14 @@
             // rIPSToolStripMenuItem
             // 
             this.rIPSToolStripMenuItem.Name = "rIPSToolStripMenuItem";
-            this.rIPSToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rIPSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.rIPSToolStripMenuItem.Text = "RIPS Masivo";
             this.rIPSToolStripMenuItem.Click += new System.EventHandler(this.rIPSToolStripMenuItem_Click);
             // 
             // rIPSIndividualToolStripMenuItem
             // 
             this.rIPSIndividualToolStripMenuItem.Name = "rIPSIndividualToolStripMenuItem";
-            this.rIPSIndividualToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rIPSIndividualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.rIPSIndividualToolStripMenuItem.Text = "RIPS Individual";
             this.rIPSIndividualToolStripMenuItem.Click += new System.EventHandler(this.rIPSIndividualToolStripMenuItem_Click);
             // 
@@ -211,7 +218,7 @@
             // entidadesToolStripMenuItem
             // 
             this.entidadesToolStripMenuItem.Name = "entidadesToolStripMenuItem";
-            this.entidadesToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.entidadesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.entidadesToolStripMenuItem.Text = "Entidades";
             this.entidadesToolStripMenuItem.Click += new System.EventHandler(this.entidadesToolStripMenuItem_Click);
             // 
@@ -249,7 +256,7 @@
             this.pnlRIPS.Controls.Add(this.btnAP);
             this.pnlRIPS.Controls.Add(this.txtRuta);
             this.pnlRIPS.Controls.Add(this.btnRuta);
-            this.pnlRIPS.Location = new System.Drawing.Point(661, 169);
+            this.pnlRIPS.Location = new System.Drawing.Point(679, 260);
             this.pnlRIPS.Name = "pnlRIPS";
             this.pnlRIPS.Size = new System.Drawing.Size(695, 377);
             this.pnlRIPS.TabIndex = 1;
@@ -919,7 +926,7 @@
             this.pnlRIPSIndividual.Controls.Add(this.label11);
             this.pnlRIPSIndividual.Controls.Add(this.txtRutaIndividual);
             this.pnlRIPSIndividual.Controls.Add(this.btnRutaIndividual);
-            this.pnlRIPSIndividual.Location = new System.Drawing.Point(0, 27);
+            this.pnlRIPSIndividual.Location = new System.Drawing.Point(177, 211);
             this.pnlRIPSIndividual.Name = "pnlRIPSIndividual";
             this.pnlRIPSIndividual.Size = new System.Drawing.Size(655, 261);
             this.pnlRIPSIndividual.TabIndex = 12;
@@ -1172,11 +1179,56 @@
             this.btnRutaIndividual.UseVisualStyleBackColor = true;
             this.btnRutaIndividual.Click += new System.EventHandler(this.btnRutaIndividual_Click);
             // 
+            // rIPSCarpetasToolStripMenuItem
+            // 
+            this.rIPSCarpetasToolStripMenuItem.Name = "rIPSCarpetasToolStripMenuItem";
+            this.rIPSCarpetasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rIPSCarpetasToolStripMenuItem.Text = "RIPS Carpetas";
+            this.rIPSCarpetasToolStripMenuItem.Click += new System.EventHandler(this.rIPSCarpetasToolStripMenuItem_Click);
+            // 
+            // pnlRIPSCarpetas
+            // 
+            this.pnlRIPSCarpetas.Controls.Add(this.txtRutaCarpeta);
+            this.pnlRIPSCarpetas.Controls.Add(this.btnRutaCarpeta);
+            this.pnlRIPSCarpetas.Controls.Add(this.label13);
+            this.pnlRIPSCarpetas.Location = new System.Drawing.Point(12, 38);
+            this.pnlRIPSCarpetas.Name = "pnlRIPSCarpetas";
+            this.pnlRIPSCarpetas.Size = new System.Drawing.Size(609, 135);
+            this.pnlRIPSCarpetas.TabIndex = 13;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label13.Location = new System.Drawing.Point(7, 9);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(402, 20);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "Seleccione la ruta donde se encuentran los archivos RIPS";
+            // 
+            // btnRutaCarpeta
+            // 
+            this.btnRutaCarpeta.Location = new System.Drawing.Point(11, 41);
+            this.btnRutaCarpeta.Name = "btnRutaCarpeta";
+            this.btnRutaCarpeta.Size = new System.Drawing.Size(75, 23);
+            this.btnRutaCarpeta.TabIndex = 8;
+            this.btnRutaCarpeta.Text = "Ruta";
+            this.btnRutaCarpeta.UseVisualStyleBackColor = true;
+            // 
+            // txtRutaCarpeta
+            // 
+            this.txtRutaCarpeta.Location = new System.Drawing.Point(92, 43);
+            this.txtRutaCarpeta.Name = "txtRutaCarpeta";
+            this.txtRutaCarpeta.Size = new System.Drawing.Size(508, 20);
+            this.txtRutaCarpeta.TabIndex = 9;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(738, 479);
+            this.Controls.Add(this.pnlRIPSCarpetas);
             this.Controls.Add(this.pnlRIPSIndividual);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlRIPS);
@@ -1207,6 +1259,8 @@
             this.pnlRIPSIndividual.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.pnlRIPSCarpetas.ResumeLayout(false);
+            this.pnlRIPSCarpetas.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1319,6 +1373,11 @@
         private System.Windows.Forms.Label lblLineasAP;
         private System.Windows.Forms.Label lblLineasAH;
         private System.Windows.Forms.Label lblLineasAC;
+        private System.Windows.Forms.ToolStripMenuItem rIPSCarpetasToolStripMenuItem;
+        private System.Windows.Forms.Panel pnlRIPSCarpetas;
+        private System.Windows.Forms.TextBox txtRutaCarpeta;
+        private System.Windows.Forms.Button btnRutaCarpeta;
+        private System.Windows.Forms.Label label13;
     }
 }
 
