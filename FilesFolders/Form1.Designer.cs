@@ -105,14 +105,7 @@
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Regimen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.regimenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.entidadSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.rIPSDataSet = new FilesFolders.RIPSDataSet();
-            this.entidadSetTableAdapter = new FilesFolders.RIPSDataSetTableAdapters.EntidadSetTableAdapter();
             this.pnlRIPSIndividual = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
@@ -145,10 +138,7 @@
             this.groupBox1.SuspendLayout();
             this.pnlEntidades.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.entidadSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rIPSDataSet)).BeginInit();
             this.pnlRIPSIndividual.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.pnlRIPSCarpetas.SuspendLayout();
@@ -714,15 +704,6 @@
             this.pnlEntidades.TabIndex = 2;
             this.pnlEntidades.Visible = false;
             // 
-            // btnBorrarEntidad
-            // 
-            this.btnBorrarEntidad.Location = new System.Drawing.Point(11, 260);
-            this.btnBorrarEntidad.Name = "btnBorrarEntidad";
-            this.btnBorrarEntidad.Size = new System.Drawing.Size(100, 23);
-            this.btnBorrarEntidad.TabIndex = 11;
-            this.btnBorrarEntidad.Text = "Borrar";
-            this.btnBorrarEntidad.UseVisualStyleBackColor = true;
-            this.btnBorrarEntidad.Click += new System.EventHandler(this.btnBorrarEntidad_Click);
             // 
             // txtIdEntidad
             // 
@@ -740,16 +721,6 @@
             this.lblIdEntidad.Size = new System.Drawing.Size(16, 13);
             this.lblIdEntidad.TabIndex = 9;
             this.lblIdEntidad.Text = "Id";
-            // 
-            // btnGrabar
-            // 
-            this.btnGrabar.Location = new System.Drawing.Point(11, 230);
-            this.btnGrabar.Name = "btnGrabar";
-            this.btnGrabar.Size = new System.Drawing.Size(100, 23);
-            this.btnGrabar.TabIndex = 8;
-            this.btnGrabar.Text = "Grabar";
-            this.btnGrabar.UseVisualStyleBackColor = true;
-            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // cbRegimenEntidad
             // 
@@ -815,25 +786,7 @@
             this.label10.Size = new System.Drawing.Size(68, 17);
             this.label10.TabIndex = 1;
             this.label10.Text = "Entidades";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.Nombre,
-            this.Codigo,
-            this.Regimen});
-            this.dataGridView1.Location = new System.Drawing.Point(223, 33);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(462, 150);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
+            //
             // Id
             // 
             this.Id.FillWeight = 27.36041F;
@@ -866,65 +819,6 @@
             this.Regimen.ReadOnly = true;
             this.Regimen.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.dataGridView2);
-            this.panel1.Location = new System.Drawing.Point(23, 294);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(458, 244);
-            this.panel1.TabIndex = 11;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AutoGenerateColumns = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nombreDataGridViewTextBoxColumn,
-            this.codigoDataGridViewTextBoxColumn,
-            this.regimenDataGridViewTextBoxColumn});
-            this.dataGridView2.DataSource = this.entidadSetBindingSource;
-            this.dataGridView2.Location = new System.Drawing.Point(25, 65);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(379, 150);
-            this.dataGridView2.TabIndex = 0;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // codigoDataGridViewTextBoxColumn
-            // 
-            this.codigoDataGridViewTextBoxColumn.DataPropertyName = "Codigo";
-            this.codigoDataGridViewTextBoxColumn.HeaderText = "Codigo";
-            this.codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
-            this.codigoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // regimenDataGridViewTextBoxColumn
-            // 
-            this.regimenDataGridViewTextBoxColumn.DataPropertyName = "Regimen";
-            this.regimenDataGridViewTextBoxColumn.HeaderText = "Regimen";
-            this.regimenDataGridViewTextBoxColumn.Name = "regimenDataGridViewTextBoxColumn";
-            this.regimenDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // entidadSetBindingSource
-            // 
-            this.entidadSetBindingSource.DataMember = "EntidadSet";
-            this.entidadSetBindingSource.DataSource = this.rIPSDataSet;
-            // 
-            // rIPSDataSet
-            // 
-            this.rIPSDataSet.DataSetName = "RIPSDataSet";
-            this.rIPSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // entidadSetTableAdapter
-            // 
-            this.entidadSetTableAdapter.ClearBeforeFill = true;
-            // 
             // pnlRIPSIndividual
             // 
             this.pnlRIPSIndividual.Controls.Add(this.label14);
@@ -952,7 +846,7 @@
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblTitulo.Location = new System.Drawing.Point(9, 13);
+            this.lblTitulo.Location = new System.Drawing.Point(22, 17);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(402, 20);
             this.lblTitulo.TabIndex = 6;
@@ -1231,7 +1125,6 @@
             this.ClientSize = new System.Drawing.Size(738, 479);
             this.Controls.Add(this.pnlRIPSCarpetas);
             this.Controls.Add(this.pnlRIPSIndividual);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlRIPS);
             this.Controls.Add(this.pnlEntidades);
             this.Controls.Add(this.menuStrip1);
@@ -1252,10 +1145,7 @@
             this.pnlEntidades.ResumeLayout(false);
             this.pnlEntidades.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.entidadSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rIPSDataSet)).EndInit();
             this.pnlRIPSIndividual.ResumeLayout(false);
             this.pnlRIPSIndividual.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -1343,14 +1233,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Regimen;
         private System.Windows.Forms.CheckBox chkBoxValCm;
         private System.Windows.Forms.ToolStripMenuItem rIPSIndividualToolStripMenuItem;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private RIPSDataSet rIPSDataSet;
         private System.Windows.Forms.BindingSource entidadSetBindingSource;
-        private RIPSDataSetTableAdapters.EntidadSetTableAdapter entidadSetTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn regimenDataGridViewTextBoxColumn;
         private System.Windows.Forms.Panel pnlRIPSIndividual;
         private System.Windows.Forms.TextBox txtRutaIndividual;
         private System.Windows.Forms.Button btnRutaIndividual;

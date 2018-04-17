@@ -19,9 +19,6 @@ namespace FilesFolders.ManejoArchivos
             NumeroLineas = "0";
         }
 
-
-
-
         /// <summary>
         /// Obtiene el número de lineas de un archivo de texto específico
         /// </summary>

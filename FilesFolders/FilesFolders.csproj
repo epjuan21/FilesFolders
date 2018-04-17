@@ -118,11 +118,7 @@
     <Compile Include="CWork.cs" />
     <Compile Include="CWorker.cs" />
     <Compile Include="Data\ConexionSQLite.cs" />
-    <Compile Include="Data\DataAccess.cs" />
     <Compile Include="Data\PropiedadesSQLite.cs" />
-    <Compile Include="Entidad.cs">
-      <DependentUpon>RIPSModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,29 +129,6 @@
     <Compile Include="ManejoArchivos\CVariables.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Regimen.cs">
-      <DependentUpon>RIPSModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="RIPSDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RIPSDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="RIPSModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RIPSModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="RIPSModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RIPSModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="RIPSModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RIPSModel.edmx</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -185,27 +158,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="RIPSDataSet.xsc">
-      <DependentUpon>RIPSDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="RIPSDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>RIPSDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="RIPSDataSet.xss">
-      <DependentUpon>RIPSDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="RIPSDB.db">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <EntityDeploy Include="RIPSModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>RIPSModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="RIPSModel.edmx.diagram">
-      <DependentUpon>RIPSModel.edmx</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -221,20 +173,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icons8_Document.ico" />
-    <Content Include="RIPSModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>RIPSModel.Context.cs</LastGenOutput>
-      <DependentUpon>RIPSModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="RIPSModel.edmx.sql" />
-    <Content Include="RIPSModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>RIPSModel.cs</LastGenOutput>
-      <DependentUpon>RIPSModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="SQLite.Interop.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">

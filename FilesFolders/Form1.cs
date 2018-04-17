@@ -50,7 +50,6 @@ namespace FilesFolders
             
             // Cuando carga el Formulario se oculta el Panel1
             pnlRIPS.Visible = false;
-            panel1.Visible = false;
             pnlRIPSIndividual.Visible = false;
 
             // Ocultar Valores Totales de Archivos
@@ -77,17 +76,6 @@ namespace FilesFolders
             btnAT.Enabled = false;
             btnAU.Enabled = false;
 
-            chkBoxLonDoc.Enabled = false;
-
-            string sql = "Select Id, TipoUsuario From TipoUsuario";
-            DataAccess.ExecuteSQL(sql);
-            DataTable dt = DataAccess.GetDataTable(sql);
-            cbRegimenEntidad.DataSource = dt;
-            cbRegimenEntidad.DisplayMember = "TipoUsuario";
-            cbRegimenEntidad.ValueMember = "id";
-
-            cbRegimenEntidad.DropDownStyle = ComboBoxStyle.DropDownList;
-
         }
         #endregion
 
@@ -102,7 +90,6 @@ namespace FilesFolders
             pnlRIPS.Location = new Point(0,27);
             pnlEntidades.Visible = false;
             pnlRIPSIndividual.Visible = false;
-            panel1.Visible = false;
         }
 
         private void rIPSIndividualToolStripMenuItem_Click(object sender, EventArgs e)
@@ -117,12 +104,6 @@ namespace FilesFolders
         {
             pnlRIPS.Visible = false;
             pnlEntidades.Visible = true;
-
-            // Muestro datos en el DataGridView
-            DataBind();
-            
-            // Inhabilitar Boton de Borrar Hasta que se Seleccione un Item
-            btnBorrarEntidad.Enabled = false;
 
         }
 
@@ -238,21 +219,6 @@ namespace FilesFolders
                             if (line.Contains(","))
                             {
                                 String[] split = line.Split(',');
-
-                                #region TipoUsuario
-                                // Tipo de Usuario - Posición 3
-                                if (split[3] == "8" || split[3] == "6")
-                                {
-                                    string codigoEntidad = split[2];
-                                    string tipoUsuario = string.Empty;
-
-                                    tipoUsuario = CorregirTipoUsuario(codigoEntidad);
-
-                                    split[3] = tipoUsuario;
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                #endregion
 
                                 #region Apellidos y Nombres
                                 
@@ -1359,135 +1325,6 @@ namespace FilesFolders
             }
         }
 
-        public string CorregirTipoUsuario(String Entidad)
-        {
-            string tipoUsuario = string.Empty;
-            string sql = "Select CodigoTipo From Entidades Where Codigo = '" + Entidad + "'";
-            string regimen = DataAccess.ExecuteReader(sql);
-
-            for (int i = 1; i <= 5; i++)
-            {
-                if (i.ToString() == regimen)
-                {
-                    tipoUsuario = regimen;
-                }
-            }
-            return tipoUsuario;
-        }
-
-        public void DataBind()
-        {
-            if (dataGridView1.DataSource != null)
-            {
-                dataGridView1.DataSource = null;
-            }
-            else
-            {
-                this.dataGridView1.Rows.Clear();
-            }
-
-            string sql = "Select Id, Nombre, Codigo, Regimen From Entidades";
-            DataAccess.ExecuteSQL(sql);
-            DataTable dt = DataAccess.GetDataTable(sql);
-
-            foreach (DataRow row in dt.Rows)
-            {
-                int n = dataGridView1.Rows.Add();
-                dataGridView1.Rows[n].Cells["Id"].Value = row["Id"];
-                dataGridView1.Rows[n].Cells["Nombre"].Value = row["Nombre"];
-                dataGridView1.Rows[n].Cells["Codigo"].Value = row["Codigo"];
-                dataGridView1.Rows[n].Cells["Regimen"].Value = row["Regimen"];
-            }
-        }
-
-        private void btnGrabar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (txtNombreEntidad.Text == string.Empty || txtCodigoEntidad.Text == string.Empty)
-                {
-                    MessageBox.Show("Ingrese Nombre Datos");
-                }
-                else if (cbRegimenEntidad.Text == string.Empty)
-                {
-                    MessageBox.Show("Ingrese Régimen");
-                }
-                else
-                {
-                    if (txtIdEntidad.Text == "")
-                    {
-                        string sql = "Insert Into Entidades Values(null,'" + txtNombreEntidad.Text + "','" + txtCodigoEntidad.Text + "', '" + cbRegimenEntidad.Text + "', '" + cbRegimenEntidad.SelectedValue + "')";
-                        DataAccess.ExecuteSQL(sql);
-                        DataBind();
-
-                        txtIdEntidad.Text = string.Empty;
-                        txtNombreEntidad.Text = string.Empty;
-                        txtCodigoEntidad.Text = string.Empty;
-                        cbRegimenEntidad.Text = string.Empty;
-                    }
-
-                    else
-                    {
-                        string sqlupdate = "Update Entidades Set Nombre = '" + txtNombreEntidad.Text + "', Codigo = '" + txtCodigoEntidad.Text + "', Regimen = '" + cbRegimenEntidad.Text + "' Where Id = '" + txtIdEntidad.Text + "'";
-                        DataAccess.ExecuteSQL(sqlupdate);
-                        DataBind();
-                    }
-                }
-
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            foreach (DataGridViewRow rowupdate in dataGridView1.SelectedRows)
-            {
-                txtIdEntidad.Text = rowupdate.Cells[0].Value.ToString();
-                txtNombreEntidad.Text = rowupdate.Cells[1].Value.ToString();
-                txtCodigoEntidad.Text = rowupdate.Cells[2].Value.ToString();
-                cbRegimenEntidad.Text = rowupdate.Cells[3].Value.ToString();
-                btnGrabar.Text = "Actualizar";
-                btnBorrarEntidad.Enabled = true;
-            }
-        }
-
-        private void btnBorrarEntidad_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                DialogResult result = MessageBox.Show("Seguro que quiere borrar la Entidad?", "Borrar Entidad", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-
-                if (result == DialogResult.Yes)
-                {
-                    string sqldel = "Delete From Entidades Where Id = '" + txtIdEntidad.Text + "'";
-                    DataAccess.ExecuteSQL(sqldel);
-                    MessageBox.Show("Entidad borrada");
-                    DataBind();
-
-                    txtIdEntidad.Text = string.Empty;
-                    txtNombreEntidad.Text = string.Empty;
-                    txtCodigoEntidad.Text = string.Empty;
-                    cbRegimenEntidad.Text = string.Empty;
-
-                    btnGrabar.Text = "Grabar";
-
-
-                }
-
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-
-
         #region Carpetas
         private void btnRutaCarpeta_Click(object sender, EventArgs e)
         {
@@ -1495,29 +1332,32 @@ namespace FilesFolders
             {
                 txtRutaCarpeta.Text = folderBrowserDialog1.SelectedPath;
 
-                // Se guarda la ruta de la Carpeta en la variable dirPath
+                // Ruta Directorio
                 dirPath = folderBrowserDialog1.SelectedPath;
 
-                //lblLineasUS.Text = cArchivos.Lineas(dirPath, "*US*");
-                //lblLineasAC.Text = cArchivos.Lineas(dirPath, "*AC*");
-                //lblLineasAH.Text = cArchivos.Lineas(dirPath, "*AH*");
-                //lblLineasAP.Text = cArchivos.Lineas(dirPath, "*AP*");
-                //lblLineasAM.Text = cArchivos.Lineas(dirPath, "*AM*");
-                //lblLineasAN.Text = cArchivos.Lineas(dirPath, "*AN*");
-                //lblLineasAT.Text = cArchivos.Lineas(dirPath, "*AT*");
-                //lblLineasAU.Text = cArchivos.Lineas(dirPath, "*AU*");
-
+                #region Variables
                 // Creamos una Variable Tipo Lista para almacenar los nombres de los archivos
                 List<string> ListaArchivos = new List<string>();
-
-                // Almacenamos en la variable Tipo Lista los nombres de los archivos
-                ListaArchivos = Lista.ListarArchivosName(dirPath, "*.txt");
 
                 // Creamos una lista para almacenar los numeros de Factura Temporales
                 List<string> ListaNumerosFactura = new List<string>();
 
                 // Creamos una lista para almacenar los numeros de Factura Unicos
                 List<string> ListaNumerosFacturaUnicos = new List<string>();
+
+                // Creamos una variable tipo lista para obtener el numbre completo de cada archvio, que incluye la ruta
+                List<string> ListaArchivosFullName = new List<string>();
+
+                // Cremos una variable tipo Lista para almacenar los nombres de los directorios nuevos creados
+                //List<string> ListaDirectorios = new List<string>();
+                                
+                #endregion
+
+                // Almacenamos en la variable Tipo Lista los nombres de los archivos
+                ListaArchivos = Lista.ListarArchivosName(dirPath, "*.txt");
+
+                // Almacenamos los nombres completos de los archivos en la variable ListaArchivosFullName
+                ListaArchivosFullName = Lista.ListarArchivosFullName(dirPath, "*.txt");
 
                 foreach (var NombreArchivo in ListaArchivos)
                 {
@@ -1531,6 +1371,9 @@ namespace FilesFolders
 
                 }
 
+                // Leemos los Nombres de las Facturas almacendads en ListaNumerosFacturas
+                // Si en ListaNumerosFacturaUnicos estiste el Numero de ListaNumerosFactura, no hace nada
+                // Si no existe lo ingresa en ListaNumerosFacturaUnicos
                 foreach (var Numeros in ListaNumerosFactura)
                 {
                     if (ListaNumerosFacturaUnicos.Contains(Numeros))
@@ -1545,10 +1388,75 @@ namespace FilesFolders
 
                 }
 
+                // Leemos los numeros unicos y creamos las carpetas con cada nombre
                 foreach (var NumeroUnico in ListaNumerosFacturaUnicos)
                 {
-                    MessageBox.Show(NumeroUnico);
+
+                    // Directorio
+                    string folderName = dirPath;
+
+                    // SubCarpetas - Nombres de Facturas Unicas
+                    string pathString = System.IO.Path.Combine(folderName, NumeroUnico);
+
+                    //Creacion de Carpetas
+                    System.IO.Directory.CreateDirectory(pathString);
+
                 }
+
+                // Mover Archivos a sus Respectivos Directorios
+
+                // Almacenamos en un arreglo el listado de los Directorios Nuevos
+                string[] ListaDirectorios = Directory.GetDirectories(dirPath);
+
+                foreach (var Directorios in ListaDirectorios)
+                {
+
+                    foreach (var Archivo in ListaArchivosFullName)
+                    {
+
+                        // NOMBRE CARPETA
+                        
+                        // Obtenemos la posicion del ultimo BackSlach para identificar donde empieza el nombre del Directorio
+                        // Se añade 1 para no obtener el BackSlach
+                        int PosicionUltimoSlash = Directorios.LastIndexOf("\\") + 1;
+                        // Obtenemos la longitud total de la cadena
+                        int LongitudNombre = Directorios.Length;
+                        // Obtenemos el Nombre de la Carpeta
+                        string nombreDirectorio = Directorios.Substring(PosicionUltimoSlash, LongitudNombre - PosicionUltimoSlash);
+
+                        // NOMBRE ARCHIVO
+                        
+                        // Obtenemos la posicion del ultimo BackSlach para identificar donde empieza el nombre del Archivo
+                        // Se suman dos posiciones para quitar el BackSlach y las Iniciales del Archivo de RIPS
+                        int PosicionUltimoSlashArchivo = Archivo.LastIndexOf("\\") + 3;
+                        // Obtenemos la longitud total de la cadena
+                        // Se restan 4 posiciones por la extension de los archivos
+                        int LongitudNombreArchivo = Archivo.Length - 4;
+                        // Obtenemos el Nombre del Archivo
+                        string nombreArchivo = Archivo.Substring(PosicionUltimoSlashArchivo, LongitudNombreArchivo - PosicionUltimoSlashArchivo);
+
+                        // Obtenemos el Nombre del Archivo incluida la Extension
+                        int Slash = Archivo.LastIndexOf("\\") + 1;
+                        int Longitud = Archivo.Length;
+                        string nombreCompleto = Archivo.Substring(Slash, Longitud - Slash);
+
+
+                        if (nombreArchivo == nombreDirectorio)
+                        {
+                            
+                            string archivoOrigen = Archivo;
+                            string archivoDestino = System.IO.Path.Combine(Directorios, nombreCompleto);
+
+                           System.IO.File.Move(archivoOrigen, archivoDestino);
+
+                        }
+
+                    }
+
+
+                }
+
+
 
             }
         }
