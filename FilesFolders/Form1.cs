@@ -51,6 +51,7 @@ namespace FilesFolders
             // Cuando carga el Formulario se oculta el Panel1
             pnlRIPS.Visible = false;
             pnlRIPSIndividual.Visible = false;
+            pnlRIPSCarpetas.Visible = false;
 
             // Ocultar Valores Totales de Archivos
             lblTotalAC.Text = string.Empty;
@@ -88,30 +89,22 @@ namespace FilesFolders
         {
             pnlRIPS.Visible = true;
             pnlRIPS.Location = new Point(0,27);
-            pnlEntidades.Visible = false;
             pnlRIPSIndividual.Visible = false;
+            pnlRIPSCarpetas.Visible = false;
         }
 
         private void rIPSIndividualToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlRIPSIndividual.Visible = true;
             pnlRIPSIndividual.Location = new Point(0, 27);
-            pnlEntidades.Visible = false;
             pnlRIPS.Visible = false;
-        }
-
-        private void entidadesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            pnlRIPS.Visible = false;
-            pnlEntidades.Visible = true;
-
+            pnlRIPSCarpetas.Visible = false;
         }
 
         private void rIPSCarpetasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pnlRIPSCarpetas.Visible = true;
             pnlRIPSCarpetas.Location = new Point(0, 27);
-            pnlEntidades.Visible = false;
             pnlRIPSIndividual.Visible = false;
             pnlRIPS.Visible = false;
         }
@@ -177,20 +170,9 @@ namespace FilesFolders
                 // Se guarda la ruta de la Carpeta en la variable dirPath
                 dirPath = folderBrowserDialog1.SelectedPath;
 
-                //lblLineasUS.Text = cArchivos.Lineas(dirPath, "*US*");
-                //lblLineasAC.Text = cArchivos.Lineas(dirPath, "*AC*");
-                //lblLineasAH.Text = cArchivos.Lineas(dirPath, "*AH*");
-                //lblLineasAP.Text = cArchivos.Lineas(dirPath, "*AP*");
-                //lblLineasAM.Text = cArchivos.Lineas(dirPath, "*AM*");
-                //lblLineasAN.Text = cArchivos.Lineas(dirPath, "*AN*");
-                //lblLineasAT.Text = cArchivos.Lineas(dirPath, "*AT*");
-                //lblLineasAU.Text = cArchivos.Lineas(dirPath, "*AU*");
-
-
             }
         }
         #endregion
-
 
         #region US
         private void btnUS_Click(object sender, EventArgs e)
@@ -267,7 +249,6 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 #endregion
-
                             }
 
                             lines.Add(line);
@@ -1368,7 +1349,6 @@ namespace FilesFolders
 
                     // Agregamos los IdFactura a la Lista de Numeros de Factura
                     ListaNumerosFactura.Add(IdFactura);
-
                 }
 
                 // Leemos los Nombres de las Facturas almacendads en ListaNumerosFacturas
@@ -1385,13 +1365,11 @@ namespace FilesFolders
                         //MessageBox.Show("No Contiene el numero " + Numeros);
                         ListaNumerosFacturaUnicos.Add(Numeros);
                     }
-
                 }
 
                 // Leemos los numeros unicos y creamos las carpetas con cada nombre
                 foreach (var NumeroUnico in ListaNumerosFacturaUnicos)
                 {
-
                     // Directorio
                     string folderName = dirPath;
 
@@ -1400,7 +1378,6 @@ namespace FilesFolders
 
                     //Creacion de Carpetas
                     System.IO.Directory.CreateDirectory(pathString);
-
                 }
 
                 // Mover Archivos a sus Respectivos Directorios
@@ -1410,10 +1387,8 @@ namespace FilesFolders
 
                 foreach (var Directorios in ListaDirectorios)
                 {
-
                     foreach (var Archivo in ListaArchivosFullName)
                     {
-
                         // NOMBRE CARPETA
                         
                         // Obtenemos la posicion del ultimo BackSlach para identificar donde empieza el nombre del Directorio
@@ -1440,7 +1415,6 @@ namespace FilesFolders
                         int Longitud = Archivo.Length;
                         string nombreCompleto = Archivo.Substring(Slash, Longitud - Slash);
 
-
                         if (nombreArchivo == nombreDirectorio)
                         {
                             
@@ -1450,19 +1424,24 @@ namespace FilesFolders
                            System.IO.File.Move(archivoOrigen, archivoDestino);
 
                         }
-
                     }
-
-
                 }
+            }
+        }
 
+        #endregion
 
+        private void btnRutaCarpetaEAPB_Click(object sender, EventArgs e)
+        {
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                txtRuraCarpetaEAPB.Text = folderBrowserDialog1.SelectedPath;
+
+                // Se guarda la ruta de la Carpeta en la variable dirPath
+                dirPath = folderBrowserDialog1.SelectedPath;
 
             }
         }
-        #endregion
-
-
     }
 }
 

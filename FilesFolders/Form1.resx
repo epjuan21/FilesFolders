@@ -226,6 +226,11 @@ Aplica para Validador de SAVIASALUD</value>
   <metadata name="entidadSetBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 57</value>
   </metadata>
+  <data name="label22.Text" xml:space="preserve">
+    <value>La carpeta deberá tener los RIPS sin separar en ninguna carpeta.
+Una vez seleccionada la carpeta con los RIPS, se creara una carpeta por cada juego de RIPS
+Luego se moveran los archivos de RIPS según factura a cada carpeta correspondiente</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>54</value>
   </metadata>

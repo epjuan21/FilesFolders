@@ -37,8 +37,7 @@
             this.rIPSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rIPSIndividualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rIPSCarpetasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.parametrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.entidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rIPSEAPBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlRIPS = new System.Windows.Forms.Panel();
             this.chkBoxValCm = new System.Windows.Forms.CheckBox();
             this.chkBoxLonDoc = new System.Windows.Forms.CheckBox();
@@ -88,19 +87,6 @@
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tltDocLong = new System.Windows.Forms.ToolTip(this.components);
-            this.pnlEntidades = new System.Windows.Forms.Panel();
-            this.btnBorrarEntidad = new System.Windows.Forms.Button();
-            this.txtIdEntidad = new System.Windows.Forms.TextBox();
-            this.lblIdEntidad = new System.Windows.Forms.Label();
-            this.btnGrabar = new System.Windows.Forms.Button();
-            this.cbRegimenEntidad = new System.Windows.Forms.ComboBox();
-            this.txtCodigoEntidad = new System.Windows.Forms.TextBox();
-            this.txtNombreEntidad = new System.Windows.Forms.TextBox();
-            this.lblRegimen = new System.Windows.Forms.Label();
-            this.lblCodigo = new System.Windows.Forms.Label();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -130,26 +116,29 @@
             this.txtRutaIndividual = new System.Windows.Forms.TextBox();
             this.btnRutaIndividual = new System.Windows.Forms.Button();
             this.pnlRIPSCarpetas = new System.Windows.Forms.Panel();
+            this.label22 = new System.Windows.Forms.Label();
             this.txtRutaCarpeta = new System.Windows.Forms.TextBox();
             this.btnRutaCarpeta = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
+            this.pnlEAPB = new System.Windows.Forms.Panel();
+            this.txtRuraCarpetaEAPB = new System.Windows.Forms.TextBox();
+            this.btnRutaCarpetaEAPB = new System.Windows.Forms.Button();
+            this.lblTituloEAPB = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.pnlRIPS.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.pnlEntidades.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.entidadSetBindingSource)).BeginInit();
             this.pnlRIPSIndividual.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.pnlRIPSCarpetas.SuspendLayout();
+            this.pnlEAPB.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
-            this.carpetasToolStripMenuItem,
-            this.parametrosToolStripMenuItem});
+            this.carpetasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(738, 24);
@@ -169,7 +158,7 @@
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -178,7 +167,8 @@
             this.carpetasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rIPSToolStripMenuItem,
             this.rIPSIndividualToolStripMenuItem,
-            this.rIPSCarpetasToolStripMenuItem});
+            this.rIPSCarpetasToolStripMenuItem,
+            this.rIPSEAPBToolStripMenuItem});
             this.carpetasToolStripMenuItem.Name = "carpetasToolStripMenuItem";
             this.carpetasToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.carpetasToolStripMenuItem.Text = "Edición";
@@ -204,20 +194,11 @@
             this.rIPSCarpetasToolStripMenuItem.Text = "RIPS Carpetas";
             this.rIPSCarpetasToolStripMenuItem.Click += new System.EventHandler(this.rIPSCarpetasToolStripMenuItem_Click);
             // 
-            // parametrosToolStripMenuItem
+            // rIPSEAPBToolStripMenuItem
             // 
-            this.parametrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.entidadesToolStripMenuItem});
-            this.parametrosToolStripMenuItem.Name = "parametrosToolStripMenuItem";
-            this.parametrosToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
-            this.parametrosToolStripMenuItem.Text = "Parametros";
-            // 
-            // entidadesToolStripMenuItem
-            // 
-            this.entidadesToolStripMenuItem.Name = "entidadesToolStripMenuItem";
-            this.entidadesToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
-            this.entidadesToolStripMenuItem.Text = "Entidades";
-            this.entidadesToolStripMenuItem.Click += new System.EventHandler(this.entidadesToolStripMenuItem_Click);
+            this.rIPSEAPBToolStripMenuItem.Name = "rIPSEAPBToolStripMenuItem";
+            this.rIPSEAPBToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rIPSEAPBToolStripMenuItem.Text = "RIPS EAPB";
             // 
             // pnlRIPS
             // 
@@ -253,7 +234,7 @@
             this.pnlRIPS.Controls.Add(this.btnAP);
             this.pnlRIPS.Controls.Add(this.txtRuta);
             this.pnlRIPS.Controls.Add(this.btnRuta);
-            this.pnlRIPS.Location = new System.Drawing.Point(679, 260);
+            this.pnlRIPS.Location = new System.Drawing.Point(615, 388);
             this.pnlRIPS.Name = "pnlRIPS";
             this.pnlRIPS.Size = new System.Drawing.Size(695, 377);
             this.pnlRIPS.TabIndex = 1;
@@ -684,109 +665,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
-            // pnlEntidades
-            // 
-            this.pnlEntidades.Controls.Add(this.btnBorrarEntidad);
-            this.pnlEntidades.Controls.Add(this.txtIdEntidad);
-            this.pnlEntidades.Controls.Add(this.lblIdEntidad);
-            this.pnlEntidades.Controls.Add(this.btnGrabar);
-            this.pnlEntidades.Controls.Add(this.cbRegimenEntidad);
-            this.pnlEntidades.Controls.Add(this.txtCodigoEntidad);
-            this.pnlEntidades.Controls.Add(this.txtNombreEntidad);
-            this.pnlEntidades.Controls.Add(this.lblRegimen);
-            this.pnlEntidades.Controls.Add(this.lblCodigo);
-            this.pnlEntidades.Controls.Add(this.lblNombre);
-            this.pnlEntidades.Controls.Add(this.label10);
-            this.pnlEntidades.Controls.Add(this.dataGridView1);
-            this.pnlEntidades.Location = new System.Drawing.Point(573, 345);
-            this.pnlEntidades.Name = "pnlEntidades";
-            this.pnlEntidades.Size = new System.Drawing.Size(697, 291);
-            this.pnlEntidades.TabIndex = 2;
-            this.pnlEntidades.Visible = false;
-            // 
-            // 
-            // txtIdEntidad
-            // 
-            this.txtIdEntidad.Enabled = false;
-            this.txtIdEntidad.Location = new System.Drawing.Point(11, 34);
-            this.txtIdEntidad.Name = "txtIdEntidad";
-            this.txtIdEntidad.Size = new System.Drawing.Size(100, 20);
-            this.txtIdEntidad.TabIndex = 10;
-            // 
-            // lblIdEntidad
-            // 
-            this.lblIdEntidad.AutoSize = true;
-            this.lblIdEntidad.Location = new System.Drawing.Point(12, 17);
-            this.lblIdEntidad.Name = "lblIdEntidad";
-            this.lblIdEntidad.Size = new System.Drawing.Size(16, 13);
-            this.lblIdEntidad.TabIndex = 9;
-            this.lblIdEntidad.Text = "Id";
-            // 
-            // cbRegimenEntidad
-            // 
-            this.cbRegimenEntidad.FormattingEnabled = true;
-            this.cbRegimenEntidad.Items.AddRange(new object[] {
-            "CONTRIBUTIVO",
-            "SUBSIDIADO",
-            "VINCULADO",
-            "PARTICULAR",
-            "OTRO"});
-            this.cbRegimenEntidad.Location = new System.Drawing.Point(11, 180);
-            this.cbRegimenEntidad.Name = "cbRegimenEntidad";
-            this.cbRegimenEntidad.Size = new System.Drawing.Size(100, 21);
-            this.cbRegimenEntidad.TabIndex = 7;
-            // 
-            // txtCodigoEntidad
-            // 
-            this.txtCodigoEntidad.Location = new System.Drawing.Point(11, 130);
-            this.txtCodigoEntidad.Name = "txtCodigoEntidad";
-            this.txtCodigoEntidad.Size = new System.Drawing.Size(100, 20);
-            this.txtCodigoEntidad.TabIndex = 6;
-            // 
-            // txtNombreEntidad
-            // 
-            this.txtNombreEntidad.Location = new System.Drawing.Point(11, 80);
-            this.txtNombreEntidad.Name = "txtNombreEntidad";
-            this.txtNombreEntidad.Size = new System.Drawing.Size(182, 20);
-            this.txtNombreEntidad.TabIndex = 5;
-            // 
-            // lblRegimen
-            // 
-            this.lblRegimen.AutoSize = true;
-            this.lblRegimen.Location = new System.Drawing.Point(12, 164);
-            this.lblRegimen.Name = "lblRegimen";
-            this.lblRegimen.Size = new System.Drawing.Size(88, 13);
-            this.lblRegimen.TabIndex = 4;
-            this.lblRegimen.Text = "Régimen Entidad";
-            // 
-            // lblCodigo
-            // 
-            this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(12, 114);
-            this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(79, 13);
-            this.lblCodigo.TabIndex = 3;
-            this.lblCodigo.Text = "Código Entidad";
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(12, 63);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(83, 13);
-            this.lblNombre.TabIndex = 2;
-            this.lblNombre.Text = "Nombre Entidad";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(220, 14);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(68, 17);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Entidades";
-            //
             // Id
             // 
             this.Id.FillWeight = 27.36041F;
@@ -827,7 +705,7 @@
             this.pnlRIPSIndividual.Controls.Add(this.label11);
             this.pnlRIPSIndividual.Controls.Add(this.txtRutaIndividual);
             this.pnlRIPSIndividual.Controls.Add(this.btnRutaIndividual);
-            this.pnlRIPSIndividual.Location = new System.Drawing.Point(177, 211);
+            this.pnlRIPSIndividual.Location = new System.Drawing.Point(709, 38);
             this.pnlRIPSIndividual.Name = "pnlRIPSIndividual";
             this.pnlRIPSIndividual.Size = new System.Drawing.Size(655, 261);
             this.pnlRIPSIndividual.TabIndex = 12;
@@ -835,7 +713,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(9, 37);
+            this.label14.Location = new System.Drawing.Point(10, 37);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(312, 13);
             this.label14.TabIndex = 7;
@@ -846,7 +724,7 @@
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblTitulo.Location = new System.Drawing.Point(22, 17);
+            this.lblTitulo.Location = new System.Drawing.Point(11, 17);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(402, 20);
             this.lblTitulo.TabIndex = 6;
@@ -1082,6 +960,7 @@
             // 
             // pnlRIPSCarpetas
             // 
+            this.pnlRIPSCarpetas.Controls.Add(this.label22);
             this.pnlRIPSCarpetas.Controls.Add(this.txtRutaCarpeta);
             this.pnlRIPSCarpetas.Controls.Add(this.btnRutaCarpeta);
             this.pnlRIPSCarpetas.Controls.Add(this.label13);
@@ -1090,16 +969,25 @@
             this.pnlRIPSCarpetas.Size = new System.Drawing.Size(609, 135);
             this.pnlRIPSCarpetas.TabIndex = 13;
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(11, 33);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(455, 39);
+            this.label22.TabIndex = 10;
+            this.label22.Text = resources.GetString("label22.Text");
+            // 
             // txtRutaCarpeta
             // 
-            this.txtRutaCarpeta.Location = new System.Drawing.Point(92, 43);
+            this.txtRutaCarpeta.Location = new System.Drawing.Point(92, 99);
             this.txtRutaCarpeta.Name = "txtRutaCarpeta";
             this.txtRutaCarpeta.Size = new System.Drawing.Size(508, 20);
             this.txtRutaCarpeta.TabIndex = 9;
             // 
             // btnRutaCarpeta
             // 
-            this.btnRutaCarpeta.Location = new System.Drawing.Point(11, 41);
+            this.btnRutaCarpeta.Location = new System.Drawing.Point(11, 97);
             this.btnRutaCarpeta.Name = "btnRutaCarpeta";
             this.btnRutaCarpeta.Size = new System.Drawing.Size(75, 23);
             this.btnRutaCarpeta.TabIndex = 8;
@@ -1114,19 +1002,57 @@
             this.label13.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.label13.Location = new System.Drawing.Point(7, 9);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(402, 20);
+            this.label13.Size = new System.Drawing.Size(236, 20);
             this.label13.TabIndex = 7;
-            this.label13.Text = "Seleccione la ruta donde se encuentran los archivos RIPS";
+            this.label13.Text = "Generación de carpetas por RIPS";
+            // 
+            // pnlEAPB
+            // 
+            this.pnlEAPB.Controls.Add(this.txtRuraCarpetaEAPB);
+            this.pnlEAPB.Controls.Add(this.btnRutaCarpetaEAPB);
+            this.pnlEAPB.Controls.Add(this.lblTituloEAPB);
+            this.pnlEAPB.Location = new System.Drawing.Point(12, 184);
+            this.pnlEAPB.Name = "pnlEAPB";
+            this.pnlEAPB.Size = new System.Drawing.Size(609, 100);
+            this.pnlEAPB.TabIndex = 14;
+            // 
+            // txtRuraCarpetaEAPB
+            // 
+            this.txtRuraCarpetaEAPB.Location = new System.Drawing.Point(92, 52);
+            this.txtRuraCarpetaEAPB.Name = "txtRuraCarpetaEAPB";
+            this.txtRuraCarpetaEAPB.Size = new System.Drawing.Size(508, 20);
+            this.txtRuraCarpetaEAPB.TabIndex = 10;
+            // 
+            // btnRutaCarpetaEAPB
+            // 
+            this.btnRutaCarpetaEAPB.Location = new System.Drawing.Point(11, 50);
+            this.btnRutaCarpetaEAPB.Name = "btnRutaCarpetaEAPB";
+            this.btnRutaCarpetaEAPB.Size = new System.Drawing.Size(75, 23);
+            this.btnRutaCarpetaEAPB.TabIndex = 9;
+            this.btnRutaCarpetaEAPB.Text = "Ruta";
+            this.btnRutaCarpetaEAPB.UseVisualStyleBackColor = true;
+            this.btnRutaCarpetaEAPB.Click += new System.EventHandler(this.btnRutaCarpetaEAPB_Click);
+            // 
+            // lblTituloEAPB
+            // 
+            this.lblTituloEAPB.AutoSize = true;
+            this.lblTituloEAPB.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTituloEAPB.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblTituloEAPB.Location = new System.Drawing.Point(3, 9);
+            this.lblTituloEAPB.Name = "lblTituloEAPB";
+            this.lblTituloEAPB.Size = new System.Drawing.Size(299, 20);
+            this.lblTituloEAPB.TabIndex = 8;
+            this.lblTituloEAPB.Text = "Cambio de Estructura de RIPS IPS A EAPB";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(738, 479);
+            this.Controls.Add(this.pnlEAPB);
             this.Controls.Add(this.pnlRIPSCarpetas);
             this.Controls.Add(this.pnlRIPSIndividual);
             this.Controls.Add(this.pnlRIPS);
-            this.Controls.Add(this.pnlEntidades);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -1142,9 +1068,6 @@
             this.pnlRIPS.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.pnlEntidades.ResumeLayout(false);
-            this.pnlEntidades.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.entidadSetBindingSource)).EndInit();
             this.pnlRIPSIndividual.ResumeLayout(false);
             this.pnlRIPSIndividual.PerformLayout();
@@ -1152,6 +1075,8 @@
             this.groupBox2.PerformLayout();
             this.pnlRIPSCarpetas.ResumeLayout(false);
             this.pnlRIPSCarpetas.PerformLayout();
+            this.pnlEAPB.ResumeLayout(false);
+            this.pnlEAPB.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1211,22 +1136,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox chkBoxLonDoc;
         private System.Windows.Forms.ToolTip tltDocLong;
-        private System.Windows.Forms.ToolStripMenuItem parametrosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem entidadesToolStripMenuItem;
         private System.Windows.Forms.Panel pnlRIPS;
-        private System.Windows.Forms.Panel pnlEntidades;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnGrabar;
-        private System.Windows.Forms.ComboBox cbRegimenEntidad;
-        private System.Windows.Forms.TextBox txtCodigoEntidad;
-        private System.Windows.Forms.TextBox txtNombreEntidad;
-        private System.Windows.Forms.Label lblRegimen;
-        private System.Windows.Forms.Label lblCodigo;
-        private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtIdEntidad;
-        private System.Windows.Forms.Label lblIdEntidad;
-        private System.Windows.Forms.Button btnBorrarEntidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
@@ -1262,6 +1172,12 @@
         private System.Windows.Forms.TextBox txtRutaCarpeta;
         private System.Windows.Forms.Button btnRutaCarpeta;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.ToolStripMenuItem rIPSEAPBToolStripMenuItem;
+        private System.Windows.Forms.Panel pnlEAPB;
+        private System.Windows.Forms.TextBox txtRuraCarpetaEAPB;
+        private System.Windows.Forms.Button btnRutaCarpetaEAPB;
+        private System.Windows.Forms.Label lblTituloEAPB;
     }
 }
 
