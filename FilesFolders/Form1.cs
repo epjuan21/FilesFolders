@@ -34,6 +34,7 @@ namespace FilesFolders
 
         CArchivos LineasUS = new CArchivos();
         CArchivos LineasAC = new CArchivos();
+        CArchivos Lista = new CArchivos();
         #endregion
 
         #region FormLoad
@@ -1485,6 +1486,75 @@ namespace FilesFolders
                 throw;
             }
         }
+
+
+        #region Carpetas
+        private void btnRutaCarpeta_Click(object sender, EventArgs e)
+        {
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                txtRutaCarpeta.Text = folderBrowserDialog1.SelectedPath;
+
+                // Se guarda la ruta de la Carpeta en la variable dirPath
+                dirPath = folderBrowserDialog1.SelectedPath;
+
+                //lblLineasUS.Text = cArchivos.Lineas(dirPath, "*US*");
+                //lblLineasAC.Text = cArchivos.Lineas(dirPath, "*AC*");
+                //lblLineasAH.Text = cArchivos.Lineas(dirPath, "*AH*");
+                //lblLineasAP.Text = cArchivos.Lineas(dirPath, "*AP*");
+                //lblLineasAM.Text = cArchivos.Lineas(dirPath, "*AM*");
+                //lblLineasAN.Text = cArchivos.Lineas(dirPath, "*AN*");
+                //lblLineasAT.Text = cArchivos.Lineas(dirPath, "*AT*");
+                //lblLineasAU.Text = cArchivos.Lineas(dirPath, "*AU*");
+
+                // Creamos una Variable Tipo Lista para almacenar los nombres de los archivos
+                List<string> ListaArchivos = new List<string>();
+
+                // Almacenamos en la variable Tipo Lista los nombres de los archivos
+                ListaArchivos = Lista.ListarArchivosName(dirPath, "*.txt");
+
+                // Creamos una lista para almacenar los numeros de Factura Temporales
+                List<string> ListaNumerosFactura = new List<string>();
+
+                // Creamos una lista para almacenar los numeros de Factura Unicos
+                List<string> ListaNumerosFacturaUnicos = new List<string>();
+
+                foreach (var NombreArchivo in ListaArchivos)
+                {
+                    String IdFactura;
+
+                    // Obtener el Numero de la Factura
+                    IdFactura = NombreArchivo.Substring(2, 6);
+
+                    // Agregamos los IdFactura a la Lista de Numeros de Factura
+                    ListaNumerosFactura.Add(IdFactura);
+
+                }
+
+                foreach (var Numeros in ListaNumerosFactura)
+                {
+                    if (ListaNumerosFacturaUnicos.Contains(Numeros))
+                    {
+                        //MessageBox.Show("Contiene el numero " + Numeros);
+                    }
+                    else
+                    {
+                        //MessageBox.Show("No Contiene el numero " + Numeros);
+                        ListaNumerosFacturaUnicos.Add(Numeros);
+                    }
+
+                }
+
+                foreach (var NumeroUnico in ListaNumerosFacturaUnicos)
+                {
+                    MessageBox.Show(NumeroUnico);
+                }
+
+            }
+        }
+        #endregion
+
+
     }
 }
 

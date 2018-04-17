@@ -51,7 +51,7 @@ namespace FilesFolders.ManejoArchivos
         /// <param name="directoryPath"></param>
         /// <param name="searchPattern"></param>
         /// <returns></returns>
-        public List<string> ListarArchivos(string directoryPath, string searchPattern)
+        public List<string> ListarArchivosFullName(string directoryPath, string searchPattern)
         {
             directory = new DirectoryInfo(directoryPath);
 
@@ -61,6 +61,23 @@ namespace FilesFolders.ManejoArchivos
             {
 
                 String nameFile = file.FullName;
+                files.Add(nameFile);
+
+            }
+
+            return files;
+        }
+
+        public List<string> ListarArchivosName(string directoryPath, string searchPattern)
+        {
+            directory = new DirectoryInfo(directoryPath);
+
+            List<string> files = new List<string>();
+
+            foreach (var file in directory.GetFiles(searchPattern, SearchOption.TopDirectoryOnly))
+            {
+
+                String nameFile = file.Name;
                 files.Add(nameFile);
 
             }
