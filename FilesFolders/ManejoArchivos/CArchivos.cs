@@ -44,6 +44,7 @@ namespace FilesFolders.ManejoArchivos
 
         /// <summary>
         /// Retorna una Lista de todos los archivos de una carpeta según un criterio
+        /// Muestra el Noombre completo del Archivo incluyendo la Ruta
         /// </summary>
         /// <param name="directoryPath"></param>
         /// <param name="searchPattern"></param>
@@ -64,7 +65,8 @@ namespace FilesFolders.ManejoArchivos
 
             return files;
         }
-
+        // Retorna una Lista de todos los archivos de una carpeta según un criterio
+        // Muestra el Nombre del archivo Unicamente, sin incluir la ruta
         public List<string> ListarArchivosName(string directoryPath, string searchPattern)
         {
             directory = new DirectoryInfo(directoryPath);

@@ -1431,6 +1431,7 @@ namespace FilesFolders
 
         #endregion
 
+        #region EAPB
         private void btnRutaCarpetaEAPB_Click(object sender, EventArgs e)
         {
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
@@ -1440,8 +1441,138 @@ namespace FilesFolders
                 // Se guarda la ruta de la Carpeta en la variable dirPath
                 dirPath = folderBrowserDialog1.SelectedPath;
 
+                DirectoryInfo di = new DirectoryInfo(dirPath);
+
+                #region US EAPB
+                
+                foreach (var fi in di.GetFiles("*US*", SearchOption.AllDirectories))
+                {
+                    String path = fi.FullName;
+                    List<String> lines = new List<String>();
+
+                    if (File.Exists(path))
+                    {
+                        using (StreamReader reader = new StreamReader(path))
+                        {
+                            String line;
+
+                            while ((line = reader.ReadLine()) != null)
+                            {
+                                if (line.Contains(","))
+                                {
+                                    String[] split = line.Split(',');
+
+                                    // Tipo Documento - Posición Original 0
+                                    string TipoDocumento = split[0];
+
+                                    // Número Documento - Posición Original 1
+                                    string NumeroDocumento = split[1];
+
+                                    // Código Entidad - Posición Original 2
+                                    string CodigoEntidad = split[2];
+
+                                    // Tipo Usuario
+                                    string TipoUsuario = split[3];
+
+                                    // Primer Apellido
+                                    string PrimerApellido = split[4];
+
+                                    // Segundo Apellido
+                                    string SegundoApellido = split[5];
+
+                                    // Primer Nombre
+                                    string PrimerNombre = split[6];
+
+                                    // Segundo Nombre
+                                    string SegundoNombre = split[7];
+
+                                    // Edad
+                                    string Edad = split[8];
+
+                                    // Unidad de Medidad de la Edad
+                                    string UnidadMedidaEdad = split[9];
+
+                                    // Sexo
+                                    string Sexo = split[10];
+
+                                    // Código Departamento
+                                    string CodigoDepartamento = split[11];
+
+                                    // Código Municipio
+                                    string CodigoMunicipio = split[12];
+
+                                    // Zona Residencia
+                                    string Zona = split[13];
+
+                                    String[] newArray = new string[12];
+
+                                    // Estructura Nueva
+
+                                    // Código de la entidad administradora del plan de beneficios
+                                    newArray[0] = "05091";
+
+                                    // Tipo de identificación del usuario
+                                    newArray[1] = TipoDocumento;
+
+                                    // Número de identificación del usuario en el Sistema
+                                    newArray[2] = NumeroDocumento;
+
+                                    // Tipo de usuario
+                                    newArray[3] = TipoUsuario;
+
+                                    // Tipo de afiliado
+                                    newArray[4] = "";
+
+                                    // Código de la ocupación
+                                    newArray[5] = "";
+
+                                    // Edad
+                                    newArray[6] = Edad;
+
+                                    // Unidad de medida de la edad
+                                    newArray[7] = UnidadMedidaEdad;
+
+                                    // Sexo
+                                    newArray[8] = Sexo;
+
+                                    // Código del departamento de residencia habitual
+                                    newArray[9] = CodigoDepartamento;
+
+                                    // Código de municipios de residencia habitual
+                                    newArray[10] = CodigoMunicipio;
+
+                                    // Zona de residencia habitual
+                                    newArray[11] = Zona;
+
+                                    line = String.Join(",", newArray);
+
+                                }
+
+                                lines.Add(line);
+                            }
+                        }
+
+                        using (StreamWriter writer = new StreamWriter(path, false))
+                        {
+                            foreach (String line in lines)
+                            {
+                                writer.WriteLine(line);
+                            }
+                        }
+                    }
+                }
+                #endregion
+
+                #region AC EAPB
+
+                #endregion
+
+
+
             }
         }
+        #endregion
+
     }
 }
 
