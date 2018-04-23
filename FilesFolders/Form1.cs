@@ -1563,10 +1563,167 @@ namespace FilesFolders
                 }
                 #endregion
 
-                #region AC EAPB
+                #region CT EAPB
+
+                foreach (var fi in di.GetFiles("*CT*", SearchOption.AllDirectories))
+                {
+                    String path = fi.FullName;
+                    List<String> lines = new List<String>();
+
+                    if (File.Exists(path))
+                    {
+                        using (StreamReader reader = new StreamReader(path))
+                        {
+                            String line;
+
+                            while ((line = reader.ReadLine()) != null)
+                            {
+                                if (line.Contains(","))
+                                {
+                                    String[] split = line.Split(',');
+
+                                    // Código Prestador - Posición Original 0
+                                    string CodigoPrestador = split[0];
+
+                                    if (CodigoPrestador == "050910457201")
+                                    {
+                                        split[0] = "05091";
+                                        line = String.Join(",", split);
+                                    }
+                                }
+
+                                lines.Add(line);
+                            }
+                        }
+
+                        using (StreamWriter writer = new StreamWriter(path, false))
+                        {
+                            foreach (String line in lines)
+                            {
+                                writer.WriteLine(line);
+                            }
+                        }
+                    }
+                }
 
                 #endregion
 
+                #region AC EAPB
+
+                foreach (var fi in di.GetFiles("*AC*", SearchOption.AllDirectories))
+                {
+                    String path = fi.FullName;
+                    List<String> lines = new List<String>();
+
+                    if (File.Exists(path))
+                    {
+                        using (StreamReader reader = new StreamReader(path))
+                        {
+                            String line;
+
+                            while ((line = reader.ReadLine()) != null)
+                            {
+                                if (line.Contains(","))
+                                {
+                                    String[] split = line.Split(',');
+
+                                    // Número de la Factura - Posición Original 0
+                                    string NumeroFactura = split[0];
+
+                                    // Código del prestador de servicios de salud - Posición Original 1
+                                    string CodigoPrestador = split[1];
+
+                                    // Tipo de identificación del usuario - Posición Original 2
+                                    string TipoDocumento = split[2];
+
+                                    // Número Documento - Posición Original 3
+                                    string NumeroDocumento = split[3];
+
+                                    // Fecha de la Consulta - Posición Original 4
+                                    string FechaConsulta = split[4];
+
+                                    // Número de autorización - Posición Original 5
+                                    string NumeroAutorizacion = split[5];
+
+                                    // Codigo Consulta - Posición Original 6
+                                    string CodigoConsulta = split[6];
+
+                                    // Finalidad de la consulta - Posición Original 7
+                                    string FinalidadConsulta = split[7];
+
+                                    // Causa Externa - Posición Original 8
+                                    string CausaExterna = split[8];
+
+                                    // Código del Diagnóstico Principal - Posición Original 9
+                                    string DiagnosticoPrincipal = split[9];
+
+                                    // Código del Diagnóstico Relacionado 1 - Posición Original 10
+                                    string DiagnosticoRelacionado1 = split[10];
+
+                                    // Código del Diagnóstico Relacionado 2 - Posición Original 11
+                                    string DiagnosticoRelacionado2 = split[11];
+
+                                    // Código del Diagnóstico Relacionado 3 - Posición Original 12
+                                    string DiagnosticoRelacionado3 = split[12];
+
+                                    // Tipo de Diagnóstico Principal - Posición Original 13
+                                    string TipoDiagnosticoPrincipal = split[13];
+
+                                    // Valor de la Consulta - Posición Original 14
+                                    string ValorConsulta = split[14];
+
+                                    // Valor de la cuota moderadora - Posición Original 15
+                                    string ValorCuotaModeradora = split[15];
+
+                                    // Valor neto a pagar - Posición Original 16
+                                    string ValorNeto = split[16];
+
+                                    // Estructura Nueva
+
+                                    // Código de la entidad administradora del plan de beneficio - Posición 0
+                                    split[0] = "05091";
+
+
+                                    // Número de la Factura - Posición 2
+                                    split[2] = NumeroFactura;
+
+                                    // Tipo de identificación del usuario - Posición 3
+                                    split[3] = TipoDocumento;
+
+                                    // Número Documento - Posición 4
+                                    split[4] = NumeroDocumento;
+
+                                    // Fecha de la Consulta - Posición 5
+                                    split[5] = FechaConsulta;
+
+                                    // Codigo Consulta - Posición 6
+                                    split[6] = CodigoConsulta;
+
+                                    // Finalidad de la consulta - Posición 7
+                                    split[7] = FinalidadConsulta;
+
+
+
+
+                                    line = String.Join(",", split);
+
+                                }
+
+                                lines.Add(line);
+                            }
+                        }
+
+                        using (StreamWriter writer = new StreamWriter(path, false))
+                        {
+                            foreach (String line in lines)
+                            {
+                                writer.WriteLine(line);
+                            }
+                        }
+                    }
+                }
+
+                #endregion
 
 
             }
