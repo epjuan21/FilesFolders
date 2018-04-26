@@ -1683,7 +1683,6 @@ namespace FilesFolders
                                     // Código de la entidad administradora del plan de beneficio - Posición 0
                                     split[0] = "05091";
 
-
                                     // Número de la Factura - Posición 2
                                     split[2] = NumeroFactura;
 
@@ -1702,8 +1701,32 @@ namespace FilesFolders
                                     // Finalidad de la consulta - Posición 7
                                     split[7] = FinalidadConsulta;
 
+                                    // Causa Externa - Posición 8
+                                    split[8] = CausaExterna;
 
+                                    // Código del Diagnóstico Principal - Posición 9
+                                    split[9] = DiagnosticoPrincipal;
 
+                                    // Código del Diagnóstico Relacionado 1 - Posición 10
+                                    split[10] = DiagnosticoRelacionado1;
+
+                                    // Código del Diagnóstico Relacionado 2 - Posición 11
+                                    split[11] = DiagnosticoRelacionado2;
+
+                                    // Código del Diagnóstico Relacionado 3 - Posición 12
+                                    split[12] = DiagnosticoRelacionado3;
+
+                                    // Tipo de Diagnóstico Principal - Posición 13
+                                    split[13] = TipoDiagnosticoPrincipal;
+
+                                    // Valor de la Consulta - Posición 14
+                                    split[14] = ValorConsulta;
+
+                                    // Valor de la cuota moderadora - Posición 15
+                                    split[15] = ValorCuotaModeradora;
+
+                                    // Valor neto a pagar - Posición 16
+                                    split[16] = ValorNeto;
 
                                     line = String.Join(",", split);
 
