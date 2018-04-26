@@ -2435,7 +2435,6 @@ namespace FilesFolders
 
             }
         }
-        #endregion
 
         public string ObtenerEdad(String NumeroDocumento)
         {
@@ -2516,6 +2515,10 @@ namespace FilesFolders
 
             return UnidadMedidaEdad;
         }
+
+        #endregion
+
+
     }
 }
 
