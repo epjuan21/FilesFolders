@@ -12,6 +12,8 @@ using System.Windows.Forms;
 using System.Globalization;
 using FilesFolders.Data;
 using FilesFolders.ManejoArchivos;
+using System.IO.Compression;
+using System.Diagnostics;
 
 namespace FilesFolders
 {
@@ -42,18 +44,12 @@ namespace FilesFolders
         #region FormLoad
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'rIPSDataSet.EntidadSet' Puede moverla o quitarla según sea necesario.
-            //this.entidadSetTableAdapter.Fill(this.rIPSDataSet.EntidadSet);
-
-            //using (RIPSModelContainer conexion = new RIPSModelContainer())
-            //{
-            //    this.dataGridView2.DataSource = conexion.EntidadSet.ToList();
-            //}
             
-            // Cuando carga el Formulario se oculta el Panel1
+            // Cuando carga el Formulario se ocultan todos los paneles
             pnlRIPS.Visible = false;
             pnlRIPSIndividual.Visible = false;
             pnlRIPSCarpetas.Visible = false;
+            pnlEAPB.Visible = false;
 
             // Ocultar Valores Totales de Archivos
             lblTotalAC.Text = string.Empty;
@@ -79,6 +75,35 @@ namespace FilesFolders
             btnAT.Enabled = false;
             btnAU.Enabled = false;
 
+            // EABP
+
+                // Comprimir Archivo
+    
+                    // Cargar Valores Predeterminados en TextBox
+
+            txtModuloInformacion.Enabled = false;
+            txtModuloInformacion.Text = "RIP";
+
+            txtTipoFuente.Enabled = false;
+            txtTipoFuente.Text = "170";
+
+            txtTema.Enabled = false;
+            txtTema.Text = "RIPS";
+
+            cmbTipoIdEntidad.SelectedIndex = 0;
+
+            txtNumeroIdEntidad.Text = "";
+
+            cmbRegimen.SelectedIndex = 2;
+
+            txtConsecutivo.Text = "01";
+
+            cmbExtension.SelectedIndex = 0;
+
+
+            string FileName = txtModuloInformacion.Text + txtTipoFuente.Text + txtTema.Text;
+
+            lblNombreArchivo.Text = FileName;
         }
         #endregion
 
@@ -107,6 +132,15 @@ namespace FilesFolders
         {
             pnlRIPSCarpetas.Visible = true;
             pnlRIPSCarpetas.Location = new Point(0, 27);
+            pnlRIPSIndividual.Visible = false;
+            pnlRIPS.Visible = false;
+        }
+
+        private void rIPSEAPBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pnlEAPB.Visible = true;
+            pnlEAPB.Location = new Point(0, 27);
+            pnlRIPSCarpetas.Visible = false;
             pnlRIPSIndividual.Visible = false;
             pnlRIPS.Visible = false;
         }
@@ -2433,7 +2467,20 @@ namespace FilesFolders
 
                 #endregion
 
+                // Comprimir Archivo
+
+                ZipDirFile(dirPath);
+
             }
+        }
+
+        private void ZipDirFile(string dir)
+        {
+            string parent = Path.GetDirectoryName(dir);
+            Process.Start(parent);
+            string name = Path.GetFileName(dir);
+            string fileName = Path.Combine(parent, name + ".DAT");
+            ZipFile.CreateFromDirectory(dir, fileName, CompressionLevel.Fastest, false);
         }
 
         public string ObtenerEdad(String NumeroDocumento)
@@ -2515,6 +2562,7 @@ namespace FilesFolders
 
             return UnidadMedidaEdad;
         }
+
 
         #endregion
 
