@@ -132,35 +132,48 @@ namespace FilesFolders
         }
         private void rIPSToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            pnlRIPSIndividual.Visible = false;
+            pnlCambioEsctuctura.Visible = false;
+            pnlRIPSCarpetas.Visible = false;
+            pnlComprimirArchivo.Visible = false;
+
             pnlRIPS.Visible = true;
             pnlRIPS.Location = new Point(0,27);
-            pnlRIPSIndividual.Visible = false;
-            pnlRIPSCarpetas.Visible = false;
         }
 
         private void rIPSIndividualToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            pnlRIPSIndividual.Visible = true;
-            pnlRIPSIndividual.Location = new Point(0, 27);
+            pnlCambioEsctuctura.Visible = false;
             pnlRIPS.Visible = false;
             pnlRIPSCarpetas.Visible = false;
+            pnlComprimirArchivo.Visible = false;
+
+            pnlRIPSIndividual.Visible = true;
+            pnlRIPSIndividual.Location = new Point(0, 27);
         }
 
         private void rIPSCarpetasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            pnlRIPSCarpetas.Visible = true;
-            pnlRIPSCarpetas.Location = new Point(0, 27);
-            pnlRIPSIndividual.Visible = false;
             pnlRIPS.Visible = false;
+            pnlRIPSIndividual.Visible = false;
+            pnlCambioEsctuctura.Visible = false;
+            pnlComprimirArchivo.Visible = false;
+
+            pnlRIPSCarpetas.Location = new Point(0, 27);
+            pnlRIPSCarpetas.Visible = true;
+
         }
 
+
+
         private void rIPSEAPBToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            pnlComprimirArchivo.Visible = true;
-            pnlComprimirArchivo.Location = new Point(0, 27);
+        {           
             pnlRIPSCarpetas.Visible = false;
             pnlRIPSIndividual.Visible = false;
             pnlRIPS.Visible = false;
+
+            pnlComprimirArchivo.Location = new Point(0, 27);
+            pnlComprimirArchivo.Visible = true;
         }
 
         private void cambioEstructuraToolStripMenuItem_Click(object sender, EventArgs e)
@@ -170,6 +183,7 @@ namespace FilesFolders
             pnlRIPSCarpetas.Visible = false;
             pnlComprimirArchivo.Visible = false;
 
+            pnlCambioEsctuctura.Location = new Point(0, 27);
             pnlCambioEsctuctura.Visible = true;
 
         }
@@ -2642,10 +2656,29 @@ namespace FilesFolders
 
         private void txtFechaCorte_TextChanged(object sender, EventArgs e)
         {
-            FileName = txtModuloInformacion.Text + txtTipoFuente.Text + txtTema.Text + txtFechaCorte.Text + cmbTipoIdEntidad.Text + txtNumeroIdEntidad.Text + cmbRegimen.Text + txtConsecutivo.Text + cmbExtension.Text;
+            // Obtenemos la candidad de digitos en el Campo Numero Id Entidad
+            int charCount = txtNumeroIdEntidad.Text.Length;
+
+            //Etablecemos la Cantidad Maxima de Digitos Permitidos
+            const int charIdEntidad = 12;
+
+            // Variable para establecer los digitos faltantes en el campo
+            int charLeft = charIdEntidad - charCount;
+
+            string ceros = "0";
+
+            if (charLeft > 0 && charLeft < 12)
+            {
+
+                for (int i = 1; i < charLeft; i++)
+                {
+                    ceros = ceros + "0";
+                }
+            }
+
+            FileName = txtModuloInformacion.Text + txtTipoFuente.Text + txtTema.Text + txtFechaCorte.Text + cmbTipoIdEntidad.Text + ceros + txtNumeroIdEntidad.Text + cmbRegimen.Text + txtConsecutivo.Text + cmbExtension.Text;
             lblNombreArchivo.Text = FileName;
         }
-
 
         private void ZipDirFile(string dir)
         {
@@ -2663,28 +2696,9 @@ namespace FilesFolders
             ZipDirFile(dirPath);
         }
 
-        private void txtNumeroIdEntidad_TextChanged(object sender, EventArgs e)
+        private void rIPSCarpetasToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            int charCount = txtNumeroIdEntidad.Text.Length;
-            const int charIdEntidad = 12;
 
-            int charLeft = charIdEntidad - charCount;
-
-            string ceros = "0";
-
-            label26.Text = "Ceros Faltantes: " + charLeft.ToString();
-
-            if (charLeft > 0 && charLeft < 12)
-            {
-
-                for (int i = 0; i < charLeft; i++)
-                {
-                    ceros = ceros + ceros;
-                }
-
-            }
-
-            label27.Text = ceros;
         }
     }
 }

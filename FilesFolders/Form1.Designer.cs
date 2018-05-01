@@ -157,8 +157,6 @@
             this.btnProcesarEAPB = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.entidadSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.pnlRIPS.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -229,6 +227,7 @@
             this.rIPSCarpetasToolStripMenuItem.Name = "rIPSCarpetasToolStripMenuItem";
             this.rIPSCarpetasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.rIPSCarpetasToolStripMenuItem.Text = "RIPS Carpetas";
+            this.rIPSCarpetasToolStripMenuItem.Click += new System.EventHandler(this.rIPSCarpetasToolStripMenuItem_Click);
             // 
             // rIPSEABPToolStripMenuItem
             // 
@@ -748,9 +747,9 @@
             this.pnlRIPSIndividual.Controls.Add(this.label11);
             this.pnlRIPSIndividual.Controls.Add(this.txtRutaIndividual);
             this.pnlRIPSIndividual.Controls.Add(this.btnRutaIndividual);
-            this.pnlRIPSIndividual.Location = new System.Drawing.Point(785, 35);
+            this.pnlRIPSIndividual.Location = new System.Drawing.Point(618, 27);
             this.pnlRIPSIndividual.Name = "pnlRIPSIndividual";
-            this.pnlRIPSIndividual.Size = new System.Drawing.Size(655, 261);
+            this.pnlRIPSIndividual.Size = new System.Drawing.Size(655, 193);
             this.pnlRIPSIndividual.TabIndex = 12;
             // 
             // label14
@@ -978,7 +977,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(20, 233);
+            this.label11.Location = new System.Drawing.Point(10, 174);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(82, 13);
             this.label11.TabIndex = 2;
@@ -1007,7 +1006,7 @@
             this.pnlRIPSCarpetas.Controls.Add(this.txtRutaCarpeta);
             this.pnlRIPSCarpetas.Controls.Add(this.btnRutaCarpeta);
             this.pnlRIPSCarpetas.Controls.Add(this.label13);
-            this.pnlRIPSCarpetas.Location = new System.Drawing.Point(777, 225);
+            this.pnlRIPSCarpetas.Location = new System.Drawing.Point(618, 226);
             this.pnlRIPSCarpetas.Name = "pnlRIPSCarpetas";
             this.pnlRIPSCarpetas.Size = new System.Drawing.Size(609, 135);
             this.pnlRIPSCarpetas.TabIndex = 13;
@@ -1081,8 +1080,6 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.label27);
-            this.groupBox3.Controls.Add(this.label26);
             this.groupBox3.Controls.Add(this.btnComprimir);
             this.groupBox3.Controls.Add(this.lblNombreArchivo);
             this.groupBox3.Controls.Add(this.label24);
@@ -1194,7 +1191,6 @@
             this.txtNumeroIdEntidad.Name = "txtNumeroIdEntidad";
             this.txtNumeroIdEntidad.Size = new System.Drawing.Size(102, 22);
             this.txtNumeroIdEntidad.TabIndex = 15;
-            this.txtNumeroIdEntidad.TextChanged += new System.EventHandler(this.txtNumeroIdEntidad_TextChanged);
             // 
             // txtFechaCorte
             // 
@@ -1395,7 +1391,7 @@
             this.pnlCambioEsctuctura.Controls.Add(this.txtRuraCarpetaEAPB);
             this.pnlCambioEsctuctura.Controls.Add(this.btnRutaCarpetaEAPB);
             this.pnlCambioEsctuctura.Controls.Add(this.label10);
-            this.pnlCambioEsctuctura.Location = new System.Drawing.Point(798, 323);
+            this.pnlCambioEsctuctura.Location = new System.Drawing.Point(691, 367);
             this.pnlCambioEsctuctura.Name = "pnlCambioEsctuctura";
             this.pnlCambioEsctuctura.Size = new System.Drawing.Size(566, 161);
             this.pnlCambioEsctuctura.TabIndex = 15;
@@ -1429,30 +1425,12 @@
             // button1
             // 
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(618, 410);
+            this.button1.Location = new System.Drawing.Point(618, 400);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(45, 40);
             this.button1.TabIndex = 10;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(402, 192);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(89, 13);
-            this.label26.TabIndex = 25;
-            this.label26.Text = "Ceros Faltantes:";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(405, 221);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(39, 13);
-            this.label27.TabIndex = 26;
-            this.label27.Text = "Ceros:";
             // 
             // Form1
             // 
@@ -1626,8 +1604,6 @@
         private System.Windows.Forms.Button btnRutaEAPB;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Button btnComprimir;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
     }
 }
 
