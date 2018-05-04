@@ -286,7 +286,7 @@
             this.pnlRIPS.Controls.Add(this.btnAP);
             this.pnlRIPS.Controls.Add(this.txtRuta);
             this.pnlRIPS.Controls.Add(this.btnRuta);
-            this.pnlRIPS.Location = new System.Drawing.Point(843, 420);
+            this.pnlRIPS.Location = new System.Drawing.Point(729, 371);
             this.pnlRIPS.Name = "pnlRIPS";
             this.pnlRIPS.Size = new System.Drawing.Size(695, 377);
             this.pnlRIPS.TabIndex = 1;
@@ -1055,7 +1055,7 @@
             this.pnlComprimirArchivo.Controls.Add(this.btnRutaEAPB);
             this.pnlComprimirArchivo.Controls.Add(this.groupBox3);
             this.pnlComprimirArchivo.Controls.Add(this.label25);
-            this.pnlComprimirArchivo.Location = new System.Drawing.Point(0, 27);
+            this.pnlComprimirArchivo.Location = new System.Drawing.Point(11, 27);
             this.pnlComprimirArchivo.Name = "pnlComprimirArchivo";
             this.pnlComprimirArchivo.Size = new System.Drawing.Size(612, 424);
             this.pnlComprimirArchivo.TabIndex = 14;
@@ -1287,7 +1287,7 @@
             this.lblTema.ForeColor = System.Drawing.SystemColors.WindowText;
             this.lblTema.Location = new System.Drawing.Point(65, 106);
             this.lblTema.Name = "lblTema";
-            this.lblTema.Size = new System.Drawing.Size(113, 13);
+            this.lblTema.Size = new System.Drawing.Size(114, 13);
             this.lblTema.TabIndex = 4;
             this.lblTema.Text = "Tema de Información";
             // 
@@ -1391,7 +1391,7 @@
             this.pnlCambioEsctuctura.Controls.Add(this.txtRuraCarpetaEAPB);
             this.pnlCambioEsctuctura.Controls.Add(this.btnRutaCarpetaEAPB);
             this.pnlCambioEsctuctura.Controls.Add(this.label10);
-            this.pnlCambioEsctuctura.Location = new System.Drawing.Point(691, 367);
+            this.pnlCambioEsctuctura.Location = new System.Drawing.Point(698, 422);
             this.pnlCambioEsctuctura.Name = "pnlCambioEsctuctura";
             this.pnlCambioEsctuctura.Size = new System.Drawing.Size(566, 161);
             this.pnlCambioEsctuctura.TabIndex = 15;
