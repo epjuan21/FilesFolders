@@ -2725,12 +2725,13 @@ namespace FilesFolders
             ZipFile.CreateFromDirectory(dir, fileName, CompressionLevel.Fastest, false);
         }
 
-        #endregion
-
         private void btnComprimir_Click(object sender, EventArgs e)
         {
             ZipDirFile(dirPath);
         }
+
+
+        #endregion
 
         private void rIPSCarpetasToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
