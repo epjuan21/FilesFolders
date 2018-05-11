@@ -316,7 +316,7 @@ namespace FilesFolders
                                 #endregion
 
                                 #region Departamento y Municipio
-                                // Codigo Departamento y Municipio Archivo US - Posoción 6
+                                // Codigo Departamento y Municipio Archivo US - Posoción 11 y Posición 12
                                 if (split[11] == "30" && split[12] == "530")
                                 {
                                     split[11] = "05";
@@ -338,6 +338,21 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                #endregion
+
+                                #region TipoUsuario
+                                // Tipo de Usuario
+
+                                // Obtenemos la EPS
+                                string EAPB = split[2];
+
+                                if (EAPB == "EPSS40")
+                                {
+                                    split[3] = "2";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
                                 #endregion
                             }
 
@@ -451,6 +466,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "890305" && split[7] == "" && split[9] == "Z300")
+                                {
+                                    split[7] = "03";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "890701" && split[7] == "")
                                 {
                                     split[7] = "10";
@@ -481,6 +502,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "890305" && split[8] == "" && split[9] == "Z300")
+                                {
+                                    split[8] = "15";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "890701" && split[8] == "")
                                 {
                                     split[8] = "13";
@@ -497,6 +524,63 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[9] == "A09X")
+                                {
+                                    split[9] = "A099";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[9] == "I849")
+                                {
+                                    split[9] = "K649";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[9] == "I48X")
+                                {
+                                    split[9] = "I489";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                #endregion
+
+                                #region Diagnostico Relacionado 1
+                                // Código del diagnóstico relacionado 1 - Posición 10
+                                if (split[10] == "A09X")
+                                {
+                                    split[10] = "A099";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[10] == "I48X")
+                                {
+                                    split[10] = "I489";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                #endregion
+
+                                #region Diagnostico Relacionado 2
+                                // Código del diagnóstico relacionado 2 - Posición 11
+                                if (split[11] == "I48X")
+                                {
+                                    split[11] = "I489";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                #endregion
+
+                                #region Diagnostico Relacionado 3
+                                // Código del diagnóstico relacionado 3 - Posición 12
+                                if (split[12] == "I48X")
+                                {
+                                    split[12] = "I489";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                #endregion
+
+                                #region Tipo Diagnostico Principal
                                 // Tipo de diagnóstico principal - Posicion 13
                                 if (split[13] == "")
                                 {
@@ -629,6 +713,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "673411")
+                                {
+                                    split[6] = "863101";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "873123")
                                 {
                                     split[6] = "873122";
@@ -668,6 +758,12 @@ namespace FilesFolders
                                 #endregion
 
                                 #region Ambito
+                                if (split[6] == "872011")
+                                {
+                                    split[7] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "873112")
                                 {
                                     split[7] = "1";
@@ -680,7 +776,19 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "901107")
+                                {
+                                    split[7] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "901235")
+                                {
+                                    split[7] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "901305")
                                 {
                                     split[7] = "1";
                                     line = String.Join(",", split);
@@ -788,6 +896,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "871040")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "871111")
                                 {
                                     split[8] = "1";
@@ -801,6 +915,12 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 if (split[6] == "872002" && split[8] == "")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "872011" && split[8] == "")
                                 {
                                     split[8] = "1";
                                     line = String.Join(",", split);
@@ -908,6 +1028,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "901107" && split[8] == "")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "901235" && split[8] == "")
                                 {
                                     split[8] = "1";
@@ -915,6 +1041,12 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 if (split[6] == "901304" && split[8] == "")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "901305" && split[8] == "")
                                 {
                                     split[8] = "1";
                                     line = String.Join(",", split);
@@ -1041,6 +1173,12 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 if (split[6] == "963300" && split[8] == "")
+                                {
+                                    split[8] = "2";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "982102" && split[8] == "")
                                 {
                                     split[8] = "2";
                                     line = String.Join(",", split);
