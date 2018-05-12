@@ -524,19 +524,20 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-                                if (split[9] == "A09X")
+                                // Correccion para SAVIASALUD
+                                if (split[9] == "A09X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
                                     split[9] = "A099";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-                                if (split[9] == "I849")
+                                if (split[9] == "I849" && chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
                                     split[9] = "K649";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-                                if (split[9] == "I48X")
+                                if (split[9] == "I48X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
                                     split[9] = "I489";
                                     line = String.Join(",", split);
@@ -764,6 +765,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "873111")
+                                {
+                                    split[7] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "873112")
                                 {
                                     split[7] = "1";
@@ -921,6 +928,12 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 if (split[6] == "872011" && split[8] == "")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "873111")
                                 {
                                     split[8] = "1";
                                     line = String.Join(",", split);
