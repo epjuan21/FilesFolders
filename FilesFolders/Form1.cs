@@ -196,6 +196,9 @@ namespace FilesFolders
             pnlComprimirArchivo.Visible = false;
             pnlCambioEsctuctura.Visible = false;
 
+            pnlComprimirArchivo.Location = new Point(0, 27);
+            pnlComprimirArchivo.Visible = true;
+
             pnlComprimirArchivo.Visible = true;
         }
 

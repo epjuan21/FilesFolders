@@ -41,6 +41,7 @@
             this.cambioEstructuraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comprimirArchivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlRIPS = new System.Windows.Forms.Panel();
+            this.chkBoxDiagSavia = new System.Windows.Forms.CheckBox();
             this.chkBoxValCm = new System.Windows.Forms.CheckBox();
             this.chkBoxLonDoc = new System.Windows.Forms.CheckBox();
             this.lblStatusAU = new System.Windows.Forms.Label();
@@ -157,7 +158,6 @@
             this.btnProcesarEAPB = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.entidadSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.chkBoxDiagSavia = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.pnlRIPS.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -292,6 +292,16 @@
             this.pnlRIPS.Name = "pnlRIPS";
             this.pnlRIPS.Size = new System.Drawing.Size(695, 377);
             this.pnlRIPS.TabIndex = 1;
+            // 
+            // chkBoxDiagSavia
+            // 
+            this.chkBoxDiagSavia.AutoSize = true;
+            this.chkBoxDiagSavia.Location = new System.Drawing.Point(174, 160);
+            this.chkBoxDiagSavia.Name = "chkBoxDiagSavia";
+            this.chkBoxDiagSavia.Size = new System.Drawing.Size(220, 17);
+            this.chkBoxDiagSavia.TabIndex = 35;
+            this.chkBoxDiagSavia.Text = "Corregir Diagnósticos para SAVIASALUD";
+            this.chkBoxDiagSavia.UseVisualStyleBackColor = true;
             // 
             // chkBoxValCm
             // 
@@ -1057,7 +1067,7 @@
             this.pnlComprimirArchivo.Controls.Add(this.btnRutaEAPB);
             this.pnlComprimirArchivo.Controls.Add(this.groupBox3);
             this.pnlComprimirArchivo.Controls.Add(this.label25);
-            this.pnlComprimirArchivo.Location = new System.Drawing.Point(0, 400);
+            this.pnlComprimirArchivo.Location = new System.Drawing.Point(12, 411);
             this.pnlComprimirArchivo.Name = "pnlComprimirArchivo";
             this.pnlComprimirArchivo.Size = new System.Drawing.Size(612, 424);
             this.pnlComprimirArchivo.TabIndex = 14;
@@ -1289,7 +1299,7 @@
             this.lblTema.ForeColor = System.Drawing.SystemColors.WindowText;
             this.lblTema.Location = new System.Drawing.Point(65, 106);
             this.lblTema.Name = "lblTema";
-            this.lblTema.Size = new System.Drawing.Size(113, 13);
+            this.lblTema.Size = new System.Drawing.Size(114, 13);
             this.lblTema.TabIndex = 4;
             this.lblTema.Text = "Tema de Información";
             // 
@@ -1433,16 +1443,6 @@
             this.button1.TabIndex = 10;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
-            // 
-            // chkBoxDiagSavia
-            // 
-            this.chkBoxDiagSavia.AutoSize = true;
-            this.chkBoxDiagSavia.Location = new System.Drawing.Point(174, 160);
-            this.chkBoxDiagSavia.Name = "chkBoxDiagSavia";
-            this.chkBoxDiagSavia.Size = new System.Drawing.Size(220, 17);
-            this.chkBoxDiagSavia.TabIndex = 35;
-            this.chkBoxDiagSavia.Text = "Corregir Diagnósticos para SAVIASALUD";
-            this.chkBoxDiagSavia.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
