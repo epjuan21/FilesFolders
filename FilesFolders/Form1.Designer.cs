@@ -41,6 +41,7 @@
             this.cambioEstructuraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comprimirArchivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlRIPS = new System.Windows.Forms.Panel();
+            this.chkBoxDiagSavia = new System.Windows.Forms.CheckBox();
             this.chkBoxValCm = new System.Windows.Forms.CheckBox();
             this.chkBoxLonDoc = new System.Windows.Forms.CheckBox();
             this.lblStatusAU = new System.Windows.Forms.Label();
@@ -157,7 +158,6 @@
             this.btnProcesarEAPB = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.entidadSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.chkBoxDiagSavia = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.pnlRIPS.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -178,7 +178,7 @@
             this.rIPSEABPToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(896, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1104, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -292,6 +292,16 @@
             this.pnlRIPS.Name = "pnlRIPS";
             this.pnlRIPS.Size = new System.Drawing.Size(695, 377);
             this.pnlRIPS.TabIndex = 1;
+            // 
+            // chkBoxDiagSavia
+            // 
+            this.chkBoxDiagSavia.AutoSize = true;
+            this.chkBoxDiagSavia.Location = new System.Drawing.Point(174, 160);
+            this.chkBoxDiagSavia.Name = "chkBoxDiagSavia";
+            this.chkBoxDiagSavia.Size = new System.Drawing.Size(220, 17);
+            this.chkBoxDiagSavia.TabIndex = 35;
+            this.chkBoxDiagSavia.Text = "Corregir Diagnósticos para SAVIASALUD";
+            this.chkBoxDiagSavia.UseVisualStyleBackColor = true;
             // 
             // chkBoxValCm
             // 
@@ -1057,7 +1067,7 @@
             this.pnlComprimirArchivo.Controls.Add(this.btnRutaEAPB);
             this.pnlComprimirArchivo.Controls.Add(this.groupBox3);
             this.pnlComprimirArchivo.Controls.Add(this.label25);
-            this.pnlComprimirArchivo.Location = new System.Drawing.Point(0, 400);
+            this.pnlComprimirArchivo.Location = new System.Drawing.Point(3, 411);
             this.pnlComprimirArchivo.Name = "pnlComprimirArchivo";
             this.pnlComprimirArchivo.Size = new System.Drawing.Size(612, 424);
             this.pnlComprimirArchivo.TabIndex = 14;
@@ -1393,7 +1403,7 @@
             this.pnlCambioEsctuctura.Controls.Add(this.txtRuraCarpetaEAPB);
             this.pnlCambioEsctuctura.Controls.Add(this.btnRutaCarpetaEAPB);
             this.pnlCambioEsctuctura.Controls.Add(this.label10);
-            this.pnlCambioEsctuctura.Location = new System.Drawing.Point(669, 429);
+            this.pnlCambioEsctuctura.Location = new System.Drawing.Point(707, 434);
             this.pnlCambioEsctuctura.Name = "pnlCambioEsctuctura";
             this.pnlCambioEsctuctura.Size = new System.Drawing.Size(566, 161);
             this.pnlCambioEsctuctura.TabIndex = 15;
@@ -1434,21 +1444,11 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
-            // chkBoxDiagSavia
-            // 
-            this.chkBoxDiagSavia.AutoSize = true;
-            this.chkBoxDiagSavia.Location = new System.Drawing.Point(174, 160);
-            this.chkBoxDiagSavia.Name = "chkBoxDiagSavia";
-            this.chkBoxDiagSavia.Size = new System.Drawing.Size(220, 17);
-            this.chkBoxDiagSavia.TabIndex = 35;
-            this.chkBoxDiagSavia.Text = "Corregir Diagnósticos para SAVIASALUD";
-            this.chkBoxDiagSavia.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(896, 479);
+            this.ClientSize = new System.Drawing.Size(1104, 479);
             this.Controls.Add(this.pnlRIPSCarpetas);
             this.Controls.Add(this.pnlCambioEsctuctura);
             this.Controls.Add(this.pnlComprimirArchivo);
