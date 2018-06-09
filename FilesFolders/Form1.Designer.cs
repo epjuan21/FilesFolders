@@ -1067,7 +1067,7 @@
             this.pnlComprimirArchivo.Controls.Add(this.btnRutaEAPB);
             this.pnlComprimirArchivo.Controls.Add(this.groupBox3);
             this.pnlComprimirArchivo.Controls.Add(this.label25);
-            this.pnlComprimirArchivo.Location = new System.Drawing.Point(3, 411);
+            this.pnlComprimirArchivo.Location = new System.Drawing.Point(12, 411);
             this.pnlComprimirArchivo.Name = "pnlComprimirArchivo";
             this.pnlComprimirArchivo.Size = new System.Drawing.Size(612, 424);
             this.pnlComprimirArchivo.TabIndex = 14;
@@ -1299,7 +1299,7 @@
             this.lblTema.ForeColor = System.Drawing.SystemColors.WindowText;
             this.lblTema.Location = new System.Drawing.Point(65, 106);
             this.lblTema.Name = "lblTema";
-            this.lblTema.Size = new System.Drawing.Size(113, 13);
+            this.lblTema.Size = new System.Drawing.Size(114, 13);
             this.lblTema.TabIndex = 4;
             this.lblTema.Text = "Tema de Información";
             // 
