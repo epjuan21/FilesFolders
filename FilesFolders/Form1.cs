@@ -158,13 +158,10 @@ namespace FilesFolders
             pnlRIPSIndividual.Visible = false;
             pnlCambioEsctuctura.Visible = false;
             pnlComprimirArchivo.Visible = false;
-
             pnlRIPSCarpetas.Location = new Point(0, 27);
             pnlRIPSCarpetas.Visible = true;
 
         }
-
-
 
         private void rIPSEAPBToolStripMenuItem_Click(object sender, EventArgs e)
         {           
