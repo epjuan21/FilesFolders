@@ -834,6 +834,12 @@ namespace FilesFolders
                                 // Finalidad - Posición 8
                                 // 1 - Diagnóstico
                                 // 2 - Terapéutico
+                                if (split[6] == "210200")
+                                {
+                                    split[8] = "2";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "542700")
                                 {
                                     split[8] = "1";
