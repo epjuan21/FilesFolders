@@ -422,12 +422,16 @@ namespace FilesFolders
                                 // Número Factura - Posición 0
                                 string NumeroFactura = split[0];
 
-                                if (NumeroFactura.Length == 9)
+                                if (ChkBoxFac.CheckState == CheckState.Checked)
                                 {
-                                    split[0] = NumeroFactura.Substring(3, 6);
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
+                                    if (NumeroFactura.Length == 9)
+                                    {
+                                        split[0] = NumeroFactura.Substring(3, 6);
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                 }
+
                                 #endregion
 
                                 #region CUPS
@@ -698,12 +702,17 @@ namespace FilesFolders
                                 // Número Factura - Posición 0
                                 string NumeroFactura = split[0];
 
-                                if (NumeroFactura.Length == 9)
+                                if (ChkBoxFac.CheckState == CheckState.Checked)
                                 {
-                                    split[0] = NumeroFactura.Substring(3, 6);
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
+                                    if (NumeroFactura.Length == 9)
+                                    {
+                                        split[0] = NumeroFactura.Substring(3, 6);
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                 }
+
+ 
                                 #endregion
 
                                 #region CUPS

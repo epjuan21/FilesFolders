@@ -158,6 +158,7 @@
             this.btnProcesarEAPB = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.entidadSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ChkBoxFac = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.pnlRIPS.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -178,7 +179,7 @@
             this.rIPSEABPToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1104, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(701, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -255,6 +256,7 @@
             // 
             // pnlRIPS
             // 
+            this.pnlRIPS.Controls.Add(this.ChkBoxFac);
             this.pnlRIPS.Controls.Add(this.chkBoxDiagSavia);
             this.pnlRIPS.Controls.Add(this.chkBoxValCm);
             this.pnlRIPS.Controls.Add(this.chkBoxLonDoc);
@@ -531,6 +533,7 @@
             this.groupBox1.Controls.Add(this.lblTotalAU);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.lblTotalUS);
+            this.groupBox1.Controls.Add(this.pnlRIPSIndividual);
             this.groupBox1.Controls.Add(this.lblTotalAT);
             this.groupBox1.Controls.Add(this.lblTotalAM);
             this.groupBox1.Controls.Add(this.lblTotalAP);
@@ -759,7 +762,7 @@
             this.pnlRIPSIndividual.Controls.Add(this.label11);
             this.pnlRIPSIndividual.Controls.Add(this.txtRutaIndividual);
             this.pnlRIPSIndividual.Controls.Add(this.btnRutaIndividual);
-            this.pnlRIPSIndividual.Location = new System.Drawing.Point(618, 27);
+            this.pnlRIPSIndividual.Location = new System.Drawing.Point(35, 39);
             this.pnlRIPSIndividual.Name = "pnlRIPSIndividual";
             this.pnlRIPSIndividual.Size = new System.Drawing.Size(655, 193);
             this.pnlRIPSIndividual.TabIndex = 12;
@@ -1299,7 +1302,7 @@
             this.lblTema.ForeColor = System.Drawing.SystemColors.WindowText;
             this.lblTema.Location = new System.Drawing.Point(65, 106);
             this.lblTema.Name = "lblTema";
-            this.lblTema.Size = new System.Drawing.Size(114, 13);
+            this.lblTema.Size = new System.Drawing.Size(113, 13);
             this.lblTema.TabIndex = 4;
             this.lblTema.Text = "Tema de Información";
             // 
@@ -1444,15 +1447,24 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
+            // ChkBoxFac
+            // 
+            this.ChkBoxFac.AutoSize = true;
+            this.ChkBoxFac.Location = new System.Drawing.Point(251, 66);
+            this.ChkBoxFac.Name = "ChkBoxFac";
+            this.ChkBoxFac.Size = new System.Drawing.Size(156, 17);
+            this.ChkBoxFac.TabIndex = 36;
+            this.ChkBoxFac.Text = "Corregir Número de Factura";
+            this.ChkBoxFac.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1104, 479);
+            this.ClientSize = new System.Drawing.Size(701, 458);
             this.Controls.Add(this.pnlRIPSCarpetas);
             this.Controls.Add(this.pnlCambioEsctuctura);
             this.Controls.Add(this.pnlComprimirArchivo);
-            this.Controls.Add(this.pnlRIPSIndividual);
             this.Controls.Add(this.pnlRIPS);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.button1);
@@ -1617,6 +1629,7 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Button btnComprimir;
         private System.Windows.Forms.CheckBox chkBoxDiagSavia;
+        private System.Windows.Forms.CheckBox ChkBoxFac;
     }
 }
 
