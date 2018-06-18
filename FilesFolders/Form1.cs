@@ -547,6 +547,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[9] == "D752" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[9] = "D572";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[9] == "I849" && chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
                                     split[9] = "K649";
@@ -556,6 +562,12 @@ namespace FilesFolders
                                 if (split[9] == "I48X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
                                     split[9] = "I489";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[9] == "R500" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[9] = "R509";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -569,6 +581,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[10] == "D752" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[10] = "D572";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[10] == "I48X")
                                 {
                                     split[10] = "I489";
@@ -578,6 +596,12 @@ namespace FilesFolders
                                 if (split[10] == "N180")
                                 {
                                     split[10] = "N179";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[10] == "R500" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[10] = "R509";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -1274,7 +1298,12 @@ namespace FilesFolders
 
                                 #region Diagnostico Principal
                                 // Diagnóstico Principal - Posición 10
-
+                                if(split[10] == "R500" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[10] = "R509";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 #endregion
 
                                 #region Diagnostico Relacionado 1
@@ -1282,6 +1311,12 @@ namespace FilesFolders
                                 if (split[11] == "N180")
                                 {
                                     split[11] = "N179";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[11] == "R500" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[11] = "R509";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
