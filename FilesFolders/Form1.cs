@@ -559,6 +559,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[9] == "I845" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[9] = "K649";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[9] == "I48X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
                                     split[9] = "I489";
@@ -590,6 +596,12 @@ namespace FilesFolders
                                 if (split[10] == "I48X")
                                 {
                                     split[10] = "I489";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[10] == "I845" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[10] = "K649";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -834,6 +846,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "892901")
+                                {
+                                    split[7] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }                         
                                 if (split[6] == "897011")
                                 {
                                     split[7] = "2";
@@ -1485,6 +1503,24 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+
+                                #region Diagnóstico de Salida
+                                // Diagnóstico de salida - Posición 8
+                                if (split[8] == "R500" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[8] = "R509";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                if (split[8] == "A09X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[8] = "A099";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                #endregion
+
                             }
 
                             lines.Add(line);
