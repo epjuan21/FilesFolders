@@ -353,6 +353,13 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
 
+                                if (EAPB == "EPS040")
+                                {
+                                    split[3] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
                                 #endregion
                             }
 
