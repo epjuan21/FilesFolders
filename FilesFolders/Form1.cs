@@ -495,6 +495,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "890703" && split[7] == "")
+                                {
+                                    split[7] = "10";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 // Finalidad 07 Detección de alteraciones del adulto
                                 if (split[7] == "07" && split[9] == "I10X")
                                 {
@@ -532,6 +538,12 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 if (split[6] == "890701" && split[8] == "")
+                                {
+                                    split[8] = "13";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "890703" && split[8] == "")
                                 {
                                     split[8] = "13";
                                     line = String.Join(",", split);
