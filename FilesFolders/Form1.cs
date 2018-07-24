@@ -572,9 +572,27 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[9] == "H547" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[9] = "H546";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[9] == "I849" && chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
                                     split[9] = "K649";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[9] == "K359" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[9] = "K358";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[9] == "N180" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[9] = "N179";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -612,6 +630,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[10] == "H547" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[10] = "H546";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[10] == "I48X")
                                 {
                                     split[10] = "I489";
@@ -640,9 +664,21 @@ namespace FilesFolders
 
                                 #region Diagnostico Relacionado 2
                                 // Código del diagnóstico relacionado 2 - Posición 11
+                                if (split[11] == "H547" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[11] = "H546";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[11] == "I48X")
                                 {
                                     split[11] = "I489";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[11] == "N180" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[11] = "N179";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -653,6 +689,12 @@ namespace FilesFolders
                                 if (split[12] == "I48X")
                                 {
                                     split[12] = "I489";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[12] == "I849" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[12] = "K649";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -1341,7 +1383,25 @@ namespace FilesFolders
 
                                 #region Diagnostico Principal
                                 // Diagnóstico Principal - Posición 10
-                                if(split[10] == "R500" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                if (split[10] == "I845" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[10] = "K649";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[10] == "K359" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[10] = "K358";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[10] == "N180" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[10] = "N179";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[10] == "R500" && chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
                                     split[10] = "R509";
                                     line = String.Join(",", split);
@@ -1351,6 +1411,12 @@ namespace FilesFolders
 
                                 #region Diagnostico Relacionado 1
                                 // Diagnóstico Relacionado 1 - Posición 11
+                                if (split[11] == "A09X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[11] = "A099";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[11] == "N180")
                                 {
                                     split[11] = "N179";
@@ -1525,6 +1591,25 @@ namespace FilesFolders
 
                                 #region Diagnóstico de Salida
                                 // Diagnóstico de salida - Posición 8
+                                if (split[8] == "A09X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[8] = "A099";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[8] == "K359" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[8] = "K358";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[8] == "N180" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[8] = "N179";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
                                 if (split[8] == "R500" && chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
                                     split[8] = "R509";
@@ -1532,12 +1617,7 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
 
-                                if (split[8] == "A09X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[8] = "A099";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
+
                                 #endregion
 
                             }
