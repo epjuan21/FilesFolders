@@ -1383,6 +1383,12 @@ namespace FilesFolders
 
                                 #region Diagnostico Principal
                                 // Diagnóstico Principal - Posición 10
+                                if (split[10] == "H547" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[10] = "H546";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[10] == "I845" && chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
                                     split[10] = "K649";
