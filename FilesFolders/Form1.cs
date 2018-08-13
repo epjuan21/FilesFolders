@@ -429,11 +429,17 @@ namespace FilesFolders
                                 // Número Factura - Posición 0
                                 string NumeroFactura = split[0];
 
+                                // Obtenemos la Primera Letra del Número de la Factura
+                                string FirsLetter = NumeroFactura.Substring(0, 1);
+
+                                int Longitud = NumeroFactura.Length;
+
                                 if (ChkBoxFac.CheckState == CheckState.Checked)
                                 {
-                                    if (NumeroFactura.Length == 9)
+
+                                    if (FirsLetter == "V")
                                     {
-                                        split[0] = NumeroFactura.Substring(3, 6);
+                                        split[0] = NumeroFactura.Substring(3, Longitud - 3);
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
@@ -1383,9 +1389,21 @@ namespace FilesFolders
 
                                 #region Diagnostico Principal
                                 // Diagnóstico Principal - Posición 10
+                                if (split[10] == "A09X")
+                                {
+                                    split[10] = "A099";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[10] == "H547" && chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
                                     split[10] = "H546";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[9] == "I48X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[9] = "I489";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
