@@ -1433,8 +1433,8 @@ namespace FilesFolders
                                 }
                                 #endregion
 
-                                #region Diagnostico Relacionado 1
-                                // Diagnóstico Relacionado 1 - Posición 11
+                                #region Diagnostico Relacionado
+                                // Diagnóstico Relacionado - Posición 11
                                 if (split[11] == "A09X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
                                     split[11] = "A099";
@@ -1455,6 +1455,14 @@ namespace FilesFolders
                                 }
 
                                 #endregion
+
+                                // Forma de realización del acto quirúrgico - Posición 13
+                                if (split[13] == "")
+                                {
+                                    split[13] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                             }
 
                             lines.Add(line);
