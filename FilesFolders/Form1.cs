@@ -1486,6 +1486,9 @@ namespace FilesFolders
 
                                 #endregion
 
+                                #region Forma Acto Quirurgico
+
+                                #endregion
                                 // Forma de realización del acto quirúrgico - Posición 13
                                 if (split[13] == "")
                                 {
