@@ -584,6 +584,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[9] == "I842" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[9] = "K649";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[9] == "I849" && chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
                                     split[9] = "K649";
@@ -645,6 +651,12 @@ namespace FilesFolders
                                 if (split[10] == "I48X")
                                 {
                                     split[10] = "I489";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[10] == "I842" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[10] = "K649";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -889,6 +901,12 @@ namespace FilesFolders
                                 #endregion
 
                                 #region Ambito
+                                if (split[6] == "862701")
+                                {
+                                    split[7] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "872011")
                                 {
                                     split[7] = "1";
@@ -944,6 +962,12 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 if (split[6] == "906127")
+                                {
+                                    split[7] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "936800")
                                 {
                                     split[7] = "1";
                                     line = String.Join(",", split);
@@ -1012,6 +1036,12 @@ namespace FilesFolders
                                 if (split[6] == "865101")
                                 {
                                     split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "862701")
+                                {
+                                    split[8] = "2";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -1541,9 +1571,9 @@ namespace FilesFolders
                                 // Código del Servicio - Posición 6
                                 // Se elimina el codigo del servicio
                                 // Aplica para el validador de SAVIASALUD
-                                if (split[6] != "")
+                                if (split[6] == "S32302")
                                 {
-                                    split[6] = "";
+                                    split[6] = "S31301";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
