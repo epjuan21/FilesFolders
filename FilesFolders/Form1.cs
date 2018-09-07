@@ -1419,6 +1419,14 @@ namespace FilesFolders
 
                                 #region Diagnostico Principal
                                 // Diagnóstico Principal - Posición 10
+
+                                // Si el campo Diagnóstico Principal esta vació y Finalidad es 3 o 4
+                                if (split[10] == "" && (split[8] == "3" || split[8] == "4"))
+                                {
+                                    split[10] = "Z012";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[10] == "A09X")
                                 {
                                     split[10] = "A099";
@@ -1487,8 +1495,6 @@ namespace FilesFolders
                                 #endregion
 
                                 #region Forma Acto Quirurgico
-
-                                #endregion
                                 // Forma de realización del acto quirúrgico - Posición 13
                                 if (split[13] == "")
                                 {
@@ -1496,6 +1502,7 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                #endregion
                             }
 
                             lines.Add(line);
