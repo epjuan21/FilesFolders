@@ -813,21 +813,25 @@ namespace FilesFolders
                             {
                                 String[] split = line.Split(',');
 
-                                #region Numero Factura
+                                #region Factura
                                 // Número Factura - Posición 0
                                 string NumeroFactura = split[0];
 
+                                // Obtenemos la Primera Letra del Número de la Factura
+                                string FirsLetter = NumeroFactura.Substring(0, 1);
+
+                                int Longitud = NumeroFactura.Length;
+
                                 if (ChkBoxFac.CheckState == CheckState.Checked)
                                 {
-                                    if (NumeroFactura.Length == 9)
+
+                                    if (FirsLetter == "V")
                                     {
-                                        split[0] = NumeroFactura.Substring(3, 6);
+                                        split[0] = NumeroFactura.Substring(3, Longitud - 3);
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
                                 }
-
- 
                                 #endregion
 
                                 #region CUPS
