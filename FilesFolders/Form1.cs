@@ -1594,7 +1594,51 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
 
+                                // Tipo de Servicio - Posición 5
+
+                                //1 = Materiales e insumos
+                                //2 = Traslados
+                                //3 = Estancias
+                                //4 = Honorarios
+
+                                #region Codigo Servicio
                                 // Código del Servicio - Posición 6
+
+                                if (split[5] == "4" && split[6] == "" && (split[7] == "SALA DE OBSERVACION MAYOR DE 6 HORAS MENOR DE 24 HORAS" || split[7] == "SALA DE OBSERVACION MENOR DE 6 HORAS"))
+                                {
+                                    split[6] = "S20000";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                if (split[5] == "3" && split[6] == "" && split[7] == "HABITACION BIPERSONAL COMPLEJIDAD BAJA")
+                                {
+                                    split[6] = "S11102";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                if (split[5] == "2" && split[6] == "" && split[7] == "HABITACION BIPERSONAL COMPLEJIDAD BAJA")
+                                {
+                                    split[6] = "S11102";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                if (split[5] == "2" && split[6] == "" && split[7] == "TRASLADO BASICO ANDES- HISPANIA -BOLIVAR KMT")
+                                {
+                                    split[6] = "S31301";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                if (split[5] == "4" && split[6] == "" && split[7] == "SALA DE PEQUEÑA CIRUGIA (SUTURAS)")
+                                {
+                                    split[6] = "S22102";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
                                 // Se elimina el codigo del servicio
                                 // Aplica para el validador de SAVIASALUD
                                 if (split[6] == "S32302")
@@ -1603,6 +1647,7 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                #endregion
                             }
 
                             lines.Add(line);
