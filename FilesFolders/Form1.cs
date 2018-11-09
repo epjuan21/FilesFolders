@@ -602,6 +602,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[9] == "M725" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[9] = "M726";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[9] == "N180" && chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
                                     split[9] = "N179";
@@ -661,6 +667,12 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 if (split[10] == "I845" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[10] = "K649";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[10] == "I849" && chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
                                     split[10] = "K649";
                                     line = String.Join(",", split);
@@ -1091,7 +1103,19 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "870113")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "870120")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "870131")
                                 {
                                     split[8] = "1";
                                     line = String.Join(",", split);
