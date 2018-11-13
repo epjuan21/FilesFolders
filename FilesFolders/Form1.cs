@@ -848,6 +848,12 @@ namespace FilesFolders
 
                                 #region CUPS
                                 // Codigo CUPS Archivo AP - Posoción 6
+                                if (split[6] == "4")
+                                {
+                                    split[6] = "869500";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "021145")
                                 {
                                     split[6] = "871060";
