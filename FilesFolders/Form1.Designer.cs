@@ -41,6 +41,7 @@
             this.cambioEstructuraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comprimirArchivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlRIPS = new System.Windows.Forms.Panel();
+            this.ChkBoxFac = new System.Windows.Forms.CheckBox();
             this.chkBoxDiagSavia = new System.Windows.Forms.CheckBox();
             this.chkBoxValCm = new System.Windows.Forms.CheckBox();
             this.chkBoxLonDoc = new System.Windows.Forms.CheckBox();
@@ -70,29 +71,6 @@
             this.lblTotalAU = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblTotalUS = new System.Windows.Forms.Label();
-            this.lblTotalAT = new System.Windows.Forms.Label();
-            this.lblTotalAM = new System.Windows.Forms.Label();
-            this.lblTotalAP = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblTotalAC = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblStatusAP = new System.Windows.Forms.Label();
-            this.btnAC = new System.Windows.Forms.Button();
-            this.prgBarAP = new System.Windows.Forms.ProgressBar();
-            this.btnAP = new System.Windows.Forms.Button();
-            this.txtRuta = new System.Windows.Forms.TextBox();
-            this.btnRuta = new System.Windows.Forms.Button();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.tltDocLong = new System.Windows.Forms.ToolTip(this.components);
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Regimen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlRIPSIndividual = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
@@ -116,6 +94,29 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txtRutaIndividual = new System.Windows.Forms.TextBox();
             this.btnRutaIndividual = new System.Windows.Forms.Button();
+            this.lblTotalAT = new System.Windows.Forms.Label();
+            this.lblTotalAM = new System.Windows.Forms.Label();
+            this.lblTotalAP = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblTotalAC = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblStatusAP = new System.Windows.Forms.Label();
+            this.btnAC = new System.Windows.Forms.Button();
+            this.prgBarAP = new System.Windows.Forms.ProgressBar();
+            this.btnAP = new System.Windows.Forms.Button();
+            this.txtRuta = new System.Windows.Forms.TextBox();
+            this.btnRuta = new System.Windows.Forms.Button();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.tltDocLong = new System.Windows.Forms.ToolTip(this.components);
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Regimen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlRIPSCarpetas = new System.Windows.Forms.Panel();
             this.label22 = new System.Windows.Forms.Label();
             this.txtRutaCarpeta = new System.Windows.Forms.TextBox();
@@ -158,7 +159,8 @@
             this.btnProcesarEAPB = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.entidadSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ChkBoxFac = new System.Windows.Forms.CheckBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.txtCodigoMunicipio = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.pnlRIPS.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -179,7 +181,7 @@
             this.rIPSEABPToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(701, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(720, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -243,14 +245,14 @@
             // cambioEstructuraToolStripMenuItem
             // 
             this.cambioEstructuraToolStripMenuItem.Name = "cambioEstructuraToolStripMenuItem";
-            this.cambioEstructuraToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.cambioEstructuraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cambioEstructuraToolStripMenuItem.Text = "Cambio Estructura";
             this.cambioEstructuraToolStripMenuItem.Click += new System.EventHandler(this.cambioEstructuraToolStripMenuItem_Click);
             // 
             // comprimirArchivoToolStripMenuItem
             // 
             this.comprimirArchivoToolStripMenuItem.Name = "comprimirArchivoToolStripMenuItem";
-            this.comprimirArchivoToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.comprimirArchivoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.comprimirArchivoToolStripMenuItem.Text = "Comprimir Archivo";
             this.comprimirArchivoToolStripMenuItem.Click += new System.EventHandler(this.comprimirArchivoToolStripMenuItem_Click);
             // 
@@ -290,10 +292,20 @@
             this.pnlRIPS.Controls.Add(this.btnAP);
             this.pnlRIPS.Controls.Add(this.txtRuta);
             this.pnlRIPS.Controls.Add(this.btnRuta);
-            this.pnlRIPS.Location = new System.Drawing.Point(3, 28);
+            this.pnlRIPS.Location = new System.Drawing.Point(60, 3);
             this.pnlRIPS.Name = "pnlRIPS";
             this.pnlRIPS.Size = new System.Drawing.Size(695, 377);
             this.pnlRIPS.TabIndex = 1;
+            // 
+            // ChkBoxFac
+            // 
+            this.ChkBoxFac.AutoSize = true;
+            this.ChkBoxFac.Location = new System.Drawing.Point(251, 66);
+            this.ChkBoxFac.Name = "ChkBoxFac";
+            this.ChkBoxFac.Size = new System.Drawing.Size(156, 17);
+            this.ChkBoxFac.TabIndex = 36;
+            this.ChkBoxFac.Text = "Corregir Número de Factura";
+            this.ChkBoxFac.UseVisualStyleBackColor = true;
             // 
             // chkBoxDiagSavia
             // 
@@ -530,6 +542,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pnlRIPSCarpetas);
             this.groupBox1.Controls.Add(this.lblTotalAU);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.lblTotalUS);
@@ -577,183 +590,6 @@
             this.lblTotalUS.TabIndex = 18;
             this.lblTotalUS.Text = "#";
             // 
-            // lblTotalAT
-            // 
-            this.lblTotalAT.AutoSize = true;
-            this.lblTotalAT.Location = new System.Drawing.Point(36, 95);
-            this.lblTotalAT.Name = "lblTotalAT";
-            this.lblTotalAT.Size = new System.Drawing.Size(14, 13);
-            this.lblTotalAT.TabIndex = 17;
-            this.lblTotalAT.Text = "#";
-            // 
-            // lblTotalAM
-            // 
-            this.lblTotalAM.AutoSize = true;
-            this.lblTotalAM.Location = new System.Drawing.Point(36, 71);
-            this.lblTotalAM.Name = "lblTotalAM";
-            this.lblTotalAM.Size = new System.Drawing.Size(14, 13);
-            this.lblTotalAM.TabIndex = 16;
-            this.lblTotalAM.Text = "#";
-            // 
-            // lblTotalAP
-            // 
-            this.lblTotalAP.AutoSize = true;
-            this.lblTotalAP.Location = new System.Drawing.Point(36, 47);
-            this.lblTotalAP.Name = "lblTotalAP";
-            this.lblTotalAP.Size = new System.Drawing.Size(14, 13);
-            this.lblTotalAP.TabIndex = 15;
-            this.lblTotalAP.Text = "#";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(5, 23);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(24, 13);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "AC:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(5, 143);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(25, 13);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "US:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(5, 95);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(24, 13);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "AT:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(4, 71);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(26, 13);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "AM:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 47);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(24, 13);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "AP:";
-            // 
-            // lblTotalAC
-            // 
-            this.lblTotalAC.AutoSize = true;
-            this.lblTotalAC.Location = new System.Drawing.Point(36, 23);
-            this.lblTotalAC.Name = "lblTotalAC";
-            this.lblTotalAC.Size = new System.Drawing.Size(14, 13);
-            this.lblTotalAC.TabIndex = 3;
-            this.lblTotalAC.Text = "#";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label1.Location = new System.Drawing.Point(12, 43);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(415, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "____________________________________________________________________";
-            // 
-            // lblStatusAP
-            // 
-            this.lblStatusAP.AutoSize = true;
-            this.lblStatusAP.Location = new System.Drawing.Point(433, 192);
-            this.lblStatusAP.Name = "lblStatusAP";
-            this.lblStatusAP.Size = new System.Drawing.Size(49, 13);
-            this.lblStatusAP.TabIndex = 7;
-            this.lblStatusAP.Text = "Progreso";
-            // 
-            // btnAC
-            // 
-            this.btnAC.Image = ((System.Drawing.Image)(resources.GetObject("btnAC.Image")));
-            this.btnAC.Location = new System.Drawing.Point(51, 126);
-            this.btnAC.Name = "btnAC";
-            this.btnAC.Size = new System.Drawing.Size(36, 23);
-            this.btnAC.TabIndex = 6;
-            this.btnAC.UseVisualStyleBackColor = true;
-            this.btnAC.Click += new System.EventHandler(this.btnAC_Click);
-            // 
-            // prgBarAP
-            // 
-            this.prgBarAP.Location = new System.Drawing.Point(96, 188);
-            this.prgBarAP.Name = "prgBarAP";
-            this.prgBarAP.Size = new System.Drawing.Size(331, 23);
-            this.prgBarAP.TabIndex = 5;
-            // 
-            // btnAP
-            // 
-            this.btnAP.Image = ((System.Drawing.Image)(resources.GetObject("btnAP.Image")));
-            this.btnAP.Location = new System.Drawing.Point(51, 188);
-            this.btnAP.Name = "btnAP";
-            this.btnAP.Size = new System.Drawing.Size(36, 23);
-            this.btnAP.TabIndex = 4;
-            this.btnAP.UseVisualStyleBackColor = true;
-            this.btnAP.Click += new System.EventHandler(this.btnAP_Click);
-            // 
-            // txtRuta
-            // 
-            this.txtRuta.Enabled = false;
-            this.txtRuta.Location = new System.Drawing.Point(93, 21);
-            this.txtRuta.Name = "txtRuta";
-            this.txtRuta.Size = new System.Drawing.Size(474, 20);
-            this.txtRuta.TabIndex = 1;
-            // 
-            // btnRuta
-            // 
-            this.btnRuta.Location = new System.Drawing.Point(12, 19);
-            this.btnRuta.Name = "btnRuta";
-            this.btnRuta.Size = new System.Drawing.Size(75, 23);
-            this.btnRuta.TabIndex = 0;
-            this.btnRuta.Text = "Ruta";
-            this.btnRuta.UseVisualStyleBackColor = true;
-            this.btnRuta.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // Id
-            // 
-            this.Id.FillWeight = 27.36041F;
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Nombre
-            // 
-            this.Nombre.FillWeight = 110F;
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Codigo
-            // 
-            this.Codigo.FillWeight = 54.72083F;
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            this.Codigo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Regimen
-            // 
-            this.Regimen.FillWeight = 54.72083F;
-            this.Regimen.HeaderText = "Regimen";
-            this.Regimen.Name = "Regimen";
-            this.Regimen.ReadOnly = true;
-            this.Regimen.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
             // pnlRIPSIndividual
             // 
             this.pnlRIPSIndividual.Controls.Add(this.label14);
@@ -762,7 +598,7 @@
             this.pnlRIPSIndividual.Controls.Add(this.label11);
             this.pnlRIPSIndividual.Controls.Add(this.txtRutaIndividual);
             this.pnlRIPSIndividual.Controls.Add(this.btnRutaIndividual);
-            this.pnlRIPSIndividual.Location = new System.Drawing.Point(35, 39);
+            this.pnlRIPSIndividual.Location = new System.Drawing.Point(75, 27);
             this.pnlRIPSIndividual.Name = "pnlRIPSIndividual";
             this.pnlRIPSIndividual.Size = new System.Drawing.Size(655, 193);
             this.pnlRIPSIndividual.TabIndex = 12;
@@ -1015,15 +851,192 @@
             this.btnRutaIndividual.UseVisualStyleBackColor = true;
             this.btnRutaIndividual.Click += new System.EventHandler(this.btnRutaIndividual_Click);
             // 
+            // lblTotalAT
+            // 
+            this.lblTotalAT.AutoSize = true;
+            this.lblTotalAT.Location = new System.Drawing.Point(36, 95);
+            this.lblTotalAT.Name = "lblTotalAT";
+            this.lblTotalAT.Size = new System.Drawing.Size(14, 13);
+            this.lblTotalAT.TabIndex = 17;
+            this.lblTotalAT.Text = "#";
+            // 
+            // lblTotalAM
+            // 
+            this.lblTotalAM.AutoSize = true;
+            this.lblTotalAM.Location = new System.Drawing.Point(36, 71);
+            this.lblTotalAM.Name = "lblTotalAM";
+            this.lblTotalAM.Size = new System.Drawing.Size(14, 13);
+            this.lblTotalAM.TabIndex = 16;
+            this.lblTotalAM.Text = "#";
+            // 
+            // lblTotalAP
+            // 
+            this.lblTotalAP.AutoSize = true;
+            this.lblTotalAP.Location = new System.Drawing.Point(36, 47);
+            this.lblTotalAP.Name = "lblTotalAP";
+            this.lblTotalAP.Size = new System.Drawing.Size(14, 13);
+            this.lblTotalAP.TabIndex = 15;
+            this.lblTotalAP.Text = "#";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(5, 23);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(24, 13);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "AC:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(5, 143);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(25, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "US:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(5, 95);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(24, 13);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "AT:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(4, 71);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(26, 13);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "AM:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(5, 47);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(24, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "AP:";
+            // 
+            // lblTotalAC
+            // 
+            this.lblTotalAC.AutoSize = true;
+            this.lblTotalAC.Location = new System.Drawing.Point(36, 23);
+            this.lblTotalAC.Name = "lblTotalAC";
+            this.lblTotalAC.Size = new System.Drawing.Size(14, 13);
+            this.lblTotalAC.TabIndex = 3;
+            this.lblTotalAC.Text = "#";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.label1.Location = new System.Drawing.Point(12, 43);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(415, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "____________________________________________________________________";
+            // 
+            // lblStatusAP
+            // 
+            this.lblStatusAP.AutoSize = true;
+            this.lblStatusAP.Location = new System.Drawing.Point(433, 192);
+            this.lblStatusAP.Name = "lblStatusAP";
+            this.lblStatusAP.Size = new System.Drawing.Size(49, 13);
+            this.lblStatusAP.TabIndex = 7;
+            this.lblStatusAP.Text = "Progreso";
+            // 
+            // btnAC
+            // 
+            this.btnAC.Image = ((System.Drawing.Image)(resources.GetObject("btnAC.Image")));
+            this.btnAC.Location = new System.Drawing.Point(51, 126);
+            this.btnAC.Name = "btnAC";
+            this.btnAC.Size = new System.Drawing.Size(36, 23);
+            this.btnAC.TabIndex = 6;
+            this.btnAC.UseVisualStyleBackColor = true;
+            this.btnAC.Click += new System.EventHandler(this.btnAC_Click);
+            // 
+            // prgBarAP
+            // 
+            this.prgBarAP.Location = new System.Drawing.Point(96, 188);
+            this.prgBarAP.Name = "prgBarAP";
+            this.prgBarAP.Size = new System.Drawing.Size(331, 23);
+            this.prgBarAP.TabIndex = 5;
+            // 
+            // btnAP
+            // 
+            this.btnAP.Image = ((System.Drawing.Image)(resources.GetObject("btnAP.Image")));
+            this.btnAP.Location = new System.Drawing.Point(51, 188);
+            this.btnAP.Name = "btnAP";
+            this.btnAP.Size = new System.Drawing.Size(36, 23);
+            this.btnAP.TabIndex = 4;
+            this.btnAP.UseVisualStyleBackColor = true;
+            this.btnAP.Click += new System.EventHandler(this.btnAP_Click);
+            // 
+            // txtRuta
+            // 
+            this.txtRuta.Enabled = false;
+            this.txtRuta.Location = new System.Drawing.Point(93, 21);
+            this.txtRuta.Name = "txtRuta";
+            this.txtRuta.Size = new System.Drawing.Size(474, 20);
+            this.txtRuta.TabIndex = 1;
+            // 
+            // btnRuta
+            // 
+            this.btnRuta.Location = new System.Drawing.Point(12, 19);
+            this.btnRuta.Name = "btnRuta";
+            this.btnRuta.Size = new System.Drawing.Size(75, 23);
+            this.btnRuta.TabIndex = 0;
+            this.btnRuta.Text = "Ruta";
+            this.btnRuta.UseVisualStyleBackColor = true;
+            this.btnRuta.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // Id
+            // 
+            this.Id.FillWeight = 27.36041F;
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Nombre
+            // 
+            this.Nombre.FillWeight = 110F;
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Codigo
+            // 
+            this.Codigo.FillWeight = 54.72083F;
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Regimen
+            // 
+            this.Regimen.FillWeight = 54.72083F;
+            this.Regimen.HeaderText = "Regimen";
+            this.Regimen.Name = "Regimen";
+            this.Regimen.ReadOnly = true;
+            this.Regimen.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // pnlRIPSCarpetas
             // 
             this.pnlRIPSCarpetas.Controls.Add(this.label22);
             this.pnlRIPSCarpetas.Controls.Add(this.txtRutaCarpeta);
             this.pnlRIPSCarpetas.Controls.Add(this.btnRutaCarpeta);
             this.pnlRIPSCarpetas.Controls.Add(this.label13);
-            this.pnlRIPSCarpetas.Location = new System.Drawing.Point(618, 226);
+            this.pnlRIPSCarpetas.Location = new System.Drawing.Point(0, 63);
             this.pnlRIPSCarpetas.Name = "pnlRIPSCarpetas";
-            this.pnlRIPSCarpetas.Size = new System.Drawing.Size(609, 135);
+            this.pnlRIPSCarpetas.Size = new System.Drawing.Size(609, 181);
             this.pnlRIPSCarpetas.TabIndex = 13;
             // 
             // label22
@@ -1068,9 +1081,10 @@
             // 
             this.pnlComprimirArchivo.Controls.Add(this.txtRutaEAPB);
             this.pnlComprimirArchivo.Controls.Add(this.btnRutaEAPB);
+            this.pnlComprimirArchivo.Controls.Add(this.pnlRIPS);
             this.pnlComprimirArchivo.Controls.Add(this.groupBox3);
             this.pnlComprimirArchivo.Controls.Add(this.label25);
-            this.pnlComprimirArchivo.Location = new System.Drawing.Point(12, 411);
+            this.pnlComprimirArchivo.Location = new System.Drawing.Point(12, 297);
             this.pnlComprimirArchivo.Name = "pnlComprimirArchivo";
             this.pnlComprimirArchivo.Size = new System.Drawing.Size(612, 424);
             this.pnlComprimirArchivo.TabIndex = 14;
@@ -1302,7 +1316,7 @@
             this.lblTema.ForeColor = System.Drawing.SystemColors.WindowText;
             this.lblTema.Location = new System.Drawing.Point(65, 106);
             this.lblTema.Name = "lblTema";
-            this.lblTema.Size = new System.Drawing.Size(113, 13);
+            this.lblTema.Size = new System.Drawing.Size(114, 13);
             this.lblTema.TabIndex = 4;
             this.lblTema.Text = "Tema de Información";
             // 
@@ -1371,14 +1385,14 @@
             // txtRuraCarpetaEAPB
             // 
             this.txtRuraCarpetaEAPB.Enabled = false;
-            this.txtRuraCarpetaEAPB.Location = new System.Drawing.Point(93, 87);
+            this.txtRuraCarpetaEAPB.Location = new System.Drawing.Point(93, 117);
             this.txtRuraCarpetaEAPB.Name = "txtRuraCarpetaEAPB";
             this.txtRuraCarpetaEAPB.Size = new System.Drawing.Size(387, 20);
             this.txtRuraCarpetaEAPB.TabIndex = 10;
             // 
             // btnRutaCarpetaEAPB
             // 
-            this.btnRutaCarpetaEAPB.Location = new System.Drawing.Point(12, 85);
+            this.btnRutaCarpetaEAPB.Location = new System.Drawing.Point(12, 115);
             this.btnRutaCarpetaEAPB.Name = "btnRutaCarpetaEAPB";
             this.btnRutaCarpetaEAPB.Size = new System.Drawing.Size(75, 23);
             this.btnRutaCarpetaEAPB.TabIndex = 9;
@@ -1399,6 +1413,8 @@
             // 
             // pnlCambioEsctuctura
             // 
+            this.pnlCambioEsctuctura.Controls.Add(this.txtCodigoMunicipio);
+            this.pnlCambioEsctuctura.Controls.Add(this.label26);
             this.pnlCambioEsctuctura.Controls.Add(this.lblEstatusEAPB);
             this.pnlCambioEsctuctura.Controls.Add(this.prgBarEAPB);
             this.pnlCambioEsctuctura.Controls.Add(this.btnProcesarEAPB);
@@ -1406,15 +1422,15 @@
             this.pnlCambioEsctuctura.Controls.Add(this.txtRuraCarpetaEAPB);
             this.pnlCambioEsctuctura.Controls.Add(this.btnRutaCarpetaEAPB);
             this.pnlCambioEsctuctura.Controls.Add(this.label10);
-            this.pnlCambioEsctuctura.Location = new System.Drawing.Point(707, 434);
+            this.pnlCambioEsctuctura.Location = new System.Drawing.Point(492, 180);
             this.pnlCambioEsctuctura.Name = "pnlCambioEsctuctura";
-            this.pnlCambioEsctuctura.Size = new System.Drawing.Size(566, 161);
+            this.pnlCambioEsctuctura.Size = new System.Drawing.Size(566, 222);
             this.pnlCambioEsctuctura.TabIndex = 15;
             // 
             // lblEstatusEAPB
             // 
             this.lblEstatusEAPB.AutoSize = true;
-            this.lblEstatusEAPB.Location = new System.Drawing.Point(486, 131);
+            this.lblEstatusEAPB.Location = new System.Drawing.Point(486, 161);
             this.lblEstatusEAPB.Name = "lblEstatusEAPB";
             this.lblEstatusEAPB.Size = new System.Drawing.Size(42, 13);
             this.lblEstatusEAPB.TabIndex = 14;
@@ -1422,7 +1438,7 @@
             // 
             // prgBarEAPB
             // 
-            this.prgBarEAPB.Location = new System.Drawing.Point(93, 125);
+            this.prgBarEAPB.Location = new System.Drawing.Point(93, 155);
             this.prgBarEAPB.Name = "prgBarEAPB";
             this.prgBarEAPB.Size = new System.Drawing.Size(387, 23);
             this.prgBarEAPB.TabIndex = 13;
@@ -1430,7 +1446,7 @@
             // btnProcesarEAPB
             // 
             this.btnProcesarEAPB.Image = global::FilesFolders.Properties.Resources.icons8_Play32_32;
-            this.btnProcesarEAPB.Location = new System.Drawing.Point(12, 125);
+            this.btnProcesarEAPB.Location = new System.Drawing.Point(12, 155);
             this.btnProcesarEAPB.Name = "btnProcesarEAPB";
             this.btnProcesarEAPB.Size = new System.Drawing.Size(75, 23);
             this.btnProcesarEAPB.TabIndex = 12;
@@ -1447,25 +1463,29 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
-            // ChkBoxFac
+            // label26
             // 
-            this.ChkBoxFac.AutoSize = true;
-            this.ChkBoxFac.Location = new System.Drawing.Point(251, 66);
-            this.ChkBoxFac.Name = "ChkBoxFac";
-            this.ChkBoxFac.Size = new System.Drawing.Size(156, 17);
-            this.ChkBoxFac.TabIndex = 36;
-            this.ChkBoxFac.Text = "Corregir Número de Factura";
-            this.ChkBoxFac.UseVisualStyleBackColor = true;
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(14, 87);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(88, 13);
+            this.label26.TabIndex = 15;
+            this.label26.Text = "Código Municipio";
+            // 
+            // txtCodigoMunicipio
+            // 
+            this.txtCodigoMunicipio.Location = new System.Drawing.Point(108, 84);
+            this.txtCodigoMunicipio.Name = "txtCodigoMunicipio";
+            this.txtCodigoMunicipio.Size = new System.Drawing.Size(100, 20);
+            this.txtCodigoMunicipio.TabIndex = 16;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(701, 458);
-            this.Controls.Add(this.pnlRIPSCarpetas);
+            this.ClientSize = new System.Drawing.Size(720, 458);
             this.Controls.Add(this.pnlCambioEsctuctura);
             this.Controls.Add(this.pnlComprimirArchivo);
-            this.Controls.Add(this.pnlRIPS);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -1630,6 +1650,8 @@
         private System.Windows.Forms.Button btnComprimir;
         private System.Windows.Forms.CheckBox chkBoxDiagSavia;
         private System.Windows.Forms.CheckBox ChkBoxFac;
+        private System.Windows.Forms.TextBox txtCodigoMunicipio;
+        private System.Windows.Forms.Label label26;
     }
 }
 

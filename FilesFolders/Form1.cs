@@ -1013,6 +1013,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "993102" && split[7] == "")
+                                {
+                                    split[7] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "963300" && split[7] == "")
                                 {
                                     split[7] = "1";
@@ -1464,6 +1470,12 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 if (split[6] == "982102" && split[8] == "")
+                                {
+                                    split[8] = "2";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "993102" && split[8] == "")
                                 {
                                     split[8] = "2";
                                     line = String.Join(",", split);
@@ -2164,7 +2176,15 @@ namespace FilesFolders
 
             // Variable Código de la entidad administradora del plan de beneficios
 
-            string CodigoEAPB = "05091";
+            string CodigoEAPB = txtCodigoMunicipio.Text;
+
+            if(string.IsNullOrEmpty(CodigoEAPB))
+            {
+                MessageBox.Show("El Campo Código Municpio no puede estar Vacío");
+                Application.Exit();
+
+            }
+
 
             #region CAMBIO ESCTURTURA
 
