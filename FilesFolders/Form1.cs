@@ -614,6 +614,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[9] == "I841" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[9] = "K649";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[9] == "I845" && chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
                                     split[9] = "K649";
@@ -657,6 +663,12 @@ namespace FilesFolders
                                 if (split[10] == "I48X")
                                 {
                                     split[10] = "I489";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[10] == "I841" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[10] = "K649";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -929,6 +941,12 @@ namespace FilesFolders
                                 #endregion
 
                                 #region Ambito
+                                if (split[6] == "869500")
+                                {
+                                    split[7] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "862701")
                                 {
                                     split[7] = "1";
@@ -1397,6 +1415,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "906914")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "906915")
                                 {
                                     split[8] = "1";
@@ -1515,9 +1539,9 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-                                if (split[9] == "I48X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                if (split[10] == "I48X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
-                                    split[9] = "I489";
+                                    split[10] = "I489";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -1811,6 +1835,16 @@ namespace FilesFolders
                                 }
 
 
+                                #endregion
+
+                                #region Diagnóstico relacionado Nro. 2, a la salida
+                                // Diagnóstico relacionado Nro. 2, a la salida - Posición 10
+                                if (split[10] == "R500" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[10] = "R509";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 #endregion
 
                             }

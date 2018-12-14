@@ -68,6 +68,11 @@
             this.lblStatusAC = new System.Windows.Forms.Label();
             this.prgBarAC = new System.Windows.Forms.ProgressBar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pnlRIPSCarpetas = new System.Windows.Forms.Panel();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtRutaCarpeta = new System.Windows.Forms.TextBox();
+            this.btnRutaCarpeta = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
             this.lblTotalAU = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblTotalUS = new System.Windows.Forms.Label();
@@ -117,11 +122,6 @@
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Regimen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pnlRIPSCarpetas = new System.Windows.Forms.Panel();
-            this.label22 = new System.Windows.Forms.Label();
-            this.txtRutaCarpeta = new System.Windows.Forms.TextBox();
-            this.btnRutaCarpeta = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
             this.pnlComprimirArchivo = new System.Windows.Forms.Panel();
             this.txtRutaEAPB = new System.Windows.Forms.TextBox();
             this.btnRutaEAPB = new System.Windows.Forms.Button();
@@ -154,19 +154,19 @@
             this.btnRutaCarpetaEAPB = new System.Windows.Forms.Button();
             this.lblTituloEAPB = new System.Windows.Forms.Label();
             this.pnlCambioEsctuctura = new System.Windows.Forms.Panel();
+            this.txtCodigoMunicipio = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
             this.lblEstatusEAPB = new System.Windows.Forms.Label();
             this.prgBarEAPB = new System.Windows.Forms.ProgressBar();
             this.btnProcesarEAPB = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.entidadSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label26 = new System.Windows.Forms.Label();
-            this.txtCodigoMunicipio = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.pnlRIPS.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.pnlRIPSCarpetas.SuspendLayout();
             this.pnlRIPSIndividual.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.pnlRIPSCarpetas.SuspendLayout();
             this.pnlComprimirArchivo.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.pnlCambioEsctuctura.SuspendLayout();
@@ -215,21 +215,21 @@
             // rIPSToolStripMenuItem
             // 
             this.rIPSToolStripMenuItem.Name = "rIPSToolStripMenuItem";
-            this.rIPSToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rIPSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.rIPSToolStripMenuItem.Text = "RIPS Masivo";
             this.rIPSToolStripMenuItem.Click += new System.EventHandler(this.rIPSToolStripMenuItem_Click);
             // 
             // rIPSIndividualToolStripMenuItem
             // 
             this.rIPSIndividualToolStripMenuItem.Name = "rIPSIndividualToolStripMenuItem";
-            this.rIPSIndividualToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rIPSIndividualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.rIPSIndividualToolStripMenuItem.Text = "RIPS Individual";
             this.rIPSIndividualToolStripMenuItem.Click += new System.EventHandler(this.rIPSIndividualToolStripMenuItem_Click);
             // 
             // rIPSCarpetasToolStripMenuItem
             // 
             this.rIPSCarpetasToolStripMenuItem.Name = "rIPSCarpetasToolStripMenuItem";
-            this.rIPSCarpetasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rIPSCarpetasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.rIPSCarpetasToolStripMenuItem.Text = "RIPS Carpetas";
             this.rIPSCarpetasToolStripMenuItem.Click += new System.EventHandler(this.rIPSCarpetasToolStripMenuItem_Click);
             // 
@@ -292,7 +292,7 @@
             this.pnlRIPS.Controls.Add(this.btnAP);
             this.pnlRIPS.Controls.Add(this.txtRuta);
             this.pnlRIPS.Controls.Add(this.btnRuta);
-            this.pnlRIPS.Location = new System.Drawing.Point(60, 3);
+            this.pnlRIPS.Location = new System.Drawing.Point(5, 22);
             this.pnlRIPS.Name = "pnlRIPS";
             this.pnlRIPS.Size = new System.Drawing.Size(695, 377);
             this.pnlRIPS.TabIndex = 1;
@@ -562,6 +562,55 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Total Archivos";
+            // 
+            // pnlRIPSCarpetas
+            // 
+            this.pnlRIPSCarpetas.Controls.Add(this.label22);
+            this.pnlRIPSCarpetas.Controls.Add(this.txtRutaCarpeta);
+            this.pnlRIPSCarpetas.Controls.Add(this.btnRutaCarpeta);
+            this.pnlRIPSCarpetas.Controls.Add(this.label13);
+            this.pnlRIPSCarpetas.Location = new System.Drawing.Point(0, 63);
+            this.pnlRIPSCarpetas.Name = "pnlRIPSCarpetas";
+            this.pnlRIPSCarpetas.Size = new System.Drawing.Size(609, 181);
+            this.pnlRIPSCarpetas.TabIndex = 13;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(11, 33);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(455, 39);
+            this.label22.TabIndex = 10;
+            this.label22.Text = resources.GetString("label22.Text");
+            // 
+            // txtRutaCarpeta
+            // 
+            this.txtRutaCarpeta.Enabled = false;
+            this.txtRutaCarpeta.Location = new System.Drawing.Point(92, 99);
+            this.txtRutaCarpeta.Name = "txtRutaCarpeta";
+            this.txtRutaCarpeta.Size = new System.Drawing.Size(508, 20);
+            this.txtRutaCarpeta.TabIndex = 9;
+            // 
+            // btnRutaCarpeta
+            // 
+            this.btnRutaCarpeta.Location = new System.Drawing.Point(11, 97);
+            this.btnRutaCarpeta.Name = "btnRutaCarpeta";
+            this.btnRutaCarpeta.Size = new System.Drawing.Size(75, 23);
+            this.btnRutaCarpeta.TabIndex = 8;
+            this.btnRutaCarpeta.Text = "Ruta";
+            this.btnRutaCarpeta.UseVisualStyleBackColor = true;
+            this.btnRutaCarpeta.Click += new System.EventHandler(this.btnRutaCarpeta_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label13.Location = new System.Drawing.Point(7, 9);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(236, 20);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "Generación de carpetas por RIPS";
             // 
             // lblTotalAU
             // 
@@ -1028,60 +1077,10 @@
             this.Regimen.ReadOnly = true;
             this.Regimen.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // pnlRIPSCarpetas
-            // 
-            this.pnlRIPSCarpetas.Controls.Add(this.label22);
-            this.pnlRIPSCarpetas.Controls.Add(this.txtRutaCarpeta);
-            this.pnlRIPSCarpetas.Controls.Add(this.btnRutaCarpeta);
-            this.pnlRIPSCarpetas.Controls.Add(this.label13);
-            this.pnlRIPSCarpetas.Location = new System.Drawing.Point(0, 63);
-            this.pnlRIPSCarpetas.Name = "pnlRIPSCarpetas";
-            this.pnlRIPSCarpetas.Size = new System.Drawing.Size(609, 181);
-            this.pnlRIPSCarpetas.TabIndex = 13;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(11, 33);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(455, 39);
-            this.label22.TabIndex = 10;
-            this.label22.Text = resources.GetString("label22.Text");
-            // 
-            // txtRutaCarpeta
-            // 
-            this.txtRutaCarpeta.Enabled = false;
-            this.txtRutaCarpeta.Location = new System.Drawing.Point(92, 99);
-            this.txtRutaCarpeta.Name = "txtRutaCarpeta";
-            this.txtRutaCarpeta.Size = new System.Drawing.Size(508, 20);
-            this.txtRutaCarpeta.TabIndex = 9;
-            // 
-            // btnRutaCarpeta
-            // 
-            this.btnRutaCarpeta.Location = new System.Drawing.Point(11, 97);
-            this.btnRutaCarpeta.Name = "btnRutaCarpeta";
-            this.btnRutaCarpeta.Size = new System.Drawing.Size(75, 23);
-            this.btnRutaCarpeta.TabIndex = 8;
-            this.btnRutaCarpeta.Text = "Ruta";
-            this.btnRutaCarpeta.UseVisualStyleBackColor = true;
-            this.btnRutaCarpeta.Click += new System.EventHandler(this.btnRutaCarpeta_Click);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label13.Location = new System.Drawing.Point(7, 9);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(236, 20);
-            this.label13.TabIndex = 7;
-            this.label13.Text = "Generación de carpetas por RIPS";
-            // 
             // pnlComprimirArchivo
             // 
             this.pnlComprimirArchivo.Controls.Add(this.txtRutaEAPB);
             this.pnlComprimirArchivo.Controls.Add(this.btnRutaEAPB);
-            this.pnlComprimirArchivo.Controls.Add(this.pnlRIPS);
             this.pnlComprimirArchivo.Controls.Add(this.groupBox3);
             this.pnlComprimirArchivo.Controls.Add(this.label25);
             this.pnlComprimirArchivo.Location = new System.Drawing.Point(12, 297);
@@ -1427,6 +1426,22 @@
             this.pnlCambioEsctuctura.Size = new System.Drawing.Size(566, 222);
             this.pnlCambioEsctuctura.TabIndex = 15;
             // 
+            // txtCodigoMunicipio
+            // 
+            this.txtCodigoMunicipio.Location = new System.Drawing.Point(108, 84);
+            this.txtCodigoMunicipio.Name = "txtCodigoMunicipio";
+            this.txtCodigoMunicipio.Size = new System.Drawing.Size(100, 20);
+            this.txtCodigoMunicipio.TabIndex = 16;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(14, 87);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(88, 13);
+            this.label26.TabIndex = 15;
+            this.label26.Text = "Código Municipio";
+            // 
             // lblEstatusEAPB
             // 
             this.lblEstatusEAPB.AutoSize = true;
@@ -1463,22 +1478,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(14, 87);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(88, 13);
-            this.label26.TabIndex = 15;
-            this.label26.Text = "Código Municipio";
-            // 
-            // txtCodigoMunicipio
-            // 
-            this.txtCodigoMunicipio.Location = new System.Drawing.Point(108, 84);
-            this.txtCodigoMunicipio.Name = "txtCodigoMunicipio";
-            this.txtCodigoMunicipio.Size = new System.Drawing.Size(100, 20);
-            this.txtCodigoMunicipio.TabIndex = 16;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1486,6 +1485,7 @@
             this.ClientSize = new System.Drawing.Size(720, 458);
             this.Controls.Add(this.pnlCambioEsctuctura);
             this.Controls.Add(this.pnlComprimirArchivo);
+            this.Controls.Add(this.pnlRIPS);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -1501,12 +1501,12 @@
             this.pnlRIPS.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.pnlRIPSCarpetas.ResumeLayout(false);
+            this.pnlRIPSCarpetas.PerformLayout();
             this.pnlRIPSIndividual.ResumeLayout(false);
             this.pnlRIPSIndividual.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.pnlRIPSCarpetas.ResumeLayout(false);
-            this.pnlRIPSCarpetas.PerformLayout();
             this.pnlComprimirArchivo.ResumeLayout(false);
             this.pnlComprimirArchivo.PerformLayout();
             this.groupBox3.ResumeLayout(false);

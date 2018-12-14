@@ -167,11 +167,6 @@ Aplica para Validador de SAVIASALUD</value>
         wzC/gxBX7RsTec9bQ4kAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="label22.Text" xml:space="preserve">
-    <value>La carpeta deberá tener los RIPS sin separar en ninguna carpeta.
-Una vez seleccionada la carpeta con los RIPS, se creara una carpeta por cada juego de RIPS
-Luego se moveran los archivos de RIPS según factura a cada carpeta correspondiente</value>
-  </data>
   <data name="btnAC.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAMFJREFUWEft
@@ -189,6 +184,11 @@ Luego se moveran los archivos de RIPS según factura a cada carpeta correspondie
         RcCXE+lro9D+OTT0LYFhYXffEKjpfzGXW9tDWzhoeJdAvGAPhTwTiB/sobCmQLpgDwTSB3vUys6CftUM
         wzC/gxBX7RsTec9bQ4kAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="label22.Text" xml:space="preserve">
+    <value>La carpeta deberá tener los RIPS sin separar en ninguna carpeta.
+Una vez seleccionada la carpeta con los RIPS, se creara una carpeta por cada juego de RIPS
+Luego se moveran los archivos de RIPS según factura a cada carpeta correspondiente</value>
   </data>
   <metadata name="folderBrowserDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>132, 17</value>
