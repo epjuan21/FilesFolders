@@ -215,21 +215,21 @@
             // rIPSToolStripMenuItem
             // 
             this.rIPSToolStripMenuItem.Name = "rIPSToolStripMenuItem";
-            this.rIPSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rIPSToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.rIPSToolStripMenuItem.Text = "RIPS Masivo";
             this.rIPSToolStripMenuItem.Click += new System.EventHandler(this.rIPSToolStripMenuItem_Click);
             // 
             // rIPSIndividualToolStripMenuItem
             // 
             this.rIPSIndividualToolStripMenuItem.Name = "rIPSIndividualToolStripMenuItem";
-            this.rIPSIndividualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rIPSIndividualToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.rIPSIndividualToolStripMenuItem.Text = "RIPS Individual";
             this.rIPSIndividualToolStripMenuItem.Click += new System.EventHandler(this.rIPSIndividualToolStripMenuItem_Click);
             // 
             // rIPSCarpetasToolStripMenuItem
             // 
             this.rIPSCarpetasToolStripMenuItem.Name = "rIPSCarpetasToolStripMenuItem";
-            this.rIPSCarpetasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rIPSCarpetasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.rIPSCarpetasToolStripMenuItem.Text = "RIPS Carpetas";
             this.rIPSCarpetasToolStripMenuItem.Click += new System.EventHandler(this.rIPSCarpetasToolStripMenuItem_Click);
             // 
@@ -245,14 +245,14 @@
             // cambioEstructuraToolStripMenuItem
             // 
             this.cambioEstructuraToolStripMenuItem.Name = "cambioEstructuraToolStripMenuItem";
-            this.cambioEstructuraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cambioEstructuraToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.cambioEstructuraToolStripMenuItem.Text = "Cambio Estructura";
             this.cambioEstructuraToolStripMenuItem.Click += new System.EventHandler(this.cambioEstructuraToolStripMenuItem_Click);
             // 
             // comprimirArchivoToolStripMenuItem
             // 
             this.comprimirArchivoToolStripMenuItem.Name = "comprimirArchivoToolStripMenuItem";
-            this.comprimirArchivoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.comprimirArchivoToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.comprimirArchivoToolStripMenuItem.Text = "Comprimir Archivo";
             this.comprimirArchivoToolStripMenuItem.Click += new System.EventHandler(this.comprimirArchivoToolStripMenuItem_Click);
             // 
@@ -292,7 +292,7 @@
             this.pnlRIPS.Controls.Add(this.btnAP);
             this.pnlRIPS.Controls.Add(this.txtRuta);
             this.pnlRIPS.Controls.Add(this.btnRuta);
-            this.pnlRIPS.Location = new System.Drawing.Point(5, 22);
+            this.pnlRIPS.Location = new System.Drawing.Point(49, 71);
             this.pnlRIPS.Name = "pnlRIPS";
             this.pnlRIPS.Size = new System.Drawing.Size(695, 377);
             this.pnlRIPS.TabIndex = 1;
@@ -542,7 +542,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.pnlRIPSCarpetas);
             this.groupBox1.Controls.Add(this.lblTotalAU);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.lblTotalUS);
@@ -569,7 +568,7 @@
             this.pnlRIPSCarpetas.Controls.Add(this.txtRutaCarpeta);
             this.pnlRIPSCarpetas.Controls.Add(this.btnRutaCarpeta);
             this.pnlRIPSCarpetas.Controls.Add(this.label13);
-            this.pnlRIPSCarpetas.Location = new System.Drawing.Point(0, 63);
+            this.pnlRIPSCarpetas.Location = new System.Drawing.Point(300, 32);
             this.pnlRIPSCarpetas.Name = "pnlRIPSCarpetas";
             this.pnlRIPSCarpetas.Size = new System.Drawing.Size(609, 181);
             this.pnlRIPSCarpetas.TabIndex = 13;
@@ -1315,7 +1314,7 @@
             this.lblTema.ForeColor = System.Drawing.SystemColors.WindowText;
             this.lblTema.Location = new System.Drawing.Point(65, 106);
             this.lblTema.Name = "lblTema";
-            this.lblTema.Size = new System.Drawing.Size(114, 13);
+            this.lblTema.Size = new System.Drawing.Size(113, 13);
             this.lblTema.TabIndex = 4;
             this.lblTema.Text = "Tema de Información";
             // 
@@ -1421,7 +1420,7 @@
             this.pnlCambioEsctuctura.Controls.Add(this.txtRuraCarpetaEAPB);
             this.pnlCambioEsctuctura.Controls.Add(this.btnRutaCarpetaEAPB);
             this.pnlCambioEsctuctura.Controls.Add(this.label10);
-            this.pnlCambioEsctuctura.Location = new System.Drawing.Point(492, 180);
+            this.pnlCambioEsctuctura.Location = new System.Drawing.Point(678, 15);
             this.pnlCambioEsctuctura.Name = "pnlCambioEsctuctura";
             this.pnlCambioEsctuctura.Size = new System.Drawing.Size(566, 222);
             this.pnlCambioEsctuctura.TabIndex = 15;
@@ -1483,6 +1482,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(720, 458);
+            this.Controls.Add(this.pnlRIPSCarpetas);
             this.Controls.Add(this.pnlCambioEsctuctura);
             this.Controls.Add(this.pnlComprimirArchivo);
             this.Controls.Add(this.pnlRIPS);
