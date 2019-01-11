@@ -338,6 +338,13 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[11] == "05" && split[12] == "91")
+                                {
+                                    split[11] = "05";
+                                    split[12] = "091";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 #endregion
 
                                 #region TipoUsuario
