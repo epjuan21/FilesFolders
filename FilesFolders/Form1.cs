@@ -1543,13 +1543,17 @@ namespace FilesFolders
                                 // Evaluar si la primera letra es minuscula
 
                                 // Obtenemos la Primera Letra
-                                string firstLetter = split[10].Substring(0,1);
 
-                                if (char.IsLower(Convert.ToChar(firstLetter)))
+                                if(split[10] != "")
                                 {
-                                    split[10] = split[10].ToUpper();
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
+                                    string firstLetter = split[10].Substring(0,1);
+
+                                    if (char.IsLower(Convert.ToChar(firstLetter)))
+                                    {
+                                        split[10] = split[10].ToUpper();
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                 }
 
                                 // Si el campo Diagnóstico Principal esta vació y Finalidad es 3 o 4
