@@ -345,6 +345,13 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[11] == "05" && split[12] == "999")
+                                {
+                                    split[11] = "05";
+                                    split[12] = "091";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 #endregion
 
                                 #region TipoUsuario
@@ -1532,6 +1539,18 @@ namespace FilesFolders
 
                                 #region Diagnostico Principal
                                 // Diagnóstico Principal - Posición 10
+
+                                // Evaluar si la primera letra es minuscula
+
+                                // Obtenemos la Primera Letra
+                                string firstLetter = split[10].Substring(0,1);
+
+                                if (char.IsLower(Convert.ToChar(firstLetter)))
+                                {
+                                    split[10] = split[10].ToUpper();
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
 
                                 // Si el campo Diagnóstico Principal esta vació y Finalidad es 3 o 4
                                 if (split[10] == "" && (split[8] == "3" || split[8] == "4"))
