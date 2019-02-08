@@ -1627,6 +1627,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[11] == "H547")
+                                {
+                                    split[11] = "H546";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[11] == "N180")
                                 {
                                     split[11] = "N179";
