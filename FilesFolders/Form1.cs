@@ -36,6 +36,7 @@ namespace FilesFolders
         CWork bgwAU = new CWork();
         CWork bgwDOC = new CWork();
         CWork bgwUS = new CWork();
+        CWork bgwAH = new CWork();
         CWork bgwEAPB = new CWork();
 
         CArchivos LineasUS = new CArchivos();
@@ -61,6 +62,7 @@ namespace FilesFolders
             lblTotalAT.Text = string.Empty;
             lblTotalUS.Text = string.Empty;
             lblTotalAU.Text = string.Empty;
+            lblTotalAH.Text = string.Empty;
 
             // Oculta Etiqueta de Progreso
             lblStatusUS.Visible = false;
@@ -69,6 +71,7 @@ namespace FilesFolders
             lblStatusAT.Visible = false;
             lblStatusAU.Visible = false;
             lblStatusDoc.Visible = false;
+            lblStatusAH.Visible = false;
             lblEstatusEAPB.Visible = false;
 
             // Inhabilitar Botones Hasta Seleccionar Ruta
@@ -78,6 +81,7 @@ namespace FilesFolders
             btnDoc.Enabled = false;
             btnAT.Enabled = false;
             btnAU.Enabled = false;
+            btnAH.Enabled = false;
             btnProcesarEAPB.Enabled = false;
             btnComprimir.Enabled = false;
 
@@ -237,6 +241,10 @@ namespace FilesFolders
                 int CantidadUS = Directory.GetFiles(dirPath, "*US*", SearchOption.AllDirectories).Length;
                 lblTotalUS.Text = CantidadUS.ToString();
 
+                // Obtenemos la Cantidad de Archivos AH
+                int CantidadAH = Directory.GetFiles(dirPath, "*AH*", SearchOption.AllDirectories).Length;
+                lblTotalAH.Text = CantidadAH.ToString();
+
                 // Habilitamos los Botones
                 btnUS.Enabled = true;
                 btnAC.Enabled = true;
@@ -244,6 +252,7 @@ namespace FilesFolders
                 btnDoc.Enabled = true;
                 btnAT.Enabled = true;
                 btnAU.Enabled = true;
+                btnAH.Enabled = true;
 
                 chkBoxLonDoc.Enabled = true;
             }
@@ -1944,6 +1953,104 @@ namespace FilesFolders
         }
         #endregion
 
+        #region AH
+        private void btnAH_Click(object sender, EventArgs e)
+        {
+            bgwAH.ODoWorker(bgwAH_DoWork, bgwAH_ProgressChanged, bgwAH_RunWorkerCompleted);
+        }
+
+        private void bgwAH_DoWork(object sender, DoWorkEventArgs e)
+        {
+            DirectoryInfo di = new DirectoryInfo(dirPath);
+            int contadorErrores = 0;
+
+            foreach (var fi in di.GetFiles("*AH*", SearchOption.AllDirectories))
+            {
+                String path = fi.FullName;
+                List<String> lines = new List<String>();
+
+                if (File.Exists(path))
+                {
+                    using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("Windows-1252")))
+                    {
+                        String line;
+
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            if (line.Contains(","))
+                            {
+                                String[] split = line.Split(',');
+
+                                #region Factura
+                                // Número Factura - Posición 0
+                                string NumeroFactura = split[0];
+
+                                // Obtenemos la Primera Letra del Número de la Factura
+                                string FirsLetter = NumeroFactura.Substring(0, 1);
+
+                                int Longitud = NumeroFactura.Length;
+
+                                if (ChkBoxFac.CheckState == CheckState.Checked)
+                                {
+
+                                    if (FirsLetter == "V")
+                                    {
+                                        split[0] = NumeroFactura.Substring(3, Longitud - 3);
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                }
+                                #endregion
+
+                                #region Diagnóstico Relacionado 2 de Egreso
+                                // Diagnóstico Relacionado 2 de Egreso - Posición 13
+                                if (split[12] == "I48X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[12] = "I489";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                #endregion
+
+                            }
+
+                            lines.Add(line);
+                        }
+                    }
+
+                    using (StreamWriter writer = new StreamWriter(path, false, Encoding.GetEncoding("Windows-1252")))
+                    {
+                        foreach (String line in lines)
+                        {
+                            writer.WriteLine(line);
+                        }
+                    }
+                }
+            }
+
+            for (int i = 1; i <= contadorErrores; i++)
+            {
+                bgwAH.ReportProgress(Convert.ToInt32(i * 100 / contadorErrores));
+                Thread.Sleep(100);
+            }
+
+
+        }
+        
+        private void bgwAH_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            lblStatusAH.Visible = true;
+            prgBarAH.Value = e.ProgressPercentage;
+            lblStatusAH.Text = "Procesando...... " + prgBarAH.Value.ToString() + "%";
+        }
+
+        private void bgwAH_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            lblStatusAH.Text = "Finalizado";
+        }
+
+        #endregion
+
         #region Correción Documentos
         private void btnDoc_Click(object sender, EventArgs e)
         {
@@ -3430,15 +3537,6 @@ namespace FilesFolders
 
         #endregion
 
-        private void rIPSCarpetasToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pnlRIPS_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }
 
