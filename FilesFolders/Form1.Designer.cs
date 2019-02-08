@@ -47,11 +47,9 @@
             this.chkBoxLonDoc = new System.Windows.Forms.CheckBox();
             this.lblStatusAU = new System.Windows.Forms.Label();
             this.prgBarAU = new System.Windows.Forms.ProgressBar();
-            this.btnAU = new System.Windows.Forms.Button();
             this.lblAU = new System.Windows.Forms.Label();
             this.lblStatusAT = new System.Windows.Forms.Label();
             this.prgBarAT = new System.Windows.Forms.ProgressBar();
-            this.btnAT = new System.Windows.Forms.Button();
             this.lblAT = new System.Windows.Forms.Label();
             this.lblStatusDoc = new System.Windows.Forms.Label();
             this.prgBarDoc = new System.Windows.Forms.ProgressBar();
@@ -61,18 +59,11 @@
             this.lblAC = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblUS = new System.Windows.Forms.Label();
-            this.btnDoc = new System.Windows.Forms.Button();
             this.lblStatusUS = new System.Windows.Forms.Label();
             this.prgBarUS = new System.Windows.Forms.ProgressBar();
-            this.btnUS = new System.Windows.Forms.Button();
             this.lblStatusAC = new System.Windows.Forms.Label();
             this.prgBarAC = new System.Windows.Forms.ProgressBar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pnlRIPSCarpetas = new System.Windows.Forms.Panel();
-            this.label22 = new System.Windows.Forms.Label();
-            this.txtRutaCarpeta = new System.Windows.Forms.TextBox();
-            this.btnRutaCarpeta = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
             this.lblTotalAU = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblTotalUS = new System.Windows.Forms.Label();
@@ -110,11 +101,14 @@
             this.lblTotalAC = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblStatusAP = new System.Windows.Forms.Label();
-            this.btnAC = new System.Windows.Forms.Button();
             this.prgBarAP = new System.Windows.Forms.ProgressBar();
-            this.btnAP = new System.Windows.Forms.Button();
             this.txtRuta = new System.Windows.Forms.TextBox();
             this.btnRuta = new System.Windows.Forms.Button();
+            this.pnlRIPSCarpetas = new System.Windows.Forms.Panel();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtRutaCarpeta = new System.Windows.Forms.TextBox();
+            this.btnRutaCarpeta = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tltDocLong = new System.Windows.Forms.ToolTip(this.components);
@@ -126,7 +120,6 @@
             this.txtRutaEAPB = new System.Windows.Forms.TextBox();
             this.btnRutaEAPB = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnComprimir = new System.Windows.Forms.Button();
             this.lblNombreArchivo = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.cmbExtension = new System.Windows.Forms.ComboBox();
@@ -159,14 +152,21 @@
             this.lblEstatusEAPB = new System.Windows.Forms.Label();
             this.prgBarEAPB = new System.Windows.Forms.ProgressBar();
             this.btnProcesarEAPB = new System.Windows.Forms.Button();
+            this.btnComprimir = new System.Windows.Forms.Button();
+            this.btnAU = new System.Windows.Forms.Button();
+            this.btnAT = new System.Windows.Forms.Button();
+            this.btnDoc = new System.Windows.Forms.Button();
+            this.btnUS = new System.Windows.Forms.Button();
+            this.btnAC = new System.Windows.Forms.Button();
+            this.btnAP = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.entidadSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
             this.pnlRIPS.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.pnlRIPSCarpetas.SuspendLayout();
             this.pnlRIPSIndividual.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.pnlRIPSCarpetas.SuspendLayout();
             this.pnlComprimirArchivo.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.pnlCambioEsctuctura.SuspendLayout();
@@ -292,10 +292,11 @@
             this.pnlRIPS.Controls.Add(this.btnAP);
             this.pnlRIPS.Controls.Add(this.txtRuta);
             this.pnlRIPS.Controls.Add(this.btnRuta);
-            this.pnlRIPS.Location = new System.Drawing.Point(49, 71);
+            this.pnlRIPS.Location = new System.Drawing.Point(14, 27);
             this.pnlRIPS.Name = "pnlRIPS";
-            this.pnlRIPS.Size = new System.Drawing.Size(695, 377);
+            this.pnlRIPS.Size = new System.Drawing.Size(687, 382);
             this.pnlRIPS.TabIndex = 1;
+            this.pnlRIPS.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlRIPS_Paint);
             // 
             // ChkBoxFac
             // 
@@ -354,16 +355,6 @@
             this.prgBarAU.Size = new System.Drawing.Size(331, 23);
             this.prgBarAU.TabIndex = 31;
             // 
-            // btnAU
-            // 
-            this.btnAU.Image = ((System.Drawing.Image)(resources.GetObject("btnAU.Image")));
-            this.btnAU.Location = new System.Drawing.Point(51, 246);
-            this.btnAU.Name = "btnAU";
-            this.btnAU.Size = new System.Drawing.Size(36, 23);
-            this.btnAU.TabIndex = 30;
-            this.btnAU.UseVisualStyleBackColor = true;
-            this.btnAU.Click += new System.EventHandler(this.btnAU_Click);
-            // 
             // lblAU
             // 
             this.lblAU.AutoSize = true;
@@ -389,16 +380,6 @@
             this.prgBarAT.Name = "prgBarAT";
             this.prgBarAT.Size = new System.Drawing.Size(331, 23);
             this.prgBarAT.TabIndex = 27;
-            // 
-            // btnAT
-            // 
-            this.btnAT.Image = ((System.Drawing.Image)(resources.GetObject("btnAT.Image")));
-            this.btnAT.Location = new System.Drawing.Point(51, 217);
-            this.btnAT.Name = "btnAT";
-            this.btnAT.Size = new System.Drawing.Size(36, 23);
-            this.btnAT.TabIndex = 26;
-            this.btnAT.UseVisualStyleBackColor = true;
-            this.btnAT.Click += new System.EventHandler(this.btnAT_Click);
             // 
             // lblAT
             // 
@@ -488,16 +469,6 @@
             this.lblUS.TabIndex = 17;
             this.lblUS.Text = "US";
             // 
-            // btnDoc
-            // 
-            this.btnDoc.Image = ((System.Drawing.Image)(resources.GetObject("btnDoc.Image")));
-            this.btnDoc.Location = new System.Drawing.Point(51, 346);
-            this.btnDoc.Name = "btnDoc";
-            this.btnDoc.Size = new System.Drawing.Size(36, 23);
-            this.btnDoc.TabIndex = 16;
-            this.btnDoc.UseVisualStyleBackColor = true;
-            this.btnDoc.Click += new System.EventHandler(this.btnDoc_Click);
-            // 
             // lblStatusUS
             // 
             this.lblStatusUS.AutoSize = true;
@@ -513,16 +484,6 @@
             this.prgBarUS.Name = "prgBarUS";
             this.prgBarUS.Size = new System.Drawing.Size(331, 23);
             this.prgBarUS.TabIndex = 14;
-            // 
-            // btnUS
-            // 
-            this.btnUS.Image = ((System.Drawing.Image)(resources.GetObject("btnUS.Image")));
-            this.btnUS.Location = new System.Drawing.Point(51, 97);
-            this.btnUS.Name = "btnUS";
-            this.btnUS.Size = new System.Drawing.Size(36, 23);
-            this.btnUS.TabIndex = 13;
-            this.btnUS.UseVisualStyleBackColor = true;
-            this.btnUS.Click += new System.EventHandler(this.btnUS_Click);
             // 
             // lblStatusAC
             // 
@@ -545,7 +506,6 @@
             this.groupBox1.Controls.Add(this.lblTotalAU);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.lblTotalUS);
-            this.groupBox1.Controls.Add(this.pnlRIPSIndividual);
             this.groupBox1.Controls.Add(this.lblTotalAT);
             this.groupBox1.Controls.Add(this.lblTotalAM);
             this.groupBox1.Controls.Add(this.lblTotalAP);
@@ -561,55 +521,6 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Total Archivos";
-            // 
-            // pnlRIPSCarpetas
-            // 
-            this.pnlRIPSCarpetas.Controls.Add(this.label22);
-            this.pnlRIPSCarpetas.Controls.Add(this.txtRutaCarpeta);
-            this.pnlRIPSCarpetas.Controls.Add(this.btnRutaCarpeta);
-            this.pnlRIPSCarpetas.Controls.Add(this.label13);
-            this.pnlRIPSCarpetas.Location = new System.Drawing.Point(300, 32);
-            this.pnlRIPSCarpetas.Name = "pnlRIPSCarpetas";
-            this.pnlRIPSCarpetas.Size = new System.Drawing.Size(609, 181);
-            this.pnlRIPSCarpetas.TabIndex = 13;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(11, 33);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(455, 39);
-            this.label22.TabIndex = 10;
-            this.label22.Text = resources.GetString("label22.Text");
-            // 
-            // txtRutaCarpeta
-            // 
-            this.txtRutaCarpeta.Enabled = false;
-            this.txtRutaCarpeta.Location = new System.Drawing.Point(92, 99);
-            this.txtRutaCarpeta.Name = "txtRutaCarpeta";
-            this.txtRutaCarpeta.Size = new System.Drawing.Size(508, 20);
-            this.txtRutaCarpeta.TabIndex = 9;
-            // 
-            // btnRutaCarpeta
-            // 
-            this.btnRutaCarpeta.Location = new System.Drawing.Point(11, 97);
-            this.btnRutaCarpeta.Name = "btnRutaCarpeta";
-            this.btnRutaCarpeta.Size = new System.Drawing.Size(75, 23);
-            this.btnRutaCarpeta.TabIndex = 8;
-            this.btnRutaCarpeta.Text = "Ruta";
-            this.btnRutaCarpeta.UseVisualStyleBackColor = true;
-            this.btnRutaCarpeta.Click += new System.EventHandler(this.btnRutaCarpeta_Click);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label13.Location = new System.Drawing.Point(7, 9);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(236, 20);
-            this.label13.TabIndex = 7;
-            this.label13.Text = "Generación de carpetas por RIPS";
             // 
             // lblTotalAU
             // 
@@ -646,9 +557,9 @@
             this.pnlRIPSIndividual.Controls.Add(this.label11);
             this.pnlRIPSIndividual.Controls.Add(this.txtRutaIndividual);
             this.pnlRIPSIndividual.Controls.Add(this.btnRutaIndividual);
-            this.pnlRIPSIndividual.Location = new System.Drawing.Point(75, 27);
+            this.pnlRIPSIndividual.Location = new System.Drawing.Point(693, 427);
             this.pnlRIPSIndividual.Name = "pnlRIPSIndividual";
-            this.pnlRIPSIndividual.Size = new System.Drawing.Size(655, 193);
+            this.pnlRIPSIndividual.Size = new System.Drawing.Size(655, 207);
             this.pnlRIPSIndividual.TabIndex = 12;
             // 
             // label14
@@ -999,32 +910,12 @@
             this.lblStatusAP.TabIndex = 7;
             this.lblStatusAP.Text = "Progreso";
             // 
-            // btnAC
-            // 
-            this.btnAC.Image = ((System.Drawing.Image)(resources.GetObject("btnAC.Image")));
-            this.btnAC.Location = new System.Drawing.Point(51, 126);
-            this.btnAC.Name = "btnAC";
-            this.btnAC.Size = new System.Drawing.Size(36, 23);
-            this.btnAC.TabIndex = 6;
-            this.btnAC.UseVisualStyleBackColor = true;
-            this.btnAC.Click += new System.EventHandler(this.btnAC_Click);
-            // 
             // prgBarAP
             // 
             this.prgBarAP.Location = new System.Drawing.Point(96, 188);
             this.prgBarAP.Name = "prgBarAP";
             this.prgBarAP.Size = new System.Drawing.Size(331, 23);
             this.prgBarAP.TabIndex = 5;
-            // 
-            // btnAP
-            // 
-            this.btnAP.Image = ((System.Drawing.Image)(resources.GetObject("btnAP.Image")));
-            this.btnAP.Location = new System.Drawing.Point(51, 188);
-            this.btnAP.Name = "btnAP";
-            this.btnAP.Size = new System.Drawing.Size(36, 23);
-            this.btnAP.TabIndex = 4;
-            this.btnAP.UseVisualStyleBackColor = true;
-            this.btnAP.Click += new System.EventHandler(this.btnAP_Click);
             // 
             // txtRuta
             // 
@@ -1043,6 +934,55 @@
             this.btnRuta.Text = "Ruta";
             this.btnRuta.UseVisualStyleBackColor = true;
             this.btnRuta.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // pnlRIPSCarpetas
+            // 
+            this.pnlRIPSCarpetas.Controls.Add(this.label22);
+            this.pnlRIPSCarpetas.Controls.Add(this.txtRutaCarpeta);
+            this.pnlRIPSCarpetas.Controls.Add(this.btnRutaCarpeta);
+            this.pnlRIPSCarpetas.Controls.Add(this.label13);
+            this.pnlRIPSCarpetas.Location = new System.Drawing.Point(693, 0);
+            this.pnlRIPSCarpetas.Name = "pnlRIPSCarpetas";
+            this.pnlRIPSCarpetas.Size = new System.Drawing.Size(609, 181);
+            this.pnlRIPSCarpetas.TabIndex = 13;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(11, 33);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(455, 39);
+            this.label22.TabIndex = 10;
+            this.label22.Text = resources.GetString("label22.Text");
+            // 
+            // txtRutaCarpeta
+            // 
+            this.txtRutaCarpeta.Enabled = false;
+            this.txtRutaCarpeta.Location = new System.Drawing.Point(92, 99);
+            this.txtRutaCarpeta.Name = "txtRutaCarpeta";
+            this.txtRutaCarpeta.Size = new System.Drawing.Size(508, 20);
+            this.txtRutaCarpeta.TabIndex = 9;
+            // 
+            // btnRutaCarpeta
+            // 
+            this.btnRutaCarpeta.Location = new System.Drawing.Point(11, 97);
+            this.btnRutaCarpeta.Name = "btnRutaCarpeta";
+            this.btnRutaCarpeta.Size = new System.Drawing.Size(75, 23);
+            this.btnRutaCarpeta.TabIndex = 8;
+            this.btnRutaCarpeta.Text = "Ruta";
+            this.btnRutaCarpeta.UseVisualStyleBackColor = true;
+            this.btnRutaCarpeta.Click += new System.EventHandler(this.btnRutaCarpeta_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label13.Location = new System.Drawing.Point(7, 9);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(236, 20);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "Generación de carpetas por RIPS";
             // 
             // Id
             // 
@@ -1082,7 +1022,7 @@
             this.pnlComprimirArchivo.Controls.Add(this.btnRutaEAPB);
             this.pnlComprimirArchivo.Controls.Add(this.groupBox3);
             this.pnlComprimirArchivo.Controls.Add(this.label25);
-            this.pnlComprimirArchivo.Location = new System.Drawing.Point(12, 297);
+            this.pnlComprimirArchivo.Location = new System.Drawing.Point(12, 433);
             this.pnlComprimirArchivo.Name = "pnlComprimirArchivo";
             this.pnlComprimirArchivo.Size = new System.Drawing.Size(612, 424);
             this.pnlComprimirArchivo.TabIndex = 14;
@@ -1138,16 +1078,6 @@
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Comprimir Archivo";
-            // 
-            // btnComprimir
-            // 
-            this.btnComprimir.Image = global::FilesFolders.Properties.Resources.icons8_Archive_Folder_32;
-            this.btnComprimir.Location = new System.Drawing.Point(523, 290);
-            this.btnComprimir.Name = "btnComprimir";
-            this.btnComprimir.Size = new System.Drawing.Size(50, 30);
-            this.btnComprimir.TabIndex = 24;
-            this.btnComprimir.UseVisualStyleBackColor = true;
-            this.btnComprimir.Click += new System.EventHandler(this.btnComprimir_Click);
             // 
             // lblNombreArchivo
             // 
@@ -1314,7 +1244,7 @@
             this.lblTema.ForeColor = System.Drawing.SystemColors.WindowText;
             this.lblTema.Location = new System.Drawing.Point(65, 106);
             this.lblTema.Name = "lblTema";
-            this.lblTema.Size = new System.Drawing.Size(113, 13);
+            this.lblTema.Size = new System.Drawing.Size(114, 13);
             this.lblTema.TabIndex = 4;
             this.lblTema.Text = "Tema de Información";
             // 
@@ -1420,7 +1350,7 @@
             this.pnlCambioEsctuctura.Controls.Add(this.txtRuraCarpetaEAPB);
             this.pnlCambioEsctuctura.Controls.Add(this.btnRutaCarpetaEAPB);
             this.pnlCambioEsctuctura.Controls.Add(this.label10);
-            this.pnlCambioEsctuctura.Location = new System.Drawing.Point(678, 15);
+            this.pnlCambioEsctuctura.Location = new System.Drawing.Point(693, 187);
             this.pnlCambioEsctuctura.Name = "pnlCambioEsctuctura";
             this.pnlCambioEsctuctura.Size = new System.Drawing.Size(566, 222);
             this.pnlCambioEsctuctura.TabIndex = 15;
@@ -1467,6 +1397,76 @@
             this.btnProcesarEAPB.UseVisualStyleBackColor = true;
             this.btnProcesarEAPB.Click += new System.EventHandler(this.btnProcesarEAPB_Click);
             // 
+            // btnComprimir
+            // 
+            this.btnComprimir.Image = global::FilesFolders.Properties.Resources.icons8_Archive_Folder_32;
+            this.btnComprimir.Location = new System.Drawing.Point(523, 290);
+            this.btnComprimir.Name = "btnComprimir";
+            this.btnComprimir.Size = new System.Drawing.Size(50, 30);
+            this.btnComprimir.TabIndex = 24;
+            this.btnComprimir.UseVisualStyleBackColor = true;
+            this.btnComprimir.Click += new System.EventHandler(this.btnComprimir_Click);
+            // 
+            // btnAU
+            // 
+            this.btnAU.Image = ((System.Drawing.Image)(resources.GetObject("btnAU.Image")));
+            this.btnAU.Location = new System.Drawing.Point(51, 246);
+            this.btnAU.Name = "btnAU";
+            this.btnAU.Size = new System.Drawing.Size(36, 23);
+            this.btnAU.TabIndex = 30;
+            this.btnAU.UseVisualStyleBackColor = true;
+            this.btnAU.Click += new System.EventHandler(this.btnAU_Click);
+            // 
+            // btnAT
+            // 
+            this.btnAT.Image = ((System.Drawing.Image)(resources.GetObject("btnAT.Image")));
+            this.btnAT.Location = new System.Drawing.Point(51, 217);
+            this.btnAT.Name = "btnAT";
+            this.btnAT.Size = new System.Drawing.Size(36, 23);
+            this.btnAT.TabIndex = 26;
+            this.btnAT.UseVisualStyleBackColor = true;
+            this.btnAT.Click += new System.EventHandler(this.btnAT_Click);
+            // 
+            // btnDoc
+            // 
+            this.btnDoc.Image = ((System.Drawing.Image)(resources.GetObject("btnDoc.Image")));
+            this.btnDoc.Location = new System.Drawing.Point(51, 346);
+            this.btnDoc.Name = "btnDoc";
+            this.btnDoc.Size = new System.Drawing.Size(36, 23);
+            this.btnDoc.TabIndex = 16;
+            this.btnDoc.UseVisualStyleBackColor = true;
+            this.btnDoc.Click += new System.EventHandler(this.btnDoc_Click);
+            // 
+            // btnUS
+            // 
+            this.btnUS.Image = ((System.Drawing.Image)(resources.GetObject("btnUS.Image")));
+            this.btnUS.Location = new System.Drawing.Point(51, 97);
+            this.btnUS.Name = "btnUS";
+            this.btnUS.Size = new System.Drawing.Size(36, 23);
+            this.btnUS.TabIndex = 13;
+            this.btnUS.UseVisualStyleBackColor = true;
+            this.btnUS.Click += new System.EventHandler(this.btnUS_Click);
+            // 
+            // btnAC
+            // 
+            this.btnAC.Image = ((System.Drawing.Image)(resources.GetObject("btnAC.Image")));
+            this.btnAC.Location = new System.Drawing.Point(51, 126);
+            this.btnAC.Name = "btnAC";
+            this.btnAC.Size = new System.Drawing.Size(36, 23);
+            this.btnAC.TabIndex = 6;
+            this.btnAC.UseVisualStyleBackColor = true;
+            this.btnAC.Click += new System.EventHandler(this.btnAC_Click);
+            // 
+            // btnAP
+            // 
+            this.btnAP.Image = ((System.Drawing.Image)(resources.GetObject("btnAP.Image")));
+            this.btnAP.Location = new System.Drawing.Point(51, 188);
+            this.btnAP.Name = "btnAP";
+            this.btnAP.Size = new System.Drawing.Size(36, 23);
+            this.btnAP.TabIndex = 4;
+            this.btnAP.UseVisualStyleBackColor = true;
+            this.btnAP.Click += new System.EventHandler(this.btnAP_Click);
+            // 
             // button1
             // 
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
@@ -1485,6 +1485,7 @@
             this.Controls.Add(this.pnlRIPSCarpetas);
             this.Controls.Add(this.pnlCambioEsctuctura);
             this.Controls.Add(this.pnlComprimirArchivo);
+            this.Controls.Add(this.pnlRIPSIndividual);
             this.Controls.Add(this.pnlRIPS);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.button1);
@@ -1501,12 +1502,12 @@
             this.pnlRIPS.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.pnlRIPSCarpetas.ResumeLayout(false);
-            this.pnlRIPSCarpetas.PerformLayout();
             this.pnlRIPSIndividual.ResumeLayout(false);
             this.pnlRIPSIndividual.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.pnlRIPSCarpetas.ResumeLayout(false);
+            this.pnlRIPSCarpetas.PerformLayout();
             this.pnlComprimirArchivo.ResumeLayout(false);
             this.pnlComprimirArchivo.PerformLayout();
             this.groupBox3.ResumeLayout(false);

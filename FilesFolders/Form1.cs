@@ -3428,6 +3428,11 @@ namespace FilesFolders
         {
 
         }
+
+        private void pnlRIPS_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
 
