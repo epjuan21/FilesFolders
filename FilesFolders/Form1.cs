@@ -1909,6 +1909,12 @@ namespace FilesFolders
 
                                 #region Diagnóstico relacionado Nro. 2, a la salida
                                 // Diagnóstico relacionado Nro. 2, a la salida - Posición 10
+                                if (split[10] == "I48X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[10] = "I489";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[10] == "R500" && chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
                                     split[10] = "R509";
