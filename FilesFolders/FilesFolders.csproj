@@ -143,6 +143,12 @@
     <Compile Include="FrmComprimir.Designer.cs">
       <DependentUpon>FrmComprimir.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFactura.Designer.cs">
+      <DependentUpon>FrmFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmRIPS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmComprimir.resx">
       <DependentUpon>FrmComprimir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFactura.resx">
+      <DependentUpon>FrmFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRIPS.resx">
       <DependentUpon>FrmRIPS.cs</DependentUpon>

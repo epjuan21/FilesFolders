@@ -120,90 +120,14 @@
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnAH.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAMFJREFUWEft
-        lEEKwjAQRXMLd2rSqnfSC7nXRkXcuPR0aQ1dCKJj/IFapCgmUWEeDCVpZv6DlAqGYZi/QGk7HSyMxDI9
-        Uh8PVOf7s5pgOx0QuKCciFpWY7yOT0vgUWRdjnAsHregRnC7TnQt+6wocxwPD4V0CfhyIvnGZGgLBw1/
-        RcCXE+lro9D+OTT0LYFhYXffEKjpfzGXW9tDWzhoeJdAvGAPhTwTiB/sobCmQLpgDwTSB3vUys6CftUM
-        wzC/gxBX7RsTec9bQ4kAAAAASUVORK5CYII=
-</value>
-  </data>
-  <metadata name="tltDocLong.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>443, 18</value>
-  </metadata>
-  <data name="chkBoxLonDoc.ToolTip" xml:space="preserve">
-    <value>Seleccione esta opción para corregir documentos de longitud mayor a 10.
-Por ejemplo TI,99043013331 de 18 Años
-En este caso se cambiara el tipo de documento por el correcto según la Edad
-
-Aplica para Validador de SAVIASALUD</value>
-  </data>
-  <data name="btnAU.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAMFJREFUWEft
-        lEEKwjAQRXMLd2rSqnfSC7nXRkXcuPR0aQ1dCKJj/IFapCgmUWEeDCVpZv6DlAqGYZi/QGk7HSyMxDI9
-        Uh8PVOf7s5pgOx0QuKCciFpWY7yOT0vgUWRdjnAsHregRnC7TnQt+6wocxwPD4V0CfhyIvnGZGgLBw1/
-        RcCXE+lro9D+OTT0LYFhYXffEKjpfzGXW9tDWzhoeJdAvGAPhTwTiB/sobCmQLpgDwTSB3vUys6CftUM
-        wzC/gxBX7RsTec9bQ4kAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnAT.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAMFJREFUWEft
-        lEEKwjAQRXMLd2rSqnfSC7nXRkXcuPR0aQ1dCKJj/IFapCgmUWEeDCVpZv6DlAqGYZi/QGk7HSyMxDI9
-        Uh8PVOf7s5pgOx0QuKCciFpWY7yOT0vgUWRdjnAsHregRnC7TnQt+6wocxwPD4V0CfhyIvnGZGgLBw1/
-        RcCXE+lro9D+OTT0LYFhYXffEKjpfzGXW9tDWzhoeJdAvGAPhTwTiB/sobCmQLpgDwTSB3vUys6CftUM
-        wzC/gxBX7RsTec9bQ4kAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnDoc.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAMFJREFUWEft
-        lEEKwjAQRXMLd2rSqnfSC7nXRkXcuPR0aQ1dCKJj/IFapCgmUWEeDCVpZv6DlAqGYZi/QGk7HSyMxDI9
-        Uh8PVOf7s5pgOx0QuKCciFpWY7yOT0vgUWRdjnAsHregRnC7TnQt+6wocxwPD4V0CfhyIvnGZGgLBw1/
-        RcCXE+lro9D+OTT0LYFhYXffEKjpfzGXW9tDWzhoeJdAvGAPhTwTiB/sobCmQLpgDwTSB3vUys6CftUM
-        wzC/gxBX7RsTec9bQ4kAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnUS.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAMFJREFUWEft
-        lEEKwjAQRXMLd2rSqnfSC7nXRkXcuPR0aQ1dCKJj/IFapCgmUWEeDCVpZv6DlAqGYZi/QGk7HSyMxDI9
-        Uh8PVOf7s5pgOx0QuKCciFpWY7yOT0vgUWRdjnAsHregRnC7TnQt+6wocxwPD4V0CfhyIvnGZGgLBw1/
-        RcCXE+lro9D+OTT0LYFhYXffEKjpfzGXW9tDWzhoeJdAvGAPhTwTiB/sobCmQLpgDwTSB3vUys6CftUM
-        wzC/gxBX7RsTec9bQ4kAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnAC.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAMFJREFUWEft
-        lEEKwjAQRXMLd2rSqnfSC7nXRkXcuPR0aQ1dCKJj/IFapCgmUWEeDCVpZv6DlAqGYZi/QGk7HSyMxDI9
-        Uh8PVOf7s5pgOx0QuKCciFpWY7yOT0vgUWRdjnAsHregRnC7TnQt+6wocxwPD4V0CfhyIvnGZGgLBw1/
-        RcCXE+lro9D+OTT0LYFhYXffEKjpfzGXW9tDWzhoeJdAvGAPhTwTiB/sobCmQLpgDwTSB3vUys6CftUM
-        wzC/gxBX7RsTec9bQ4kAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnAP.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAMFJREFUWEft
-        lEEKwjAQRXMLd2rSqnfSC7nXRkXcuPR0aQ1dCKJj/IFapCgmUWEeDCVpZv6DlAqGYZi/QGk7HSyMxDI9
-        Uh8PVOf7s5pgOx0QuKCciFpWY7yOT0vgUWRdjnAsHregRnC7TnQt+6wocxwPD4V0CfhyIvnGZGgLBw1/
-        RcCXE+lro9D+OTT0LYFhYXffEKjpfzGXW9tDWzhoeJdAvGAPhTwTiB/sobCmQLpgDwTSB3vUys6CftUM
-        wzC/gxBX7RsTec9bQ4kAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="label22.Text" xml:space="preserve">
-    <value>La carpeta deberá tener los RIPS sin separar en ninguna carpeta.
-Una vez seleccionada la carpeta con los RIPS, se creara una carpeta por cada juego de RIPS
-Luego se moveran los archivos de RIPS según factura a cada carpeta correspondiente</value>
-  </data>
   <metadata name="folderBrowserDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>132, 17</value>
   </metadata>
   <metadata name="backgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>301, 17</value>
+  </metadata>
+  <metadata name="tltDocLong.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>443, 18</value>
   </metadata>
   <metadata name="Id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -217,6 +141,7 @@ Luego se moveran los archivos de RIPS según factura a cada carpeta correspondie
   <metadata name="Regimen.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAA3BJREFUWEft
@@ -240,6 +165,11 @@ Luego se moveran los archivos de RIPS según factura a cada carpeta correspondie
   <metadata name="entidadSetBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 57</value>
   </metadata>
+  <data name="label22.Text" xml:space="preserve">
+    <value>La carpeta deberá tener los RIPS sin separar en ninguna carpeta.
+Una vez seleccionada la carpeta con los RIPS, se creara una carpeta por cada juego de RIPS
+Luego se moveran los archivos de RIPS según factura a cada carpeta correspondiente</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>
