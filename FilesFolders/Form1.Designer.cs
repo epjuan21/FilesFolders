@@ -37,23 +37,10 @@
             this.rIPSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rIPSIndividualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rIPSCarpetasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rIPSFacturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rIPSEABPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambioEstructuraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comprimirArchivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.lblTotalAU = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblTotalUS = new System.Windows.Forms.Label();
-            this.lblTotalAT = new System.Windows.Forms.Label();
-            this.lblTotalAM = new System.Windows.Forms.Label();
-            this.lblTotalAP = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblTotalAC = new System.Windows.Forms.Label();
             this.pnlRIPSIndividual = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
@@ -128,9 +115,7 @@
             this.txtRutaCarpeta = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.pnlRIPSCarpetas = new System.Windows.Forms.Panel();
-            this.rIPSFacturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.pnlRIPSIndividual.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.pnlComprimirArchivo.SuspendLayout();
@@ -201,6 +186,13 @@
             this.rIPSCarpetasToolStripMenuItem.Text = "RIPS Carpetas";
             this.rIPSCarpetasToolStripMenuItem.Click += new System.EventHandler(this.rIPSCarpetasToolStripMenuItem_Click);
             // 
+            // rIPSFacturaToolStripMenuItem
+            // 
+            this.rIPSFacturaToolStripMenuItem.Name = "rIPSFacturaToolStripMenuItem";
+            this.rIPSFacturaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rIPSFacturaToolStripMenuItem.Text = "RIPS Factura";
+            this.rIPSFacturaToolStripMenuItem.Click += new System.EventHandler(this.rIPSFacturaToolStripMenuItem_Click);
+            // 
             // rIPSEABPToolStripMenuItem
             // 
             this.rIPSEABPToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -223,119 +215,6 @@
             this.comprimirArchivoToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.comprimirArchivoToolStripMenuItem.Text = "Comprimir Archivo";
             this.comprimirArchivoToolStripMenuItem.Click += new System.EventHandler(this.comprimirArchivoToolStripMenuItem_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label27);
-            this.groupBox1.Controls.Add(this.lblTotalAU);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.lblTotalUS);
-            this.groupBox1.Controls.Add(this.lblTotalAT);
-            this.groupBox1.Controls.Add(this.lblTotalAM);
-            this.groupBox1.Controls.Add(this.lblTotalAP);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.lblTotalAC);
-            this.groupBox1.Location = new System.Drawing.Point(273, 45);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(139, 190);
-            this.groupBox1.TabIndex = 9;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Total Archivos";
-            // 
-            // label27
-            // 
-            this.label27.Location = new System.Drawing.Point(0, 0);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(100, 23);
-            this.label27.TabIndex = 1;
-            // 
-            // lblTotalAU
-            // 
-            this.lblTotalAU.Location = new System.Drawing.Point(0, 0);
-            this.lblTotalAU.Name = "lblTotalAU";
-            this.lblTotalAU.Size = new System.Drawing.Size(100, 23);
-            this.lblTotalAU.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 23);
-            this.label2.TabIndex = 3;
-            // 
-            // lblTotalUS
-            // 
-            this.lblTotalUS.Location = new System.Drawing.Point(0, 0);
-            this.lblTotalUS.Name = "lblTotalUS";
-            this.lblTotalUS.Size = new System.Drawing.Size(100, 23);
-            this.lblTotalUS.TabIndex = 4;
-            // 
-            // lblTotalAT
-            // 
-            this.lblTotalAT.Location = new System.Drawing.Point(0, 0);
-            this.lblTotalAT.Name = "lblTotalAT";
-            this.lblTotalAT.Size = new System.Drawing.Size(100, 23);
-            this.lblTotalAT.TabIndex = 5;
-            // 
-            // lblTotalAM
-            // 
-            this.lblTotalAM.Location = new System.Drawing.Point(0, 0);
-            this.lblTotalAM.Name = "lblTotalAM";
-            this.lblTotalAM.Size = new System.Drawing.Size(100, 23);
-            this.lblTotalAM.TabIndex = 6;
-            // 
-            // lblTotalAP
-            // 
-            this.lblTotalAP.Location = new System.Drawing.Point(0, 0);
-            this.lblTotalAP.Name = "lblTotalAP";
-            this.lblTotalAP.Size = new System.Drawing.Size(100, 23);
-            this.lblTotalAP.TabIndex = 7;
-            // 
-            // label7
-            // 
-            this.label7.Location = new System.Drawing.Point(0, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(100, 23);
-            this.label7.TabIndex = 8;
-            // 
-            // label6
-            // 
-            this.label6.Location = new System.Drawing.Point(0, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(100, 23);
-            this.label6.TabIndex = 9;
-            // 
-            // label5
-            // 
-            this.label5.Location = new System.Drawing.Point(0, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 23);
-            this.label5.TabIndex = 10;
-            // 
-            // label4
-            // 
-            this.label4.Location = new System.Drawing.Point(0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 23);
-            this.label4.TabIndex = 11;
-            // 
-            // label3
-            // 
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 23);
-            this.label3.TabIndex = 12;
-            // 
-            // lblTotalAC
-            // 
-            this.lblTotalAC.Location = new System.Drawing.Point(0, 0);
-            this.lblTotalAC.Name = "lblTotalAC";
-            this.lblTotalAC.Size = new System.Drawing.Size(100, 23);
-            this.lblTotalAC.TabIndex = 13;
             // 
             // pnlRIPSIndividual
             // 
@@ -868,7 +747,7 @@
             this.lblTema.ForeColor = System.Drawing.SystemColors.WindowText;
             this.lblTema.Location = new System.Drawing.Point(65, 106);
             this.lblTema.Name = "lblTema";
-            this.lblTema.Size = new System.Drawing.Size(113, 13);
+            this.lblTema.Size = new System.Drawing.Size(114, 13);
             this.lblTema.TabIndex = 4;
             this.lblTema.Text = "Tema de Información";
             // 
@@ -1080,13 +959,6 @@
             this.pnlRIPSCarpetas.Size = new System.Drawing.Size(609, 181);
             this.pnlRIPSCarpetas.TabIndex = 13;
             // 
-            // rIPSFacturaToolStripMenuItem
-            // 
-            this.rIPSFacturaToolStripMenuItem.Name = "rIPSFacturaToolStripMenuItem";
-            this.rIPSFacturaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.rIPSFacturaToolStripMenuItem.Text = "RIPS Factura";
-            this.rIPSFacturaToolStripMenuItem.Click += new System.EventHandler(this.rIPSFacturaToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1098,7 +970,6 @@
             this.Controls.Add(this.pnlRIPSIndividual);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
@@ -1108,7 +979,6 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
             this.pnlRIPSIndividual.ResumeLayout(false);
             this.pnlRIPSIndividual.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -1135,21 +1005,8 @@
         private System.Windows.Forms.ToolStripMenuItem carpetasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rIPSToolStripMenuItem;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
-        private System.Windows.Forms.Label lblTotalAC;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lblTotalAP;
-        private System.Windows.Forms.Label lblTotalAM;
-        private System.Windows.Forms.Label lblTotalAT;
-        private System.Windows.Forms.Label lblTotalUS;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label lblTotalAU;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolTip tltDocLong;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
@@ -1211,7 +1068,6 @@
         private System.Windows.Forms.Button btnRutaEAPB;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Button btnComprimir;
-        private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnRutaCarpetaEAPB;
         private System.Windows.Forms.TextBox txtRuraCarpetaEAPB;

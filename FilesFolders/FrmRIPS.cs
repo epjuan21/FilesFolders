@@ -115,7 +115,7 @@ namespace FilesFolders
         #endregion
 
         #region US
-        private void btnUS_Click(object sender, EventArgs e)
+        private void btnUS_Click_1(object sender, EventArgs e)
         {
             bgwUS.ODoWorker(bgwUS_DoWork, bgwUS_ProgressChanged, bgwUS_RunWorkerCompleted);
         }
@@ -262,7 +262,7 @@ namespace FilesFolders
         #endregion
 
         #region AC
-        private void btnAC_Click(object sender, EventArgs e)
+        private void btnAC_Click_1(object sender, EventArgs e)
         {
             bgwAC.ODoWorker(bgwAC_DoWork, bgwAC_ProgressChanged, bgwAC_RunWorkerCompleted);
         }
@@ -341,6 +341,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "890203" && split[7] == "")
+                                {
+                                    split[7] = "10";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "890301" && split[7] == "")
                                 {
                                     split[7] = "10";
@@ -384,6 +390,12 @@ namespace FilesFolders
                                 #region Causa Externa
                                 // Causa Externa - Posicion 8
                                 if (split[6] == "890201" && split[8] == "")
+                                {
+                                    split[8] = "13";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "890203" && split[8] == "")
                                 {
                                     split[8] = "13";
                                     line = String.Join(",", split);
@@ -674,7 +686,7 @@ namespace FilesFolders
         #endregion
 
         #region AP
-        private void btnAP_Click(object sender, EventArgs e)
+        private void btnAP_Click_1(object sender, EventArgs e)
         {
             bgwAP.ODoWorker(bgwAP_DoWork, bgwAP_ProgressChanged, bgwAP_RunWorkerCompleted);
         }
@@ -872,6 +884,12 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 if (split[6] == "906127")
+                                {
+                                    split[7] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "907004")
                                 {
                                     split[7] = "1";
                                     line = String.Join(",", split);
@@ -1231,7 +1249,19 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "902206")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "902208")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "903801")
                                 {
                                     split[8] = "1";
                                     line = String.Join(",", split);
@@ -1304,6 +1334,12 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 if (split[6] == "906916")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "907004")
                                 {
                                     split[8] = "1";
                                     line = String.Join(",", split);
@@ -2082,5 +2118,6 @@ namespace FilesFolders
         }
 
         #endregion
+
     }
 }
