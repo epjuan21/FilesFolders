@@ -110,8 +110,8 @@ namespace FilesFolders
             }
             #endregion
 
-            #region AC AP AM AT AU
-            foreach (var fi in di.GetFiles("AC*", SearchOption.AllDirectories).Union(di.GetFiles("*AP*", SearchOption.AllDirectories).Union(di.GetFiles("*AM*", SearchOption.AllDirectories)).Union((di.GetFiles("*AT*", SearchOption.AllDirectories))).Union((di.GetFiles("*AU*", SearchOption.AllDirectories)))))
+            #region AC AP AM AT AU AD AH
+            foreach (var fi in di.GetFiles("AC*", SearchOption.AllDirectories).Union(di.GetFiles("*AP*", SearchOption.AllDirectories).Union(di.GetFiles("*AM*", SearchOption.AllDirectories)).Union((di.GetFiles("*AT*", SearchOption.AllDirectories))).Union((di.GetFiles("*AU*", SearchOption.AllDirectories)))).Union((di.GetFiles("*AD*", SearchOption.AllDirectories))).Union((di.GetFiles("*AH*", SearchOption.AllDirectories))))
             {
                 String path = fi.FullName;
                 List<String> lines = new List<String>();
