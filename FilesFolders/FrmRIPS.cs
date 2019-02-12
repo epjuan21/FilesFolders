@@ -146,10 +146,22 @@ namespace FilesFolders
 
                                 // Primer Apellido - Posición 4
                                 string primerApellido = split[4];
+
+                                // Reemplazar Caracteres Especiales
+
+                                primerApellido = primerApellido.Replace("ñ", "N");
+                            
+                                // Borrar Espacios
                                 split[4] = primerApellido.Trim();
 
                                 // Segundo Apellido - Posición 5
                                 string segundoApellido = split[5];
+
+                                // Reemplazar Caracteres Especiales
+
+                                segundoApellido = segundoApellido.Replace("ñ", "N");
+
+                                // Borrar Espacios
                                 split[5] = segundoApellido.Trim();
 
                                 // Primer Nombre - Posición 6
@@ -434,6 +446,23 @@ namespace FilesFolders
                                 #endregion
 
                                 #region Diagnóstico Principal
+
+                                // Evaluar si la primera letra es minuscula
+
+                                // Obtenemos la Primera Letra
+
+                                if (split[9] != "")
+                                {
+                                    string firstLetter = split[9].Substring(0, 1);
+
+                                    if (char.IsLower(Convert.ToChar(firstLetter)))
+                                    {
+                                        split[9] = split[9].ToUpper();
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                }
+
                                 // Código del diagnóstico principal - Posicion  9
                                 if (split[9] == "")
                                 {
