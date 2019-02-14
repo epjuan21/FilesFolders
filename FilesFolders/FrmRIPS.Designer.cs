@@ -231,6 +231,7 @@
             this.btnAU.Size = new System.Drawing.Size(36, 23);
             this.btnAU.TabIndex = 30;
             this.btnAU.UseVisualStyleBackColor = true;
+            this.btnAU.Click += new System.EventHandler(this.btnAU_Click_1);
             // 
             // lblAU
             // 
