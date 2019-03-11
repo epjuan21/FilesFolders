@@ -29,6 +29,7 @@ namespace FilesFolders
         CWork bgwDOC = new CWork();
         CWork bgwUS = new CWork();
         CWork bgwAH = new CWork();
+        CWork bgwAF = new CWork();
         #endregion
 
         private void FrmRIPS_Load(object sender, EventArgs e)
@@ -49,6 +50,7 @@ namespace FilesFolders
             lblStatusAU.Visible = false;
             lblStatusDoc.Visible = false;
             lblStatusAH.Visible = false;
+            lblStatusAF.Visible = false;
 
             // Inhabilitar Botones Hasta Seleccionar Ruta
             btnAC.Enabled = false;
@@ -58,6 +60,7 @@ namespace FilesFolders
             btnAT.Enabled = false;
             btnAU.Enabled = false;
             btnAH.Enabled = false;
+            btnAF.Enabled = false;
         }
 
         #region Ruta Cargue Masivo
@@ -108,6 +111,7 @@ namespace FilesFolders
                 btnAT.Enabled = true;
                 btnAU.Enabled = true;
                 btnAH.Enabled = true;
+                btnAF.Enabled = true;
 
                 chkBoxLonDoc.Enabled = true;
             }
@@ -443,9 +447,21 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+
+                                // Si Diagnostico Empieza por Z
+                                // Causa Externa debe Ser 15 - Otra
+                                if (split[8] == "13" && (split[9].Substring(0, 1) == "Z"))
+                                {
+                                    split[8] = "15";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
                                 #endregion
 
                                 #region Diagnóstico Principal
+                                // Código del diagnóstico principal - Posicion  9
+
 
                                 // Evaluar si la primera letra es minuscula
 
@@ -462,8 +478,7 @@ namespace FilesFolders
                                         contadorErrores++;
                                     }
                                 }
-
-                                // Código del diagnóstico principal - Posicion  9
+                                
                                 if (split[9] == "")
                                 {
                                     split[9] = "R101";
@@ -657,12 +672,39 @@ namespace FilesFolders
                                 }
                                 #endregion
 
-                                #region Valor Cuota Moderadora
-                                // Valor de la cuota moderadora - Posición 15
-                                string valorCuota = split[15];
+                                #region Valor Consulta
 
                                 // Valor consulta - Posición 14
+
                                 string valorConsulta = split[14];
+
+                                double valorConsultaDouble;
+
+                                valorConsultaDouble = Math.Truncate(Convert.ToDouble(valorConsulta));
+
+                                if (chkBoxValSum.CheckState == CheckState.Checked)
+                                {
+                                    split[14] = valorConsultaDouble.ToString();
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                #endregion
+
+                                #region Valor Cuota Moderadora
+
+                                // Valor de la cuota moderadora - Posición 15
+
+                                string valorCuota = split[15];
+
+                                double valorCuotaDouble = Math.Truncate(Convert.ToDouble(valorCuota));
+
+                                if (chkBoxValSum.CheckState == CheckState.Checked)
+                                {
+                                    split[15] = valorCuotaDouble.ToString();
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
 
                                 // Valor Neto - Posición 16
                                 string valorNeto = split[16];
@@ -675,6 +717,19 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                #endregion
+
+                                #region Valor Neto
+
+                                double valorNetoDouble = Math.Truncate(Convert.ToDouble(valorNeto));
+
+                                if (chkBoxValSum.CheckState == CheckState.Checked)
+                                {
+                                    split[16] = valorNetoDouble.ToString();
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
                                 #endregion
 
                             }
@@ -1590,6 +1645,25 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 #endregion
+
+                                #region Valor Procedimiento
+
+                                // Valor Procedimiento - Posición 14
+
+                                string valorProcedimiento = split[14];
+
+                                double valorProcedimientoDouble;
+
+                                valorProcedimientoDouble = Math.Truncate(Convert.ToDouble(valorProcedimiento));
+
+                                if (chkBoxValSum.CheckState == CheckState.Checked)
+                                {
+                                    split[14] = valorProcedimientoDouble.ToString();
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                #endregion
                             }
 
                             lines.Add(line);
@@ -1628,7 +1702,7 @@ namespace FilesFolders
         #endregion
 
         #region AT
-        private void btnAT_Click(object sender, EventArgs e)
+        private void btnAT_Click_1(object sender, EventArgs e)
         {
             bgwAT.ODoWorker(bgwAT_DoWork, bgwAT_ProgressChanged, bgwAT_RunWorkerCompleted);
         }
@@ -1721,6 +1795,40 @@ namespace FilesFolders
                                 if (split[6] == "S33000")
                                 {
                                     split[6] = "S31301";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                #endregion
+
+                                #region Valor Unitario
+                                // Valor Unitario - Posición 9
+                                string valorUnitarioAT = split[9];
+
+                                double valorUnitarioATDouble;
+
+                                valorUnitarioATDouble = Math.Truncate(Convert.ToDouble(valorUnitarioAT));
+
+                                if (chkBoxValSum.CheckState == CheckState.Checked)
+                                {
+                                    split[9] = valorUnitarioATDouble.ToString();
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                #endregion
+
+                                #region Valor Total
+                                // Valor Total - Posición 10
+                                string valorTotalAT = split[10];
+
+                                double valorTotalATDouble;
+
+                                valorTotalATDouble = Math.Truncate(Convert.ToDouble(valorTotalAT));
+
+                                if (chkBoxValSum.CheckState == CheckState.Checked)
+                                {
+                                    split[10] = valorTotalATDouble.ToString();
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -1974,8 +2082,6 @@ namespace FilesFolders
                 bgwAH.ReportProgress(Convert.ToInt32(i * 100 / contadorErrores));
                 Thread.Sleep(100);
             }
-
-
         }
 
         private void bgwAH_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -1989,8 +2095,6 @@ namespace FilesFolders
         {
             lblStatusAH.Text = "Finalizado";
         }
-
-
 
         #endregion
 
@@ -2170,6 +2274,148 @@ namespace FilesFolders
         }
 
         #endregion
+
+        private void btnAF_Click(object sender, EventArgs e)
+        {
+            bgwAF.ODoWorker(bgwAF_DoWork, bgwAF_ProgressChanged, bgwAF_RunWorkerCompleted);
+        }
+
+        private void bgwAF_DoWork(object sender, DoWorkEventArgs e)
+        {
+            DirectoryInfo di = new DirectoryInfo(dirPath);
+            int contadorErrores = 0;
+
+            foreach (var fi in di.GetFiles("*AF*", SearchOption.AllDirectories))
+            {
+                String path = fi.FullName;
+                List<String> lines = new List<String>();
+
+                if (File.Exists(path))
+                {
+                    using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("Windows-1252")))
+                    {
+                        String line;
+
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            if (line.Contains(","))
+                            {
+                                String[] split = line.Split(',');
+
+                                #region Código Entidad Administradora
+
+                                // Código Entidad Administradora - Poisición 8
+
+                                string codigoEntidadAF = split[8];
+
+                                if (codigoEntidadAF == "890981494-2")
+                                {
+                                    split[8] = "890981494";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                #endregion
+
+                                #region Valor Copago
+                                // Valor Copago - Poisición 13
+
+                                string valorCopagoAF = split[13];
+
+                                if (valorCopagoAF == "" && chkBoxCorregirAFSum.CheckState == CheckState.Checked)
+                                {
+                                    split[13] = "0";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                #endregion
+
+                                #region Valor Comision
+                                // Valor Comisión - Posición 14
+
+                                string valorComisionAF = split[14];
+
+                                if (valorComisionAF == "" && chkBoxCorregirAFSum.CheckState == CheckState.Checked)
+                                {
+                                    split[14] = "0";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                #endregion
+
+                                #region Valor Descuento
+                                // Valor Descuento - Posición 15
+                                string valorDescuentoAF = split[15];
+
+                                if (valorDescuentoAF == "" && chkBoxCorregirAFSum.CheckState == CheckState.Checked)
+                                {
+                                    split[15] = "0";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                #endregion
+
+                                #region Valor Neto
+
+                                // Valor Neto - Posición 16
+
+                                string valorNetoAF = split[16];
+
+                                double valorNetoAFDouble;
+
+                                valorNetoAFDouble = Math.Truncate(Convert.ToDouble(valorNetoAF));
+
+                                if (chkBoxCorregirAFSum.CheckState == CheckState.Checked)
+                                {
+                                    split[16] = valorNetoAFDouble.ToString();
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+
+                                #endregion
+
+
+                            }
+
+                            lines.Add(line);
+                        }
+                    }
+
+                    using (StreamWriter writer = new StreamWriter(path, false, Encoding.GetEncoding("Windows-1252")))
+                    {
+                        foreach (String line in lines)
+                        {
+                            writer.WriteLine(line);
+                        }
+                    }
+                }
+            }
+
+            for (int i = 1; i <= contadorErrores; i++)
+            {
+                bgwAF.ReportProgress(Convert.ToInt32(i * 100 / contadorErrores));
+                Thread.Sleep(100);
+            }
+        }
+
+        private void bgwAF_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            lblStatusAF.Visible = true;
+            prgBarAF.Value = e.ProgressPercentage;
+            lblStatusAF.Text = "Procesando...... " + prgBarAF.Value.ToString() + "%";
+        }
+
+        private void bgwAF_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            lblStatusAF.Text = "Finalizado";
+        }
+
+
+        private void pnlRIPS_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
 
     }
 }

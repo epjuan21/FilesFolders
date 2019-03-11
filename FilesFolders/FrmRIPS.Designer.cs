@@ -30,9 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRIPS));
             this.pnlRIPS = new System.Windows.Forms.Panel();
+            this.chkBoxValSum = new System.Windows.Forms.CheckBox();
+            this.lblStatusAF = new System.Windows.Forms.Label();
             this.lblStatusAH = new System.Windows.Forms.Label();
+            this.prgBarAF = new System.Windows.Forms.ProgressBar();
             this.prgBarAH = new System.Windows.Forms.ProgressBar();
+            this.btnAF = new System.Windows.Forms.Button();
             this.btnAH = new System.Windows.Forms.Button();
+            this.lblAF = new System.Windows.Forms.Label();
             this.lblAH = new System.Windows.Forms.Label();
             this.ChkBoxFac = new System.Windows.Forms.CheckBox();
             this.chkBoxDiagSavia = new System.Windows.Forms.CheckBox();
@@ -83,15 +88,22 @@
             this.txtRuta = new System.Windows.Forms.TextBox();
             this.btnRuta = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.chkBoxCorregirAFSum = new System.Windows.Forms.CheckBox();
             this.pnlRIPS.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlRIPS
             // 
+            this.pnlRIPS.Controls.Add(this.chkBoxCorregirAFSum);
+            this.pnlRIPS.Controls.Add(this.chkBoxValSum);
+            this.pnlRIPS.Controls.Add(this.lblStatusAF);
             this.pnlRIPS.Controls.Add(this.lblStatusAH);
+            this.pnlRIPS.Controls.Add(this.prgBarAF);
             this.pnlRIPS.Controls.Add(this.prgBarAH);
+            this.pnlRIPS.Controls.Add(this.btnAF);
             this.pnlRIPS.Controls.Add(this.btnAH);
+            this.pnlRIPS.Controls.Add(this.lblAF);
             this.pnlRIPS.Controls.Add(this.lblAH);
             this.pnlRIPS.Controls.Add(this.ChkBoxFac);
             this.pnlRIPS.Controls.Add(this.chkBoxDiagSavia);
@@ -129,8 +141,28 @@
             this.pnlRIPS.Controls.Add(this.btnRuta);
             this.pnlRIPS.Location = new System.Drawing.Point(12, 12);
             this.pnlRIPS.Name = "pnlRIPS";
-            this.pnlRIPS.Size = new System.Drawing.Size(700, 434);
+            this.pnlRIPS.Size = new System.Drawing.Size(817, 481);
             this.pnlRIPS.TabIndex = 2;
+            this.pnlRIPS.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlRIPS_Paint);
+            // 
+            // chkBoxValSum
+            // 
+            this.chkBoxValSum.AutoSize = true;
+            this.chkBoxValSum.Location = new System.Drawing.Point(573, 218);
+            this.chkBoxValSum.Name = "chkBoxValSum";
+            this.chkBoxValSum.Size = new System.Drawing.Size(166, 17);
+            this.chkBoxValSum.TabIndex = 45;
+            this.chkBoxValSum.Text = "Quitar decimales Sumimedical";
+            this.chkBoxValSum.UseVisualStyleBackColor = true;
+            // 
+            // lblStatusAF
+            // 
+            this.lblStatusAF.AutoSize = true;
+            this.lblStatusAF.Location = new System.Drawing.Point(433, 310);
+            this.lblStatusAF.Name = "lblStatusAF";
+            this.lblStatusAF.Size = new System.Drawing.Size(49, 13);
+            this.lblStatusAF.TabIndex = 44;
+            this.lblStatusAF.Text = "Progreso";
             // 
             // lblStatusAH
             // 
@@ -141,6 +173,13 @@
             this.lblStatusAH.TabIndex = 44;
             this.lblStatusAH.Text = "Progreso";
             // 
+            // prgBarAF
+            // 
+            this.prgBarAF.Location = new System.Drawing.Point(96, 305);
+            this.prgBarAF.Name = "prgBarAF";
+            this.prgBarAF.Size = new System.Drawing.Size(331, 23);
+            this.prgBarAF.TabIndex = 43;
+            // 
             // prgBarAH
             // 
             this.prgBarAH.Location = new System.Drawing.Point(96, 275);
@@ -148,20 +187,40 @@
             this.prgBarAH.Size = new System.Drawing.Size(331, 23);
             this.prgBarAH.TabIndex = 43;
             // 
+            // btnAF
+            // 
+            this.btnAF.Image = ((System.Drawing.Image)(resources.GetObject("btnAF.Image")));
+            this.btnAF.Location = new System.Drawing.Point(51, 305);
+            this.btnAF.Name = "btnAF";
+            this.btnAF.Size = new System.Drawing.Size(36, 23);
+            this.btnAF.TabIndex = 42;
+            this.btnAF.UseVisualStyleBackColor = true;
+            this.btnAF.Click += new System.EventHandler(this.btnAF_Click);
+            // 
             // btnAH
             // 
             this.btnAH.Image = ((System.Drawing.Image)(resources.GetObject("btnAH.Image")));
-            this.btnAH.Location = new System.Drawing.Point(51, 273);
+            this.btnAH.Location = new System.Drawing.Point(51, 276);
             this.btnAH.Name = "btnAH";
             this.btnAH.Size = new System.Drawing.Size(36, 23);
             this.btnAH.TabIndex = 42;
             this.btnAH.UseVisualStyleBackColor = true;
             // 
+            // lblAF
+            // 
+            this.lblAF.AutoSize = true;
+            this.lblAF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAF.Location = new System.Drawing.Point(16, 310);
+            this.lblAF.Name = "lblAF";
+            this.lblAF.Size = new System.Drawing.Size(22, 13);
+            this.lblAF.TabIndex = 41;
+            this.lblAF.Text = "AF";
+            // 
             // lblAH
             // 
             this.lblAH.AutoSize = true;
             this.lblAH.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAH.Location = new System.Drawing.Point(14, 278);
+            this.lblAH.Location = new System.Drawing.Point(15, 281);
             this.lblAH.Name = "lblAH";
             this.lblAH.Size = new System.Drawing.Size(24, 13);
             this.lblAH.TabIndex = 41;
@@ -200,7 +259,7 @@
             // chkBoxLonDoc
             // 
             this.chkBoxLonDoc.AutoSize = true;
-            this.chkBoxLonDoc.Location = new System.Drawing.Point(18, 349);
+            this.chkBoxLonDoc.Location = new System.Drawing.Point(16, 395);
             this.chkBoxLonDoc.Name = "chkBoxLonDoc";
             this.chkBoxLonDoc.Size = new System.Drawing.Size(232, 17);
             this.chkBoxLonDoc.TabIndex = 33;
@@ -267,6 +326,7 @@
             this.btnAT.Size = new System.Drawing.Size(36, 23);
             this.btnAT.TabIndex = 26;
             this.btnAT.UseVisualStyleBackColor = true;
+            this.btnAT.Click += new System.EventHandler(this.btnAT_Click_1);
             // 
             // lblAT
             // 
@@ -281,7 +341,7 @@
             // lblStatusDoc
             // 
             this.lblStatusDoc.AutoSize = true;
-            this.lblStatusDoc.Location = new System.Drawing.Point(433, 381);
+            this.lblStatusDoc.Location = new System.Drawing.Point(431, 427);
             this.lblStatusDoc.Name = "lblStatusDoc";
             this.lblStatusDoc.Size = new System.Drawing.Size(49, 13);
             this.lblStatusDoc.TabIndex = 24;
@@ -289,7 +349,7 @@
             // 
             // prgBarDoc
             // 
-            this.prgBarDoc.Location = new System.Drawing.Point(96, 376);
+            this.prgBarDoc.Location = new System.Drawing.Point(94, 422);
             this.prgBarDoc.Name = "prgBarDoc";
             this.prgBarDoc.Size = new System.Drawing.Size(331, 23);
             this.prgBarDoc.TabIndex = 23;
@@ -299,7 +359,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label9.Location = new System.Drawing.Point(13, 316);
+            this.label9.Location = new System.Drawing.Point(11, 362);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(173, 21);
             this.label9.TabIndex = 22;
@@ -309,7 +369,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(12, 381);
+            this.label8.Location = new System.Drawing.Point(10, 427);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(33, 13);
             this.label8.TabIndex = 21;
@@ -359,7 +419,7 @@
             // btnDoc
             // 
             this.btnDoc.Image = ((System.Drawing.Image)(resources.GetObject("btnDoc.Image")));
-            this.btnDoc.Location = new System.Drawing.Point(51, 376);
+            this.btnDoc.Location = new System.Drawing.Point(49, 422);
             this.btnDoc.Name = "btnDoc";
             this.btnDoc.Size = new System.Drawing.Size(36, 23);
             this.btnDoc.TabIndex = 16;
@@ -621,11 +681,21 @@
             this.btnRuta.UseVisualStyleBackColor = true;
             this.btnRuta.Click += new System.EventHandler(this.btnRuta_Click);
             // 
+            // chkBoxCorregirAFSum
+            // 
+            this.chkBoxCorregirAFSum.AutoSize = true;
+            this.chkBoxCorregirAFSum.Location = new System.Drawing.Point(573, 246);
+            this.chkBoxCorregirAFSum.Name = "chkBoxCorregirAFSum";
+            this.chkBoxCorregirAFSum.Size = new System.Drawing.Size(140, 17);
+            this.chkBoxCorregirAFSum.TabIndex = 46;
+            this.chkBoxCorregirAFSum.Text = "Corregir AF Sumimedical";
+            this.chkBoxCorregirAFSum.UseVisualStyleBackColor = true;
+            // 
             // FrmRIPS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1028, 572);
             this.Controls.Add(this.pnlRIPS);
             this.Name = "FrmRIPS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -695,5 +765,11 @@
         private System.Windows.Forms.ProgressBar prgBarAH;
         private System.Windows.Forms.Button btnAH;
         private System.Windows.Forms.Label lblAH;
+        private System.Windows.Forms.CheckBox chkBoxValSum;
+        private System.Windows.Forms.Button btnAF;
+        private System.Windows.Forms.Label lblAF;
+        private System.Windows.Forms.Label lblStatusAF;
+        private System.Windows.Forms.ProgressBar prgBarAF;
+        private System.Windows.Forms.CheckBox chkBoxCorregirAFSum;
     }
 }
