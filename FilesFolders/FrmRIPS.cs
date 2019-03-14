@@ -462,7 +462,6 @@ namespace FilesFolders
                                 #region Diagnóstico Principal
                                 // Código del diagnóstico principal - Posicion  9
 
-
                                 // Evaluar si la primera letra es minuscula
 
                                 // Obtenemos la Primera Letra
@@ -626,6 +625,23 @@ namespace FilesFolders
 
                                 #region Diagnostico Relacionado 2
                                 // Código del diagnóstico relacionado 2 - Posición 11
+
+                                // Evaluar si la primera letra es minuscula
+
+                                // Obtenemos la Primera Letra
+
+                                if (split[11] != "")
+                                {
+                                    string firstLetter = split[11].Substring(0, 1);
+
+                                    if (char.IsLower(Convert.ToChar(firstLetter)))
+                                    {
+                                        split[11] = split[11].ToUpper();
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                }
+
                                 if (split[11] == "H547" && chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
                                     split[11] = "H546";
@@ -648,6 +664,23 @@ namespace FilesFolders
 
                                 #region Diagnostico Relacionado 3
                                 // Código del diagnóstico relacionado 3 - Posición 12
+
+                                // Evaluar si la primera letra es minuscula
+
+                                // Obtenemos la Primera Letra
+
+                                if (split[12] != "")
+                                {
+                                    string firstLetter = split[12].Substring(0, 1);
+
+                                    if (char.IsLower(Convert.ToChar(firstLetter)))
+                                    {
+                                        split[12] = split[12].ToUpper();
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                }
+
                                 if (split[12] == "I48X")
                                 {
                                     split[12] = "I489";
@@ -2306,11 +2339,11 @@ namespace FilesFolders
 
                                 // Código Entidad Administradora - Poisición 8
 
-                                string codigoEntidadAF = split[8];
+                                string codigoEntidadAF = split[3];
 
                                 if (codigoEntidadAF == "890981494-2")
                                 {
-                                    split[8] = "890981494";
+                                    split[3] = "890981494";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
