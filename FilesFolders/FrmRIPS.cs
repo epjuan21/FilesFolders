@@ -450,11 +450,14 @@ namespace FilesFolders
 
                                 // Si Diagnostico Empieza por Z
                                 // Causa Externa debe Ser 15 - Otra
-                                if (split[8] == "13" && (split[9].Substring(0, 1) == "Z"))
+                                if (split[8] != "" && split[9] != "")
                                 {
-                                    split[8] = "15";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
+                                    if (split[8] == "13" && (split[9].Substring(0, 1) == "Z"))
+                                    {
+                                        split[8] = "15";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                 }
 
                                 #endregion
@@ -2131,183 +2134,7 @@ namespace FilesFolders
 
         #endregion
 
-        #region Correción Documentos
-        private void btnDoc_Click(object sender, EventArgs e)
-        {
-            bgwDOC.ODoWorker(bgwDOC_DoWork, bgwDOC_ProgressChanged, bgwDOC_RunWorkerCompleted);
-        }
-
-        private void bgwDOC_DoWork(object sender, DoWorkEventArgs e)
-        {
-            DirectoryInfo di = new DirectoryInfo(dirPath);
-            int contadorErrores = 0;
-
-            foreach (var fi in di.GetFiles("*.txt*", SearchOption.AllDirectories))
-            {
-                String NombreArchivo = fi.Name;
-                String path = fi.FullName;
-                List<String> lines = new List<String>();
-
-                if (File.Exists(path))
-                {
-                    using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("Windows-1252")))
-                    {
-                        String line;
-
-                        while ((line = reader.ReadLine()) != null)
-                        {
-                            if (line.Contains(","))
-                            {
-                                if (NombreArchivo.StartsWith("US"))
-                                {
-                                    String[] split = line.Split(',');
-
-                                    // Tipo de Documento - Posición 0
-                                    string TipoDocumento = split[0];
-                                    // Número de Documento - Posición 1
-                                    string NumeroDocumento = split[1];
-                                    // Longitud Número Documento
-                                    int LongitudNumeroDocumento = NumeroDocumento.Length;
-                                    // Edad - Posición 8
-                                    int Edad = Convert.ToInt16(split[8]);
-                                    // Unidad de medida de la Edad - Posición 9
-                                    // 1 Años
-                                    // 2 Meses
-                                    // 3 Dias
-                                    string UnidadMedidaEdad = split[9];
-
-                                    // Si Es Mayor de 18 Años y Tiene Tipo de Documento TI
-                                    // Se Cambia el Tipo de Documento por CC
-                                    if (TipoDocumento == "TI" && Edad >= 18 && UnidadMedidaEdad == "1" && LongitudNumeroDocumento == 10)
-                                    {
-                                        CorregirDocumento(TipoDocumento, NumeroDocumento, "CC");
-
-                                        split[0] = "CC";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                    // Para SAVIASALUD
-                                    // Si Es Mayor de 18 Años y Tiene Tipo de Documento TI
-                                    // Se Cambia el Tipo de Documento por CC Aún si la Longitud del Número de Documento es mayor a 10
-                                    if (TipoDocumento == "TI" && Edad >= 18 && UnidadMedidaEdad == "1" && chkBoxLonDoc.CheckState == CheckState.Checked)
-                                    {
-                                        CorregirDocumento(TipoDocumento, NumeroDocumento, "CC");
-
-                                        split[0] = "CC";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-
-                                    // Si es Mayor o igual de 7 Años y Menor o Igual de 17 y Tiene Tipo de Documento RC
-                                    // Se cambia el Tipo de Documento por TI
-                                    if (TipoDocumento == "RC" && (Edad >= 7 && Edad <= 17) && UnidadMedidaEdad == "1" && LongitudNumeroDocumento == 10)
-                                    {
-                                        CorregirDocumento(TipoDocumento, NumeroDocumento, "TI");
-
-                                        split[0] = "TI";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-
-                                    // Si La Unidad de Medida de la Edad esta en Meses y Tiene Tipo de Documento CC y Edad Menor a 13
-                                    // Se cambia Tipo de Documento CC Por RC
-                                    if (TipoDocumento == "CC" && Edad < 13 && UnidadMedidaEdad == "2")
-                                    {
-                                        CorregirDocumento(TipoDocumento, NumeroDocumento, "RC");
-
-                                        split[0] = "RC";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                }
-                            }
-
-                            lines.Add(line);
-                        }
-                    }
-
-                    using (StreamWriter writer = new StreamWriter(path, false, Encoding.GetEncoding("Windows-1252")))
-                    {
-                        foreach (String line in lines)
-                        {
-                            writer.WriteLine(line);
-                        }
-                    }
-                }
-            }
-
-            for (int i = 1; i <= contadorErrores; i++)
-            {
-                bgwDOC.ReportProgress(Convert.ToInt32(i * 100 / contadorErrores));
-                Thread.Sleep(50);
-            }
-        }
-
-        private void bgwDOC_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            lblStatusDoc.Visible = true;
-            prgBarDoc.Value = e.ProgressPercentage;
-            lblStatusDoc.Text = "Procesando...... " + prgBarDoc.Value.ToString() + "%"; ;
-        }
-
-        private void bgwDOC_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            lblStatusDoc.Text = "Finalizado";
-        }
-
-        public void CorregirDocumento(String TipoDocumento, String NumeroDocumento, String TipoDocumentoCorrecto)
-        {
-            DirectoryInfo di = new DirectoryInfo(dirPath);
-
-            foreach (var fi in di.GetFiles("AC*", SearchOption.AllDirectories).Union(di.GetFiles("*AP*", SearchOption.AllDirectories).Union(di.GetFiles("*AM*", SearchOption.AllDirectories)).Union((di.GetFiles("*AT*", SearchOption.AllDirectories))).Union((di.GetFiles("*AU*", SearchOption.AllDirectories)))))
-            {
-                String NombreArchivo = fi.Name;
-                String path = fi.FullName;
-                List<String> lines = new List<String>();
-
-                if (File.Exists(path))
-                {
-                    using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("Windows-1252")))
-                    {
-                        String line;
-
-                        while ((line = reader.ReadLine()) != null)
-                        {
-                            if (line.Contains(","))
-                            {
-
-                                String[] split = line.Split(',');
-
-                                // Número Documento: AC, AM, AP, AT, AU - Posición 3
-                                string NumeroDocumentoArchivo = split[3];
-
-                                // Si el Número de Documento que viene por parametro 
-                                // es igual al Número de Documento del Archivo
-                                // Se Actualiza el Tipo de Documento
-                                if (NumeroDocumentoArchivo == NumeroDocumento)
-                                {
-                                    split[2] = TipoDocumentoCorrecto;
-                                    line = String.Join(",", split);
-                                }
-                            }
-
-                            lines.Add(line);
-                        }
-                    }
-
-                    using (StreamWriter writer = new StreamWriter(path, false, Encoding.GetEncoding("Windows-1252")))
-                    {
-                        foreach (String line in lines)
-                        {
-                            writer.WriteLine(line);
-                        }
-                    }
-                }
-            }
-        }
-
-        #endregion
-
+        #region AF
         private void btnAF_Click(object sender, EventArgs e)
         {
             bgwAF.ODoWorker(bgwAF_DoWork, bgwAF_ProgressChanged, bgwAF_RunWorkerCompleted);
@@ -2443,6 +2270,195 @@ namespace FilesFolders
         {
             lblStatusAF.Text = "Finalizado";
         }
+        #endregion
+
+        #region Correción Documentos
+        private void btnDoc_Click(object sender, EventArgs e)
+        {
+            bgwDOC.ODoWorker(bgwDOC_DoWork, bgwDOC_ProgressChanged, bgwDOC_RunWorkerCompleted);
+        }
+
+        private void bgwDOC_DoWork(object sender, DoWorkEventArgs e)
+        {
+            DirectoryInfo di = new DirectoryInfo(dirPath);
+            int contadorErrores = 0;
+
+            foreach (var fi in di.GetFiles("*.txt*", SearchOption.AllDirectories))
+            {
+                String NombreArchivo = fi.Name;
+                String path = fi.FullName;
+                List<String> lines = new List<String>();
+
+                if (File.Exists(path))
+                {
+                    using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("Windows-1252")))
+                    {
+                        String line;
+
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            if (line.Contains(","))
+                            {
+                                if (NombreArchivo.StartsWith("US"))
+                                {
+                                    String[] split = line.Split(',');
+
+                                    // Tipo de Documento - Posición 0
+                                    string TipoDocumento = split[0];
+                                    // Número de Documento - Posición 1
+                                    string NumeroDocumento = split[1];
+                                    // Longitud Número Documento
+                                    int LongitudNumeroDocumento = NumeroDocumento.Length;
+                                    // Edad - Posición 8
+                                    int Edad = Convert.ToInt16(split[8]);
+                                    // Unidad de medida de la Edad - Posición 9
+                                    // 1 Años
+                                    // 2 Meses
+                                    // 3 Dias
+                                    string UnidadMedidaEdad = split[9];
+
+                                    // Si Es Mayor de 18 Años y Tiene Tipo de Documento TI
+                                    // Se Cambia el Tipo de Documento por CC
+                                    if (TipoDocumento == "TI" && Edad >= 18 && UnidadMedidaEdad == "1" && LongitudNumeroDocumento == 10)
+                                    {
+                                        CorregirDocumento(TipoDocumento, NumeroDocumento, "CC");
+
+                                        split[0] = "CC";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    // Para SAVIASALUD
+                                    // Si Es Mayor de 18 Años y Tiene Tipo de Documento TI
+                                    // Se Cambia el Tipo de Documento por CC Aún si la Longitud del Número de Documento es mayor a 10
+                                    if (TipoDocumento == "TI" && Edad >= 18 && UnidadMedidaEdad == "1" && chkBoxLonDoc.CheckState == CheckState.Checked)
+                                    {
+                                        CorregirDocumento(TipoDocumento, NumeroDocumento, "CC");
+
+                                        split[0] = "CC";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+
+                                    // Si es Mayor o igual de 7 Años y Menor o Igual de 17 y Tiene Tipo de Documento RC
+                                    // Se cambia el Tipo de Documento por TI
+                                    if (TipoDocumento == "RC" && (Edad >= 7 && Edad <= 17) && UnidadMedidaEdad == "1" && LongitudNumeroDocumento == 10)
+                                    {
+                                        CorregirDocumento(TipoDocumento, NumeroDocumento, "TI");
+
+                                        split[0] = "TI";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+
+                                    // Si La Unidad de Medida de la Edad esta en Meses y Tiene Tipo de Documento CC y Edad Menor a 13
+                                    // Se cambia Tipo de Documento CC Por RC
+                                    if (TipoDocumento == "CC" && Edad < 13 && UnidadMedidaEdad == "2")
+                                    {
+                                        CorregirDocumento(TipoDocumento, NumeroDocumento, "RC");
+
+                                        split[0] = "RC";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    // Si es Mayor o igual de 7 Años y Menor o Igual de 17 y Tiene Tipo de Documento CC
+                                    // Se cambia el Tipo de Documento por TI
+                                    if (TipoDocumento == "CC" && (Edad >= 7 && Edad <= 17) && UnidadMedidaEdad == "1" && LongitudNumeroDocumento == 10)
+                                    {
+                                        CorregirDocumento(TipoDocumento, NumeroDocumento, "TI");
+
+                                        split[0] = "TI";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                }
+                            }
+
+                            lines.Add(line);
+                        }
+                    }
+
+                    using (StreamWriter writer = new StreamWriter(path, false, Encoding.GetEncoding("Windows-1252")))
+                    {
+                        foreach (String line in lines)
+                        {
+                            writer.WriteLine(line);
+                        }
+                    }
+                }
+            }
+
+            for (int i = 1; i <= contadorErrores; i++)
+            {
+                bgwDOC.ReportProgress(Convert.ToInt32(i * 100 / contadorErrores));
+                Thread.Sleep(50);
+            }
+        }
+
+        private void bgwDOC_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            lblStatusDoc.Visible = true;
+            prgBarDoc.Value = e.ProgressPercentage;
+            lblStatusDoc.Text = "Procesando...... " + prgBarDoc.Value.ToString() + "%"; ;
+        }
+
+        private void bgwDOC_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            lblStatusDoc.Text = "Finalizado";
+        }
+
+        public void CorregirDocumento(String TipoDocumento, String NumeroDocumento, String TipoDocumentoCorrecto)
+        {
+            DirectoryInfo di = new DirectoryInfo(dirPath);
+
+            foreach (var fi in di.GetFiles("AC*", SearchOption.AllDirectories).Union(di.GetFiles("*AP*", SearchOption.AllDirectories).Union(di.GetFiles("*AM*", SearchOption.AllDirectories)).Union((di.GetFiles("*AT*", SearchOption.AllDirectories))).Union((di.GetFiles("*AU*", SearchOption.AllDirectories)))))
+            {
+                String NombreArchivo = fi.Name;
+                String path = fi.FullName;
+                List<String> lines = new List<String>();
+
+                if (File.Exists(path))
+                {
+                    using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("Windows-1252")))
+                    {
+                        String line;
+
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            if (line.Contains(","))
+                            {
+
+                                String[] split = line.Split(',');
+
+                                // Número Documento: AC, AM, AP, AT, AU - Posición 3
+                                string NumeroDocumentoArchivo = split[3];
+
+                                // Si el Número de Documento que viene por parametro 
+                                // es igual al Número de Documento del Archivo
+                                // Se Actualiza el Tipo de Documento
+                                if (NumeroDocumentoArchivo == NumeroDocumento)
+                                {
+                                    split[2] = TipoDocumentoCorrecto;
+                                    line = String.Join(",", split);
+                                }
+                            }
+
+                            lines.Add(line);
+                        }
+                    }
+
+                    using (StreamWriter writer = new StreamWriter(path, false, Encoding.GetEncoding("Windows-1252")))
+                    {
+                        foreach (String line in lines)
+                        {
+                            writer.WriteLine(line);
+                        }
+                    }
+                }
+            }
+        }
+
+        #endregion
+
 
 
         private void pnlRIPS_Paint(object sender, PaintEventArgs e)
