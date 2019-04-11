@@ -11,8 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FilesFolders
-{
-    public partial class FrmRIPS : Form
+{    public partial class FrmRIPS : Form
     {
         public FrmRIPS()
         {
@@ -639,7 +638,8 @@ namespace FilesFolders
 
                                     if (char.IsLower(Convert.ToChar(firstLetter)))
                                     {
-                                        split[11] = split[11].ToUpper();
+                                        split[11
+                                            ] = split[11].ToUpper();
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
