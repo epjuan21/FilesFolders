@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRIPS));
             this.pnlRIPS = new System.Windows.Forms.Panel();
+            this.chkBoxDxAxSum = new System.Windows.Forms.CheckBox();
+            this.chkBoxCorregirAFSum = new System.Windows.Forms.CheckBox();
             this.chkBoxValSum = new System.Windows.Forms.CheckBox();
             this.lblStatusAF = new System.Windows.Forms.Label();
             this.lblStatusAH = new System.Windows.Forms.Label();
@@ -88,22 +90,30 @@
             this.txtRuta = new System.Windows.Forms.TextBox();
             this.btnRuta = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.chkBoxCorregirAFSum = new System.Windows.Forms.CheckBox();
+            this.lblAM = new System.Windows.Forms.Label();
+            this.btnAM = new System.Windows.Forms.Button();
+            this.prgBarAM = new System.Windows.Forms.ProgressBar();
+            this.lblStatusAM = new System.Windows.Forms.Label();
             this.pnlRIPS.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlRIPS
             // 
+            this.pnlRIPS.Controls.Add(this.chkBoxDxAxSum);
             this.pnlRIPS.Controls.Add(this.chkBoxCorregirAFSum);
             this.pnlRIPS.Controls.Add(this.chkBoxValSum);
             this.pnlRIPS.Controls.Add(this.lblStatusAF);
+            this.pnlRIPS.Controls.Add(this.lblStatusAM);
             this.pnlRIPS.Controls.Add(this.lblStatusAH);
             this.pnlRIPS.Controls.Add(this.prgBarAF);
+            this.pnlRIPS.Controls.Add(this.prgBarAM);
             this.pnlRIPS.Controls.Add(this.prgBarAH);
             this.pnlRIPS.Controls.Add(this.btnAF);
+            this.pnlRIPS.Controls.Add(this.btnAM);
             this.pnlRIPS.Controls.Add(this.btnAH);
             this.pnlRIPS.Controls.Add(this.lblAF);
+            this.pnlRIPS.Controls.Add(this.lblAM);
             this.pnlRIPS.Controls.Add(this.lblAH);
             this.pnlRIPS.Controls.Add(this.ChkBoxFac);
             this.pnlRIPS.Controls.Add(this.chkBoxDiagSavia);
@@ -145,6 +155,27 @@
             this.pnlRIPS.TabIndex = 2;
             this.pnlRIPS.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlRIPS_Paint);
             // 
+            // chkBoxDxAxSum
+            // 
+            this.chkBoxDxAxSum.AutoSize = true;
+            this.chkBoxDxAxSum.Location = new System.Drawing.Point(573, 280);
+            this.chkBoxDxAxSum.Name = "chkBoxDxAxSum";
+            this.chkBoxDxAxSum.Size = new System.Drawing.Size(259, 17);
+            this.chkBoxDxAxSum.TabIndex = 46;
+            this.chkBoxDxAxSum.Text = "Quitar Diagnostico y Acto Quirurgico Sumimedical";
+            this.chkBoxDxAxSum.UseVisualStyleBackColor = true;
+            this.chkBoxDxAxSum.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // chkBoxCorregirAFSum
+            // 
+            this.chkBoxCorregirAFSum.AutoSize = true;
+            this.chkBoxCorregirAFSum.Location = new System.Drawing.Point(573, 251);
+            this.chkBoxCorregirAFSum.Name = "chkBoxCorregirAFSum";
+            this.chkBoxCorregirAFSum.Size = new System.Drawing.Size(140, 17);
+            this.chkBoxCorregirAFSum.TabIndex = 46;
+            this.chkBoxCorregirAFSum.Text = "Corregir AF Sumimedical";
+            this.chkBoxCorregirAFSum.UseVisualStyleBackColor = true;
+            // 
             // chkBoxValSum
             // 
             this.chkBoxValSum.AutoSize = true;
@@ -158,7 +189,7 @@
             // lblStatusAF
             // 
             this.lblStatusAF.AutoSize = true;
-            this.lblStatusAF.Location = new System.Drawing.Point(433, 310);
+            this.lblStatusAF.Location = new System.Drawing.Point(433, 341);
             this.lblStatusAF.Name = "lblStatusAF";
             this.lblStatusAF.Size = new System.Drawing.Size(49, 13);
             this.lblStatusAF.TabIndex = 44;
@@ -175,7 +206,7 @@
             // 
             // prgBarAF
             // 
-            this.prgBarAF.Location = new System.Drawing.Point(96, 305);
+            this.prgBarAF.Location = new System.Drawing.Point(96, 336);
             this.prgBarAF.Name = "prgBarAF";
             this.prgBarAF.Size = new System.Drawing.Size(331, 23);
             this.prgBarAF.TabIndex = 43;
@@ -190,7 +221,7 @@
             // btnAF
             // 
             this.btnAF.Image = ((System.Drawing.Image)(resources.GetObject("btnAF.Image")));
-            this.btnAF.Location = new System.Drawing.Point(51, 305);
+            this.btnAF.Location = new System.Drawing.Point(51, 336);
             this.btnAF.Name = "btnAF";
             this.btnAF.Size = new System.Drawing.Size(36, 23);
             this.btnAF.TabIndex = 42;
@@ -210,7 +241,7 @@
             // 
             this.lblAF.AutoSize = true;
             this.lblAF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAF.Location = new System.Drawing.Point(16, 310);
+            this.lblAF.Location = new System.Drawing.Point(16, 341);
             this.lblAF.Name = "lblAF";
             this.lblAF.Size = new System.Drawing.Size(22, 13);
             this.lblAF.TabIndex = 41;
@@ -681,15 +712,41 @@
             this.btnRuta.UseVisualStyleBackColor = true;
             this.btnRuta.Click += new System.EventHandler(this.btnRuta_Click);
             // 
-            // chkBoxCorregirAFSum
+            // lblAM
             // 
-            this.chkBoxCorregirAFSum.AutoSize = true;
-            this.chkBoxCorregirAFSum.Location = new System.Drawing.Point(573, 246);
-            this.chkBoxCorregirAFSum.Name = "chkBoxCorregirAFSum";
-            this.chkBoxCorregirAFSum.Size = new System.Drawing.Size(140, 17);
-            this.chkBoxCorregirAFSum.TabIndex = 46;
-            this.chkBoxCorregirAFSum.Text = "Corregir AF Sumimedical";
-            this.chkBoxCorregirAFSum.UseVisualStyleBackColor = true;
+            this.lblAM.AutoSize = true;
+            this.lblAM.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAM.Location = new System.Drawing.Point(14, 311);
+            this.lblAM.Name = "lblAM";
+            this.lblAM.Size = new System.Drawing.Size(25, 13);
+            this.lblAM.TabIndex = 41;
+            this.lblAM.Text = "AM";
+            // 
+            // btnAM
+            // 
+            this.btnAM.Image = ((System.Drawing.Image)(resources.GetObject("btnAM.Image")));
+            this.btnAM.Location = new System.Drawing.Point(51, 305);
+            this.btnAM.Name = "btnAM";
+            this.btnAM.Size = new System.Drawing.Size(36, 23);
+            this.btnAM.TabIndex = 42;
+            this.btnAM.UseVisualStyleBackColor = true;
+            this.btnAM.Click += new System.EventHandler(this.btnAM_Click);
+            // 
+            // prgBarAM
+            // 
+            this.prgBarAM.Location = new System.Drawing.Point(96, 305);
+            this.prgBarAM.Name = "prgBarAM";
+            this.prgBarAM.Size = new System.Drawing.Size(331, 23);
+            this.prgBarAM.TabIndex = 43;
+            // 
+            // lblStatusAM
+            // 
+            this.lblStatusAM.AutoSize = true;
+            this.lblStatusAM.Location = new System.Drawing.Point(433, 311);
+            this.lblStatusAM.Name = "lblStatusAM";
+            this.lblStatusAM.Size = new System.Drawing.Size(49, 13);
+            this.lblStatusAM.TabIndex = 44;
+            this.lblStatusAM.Text = "Progreso";
             // 
             // FrmRIPS
             // 
@@ -771,5 +828,10 @@
         private System.Windows.Forms.Label lblStatusAF;
         private System.Windows.Forms.ProgressBar prgBarAF;
         private System.Windows.Forms.CheckBox chkBoxCorregirAFSum;
+        private System.Windows.Forms.CheckBox chkBoxDxAxSum;
+        private System.Windows.Forms.Label lblAM;
+        private System.Windows.Forms.Button btnAM;
+        private System.Windows.Forms.Label lblStatusAM;
+        private System.Windows.Forms.ProgressBar prgBarAM;
     }
 }

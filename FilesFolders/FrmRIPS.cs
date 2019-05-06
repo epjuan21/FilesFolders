@@ -29,6 +29,7 @@ namespace FilesFolders
         CWork bgwUS = new CWork();
         CWork bgwAH = new CWork();
         CWork bgwAF = new CWork();
+        CWork bbwAM = new CWork();
         #endregion
 
         private void FrmRIPS_Load(object sender, EventArgs e)
@@ -50,6 +51,7 @@ namespace FilesFolders
             lblStatusDoc.Visible = false;
             lblStatusAH.Visible = false;
             lblStatusAF.Visible = false;
+            lblStatusAM.Visible = false;
 
             // Inhabilitar Botones Hasta Seleccionar Ruta
             btnAC.Enabled = false;
@@ -60,6 +62,7 @@ namespace FilesFolders
             btnAU.Enabled = false;
             btnAH.Enabled = false;
             btnAF.Enabled = false;
+            lblAM.Enabled = false;
         }
 
         #region Ruta Cargue Masivo
@@ -111,6 +114,7 @@ namespace FilesFolders
                 btnAU.Enabled = true;
                 btnAH.Enabled = true;
                 btnAF.Enabled = true;
+                lblAM.Enabled = true;
 
                 chkBoxLonDoc.Enabled = true;
             }
@@ -1574,7 +1578,7 @@ namespace FilesFolders
 
                                 // Obtenemos la Primera Letra
 
-                                if (split[10] != "")
+                                if (split[10] != "" && chkBoxDxAxSum.CheckState != CheckState.Checked)
                                 {
                                     string firstLetter = split[10].Substring(0, 1);
 
@@ -1586,61 +1590,76 @@ namespace FilesFolders
                                     }
                                 }
 
+                                // Quitar Diagnóstico Principal para Sumimedical
+
+                                if (split[10] != "" && chkBoxDxAxSum.CheckState == CheckState.Checked)
+                                {
+                                    split[10] = "";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
                                 // Si el campo Diagnóstico Principal esta vació y Finalidad es 3 o 4
-                                if (split[10] == "" && (split[8] == "3" || split[8] == "4"))
+
+                                if (chkBoxDxAxSum.CheckState != CheckState.Checked)
                                 {
-                                    split[10] = "Z012";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
+                                    if (split[10] == "" && (split[8] == "3" || split[8] == "4"))
+                                    {
+                                        split[10] = "Z012";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "A09X")
+                                    {
+                                        split[10] = "A099";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "D752")
+                                    {
+                                        split[10] = "D750";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "H547" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                    {
+                                        split[10] = "H546";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "I48X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                    {
+                                        split[10] = "I489";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "I845" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                    {
+                                        split[10] = "K649";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "K359" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                    {
+                                        split[10] = "K358";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "N180" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                    {
+                                        split[10] = "N179";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "R500" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                    {
+                                        split[10] = "R509";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                 }
-                                if (split[10] == "A09X")
-                                {
-                                    split[10] = "A099";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[10] == "D752")
-                                {
-                                    split[10] = "D750";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[10] == "H547" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[10] = "H546";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[10] == "I48X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[10] = "I489";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[10] == "I845" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[10] = "K649";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[10] == "K359" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[10] = "K358";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[10] == "N180" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[10] = "N179";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[10] == "R500" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[10] = "R509";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
+
+
                                 #endregion
 
                                 #region Diagnostico Relacionado
@@ -1674,7 +1693,17 @@ namespace FilesFolders
 
                                 #region Forma Acto Quirurgico
                                 // Forma de realización del acto quirúrgico - Posición 13
-                                if (split[13] == "")
+
+                                // Quitar Acto Quirurgico para Sumimedical
+
+                                if (split[13] != "" && chkBoxDxAxSum.CheckState == CheckState.Checked)
+                                {
+                                    split[13] = "";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                if (split[13] == "" && chkBoxDxAxSum.CheckState != CheckState.Checked)
                                 {
                                     split[13] = "1";
                                     line = String.Join(",", split);
@@ -1733,6 +1762,110 @@ namespace FilesFolders
         private void bgwAP_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             lblStatusAP.Text = "Finalizado";
+        }
+
+        #endregion
+
+        #region AM
+
+        private void btnAM_Click(object sender, EventArgs e)
+        {
+            bgwAP.ODoWorker(bgwAM_DoWork, bgwAM_ProgressChanged, bgwAM_RunWorkerCompleted);
+        }
+
+        private void bgwAM_DoWork(object sender, DoWorkEventArgs e)
+        {
+            DirectoryInfo di = new DirectoryInfo(dirPath);
+            int contadorErrores = 0;
+
+            foreach (var fi in di.GetFiles("*AM*", SearchOption.AllDirectories))
+            {
+                String path = fi.FullName;
+                List<String> lines = new List<String>();
+
+                if (File.Exists(path))
+                {
+                    using (StreamReader reader = new StreamReader(path))
+                    {
+                        String line;
+
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            if (line.Contains(","))
+                            {
+                                String[] split = line.Split(',');
+
+                                #region Factura
+                                // Número Factura - Posición 0
+                                string NumeroFactura = split[0];
+
+                                // Obtenemos la Primera Letra del Número de la Factura
+                                string FirsLetter = NumeroFactura.Substring(0, 1);
+
+                                int Longitud = NumeroFactura.Length;
+
+                                if (ChkBoxFac.CheckState == CheckState.Checked)
+                                {
+                                    if (FirsLetter == "V")
+                                    {
+                                        split[0] = NumeroFactura.Substring(3, Longitud - 3);
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                }
+                                #endregion
+
+                                #region Valor Total Medicamento
+
+                                // Valor total de medicamento - Posición 13
+
+                                string valorTotalMedicamento = split[13];
+
+                                double valorTotalMedicamentoDouble;
+
+                                valorTotalMedicamentoDouble = Math.Truncate(Convert.ToDouble(valorTotalMedicamento));
+
+                                if (chkBoxValSum.CheckState == CheckState.Checked)
+                                {
+                                    split[13] = valorTotalMedicamentoDouble.ToString();
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                #endregion
+                            }
+
+                            lines.Add(line);
+                        }
+                    }
+
+                    using (StreamWriter writer = new StreamWriter(path, false))
+                    {
+                        foreach (String line in lines)
+                        {
+                            writer.WriteLine(line);
+                        }
+                    }
+                }
+            }
+
+            for (int i = 1; i <= contadorErrores; i++)
+            {
+                bgwAP.ReportProgress(Convert.ToInt32(i * 100 / contadorErrores));
+                Thread.Sleep(50);
+            }
+        }
+
+        private void bgwAM_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            lblStatusAM.Visible = true;
+            prgBarAM.Value = e.ProgressPercentage;
+            lblStatusAM.Text = "Procesando...... " + prgBarAM.Value.ToString() + "%";
+        }
+
+        private void bgwAM_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            lblStatusAM.Text = "Finalizado";
         }
 
         #endregion
@@ -2459,12 +2592,16 @@ namespace FilesFolders
 
         #endregion
 
-
-
         private void pnlRIPS_Paint(object sender, PaintEventArgs e)
         {
 
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
 
     }
 }
