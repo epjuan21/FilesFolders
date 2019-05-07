@@ -29,7 +29,7 @@ namespace FilesFolders
         CWork bgwUS = new CWork();
         CWork bgwAH = new CWork();
         CWork bgwAF = new CWork();
-        CWork bbwAM = new CWork();
+        CWork bgwAM = new CWork();
         #endregion
 
         private void FrmRIPS_Load(object sender, EventArgs e)
@@ -1770,7 +1770,7 @@ namespace FilesFolders
 
         private void btnAM_Click(object sender, EventArgs e)
         {
-            bgwAP.ODoWorker(bgwAM_DoWork, bgwAM_ProgressChanged, bgwAM_RunWorkerCompleted);
+            bgwAM.ODoWorker(bgwAM_DoWork, bgwAM_ProgressChanged, bgwAM_RunWorkerCompleted);
         }
 
         private void bgwAM_DoWork(object sender, DoWorkEventArgs e)
