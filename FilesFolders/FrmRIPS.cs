@@ -908,6 +908,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "902212")
+                                {
+                                    split[6] = "902210";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "903825")
                                 {
                                     split[6] = "903895";
@@ -986,6 +992,12 @@ namespace FilesFolders
                                 if (split[6] == "897011")
                                 {
                                     split[7] = "2";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "897012")
+                                {
+                                    split[7] = "1";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -1332,6 +1344,12 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 if (split[6] == "897011")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "897012")
                                 {
                                     split[8] = "1";
                                     line = String.Join(",", split);
