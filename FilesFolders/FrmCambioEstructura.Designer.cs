@@ -38,11 +38,14 @@
             this.txtRuraCarpetaEAPB = new System.Windows.Forms.TextBox();
             this.btnRutaCarpetaEAPB = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.pnlCambioEsctuctura.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlCambioEsctuctura
             // 
+            this.pnlCambioEsctuctura.Controls.Add(this.btnSalir);
             this.pnlCambioEsctuctura.Controls.Add(this.txtCodigoMunicipio);
             this.pnlCambioEsctuctura.Controls.Add(this.label26);
             this.pnlCambioEsctuctura.Controls.Add(this.lblEstatusEAPB);
@@ -52,9 +55,9 @@
             this.pnlCambioEsctuctura.Controls.Add(this.txtRuraCarpetaEAPB);
             this.pnlCambioEsctuctura.Controls.Add(this.btnRutaCarpetaEAPB);
             this.pnlCambioEsctuctura.Controls.Add(this.label10);
-            this.pnlCambioEsctuctura.Location = new System.Drawing.Point(117, 114);
+            this.pnlCambioEsctuctura.Location = new System.Drawing.Point(12, 8);
             this.pnlCambioEsctuctura.Name = "pnlCambioEsctuctura";
-            this.pnlCambioEsctuctura.Size = new System.Drawing.Size(566, 222);
+            this.pnlCambioEsctuctura.Size = new System.Drawing.Size(490, 244);
             this.pnlCambioEsctuctura.TabIndex = 16;
             // 
             // txtCodigoMunicipio
@@ -76,7 +79,7 @@
             // lblEstatusEAPB
             // 
             this.lblEstatusEAPB.AutoSize = true;
-            this.lblEstatusEAPB.Location = new System.Drawing.Point(486, 161);
+            this.lblEstatusEAPB.Location = new System.Drawing.Point(90, 181);
             this.lblEstatusEAPB.Name = "lblEstatusEAPB";
             this.lblEstatusEAPB.Size = new System.Drawing.Size(42, 13);
             this.lblEstatusEAPB.TabIndex = 14;
@@ -97,6 +100,7 @@
             this.btnProcesarEAPB.Size = new System.Drawing.Size(75, 23);
             this.btnProcesarEAPB.TabIndex = 12;
             this.btnProcesarEAPB.UseVisualStyleBackColor = true;
+            this.btnProcesarEAPB.Click += new System.EventHandler(this.btnProcesarEAPB_Click);
             // 
             // lblTituloEAPB
             // 
@@ -125,6 +129,7 @@
             this.btnRutaCarpetaEAPB.TabIndex = 9;
             this.btnRutaCarpetaEAPB.Text = "Ruta";
             this.btnRutaCarpetaEAPB.UseVisualStyleBackColor = true;
+            this.btnRutaCarpetaEAPB.Click += new System.EventHandler(this.btnRutaCarpetaEAPB_Click);
             // 
             // label10
             // 
@@ -136,14 +141,29 @@
             this.label10.Text = "Se cambiará la estructura de los RIPS contenidos en la carpeta seleccionada.\r\nSe " +
     "cambia de estructura IPS a EABP según la resolucion 3374 de 2000";
             // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(404, 200);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.TabIndex = 17;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // FrmCambioEstructura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(511, 264);
             this.Controls.Add(this.pnlCambioEsctuctura);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmCambioEstructura";
-            this.Text = "FrmCambioEstructura";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Cambio Estructura";
+            this.Load += new System.EventHandler(this.FrmCambioEstructura_Load);
             this.pnlCambioEsctuctura.ResumeLayout(false);
             this.pnlCambioEsctuctura.PerformLayout();
             this.ResumeLayout(false);
@@ -162,5 +182,7 @@
         private System.Windows.Forms.TextBox txtRuraCarpetaEAPB;
         private System.Windows.Forms.Button btnRutaCarpetaEAPB;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
     }
 }

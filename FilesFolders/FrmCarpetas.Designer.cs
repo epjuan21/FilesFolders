@@ -34,16 +34,19 @@
             this.txtRutaCarpeta = new System.Windows.Forms.TextBox();
             this.btnRutaCarpeta = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.pnlRIPSCarpetas.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlRIPSCarpetas
             // 
+            this.pnlRIPSCarpetas.Controls.Add(this.btnSalir);
             this.pnlRIPSCarpetas.Controls.Add(this.label22);
             this.pnlRIPSCarpetas.Controls.Add(this.txtRutaCarpeta);
             this.pnlRIPSCarpetas.Controls.Add(this.btnRutaCarpeta);
             this.pnlRIPSCarpetas.Controls.Add(this.label13);
-            this.pnlRIPSCarpetas.Location = new System.Drawing.Point(96, 135);
+            this.pnlRIPSCarpetas.Location = new System.Drawing.Point(12, 12);
             this.pnlRIPSCarpetas.Name = "pnlRIPSCarpetas";
             this.pnlRIPSCarpetas.Size = new System.Drawing.Size(609, 181);
             this.pnlRIPSCarpetas.TabIndex = 14;
@@ -73,6 +76,7 @@
             this.btnRutaCarpeta.TabIndex = 8;
             this.btnRutaCarpeta.Text = "Ruta";
             this.btnRutaCarpeta.UseVisualStyleBackColor = true;
+            this.btnRutaCarpeta.Click += new System.EventHandler(this.btnRutaCarpeta_Click);
             // 
             // label13
             // 
@@ -85,14 +89,26 @@
             this.label13.TabIndex = 7;
             this.label13.Text = "Generación de carpetas por RIPS";
             // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(525, 146);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.TabIndex = 11;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // FrmCarpetas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(633, 210);
             this.Controls.Add(this.pnlRIPSCarpetas);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmCarpetas";
-            this.Text = "FrmCarpetas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "RIPS Carpetas";
             this.pnlRIPSCarpetas.ResumeLayout(false);
             this.pnlRIPSCarpetas.PerformLayout();
             this.ResumeLayout(false);
@@ -106,5 +122,7 @@
         private System.Windows.Forms.TextBox txtRutaCarpeta;
         private System.Windows.Forms.Button btnRutaCarpeta;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
     }
 }

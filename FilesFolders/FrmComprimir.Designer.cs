@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlComprimirArchivo = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.txtRutaEAPB = new System.Windows.Forms.TextBox();
             this.btnRutaEAPB = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -55,20 +56,32 @@
             this.txtModuloInformacion = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.pnlComprimirArchivo.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlComprimirArchivo
             // 
+            this.pnlComprimirArchivo.Controls.Add(this.button1);
             this.pnlComprimirArchivo.Controls.Add(this.txtRutaEAPB);
             this.pnlComprimirArchivo.Controls.Add(this.btnRutaEAPB);
             this.pnlComprimirArchivo.Controls.Add(this.groupBox3);
             this.pnlComprimirArchivo.Controls.Add(this.label25);
-            this.pnlComprimirArchivo.Location = new System.Drawing.Point(94, 13);
+            this.pnlComprimirArchivo.Location = new System.Drawing.Point(12, 12);
             this.pnlComprimirArchivo.Name = "pnlComprimirArchivo";
-            this.pnlComprimirArchivo.Size = new System.Drawing.Size(612, 424);
+            this.pnlComprimirArchivo.Size = new System.Drawing.Size(612, 456);
             this.pnlComprimirArchivo.TabIndex = 15;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(526, 430);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Salir";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtRutaEAPB
             // 
@@ -86,6 +99,7 @@
             this.btnRutaEAPB.TabIndex = 13;
             this.btnRutaEAPB.Text = "Ruta";
             this.btnRutaEAPB.UseVisualStyleBackColor = true;
+            this.btnRutaEAPB.Click += new System.EventHandler(this.btnRutaEAPB_Click);
             // 
             // groupBox3
             // 
@@ -124,11 +138,12 @@
             // btnComprimir
             // 
             this.btnComprimir.Image = global::FilesFolders.Properties.Resources.icons8_Archive_Folder_32;
-            this.btnComprimir.Location = new System.Drawing.Point(523, 290);
+            this.btnComprimir.Location = new System.Drawing.Point(523, 298);
             this.btnComprimir.Name = "btnComprimir";
             this.btnComprimir.Size = new System.Drawing.Size(50, 30);
             this.btnComprimir.TabIndex = 24;
             this.btnComprimir.UseVisualStyleBackColor = true;
+            this.btnComprimir.Click += new System.EventHandler(this.btnComprimir_Click);
             // 
             // lblNombreArchivo
             // 
@@ -354,10 +369,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(636, 480);
             this.Controls.Add(this.pnlComprimirArchivo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmComprimir";
-            this.Text = "FrmComprimir";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Comprimir Archivo EAPB";
+            this.Load += new System.EventHandler(this.FrmComprimir_Load);
             this.pnlComprimirArchivo.ResumeLayout(false);
             this.pnlComprimirArchivo.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -395,5 +413,7 @@
         private System.Windows.Forms.TextBox txtModuloInformacion;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
     }
 }

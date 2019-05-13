@@ -38,6 +38,20 @@
             this.lblNombreArchivo = new System.Windows.Forms.Label();
             this.prgBarNE = new System.Windows.Forms.ProgressBar();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.btnComprimir = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblTipo = new System.Windows.Forms.Label();
+            this.txtExtension = new System.Windows.Forms.TextBox();
+            this.txtPeriodo = new System.Windows.Forms.TextBox();
+            this.txtCodigoHabilitacion = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtTipo = new System.Windows.Forms.TextBox();
+            this.lblEtiquetaNombreArchivo = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -70,7 +84,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(352, 220);
+            this.btnSalir.Location = new System.Drawing.Point(352, 415);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 23);
             this.btnSalir.TabIndex = 3;
@@ -100,9 +114,9 @@
             this.lblNombreArchivo.AutoSize = true;
             this.lblNombreArchivo.Location = new System.Drawing.Point(94, 104);
             this.lblNombreArchivo.Name = "lblNombreArchivo";
-            this.lblNombreArchivo.Size = new System.Drawing.Size(82, 13);
+            this.lblNombreArchivo.Size = new System.Drawing.Size(72, 13);
             this.lblNombreArchivo.TabIndex = 6;
-            this.lblNombreArchivo.Text = "Nombre archivo";
+            this.lblNombreArchivo.Text = "Nombre RIPS";
             // 
             // prgBarNE
             // 
@@ -114,17 +128,152 @@
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(390, 177);
+            this.lblStatus.Location = new System.Drawing.Point(94, 166);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(37, 13);
             this.lblStatus.TabIndex = 8;
             this.lblStatus.Text = "Status";
             // 
+            // btnComprimir
+            // 
+            this.btnComprimir.Image = global::FilesFolders.Properties.Resources.icons8_Archive_Folder_32;
+            this.btnComprimir.Location = new System.Drawing.Point(365, 153);
+            this.btnComprimir.Name = "btnComprimir";
+            this.btnComprimir.Size = new System.Drawing.Size(40, 34);
+            this.btnComprimir.TabIndex = 9;
+            this.btnComprimir.UseVisualStyleBackColor = true;
+            this.btnComprimir.Click += new System.EventHandler(this.btnComprimir_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblNombre);
+            this.groupBox1.Controls.Add(this.lblEtiquetaNombreArchivo);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.btnComprimir);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.lblTipo);
+            this.groupBox1.Controls.Add(this.txtExtension);
+            this.groupBox1.Controls.Add(this.txtPeriodo);
+            this.groupBox1.Controls.Add(this.txtCodigoHabilitacion);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtTipo);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.groupBox1.Location = new System.Drawing.Point(16, 196);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(411, 193);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Comprimir Archivo";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label6.Location = new System.Drawing.Point(114, 133);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(57, 13);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Extensión";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label4.Location = new System.Drawing.Point(114, 104);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(47, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Periodo";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.Location = new System.Drawing.Point(114, 75);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Código Habilitación";
+            // 
+            // lblTipo
+            // 
+            this.lblTipo.AutoSize = true;
+            this.lblTipo.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblTipo.Location = new System.Drawing.Point(114, 46);
+            this.lblTipo.Name = "lblTipo";
+            this.lblTipo.Size = new System.Drawing.Size(70, 13);
+            this.lblTipo.TabIndex = 5;
+            this.lblTipo.Text = "Tipo Archivo";
+            // 
+            // txtExtension
+            // 
+            this.txtExtension.Location = new System.Drawing.Point(9, 130);
+            this.txtExtension.Name = "txtExtension";
+            this.txtExtension.Size = new System.Drawing.Size(100, 22);
+            this.txtExtension.TabIndex = 4;
+            // 
+            // txtPeriodo
+            // 
+            this.txtPeriodo.Location = new System.Drawing.Point(9, 101);
+            this.txtPeriodo.Name = "txtPeriodo";
+            this.txtPeriodo.Size = new System.Drawing.Size(100, 22);
+            this.txtPeriodo.TabIndex = 3;
+            // 
+            // txtCodigoHabilitacion
+            // 
+            this.txtCodigoHabilitacion.Location = new System.Drawing.Point(9, 72);
+            this.txtCodigoHabilitacion.Name = "txtCodigoHabilitacion";
+            this.txtCodigoHabilitacion.Size = new System.Drawing.Size(100, 22);
+            this.txtCodigoHabilitacion.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label2.Location = new System.Drawing.Point(6, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(267, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Estructura de archivo comprimido para Nueva EPS";
+            // 
+            // txtTipo
+            // 
+            this.txtTipo.Location = new System.Drawing.Point(9, 43);
+            this.txtTipo.Name = "txtTipo";
+            this.txtTipo.Size = new System.Drawing.Size(99, 22);
+            this.txtTipo.TabIndex = 0;
+            // 
+            // lblEtiquetaNombreArchivo
+            // 
+            this.lblEtiquetaNombreArchivo.AutoSize = true;
+            this.lblEtiquetaNombreArchivo.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lblEtiquetaNombreArchivo.Location = new System.Drawing.Point(9, 164);
+            this.lblEtiquetaNombreArchivo.Name = "lblEtiquetaNombreArchivo";
+            this.lblEtiquetaNombreArchivo.Size = new System.Drawing.Size(106, 13);
+            this.lblEtiquetaNombreArchivo.TabIndex = 10;
+            this.lblEtiquetaNombreArchivo.Text = "NOMBRE ARCHIVO";
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(114, 164);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(106, 13);
+            this.lblNombre.TabIndex = 11;
+            this.lblNombre.Text = "NOMBRE ARCHIVO";
+            // 
             // FrmNuevaEPS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(445, 261);
+            this.ClientSize = new System.Drawing.Size(445, 450);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.prgBarNE);
             this.Controls.Add(this.lblNombreArchivo);
@@ -139,8 +288,10 @@
             this.MinimizeBox = false;
             this.Name = "FrmNuevaEPS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmNuevaEPS";
+            this.Text = "Estructura Nueva EPS";
             this.Load += new System.EventHandler(this.FrmNuevaEPS_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,5 +309,18 @@
         private System.Windows.Forms.Label lblNombreArchivo;
         private System.Windows.Forms.ProgressBar prgBarNE;
         private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Button btnComprimir;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtTipo;
+        private System.Windows.Forms.TextBox txtCodigoHabilitacion;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtPeriodo;
+        private System.Windows.Forms.TextBox txtExtension;
+        private System.Windows.Forms.Label lblTipo;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Label lblEtiquetaNombreArchivo;
     }
 }

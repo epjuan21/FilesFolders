@@ -46,9 +46,18 @@ namespace FilesFolders
         {
             // Inhabilitar Botones Hasta Seleccionar Ruta
             btnIniciar.Enabled = false;
+            btnComprimir.Enabled = false;
+
+            // Botones inhabilitados por defecto
+            txtTipo.Enabled = false;
+            txtCodigoHabilitacion.Enabled = false;
+            txtPeriodo.Enabled = false;
+            txtExtension.Enabled = false;
 
             // Limpiamos la Etiqueta Status
             lblStatus.Visible = false;
+
+            // Carga de Valores Predeterminados por Defecto
         }
 
         private void btnRuta_Click(object sender, EventArgs e)
@@ -61,10 +70,9 @@ namespace FilesFolders
                 // Se guarda la ruta de la Carpeta en la variable dirPath
                 dirPath = fbdNueva.SelectedPath;
 
-                // Habilitamos el Boton
+                // Habilitamos los Botones
                 btnIniciar.Enabled = true;
-
-                prgBarNE.Maximum = dirPath.Length;
+                btnComprimir.Enabled = true;
             }
         }
 
@@ -102,6 +110,7 @@ namespace FilesFolders
             PeriodoArchivo = txtNombreArchivo.Text;
             SeparadorCarpeta = "\\";
 
+            // Cambiar Nombres de Archivos
             foreach (var item in files)
             {
                 // Incrementamos el valor de la barra de progreso
@@ -125,6 +134,66 @@ namespace FilesFolders
                 // Actualizar Barra de Progreso
                 bgwNuevaEPS.ReportProgress((int)ProgressValue);
             }
+
+            // Cambiar Nombres de Archivos en CT
+
+            DirectoryInfo di = new DirectoryInfo(dirPath);
+
+            foreach (var fi in di.GetFiles("*CT*", SearchOption.AllDirectories))
+            {
+                String path = fi.FullName;
+                List<String> lines = new List<String>();
+
+                if (File.Exists(path))
+                {
+                    using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("Windows-1252")))
+                    {
+                        String line;
+
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            if (line.Contains(","))
+                            {
+                                String[] split = line.Split(',');
+
+                                #region Código del Archivo
+
+                                // Código del Archivo - Posición 2
+                                string codigoArchivo = split[2];
+
+                                // Obtenemos el Tipo de Archivo
+                                string Tipo = codigoArchivo.Substring(0, 2);
+
+                                // Obtenemos el Nuevo Nombre de los Archivos
+                                string NuevoNombre = txtNombreArchivo.Text;
+
+                                // Reemplazamos el Nuevo Nombre
+                                split[2] = string.Format("{0}{1}", Tipo, NuevoNombre);
+
+                                line = String.Join(",", split);
+
+                                #endregion
+                            }
+
+                            lines.Add(line);
+                        }
+                    }
+
+                    using (StreamWriter writer = new StreamWriter(path, false, Encoding.GetEncoding("Windows-1252")))
+                    {
+                        foreach (String line in lines)
+                        {
+                            writer.WriteLine(line);
+                        }
+                    }
+                }
+            }
+
+            for (int i = 1; i <= ProgressValue; i++)
+            {
+                bgwNuevaEPS.ReportProgress(Convert.ToInt32(i * 100 / ProgressValue));
+                System.Threading.Thread.Sleep(100);
+            }
         }
 
         private void bgwNuevaEPS_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -139,5 +208,11 @@ namespace FilesFolders
         {
             lblStatus.Text = "Finalizado";
         }
+
+        private void btnComprimir_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

@@ -99,7 +99,7 @@
             // lblStatusNumFac
             // 
             this.lblStatusNumFac.AutoSize = true;
-            this.lblStatusNumFac.Location = new System.Drawing.Point(97, 158);
+            this.lblStatusNumFac.Location = new System.Drawing.Point(94, 168);
             this.lblStatusNumFac.Name = "lblStatusNumFac";
             this.lblStatusNumFac.Size = new System.Drawing.Size(49, 13);
             this.lblStatusNumFac.TabIndex = 20;
