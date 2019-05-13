@@ -153,7 +153,6 @@
             this.pnlRIPS.Name = "pnlRIPS";
             this.pnlRIPS.Size = new System.Drawing.Size(817, 481);
             this.pnlRIPS.TabIndex = 2;
-            this.pnlRIPS.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlRIPS_Paint);
             // 
             // chkBoxDxAxSum
             // 
@@ -164,7 +163,6 @@
             this.chkBoxDxAxSum.TabIndex = 46;
             this.chkBoxDxAxSum.Text = "Quitar Diagnostico y Acto Quirurgico Sumimedical";
             this.chkBoxDxAxSum.UseVisualStyleBackColor = true;
-            this.chkBoxDxAxSum.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // chkBoxCorregirAFSum
             // 

@@ -38,6 +38,7 @@
             this.rIPSIndividualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rIPSCarpetasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rIPSFacturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rIPSNuevaEPSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rIPSEABPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cambioEstructuraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comprimirArchivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -160,7 +161,8 @@
             this.rIPSToolStripMenuItem,
             this.rIPSIndividualToolStripMenuItem,
             this.rIPSCarpetasToolStripMenuItem,
-            this.rIPSFacturaToolStripMenuItem});
+            this.rIPSFacturaToolStripMenuItem,
+            this.rIPSNuevaEPSToolStripMenuItem});
             this.carpetasToolStripMenuItem.Name = "carpetasToolStripMenuItem";
             this.carpetasToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.carpetasToolStripMenuItem.Text = "Edición";
@@ -168,30 +170,37 @@
             // rIPSToolStripMenuItem
             // 
             this.rIPSToolStripMenuItem.Name = "rIPSToolStripMenuItem";
-            this.rIPSToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rIPSToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.rIPSToolStripMenuItem.Text = "RIPS Masivo";
             this.rIPSToolStripMenuItem.Click += new System.EventHandler(this.rIPSToolStripMenuItem_Click);
             // 
             // rIPSIndividualToolStripMenuItem
             // 
             this.rIPSIndividualToolStripMenuItem.Name = "rIPSIndividualToolStripMenuItem";
-            this.rIPSIndividualToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rIPSIndividualToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.rIPSIndividualToolStripMenuItem.Text = "RIPS Individual";
             this.rIPSIndividualToolStripMenuItem.Click += new System.EventHandler(this.rIPSIndividualToolStripMenuItem_Click);
             // 
             // rIPSCarpetasToolStripMenuItem
             // 
             this.rIPSCarpetasToolStripMenuItem.Name = "rIPSCarpetasToolStripMenuItem";
-            this.rIPSCarpetasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rIPSCarpetasToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.rIPSCarpetasToolStripMenuItem.Text = "RIPS Carpetas";
             this.rIPSCarpetasToolStripMenuItem.Click += new System.EventHandler(this.rIPSCarpetasToolStripMenuItem_Click);
             // 
             // rIPSFacturaToolStripMenuItem
             // 
             this.rIPSFacturaToolStripMenuItem.Name = "rIPSFacturaToolStripMenuItem";
-            this.rIPSFacturaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rIPSFacturaToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.rIPSFacturaToolStripMenuItem.Text = "RIPS Factura";
             this.rIPSFacturaToolStripMenuItem.Click += new System.EventHandler(this.rIPSFacturaToolStripMenuItem_Click);
+            // 
+            // rIPSNuevaEPSToolStripMenuItem
+            // 
+            this.rIPSNuevaEPSToolStripMenuItem.Name = "rIPSNuevaEPSToolStripMenuItem";
+            this.rIPSNuevaEPSToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.rIPSNuevaEPSToolStripMenuItem.Text = "RIPS Nueva EPS";
+            this.rIPSNuevaEPSToolStripMenuItem.Click += new System.EventHandler(this.rIPSNuevaEPSToolStripMenuItem_Click);
             // 
             // rIPSEABPToolStripMenuItem
             // 
@@ -747,7 +756,7 @@
             this.lblTema.ForeColor = System.Drawing.SystemColors.WindowText;
             this.lblTema.Location = new System.Drawing.Point(65, 106);
             this.lblTema.Name = "lblTema";
-            this.lblTema.Size = new System.Drawing.Size(114, 13);
+            this.lblTema.Size = new System.Drawing.Size(113, 13);
             this.lblTema.TabIndex = 4;
             this.lblTema.Text = "Tema de Información";
             // 
@@ -954,7 +963,7 @@
             this.pnlRIPSCarpetas.Controls.Add(this.txtRutaCarpeta);
             this.pnlRIPSCarpetas.Controls.Add(this.btnRutaCarpeta);
             this.pnlRIPSCarpetas.Controls.Add(this.label13);
-            this.pnlRIPSCarpetas.Location = new System.Drawing.Point(693, 0);
+            this.pnlRIPSCarpetas.Location = new System.Drawing.Point(296, 43);
             this.pnlRIPSCarpetas.Name = "pnlRIPSCarpetas";
             this.pnlRIPSCarpetas.Size = new System.Drawing.Size(609, 181);
             this.pnlRIPSCarpetas.TabIndex = 13;
@@ -1084,6 +1093,7 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Panel pnlRIPSCarpetas;
         private System.Windows.Forms.ToolStripMenuItem rIPSFacturaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rIPSNuevaEPSToolStripMenuItem;
     }
 }
 

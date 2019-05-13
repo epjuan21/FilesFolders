@@ -168,6 +168,13 @@ namespace FilesFolders
             FrmFactura frmFactura = new FrmFactura();
             frmFactura.ShowDialog();
         }
+
+        private void rIPSNuevaEPSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmNuevaEPS frmNuevaEPS = new FrmNuevaEPS();
+            frmNuevaEPS.ShowDialog();
+        }
+
         #endregion
 
         #region Ruta Cargue Individual
@@ -230,7 +237,7 @@ namespace FilesFolders
                 }
 
                 // Leemos los Nombres de las Facturas almacendads en ListaNumerosFacturas
-                // Si en ListaNumerosFacturaUnicos estiste el Numero de ListaNumerosFactura, no hace nada
+                // Si en ListaNumerosFacturaUnicos existe el Número de ListaNumerosFactura, no hace nada
                 // Si no existe lo ingresa en ListaNumerosFacturaUnicos
                 foreach (var Numeros in ListaNumerosFactura)
                 {
@@ -295,12 +302,10 @@ namespace FilesFolders
 
                         if (nombreArchivo == nombreDirectorio)
                         {
-                            
                             string archivoOrigen = Archivo;
                             string archivoDestino = System.IO.Path.Combine(Directorios, nombreCompleto);
 
                            System.IO.File.Move(archivoOrigen, archivoDestino);
-
                         }
                     }
                 }
@@ -333,16 +338,13 @@ namespace FilesFolders
             DirectoryInfo di = new DirectoryInfo(dirPath);
 
             // Variable Código de la entidad administradora del plan de beneficios
-
             string CodigoEAPB = txtCodigoMunicipio.Text;
 
             if(string.IsNullOrEmpty(CodigoEAPB))
             {
                 MessageBox.Show("El Campo Código Municpio no puede estar Vacío");
                 Application.Exit();
-
             }
-
 
             #region CAMBIO ESCTURTURA
 
@@ -1344,6 +1346,7 @@ namespace FilesFolders
         {
             lblEstatusEAPB.Visible = true;
             prgBarEAPB.Value = e.ProgressPercentage;
+            prgBarEAPB.Update();
             lblEstatusEAPB.Text = "Procesando...... " + prgBarEAPB.Value.ToString() + "%";
         }
 

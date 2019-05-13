@@ -149,6 +149,12 @@
     <Compile Include="FrmFactura.Designer.cs">
       <DependentUpon>FrmFactura.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmNuevaEPS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNuevaEPS.Designer.cs">
+      <DependentUpon>FrmNuevaEPS.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmRIPS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmFactura.resx">
       <DependentUpon>FrmFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNuevaEPS.resx">
+      <DependentUpon>FrmNuevaEPS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRIPS.resx">
       <DependentUpon>FrmRIPS.cs</DependentUpon>
