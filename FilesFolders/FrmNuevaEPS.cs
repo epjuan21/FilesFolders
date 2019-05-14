@@ -3,8 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,8 +31,10 @@ namespace FilesFolders
         string ExtensionArchivo;
         string NombreAnteriorArchivo;
         string NombreNuevoArchivo;
+        string NombreArchivoComprimido;
         string PeriodoArchivo;
         string SeparadorCarpeta;
+        string SeparadorNombre;
         long ProgressValue;
 
         // Creamos una Variable Tipo Lista para almacenar los nombres de los archivos
@@ -57,7 +61,17 @@ namespace FilesFolders
             // Limpiamos la Etiqueta Status
             lblStatus.Visible = false;
 
-            // Carga de Valores Predeterminados por Defecto
+            // Carga de Valores Predeterminados
+            txtTipo.Text = "RIPS";
+            txtCodigoHabilitacion.Text = "050910457201";
+            txtExtension.Text = ".zip";
+
+            // Establecemos Separador
+            SeparadorNombre = "_";
+
+            // Establecemos el Nombre del Archivo
+            txtPeriodo.TextChanged += new System.EventHandler(this.txtPeriodo_TextChanged);
+            lblNombre.Text = txtTipo.Text + SeparadorNombre + txtCodigoHabilitacion.Text + txtPeriodo.Text + txtExtension.Text;
         }
 
         private void btnRuta_Click(object sender, EventArgs e)
@@ -73,6 +87,12 @@ namespace FilesFolders
                 // Habilitamos los Botones
                 btnIniciar.Enabled = true;
                 btnComprimir.Enabled = true;
+
+                // Habilitamos Campos de Text
+                txtTipo.Enabled = true;
+                txtCodigoHabilitacion.Enabled = true;
+                txtPeriodo.Enabled = true;
+                txtExtension.Enabled = true;
             }
         }
 
@@ -211,8 +231,29 @@ namespace FilesFolders
 
         private void btnComprimir_Click(object sender, EventArgs e)
         {
-
+            if (string.IsNullOrEmpty(txtPeriodo.Text))
+            {
+                MessageBox.Show("Se debe especificar el oeriodo del archivo","Advertencia");
+            }
+            else
+            {
+                ZipDirFile(dirPath);
+            }
         }
 
+        private void txtPeriodo_TextChanged(object sender, EventArgs e)
+        {
+            NombreArchivoComprimido = txtTipo.Text + SeparadorNombre + txtCodigoHabilitacion.Text + SeparadorNombre  + txtPeriodo.Text + txtExtension.Text;
+            lblNombre.Text = NombreArchivoComprimido;
+        }
+
+        private void ZipDirFile(string dir)
+        {
+            string parent = Path.GetDirectoryName(dir);
+            Process.Start(parent);
+            //string name = Path.GetFileName(dir);
+            string fileName = Path.Combine(parent, NombreArchivoComprimido);
+            ZipFile.CreateFromDirectory(dir, fileName, CompressionLevel.Fastest, false);
+        }
     }
 }

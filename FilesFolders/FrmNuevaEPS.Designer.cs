@@ -40,6 +40,8 @@
             this.lblStatus = new System.Windows.Forms.Label();
             this.btnComprimir = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.lblEtiquetaNombreArchivo = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,8 +51,6 @@
             this.txtCodigoHabilitacion = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTipo = new System.Windows.Forms.TextBox();
-            this.lblEtiquetaNombreArchivo = new System.Windows.Forms.Label();
-            this.lblNombre = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -167,6 +167,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Comprimir Archivo";
             // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(114, 164);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(106, 13);
+            this.lblNombre.TabIndex = 11;
+            this.lblNombre.Text = "NOMBRE ARCHIVO";
+            // 
+            // lblEtiquetaNombreArchivo
+            // 
+            this.lblEtiquetaNombreArchivo.AutoSize = true;
+            this.lblEtiquetaNombreArchivo.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lblEtiquetaNombreArchivo.Location = new System.Drawing.Point(9, 164);
+            this.lblEtiquetaNombreArchivo.Name = "lblEtiquetaNombreArchivo";
+            this.lblEtiquetaNombreArchivo.Size = new System.Drawing.Size(106, 13);
+            this.lblEtiquetaNombreArchivo.TabIndex = 10;
+            this.lblEtiquetaNombreArchivo.Text = "NOMBRE ARCHIVO";
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -224,6 +243,7 @@
             this.txtPeriodo.Name = "txtPeriodo";
             this.txtPeriodo.Size = new System.Drawing.Size(100, 22);
             this.txtPeriodo.TabIndex = 3;
+            this.txtPeriodo.TextChanged += new System.EventHandler(this.txtPeriodo_TextChanged);
             // 
             // txtCodigoHabilitacion
             // 
@@ -248,25 +268,6 @@
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Size = new System.Drawing.Size(99, 22);
             this.txtTipo.TabIndex = 0;
-            // 
-            // lblEtiquetaNombreArchivo
-            // 
-            this.lblEtiquetaNombreArchivo.AutoSize = true;
-            this.lblEtiquetaNombreArchivo.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblEtiquetaNombreArchivo.Location = new System.Drawing.Point(9, 164);
-            this.lblEtiquetaNombreArchivo.Name = "lblEtiquetaNombreArchivo";
-            this.lblEtiquetaNombreArchivo.Size = new System.Drawing.Size(106, 13);
-            this.lblEtiquetaNombreArchivo.TabIndex = 10;
-            this.lblEtiquetaNombreArchivo.Text = "NOMBRE ARCHIVO";
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(114, 164);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(106, 13);
-            this.lblNombre.TabIndex = 11;
-            this.lblNombre.Text = "NOMBRE ARCHIVO";
             // 
             // FrmNuevaEPS
             // 
