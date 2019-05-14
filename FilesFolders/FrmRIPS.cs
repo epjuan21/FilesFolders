@@ -265,6 +265,9 @@ namespace FilesFolders
                 bgwUS.ReportProgress(Convert.ToInt32(i * 100 / contadorErrores));
                 Thread.Sleep(100);
             }
+
+            // Prueba de Eliminacion de Ultimo Salto de Linea
+
         }
 
         private void bgwUS_ProgressChanged(object sender, ProgressChangedEventArgs e)

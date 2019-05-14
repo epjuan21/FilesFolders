@@ -34,12 +34,16 @@
             this.chkBoxCorregirAFSum = new System.Windows.Forms.CheckBox();
             this.chkBoxValSum = new System.Windows.Forms.CheckBox();
             this.lblStatusAF = new System.Windows.Forms.Label();
+            this.lblStatusAM = new System.Windows.Forms.Label();
             this.lblStatusAH = new System.Windows.Forms.Label();
             this.prgBarAF = new System.Windows.Forms.ProgressBar();
+            this.prgBarAM = new System.Windows.Forms.ProgressBar();
             this.prgBarAH = new System.Windows.Forms.ProgressBar();
             this.btnAF = new System.Windows.Forms.Button();
+            this.btnAM = new System.Windows.Forms.Button();
             this.btnAH = new System.Windows.Forms.Button();
             this.lblAF = new System.Windows.Forms.Label();
+            this.lblAM = new System.Windows.Forms.Label();
             this.lblAH = new System.Windows.Forms.Label();
             this.ChkBoxFac = new System.Windows.Forms.CheckBox();
             this.chkBoxDiagSavia = new System.Windows.Forms.CheckBox();
@@ -90,10 +94,6 @@
             this.txtRuta = new System.Windows.Forms.TextBox();
             this.btnRuta = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.lblAM = new System.Windows.Forms.Label();
-            this.btnAM = new System.Windows.Forms.Button();
-            this.prgBarAM = new System.Windows.Forms.ProgressBar();
-            this.lblStatusAM = new System.Windows.Forms.Label();
             this.pnlRIPS.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -151,7 +151,7 @@
             this.pnlRIPS.Controls.Add(this.btnRuta);
             this.pnlRIPS.Location = new System.Drawing.Point(12, 12);
             this.pnlRIPS.Name = "pnlRIPS";
-            this.pnlRIPS.Size = new System.Drawing.Size(817, 481);
+            this.pnlRIPS.Size = new System.Drawing.Size(842, 460);
             this.pnlRIPS.TabIndex = 2;
             // 
             // chkBoxDxAxSum
@@ -193,6 +193,15 @@
             this.lblStatusAF.TabIndex = 44;
             this.lblStatusAF.Text = "Progreso";
             // 
+            // lblStatusAM
+            // 
+            this.lblStatusAM.AutoSize = true;
+            this.lblStatusAM.Location = new System.Drawing.Point(433, 311);
+            this.lblStatusAM.Name = "lblStatusAM";
+            this.lblStatusAM.Size = new System.Drawing.Size(49, 13);
+            this.lblStatusAM.TabIndex = 44;
+            this.lblStatusAM.Text = "Progreso";
+            // 
             // lblStatusAH
             // 
             this.lblStatusAH.AutoSize = true;
@@ -208,6 +217,13 @@
             this.prgBarAF.Name = "prgBarAF";
             this.prgBarAF.Size = new System.Drawing.Size(331, 23);
             this.prgBarAF.TabIndex = 43;
+            // 
+            // prgBarAM
+            // 
+            this.prgBarAM.Location = new System.Drawing.Point(96, 305);
+            this.prgBarAM.Name = "prgBarAM";
+            this.prgBarAM.Size = new System.Drawing.Size(331, 23);
+            this.prgBarAM.TabIndex = 43;
             // 
             // prgBarAH
             // 
@@ -225,6 +241,16 @@
             this.btnAF.TabIndex = 42;
             this.btnAF.UseVisualStyleBackColor = true;
             this.btnAF.Click += new System.EventHandler(this.btnAF_Click);
+            // 
+            // btnAM
+            // 
+            this.btnAM.Image = ((System.Drawing.Image)(resources.GetObject("btnAM.Image")));
+            this.btnAM.Location = new System.Drawing.Point(51, 305);
+            this.btnAM.Name = "btnAM";
+            this.btnAM.Size = new System.Drawing.Size(36, 23);
+            this.btnAM.TabIndex = 42;
+            this.btnAM.UseVisualStyleBackColor = true;
+            this.btnAM.Click += new System.EventHandler(this.btnAM_Click);
             // 
             // btnAH
             // 
@@ -244,6 +270,16 @@
             this.lblAF.Size = new System.Drawing.Size(22, 13);
             this.lblAF.TabIndex = 41;
             this.lblAF.Text = "AF";
+            // 
+            // lblAM
+            // 
+            this.lblAM.AutoSize = true;
+            this.lblAM.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAM.Location = new System.Drawing.Point(14, 311);
+            this.lblAM.Name = "lblAM";
+            this.lblAM.Size = new System.Drawing.Size(25, 13);
+            this.lblAM.TabIndex = 41;
+            this.lblAM.Text = "AM";
             // 
             // lblAH
             // 
@@ -709,42 +745,6 @@
             this.btnRuta.Text = "Ruta";
             this.btnRuta.UseVisualStyleBackColor = true;
             this.btnRuta.Click += new System.EventHandler(this.btnRuta_Click);
-            // 
-            // lblAM
-            // 
-            this.lblAM.AutoSize = true;
-            this.lblAM.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAM.Location = new System.Drawing.Point(14, 311);
-            this.lblAM.Name = "lblAM";
-            this.lblAM.Size = new System.Drawing.Size(25, 13);
-            this.lblAM.TabIndex = 41;
-            this.lblAM.Text = "AM";
-            // 
-            // btnAM
-            // 
-            this.btnAM.Image = ((System.Drawing.Image)(resources.GetObject("btnAM.Image")));
-            this.btnAM.Location = new System.Drawing.Point(51, 305);
-            this.btnAM.Name = "btnAM";
-            this.btnAM.Size = new System.Drawing.Size(36, 23);
-            this.btnAM.TabIndex = 42;
-            this.btnAM.UseVisualStyleBackColor = true;
-            this.btnAM.Click += new System.EventHandler(this.btnAM_Click);
-            // 
-            // prgBarAM
-            // 
-            this.prgBarAM.Location = new System.Drawing.Point(96, 305);
-            this.prgBarAM.Name = "prgBarAM";
-            this.prgBarAM.Size = new System.Drawing.Size(331, 23);
-            this.prgBarAM.TabIndex = 43;
-            // 
-            // lblStatusAM
-            // 
-            this.lblStatusAM.AutoSize = true;
-            this.lblStatusAM.Location = new System.Drawing.Point(433, 311);
-            this.lblStatusAM.Name = "lblStatusAM";
-            this.lblStatusAM.Size = new System.Drawing.Size(49, 13);
-            this.lblStatusAM.TabIndex = 44;
-            this.lblStatusAM.Text = "Progreso";
             // 
             // FrmRIPS
             // 
