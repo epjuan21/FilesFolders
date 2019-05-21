@@ -140,12 +140,105 @@ namespace FilesFolders
 
         private void btnComprimir_Click(object sender, EventArgs e)
         {
+            cambiarNombreArchivos(dirPath, txtFechaCorte.Text);
             ZipDirFile(dirPath);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cambiarNombreArchivos(string dirPath, string periodo)
+        {
+            string SeparadorCarpeta;
+            SeparadorCarpeta = "\\";
+
+            string PeriodoArchivo;
+            string Month = periodo.Substring(4, 2);
+            string Year = periodo.Substring(0, 4);
+            
+            PeriodoArchivo = string.Format("{0}{1}",Month, Year);
+            
+            System.IO.FileInfo[] files = new System.IO.DirectoryInfo(dirPath).GetFiles();
+
+            // Cambiar Nombres de Archivos
+            foreach (var item in files)
+            {
+                // Obtenemos el Tipo de archivo
+                string TipoArchivo;
+                TipoArchivo = item.Name.Substring(0, 2);
+
+                // Obtenemos la Extensión del archivo
+                string ExtensionArchivo;
+                ExtensionArchivo = Path.GetExtension(item.Name);
+
+                // Establecer el Nombre Anterior del Archivo
+                string NombreAnteriorArchivo;
+                NombreAnteriorArchivo = string.Format("{0}{1}{2}", dirPath, SeparadorCarpeta, item.Name);
+
+                // Establecer el Nombre Nuevo del Archivo
+                string NombreNuevoArchivo;
+                NombreNuevoArchivo = string.Format("{0}{1}{2}{3}{4}", dirPath, SeparadorCarpeta, TipoArchivo, PeriodoArchivo, ExtensionArchivo);
+
+                // Renombrar archvios
+                File.Move(NombreAnteriorArchivo, NombreNuevoArchivo);
+            }
+
+            // Cambiar Nombres de Archivos en CT
+
+            DirectoryInfo di = new DirectoryInfo(dirPath);
+
+            foreach (var fi in di.GetFiles("*CT*", SearchOption.AllDirectories))
+            {
+                String path = fi.FullName;
+                List<String> lines = new List<String>();
+
+                if (File.Exists(path))
+                {
+                    using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("Windows-1252")))
+                    {
+                        String line;
+
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            if (line.Contains(","))
+                            {
+                                String[] split = line.Split(',');
+
+                                #region Código del Archivo
+
+                                // Código del Archivo - Posición 2
+                                string codigoArchivo = split[2];
+
+                                // Obtenemos el Tipo de Archivo
+                                string Tipo = codigoArchivo.Substring(0, 2);
+
+                                // Obtenemos el Nuevo Nombre de los Archivos
+                                string NuevoNombre = PeriodoArchivo;
+
+                                // Reemplazamos el Nuevo Nombre
+                                split[2] = string.Format("{0}{1}", Tipo, NuevoNombre);
+
+                                line = String.Join(",", split);
+
+                                #endregion
+                            }
+
+                            lines.Add(line);
+                        }
+                    }
+
+                    using (StreamWriter writer = new StreamWriter(path, false, Encoding.GetEncoding("Windows-1252")))
+                    {
+                        foreach (String line in lines)
+                        {
+                            writer.WriteLine(line);
+                        }
+                    }
+                }
+            }
+
         }
     }
 }
