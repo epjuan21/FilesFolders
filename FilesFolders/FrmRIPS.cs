@@ -794,7 +794,16 @@ namespace FilesFolders
                         {
                             writer.WriteLine(line);
                         }
-                    }
+                    }                
+                }
+
+                // Eliminar Ultimo Salto de Linea CR LF del Archivo
+
+                string myFileData = File.ReadAllText(path);
+
+                if (myFileData.EndsWith(Environment.NewLine))
+                {
+                    File.WriteAllText(path, myFileData.TrimEnd(Environment.NewLine.ToCharArray()));
                 }
             }
 
@@ -1777,6 +1786,15 @@ namespace FilesFolders
                         }
                     }
                 }
+
+                // Eliminar Ultimo Salto de Linea CR LF del Archivo
+
+                string myFileData = File.ReadAllText(path);
+
+                if (myFileData.EndsWith(Environment.NewLine))
+                {
+                    File.WriteAllText(path, myFileData.TrimEnd(Environment.NewLine.ToCharArray()));
+                }
             }
 
             for (int i = 1; i <= contadorErrores; i++)
@@ -1880,6 +1898,15 @@ namespace FilesFolders
                             writer.WriteLine(line);
                         }
                     }
+                }
+
+                // Eliminar Ultimo Salto de Linea CR LF del Archivo
+
+                string myFileData = File.ReadAllText(path);
+
+                if (myFileData.EndsWith(Environment.NewLine))
+                {
+                    File.WriteAllText(path, myFileData.TrimEnd(Environment.NewLine.ToCharArray()));
                 }
             }
 
@@ -2051,6 +2078,15 @@ namespace FilesFolders
                         }
                     }
                 }
+
+                // Eliminar Ultimo Salto de Linea CR LF del Archivo
+
+                string myFileData = File.ReadAllText(path);
+
+                if (myFileData.EndsWith(Environment.NewLine))
+                {
+                    File.WriteAllText(path, myFileData.TrimEnd(Environment.NewLine.ToCharArray()));
+                }
             }
 
             for (int i = 1; i <= contadorErrores; i++)
@@ -2183,6 +2219,15 @@ namespace FilesFolders
                         }
                     }
                 }
+
+                // Eliminar Ultimo Salto de Linea CR LF del Archivo
+
+                string myFileData = File.ReadAllText(path);
+
+                if (myFileData.EndsWith(Environment.NewLine))
+                {
+                    File.WriteAllText(path, myFileData.TrimEnd(Environment.NewLine.ToCharArray()));
+                }
             }
 
             for (int i = 1; i <= contadorErrores; i++)
@@ -2277,6 +2322,15 @@ namespace FilesFolders
                             writer.WriteLine(line);
                         }
                     }
+                }
+
+                // Eliminar Ultimo Salto de Linea CR LF del Archivo
+
+                string myFileData = File.ReadAllText(path);
+
+                if (myFileData.EndsWith(Environment.NewLine))
+                {
+                    File.WriteAllText(path, myFileData.TrimEnd(Environment.NewLine.ToCharArray()));
                 }
             }
 
@@ -2401,8 +2455,6 @@ namespace FilesFolders
 
 
                                 #endregion
-
-
                             }
 
                             lines.Add(line);
@@ -2416,6 +2468,15 @@ namespace FilesFolders
                             writer.WriteLine(line);
                         }
                     }
+                }
+
+                // Eliminar Ultimo Salto de Linea CR LF del Archivo
+
+                string myFileData = File.ReadAllText(path);
+
+                if (myFileData.EndsWith(Environment.NewLine))
+                {
+                    File.WriteAllText(path, myFileData.TrimEnd(Environment.NewLine.ToCharArray()));
                 }
             }
 
