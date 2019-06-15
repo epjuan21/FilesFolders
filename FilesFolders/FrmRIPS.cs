@@ -258,6 +258,15 @@ namespace FilesFolders
                         }
                     }
                 }
+
+                // Eliminar Ultimo Salto de Linea CR LF del Archivo
+
+                string myFileData = File.ReadAllText(path);
+
+                if (myFileData.EndsWith(Environment.NewLine))
+                {
+                    File.WriteAllText(path, myFileData.TrimEnd(Environment.NewLine.ToCharArray()));
+                }
             }
 
             for (int i = 1; i <= contadorErrores; i++)
@@ -265,8 +274,6 @@ namespace FilesFolders
                 bgwUS.ReportProgress(Convert.ToInt32(i * 100 / contadorErrores));
                 Thread.Sleep(100);
             }
-
-            // Prueba de Eliminacion de Ultimo Salto de Linea
 
         }
 
