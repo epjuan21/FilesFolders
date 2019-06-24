@@ -62,7 +62,7 @@ namespace FilesFolders
             btnAU.Enabled = false;
             btnAH.Enabled = false;
             btnAF.Enabled = false;
-            lblAM.Enabled = false;
+            btnAM.Enabled = false;
         }
 
         #region Ruta Cargue Masivo
@@ -114,7 +114,7 @@ namespace FilesFolders
                 btnAU.Enabled = true;
                 btnAH.Enabled = true;
                 btnAF.Enabled = true;
-                lblAM.Enabled = true;
+                btnAM.Enabled = true;
 
                 chkBoxLonDoc.Enabled = true;
             }
@@ -2409,6 +2409,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                else if (valorCopagoAF == "")
+                                {
+                                    split[13] = "0.00";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 #endregion
 
                                 #region Valor Comision
@@ -2422,6 +2428,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                else if (valorComisionAF == "")
+                                {
+                                    split[14] = "0.00";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 #endregion
 
                                 #region Valor Descuento
@@ -2431,6 +2443,12 @@ namespace FilesFolders
                                 if (valorDescuentoAF == "" && chkBoxCorregirAFSum.CheckState == CheckState.Checked)
                                 {
                                     split[15] = "0";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                else if (valorDescuentoAF == "")
+                                {
+                                    split[15] = "0.00";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
