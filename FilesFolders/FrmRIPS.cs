@@ -1752,6 +1752,16 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+
+                                // Quitar Acto Quirurgico para SAVIASALUD
+
+                                if (split[13] != "" && chkBoxAxSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[13] = "";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
                                 #endregion
 
                                 #region Valor Procedimiento

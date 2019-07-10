@@ -94,12 +94,14 @@
             this.txtRuta = new System.Windows.Forms.TextBox();
             this.btnRuta = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.chkBoxAxSavia = new System.Windows.Forms.CheckBox();
             this.pnlRIPS.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlRIPS
             // 
+            this.pnlRIPS.Controls.Add(this.chkBoxAxSavia);
             this.pnlRIPS.Controls.Add(this.chkBoxDxAxSum);
             this.pnlRIPS.Controls.Add(this.chkBoxCorregirAFSum);
             this.pnlRIPS.Controls.Add(this.chkBoxValSum);
@@ -746,6 +748,16 @@
             this.btnRuta.UseVisualStyleBackColor = true;
             this.btnRuta.Click += new System.EventHandler(this.btnRuta_Click);
             // 
+            // chkBoxAxSavia
+            // 
+            this.chkBoxAxSavia.AutoSize = true;
+            this.chkBoxAxSavia.Location = new System.Drawing.Point(573, 311);
+            this.chkBoxAxSavia.Name = "chkBoxAxSavia";
+            this.chkBoxAxSavia.Size = new System.Drawing.Size(224, 17);
+            this.chkBoxAxSavia.TabIndex = 47;
+            this.chkBoxAxSavia.Text = "Quitar Acto Quirurgico para SAVIASALUD";
+            this.chkBoxAxSavia.UseVisualStyleBackColor = true;
+            // 
             // FrmRIPS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -831,5 +843,6 @@
         private System.Windows.Forms.Button btnAM;
         private System.Windows.Forms.Label lblStatusAM;
         private System.Windows.Forms.ProgressBar prgBarAM;
+        private System.Windows.Forms.CheckBox chkBoxAxSavia;
     }
 }
