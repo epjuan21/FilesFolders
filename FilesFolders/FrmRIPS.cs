@@ -1753,7 +1753,7 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
 
-                                // Quitar Acto Quirurgico para SAVIASALUD
+                                // Modificar Acto Quirurgico para SAVIASALUD
 
                                 if (split[13] != "" && chkBoxAxSavia.CheckState == CheckState.Checked)
                                 {
