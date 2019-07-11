@@ -265,7 +265,7 @@ namespace FilesFolders
 
                 if (myFileData.EndsWith(Environment.NewLine))
                 {
-                    File.WriteAllText(path, myFileData.TrimEnd(Environment.NewLine.ToCharArray()));
+                    File.WriteAllText(path, myFileData.TrimEnd(Environment.NewLine.ToCharArray()), Encoding.GetEncoding("Windows-1252"));
                 }
             }
 
@@ -567,6 +567,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[9] == "O60X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[9] = "O600";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[9] == "R500" && chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
                                     split[9] = "R509";
@@ -628,6 +634,12 @@ namespace FilesFolders
                                 if (split[10] == "N180")
                                 {
                                     split[10] = "N179";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[10] == "O60X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[10] = "O600";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -1753,9 +1765,18 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
 
-                                // Modificar Acto Quirurgico para SAVIASALUD
+                                // Modificar Acto Quirurgico Para SAVIASALUD Segun CUPS
 
-                                if (split[13] != "" && chkBoxAxSavia.CheckState == CheckState.Checked)
+                                // Codigo CUPS Archivo AP - Posoción 6
+
+                                if (
+                                    split[6].Substring(0,2) == "90" ||
+                                    split[6].Substring(0, 2) == "95" ||
+                                    split[6].Substring(0, 2) == "96" ||
+                                    split[6].Substring(0, 2) == "99" ||
+                                    split[6].Substring(0, 2) == "89" || 
+                                    split[6].Substring(0, 2) == "93"
+                                    )
                                 {
                                     split[13] = "";
                                     line = String.Join(",", split);
@@ -2196,6 +2217,12 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
 
+                                if (split[8] == "O60X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[8] = "O600"; // PARTO PREMATURO
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
 
                                 #endregion
 
@@ -2309,8 +2336,19 @@ namespace FilesFolders
                                 }
                                 #endregion
 
+
+                                #region #region Diagnóstico Relacionado 1 de Egreso
+                                // Diagnóstico Relacionado 1 de Egreso - Posición 11
+                                if (split[11] == "A09X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[11] = "A099";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                #endregion
+
                                 #region Diagnóstico Relacionado 2 de Egreso
-                                // Diagnóstico Relacionado 2 de Egreso - Posición 13
+                                // Diagnóstico Relacionado 2 de Egreso - Posición 12
                                 if (split[12] == "I48X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
                                     split[12] = "I489";
@@ -2715,5 +2753,9 @@ namespace FilesFolders
 
         #endregion
 
+        private void chkBoxAxSavia_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

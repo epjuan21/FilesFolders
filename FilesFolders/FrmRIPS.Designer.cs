@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRIPS));
             this.pnlRIPS = new System.Windows.Forms.Panel();
+            this.chkBoxAxSavia = new System.Windows.Forms.CheckBox();
             this.chkBoxDxAxSum = new System.Windows.Forms.CheckBox();
             this.chkBoxCorregirAFSum = new System.Windows.Forms.CheckBox();
             this.chkBoxValSum = new System.Windows.Forms.CheckBox();
@@ -94,7 +95,6 @@
             this.txtRuta = new System.Windows.Forms.TextBox();
             this.btnRuta = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.chkBoxAxSavia = new System.Windows.Forms.CheckBox();
             this.pnlRIPS.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -155,6 +155,17 @@
             this.pnlRIPS.Name = "pnlRIPS";
             this.pnlRIPS.Size = new System.Drawing.Size(842, 460);
             this.pnlRIPS.TabIndex = 2;
+            // 
+            // chkBoxAxSavia
+            // 
+            this.chkBoxAxSavia.AutoSize = true;
+            this.chkBoxAxSavia.Location = new System.Drawing.Point(573, 311);
+            this.chkBoxAxSavia.Name = "chkBoxAxSavia";
+            this.chkBoxAxSavia.Size = new System.Drawing.Size(232, 17);
+            this.chkBoxAxSavia.TabIndex = 47;
+            this.chkBoxAxSavia.Text = "Corregir Acto Quirurgico para SAVIASALUD";
+            this.chkBoxAxSavia.UseVisualStyleBackColor = true;
+            this.chkBoxAxSavia.CheckedChanged += new System.EventHandler(this.chkBoxAxSavia_CheckedChanged);
             // 
             // chkBoxDxAxSum
             // 
@@ -747,16 +758,6 @@
             this.btnRuta.Text = "Ruta";
             this.btnRuta.UseVisualStyleBackColor = true;
             this.btnRuta.Click += new System.EventHandler(this.btnRuta_Click);
-            // 
-            // chkBoxAxSavia
-            // 
-            this.chkBoxAxSavia.AutoSize = true;
-            this.chkBoxAxSavia.Location = new System.Drawing.Point(573, 311);
-            this.chkBoxAxSavia.Name = "chkBoxAxSavia";
-            this.chkBoxAxSavia.Size = new System.Drawing.Size(224, 17);
-            this.chkBoxAxSavia.TabIndex = 47;
-            this.chkBoxAxSavia.Text = "Quitar Acto Quirurgico para SAVIASALUD";
-            this.chkBoxAxSavia.UseVisualStyleBackColor = true;
             // 
             // FrmRIPS
             // 
