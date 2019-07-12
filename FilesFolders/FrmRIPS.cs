@@ -1937,7 +1937,7 @@ namespace FilesFolders
 
                 if (myFileData.EndsWith(Environment.NewLine))
                 {
-                    File.WriteAllText(path, myFileData.TrimEnd(Environment.NewLine.ToCharArray()));
+                    File.WriteAllText(path, myFileData.TrimEnd(Environment.NewLine.ToCharArray()), Encoding.GetEncoding("Windows-1252"));
                 }
             }
 
