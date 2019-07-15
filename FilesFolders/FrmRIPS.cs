@@ -1769,19 +1769,24 @@ namespace FilesFolders
 
                                 // Codigo CUPS Archivo AP - Posoción 6
 
-                                if (
-                                    split[6].Substring(0,2) == "90" ||
-                                    split[6].Substring(0, 2) == "95" ||
-                                    split[6].Substring(0, 2) == "96" ||
-                                    split[6].Substring(0, 2) == "99" ||
-                                    split[6].Substring(0, 2) == "89" || 
-                                    split[6].Substring(0, 2) == "93"
-                                    )
+
+                                if (chkBoxAxSavia.CheckState == CheckState.Checked)
                                 {
-                                    split[13] = "";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
+                                    if (
+                                        split[6].Substring(0,2) == "90" ||
+                                        split[6].Substring(0, 2) == "95" ||
+                                        split[6].Substring(0, 2) == "96" ||
+                                        split[6].Substring(0, 2) == "99" ||
+                                        split[6].Substring(0, 2) == "89" || 
+                                        split[6].Substring(0, 2) == "93"
+                                        )
+                                    {
+                                        split[13] = "";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                 }
+
 
                                 #endregion
 
