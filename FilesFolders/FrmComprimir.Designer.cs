@@ -57,6 +57,7 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlComprimirArchivo.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -103,6 +104,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.btnComprimir);
             this.groupBox3.Controls.Add(this.lblNombreArchivo);
             this.groupBox3.Controls.Add(this.label24);
@@ -365,6 +367,17 @@
             this.label25.TabIndex = 6;
             this.label25.Text = "Seleccione la ruta donde se encuentran los archivos RIPS";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label1.Location = new System.Drawing.Point(207, 137);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(117, 13);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Formato AAAAMMDD";
+            // 
             // FrmComprimir
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -415,5 +428,6 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.Label label1;
     }
 }
