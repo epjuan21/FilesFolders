@@ -27,7 +27,7 @@ namespace FilesFolders
 
         private void FrmComprimir_Load(object sender, EventArgs e)
         {
-            // Tab Index
+            // Tab Index - Orden en la Tabulaciones
             btnRutaEAPB.TabIndex = 0;
             cmbTipoFuente.TabIndex = 1;
             txtFechaCorte.TabIndex = 2;
@@ -39,29 +39,29 @@ namespace FilesFolders
             btnComprimir.TabIndex = 8;
             btnSalir.TabIndex = 9;
             
+            // TextBox Inhabilitados Permanentemente
+            txtModuloInformacion.Enabled = false;
+            txtTema.Enabled = false;
+
             // Inhabilitar Botones Hasta Seleccionar Ruta
             btnComprimir.Enabled = false;
 
-            // Inhabilitar Campos de Texto Hasta Seleccionar Ruta
+            // Inhabilitar TextBox Hasta Seleccionar Ruta
             txtFechaCorte.Enabled = false;
             txtNumeroIdEntidad.Enabled = false;
             txtConsecutivo.Enabled = false;
 
+            // Inhabilitar ComboBox Hasta Seleccionar Ruta
             cmbTipoFuente.Enabled = false;
             cmbTipoIdEntidad.Enabled = false;
             cmbRegimen.Enabled = false;
             cmbExtension.Enabled = false;
 
-            // EABP
-
             // Comprimir Archivo
 
             // Cargar Valores Predeterminados en TextBox
 
-            txtModuloInformacion.Enabled = false;
             txtModuloInformacion.Text = "RIP";
-
-            txtTema.Enabled = false;
             txtTema.Text = "RIPS";
 
             // Combo Box No Editable
@@ -78,7 +78,7 @@ namespace FilesFolders
             txtNumeroIdEntidad.Text = "";
             txtConsecutivo.Text = "01";
 
-            // Nombre Archvio Comprimido EAPB
+            // Nombre Archivo Comprimido EAPB
 
             cmbTipoFuente.TextChanged += new System.EventHandler(this.txtFechaCorte_TextChanged);
             txtFechaCorte.TextChanged += new System.EventHandler(this.txtFechaCorte_TextChanged);
