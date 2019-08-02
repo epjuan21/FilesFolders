@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.pnlComprimirArchivo = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.txtRutaEAPB = new System.Windows.Forms.TextBox();
             this.btnRutaEAPB = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnComprimir = new System.Windows.Forms.Button();
             this.lblNombreArchivo = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
@@ -43,7 +44,6 @@
             this.txtNumeroIdEntidad = new System.Windows.Forms.TextBox();
             this.txtFechaCorte = new System.Windows.Forms.TextBox();
             this.txtTema = new System.Windows.Forms.TextBox();
-            this.txtTipoFuente = new System.Windows.Forms.TextBox();
             this.lblExtension = new System.Windows.Forms.Label();
             this.lblConsecutivo = new System.Windows.Forms.Label();
             this.lblRegimen = new System.Windows.Forms.Label();
@@ -57,14 +57,14 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.label1 = new System.Windows.Forms.Label();
+            this.cmbTipoFuente = new System.Windows.Forms.ComboBox();
             this.pnlComprimirArchivo.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlComprimirArchivo
             // 
-            this.pnlComprimirArchivo.Controls.Add(this.button1);
+            this.pnlComprimirArchivo.Controls.Add(this.btnSalir);
             this.pnlComprimirArchivo.Controls.Add(this.txtRutaEAPB);
             this.pnlComprimirArchivo.Controls.Add(this.btnRutaEAPB);
             this.pnlComprimirArchivo.Controls.Add(this.groupBox3);
@@ -74,15 +74,15 @@
             this.pnlComprimirArchivo.Size = new System.Drawing.Size(612, 456);
             this.pnlComprimirArchivo.TabIndex = 15;
             // 
-            // button1
+            // btnSalir
             // 
-            this.button1.Location = new System.Drawing.Point(526, 430);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Salir";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnSalir.Location = new System.Drawing.Point(526, 430);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.TabIndex = 15;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtRutaEAPB
             // 
@@ -104,6 +104,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.cmbTipoFuente);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.btnComprimir);
             this.groupBox3.Controls.Add(this.lblNombreArchivo);
@@ -115,7 +116,6 @@
             this.groupBox3.Controls.Add(this.txtNumeroIdEntidad);
             this.groupBox3.Controls.Add(this.txtFechaCorte);
             this.groupBox3.Controls.Add(this.txtTema);
-            this.groupBox3.Controls.Add(this.txtTipoFuente);
             this.groupBox3.Controls.Add(this.lblExtension);
             this.groupBox3.Controls.Add(this.lblConsecutivo);
             this.groupBox3.Controls.Add(this.lblRegimen);
@@ -136,6 +136,17 @@
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Comprimir Archivo";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label1.Location = new System.Drawing.Point(207, 137);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(117, 13);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Formato AAAAMMDD";
             // 
             // btnComprimir
             // 
@@ -182,6 +193,7 @@
             // 
             this.cmbRegimen.FormattingEnabled = true;
             this.cmbRegimen.Items.AddRange(new object[] {
+            "",
             "C",
             "S",
             "O"});
@@ -230,13 +242,6 @@
             this.txtTema.Name = "txtTema";
             this.txtTema.Size = new System.Drawing.Size(50, 22);
             this.txtTema.TabIndex = 12;
-            // 
-            // txtTipoFuente
-            // 
-            this.txtTipoFuente.Location = new System.Drawing.Point(9, 75);
-            this.txtTipoFuente.Name = "txtTipoFuente";
-            this.txtTipoFuente.Size = new System.Drawing.Size(50, 22);
-            this.txtTipoFuente.TabIndex = 11;
             // 
             // lblExtension
             // 
@@ -367,16 +372,16 @@
             this.label25.TabIndex = 6;
             this.label25.Text = "Seleccione la ruta donde se encuentran los archivos RIPS";
             // 
-            // label1
+            // cmbTipoFuente
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Location = new System.Drawing.Point(207, 137);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 13);
-            this.label1.TabIndex = 25;
-            this.label1.Text = "Formato AAAAMMDD";
+            this.cmbTipoFuente.FormattingEnabled = true;
+            this.cmbTipoFuente.Items.AddRange(new object[] {
+            "170",
+            "165"});
+            this.cmbTipoFuente.Location = new System.Drawing.Point(9, 76);
+            this.cmbTipoFuente.Name = "cmbTipoFuente";
+            this.cmbTipoFuente.Size = new System.Drawing.Size(50, 21);
+            this.cmbTipoFuente.TabIndex = 26;
             // 
             // FrmComprimir
             // 
@@ -413,7 +418,6 @@
         private System.Windows.Forms.TextBox txtNumeroIdEntidad;
         private System.Windows.Forms.TextBox txtFechaCorte;
         private System.Windows.Forms.TextBox txtTema;
-        private System.Windows.Forms.TextBox txtTipoFuente;
         private System.Windows.Forms.Label lblExtension;
         private System.Windows.Forms.Label lblConsecutivo;
         private System.Windows.Forms.Label lblRegimen;
@@ -426,8 +430,9 @@
         private System.Windows.Forms.TextBox txtModuloInformacion;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmbTipoFuente;
     }
 }

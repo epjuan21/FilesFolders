@@ -27,6 +27,18 @@ namespace FilesFolders
 
         private void FrmComprimir_Load(object sender, EventArgs e)
         {
+            // Tab Index
+            btnRutaEAPB.TabIndex = 0;
+            cmbTipoFuente.TabIndex = 1;
+            txtFechaCorte.TabIndex = 2;
+            cmbTipoIdEntidad.TabIndex = 3;
+            txtNumeroIdEntidad.TabIndex = 4;
+            cmbRegimen.TabIndex = 5;
+            txtConsecutivo.TabIndex = 6;
+            cmbExtension.TabIndex = 7;
+            btnComprimir.TabIndex = 8;
+            btnSalir.TabIndex = 9;
+            
             // Inhabilitar Botones Hasta Seleccionar Ruta
             btnComprimir.Enabled = false;
 
@@ -35,6 +47,7 @@ namespace FilesFolders
             txtNumeroIdEntidad.Enabled = false;
             txtConsecutivo.Enabled = false;
 
+            cmbTipoFuente.Enabled = false;
             cmbTipoIdEntidad.Enabled = false;
             cmbRegimen.Enabled = false;
             cmbExtension.Enabled = false;
@@ -48,29 +61,26 @@ namespace FilesFolders
             txtModuloInformacion.Enabled = false;
             txtModuloInformacion.Text = "RIP";
 
-            txtTipoFuente.Enabled = false;
-            txtTipoFuente.Text = "170";
-
             txtTema.Enabled = false;
             txtTema.Text = "RIPS";
 
             // Combo Box No Editable
+            cmbTipoFuente.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTipoIdEntidad.DropDownStyle = ComboBoxStyle.DropDownList;
-
             cmbRegimen.DropDownStyle = ComboBoxStyle.DropDownList;
 
+            // Cargar valores predeterminados en ComboBox
+            cmbTipoFuente.SelectedIndex = 0;
             cmbTipoIdEntidad.SelectedIndex = 0;
+            cmbRegimen.SelectedIndex = 2;
+            cmbExtension.SelectedIndex = 0;
 
             txtNumeroIdEntidad.Text = "";
-
-            cmbRegimen.SelectedIndex = 2;
-
             txtConsecutivo.Text = "01";
-
-            cmbExtension.SelectedIndex = 0;
 
             // Nombre Archvio Comprimido EAPB
 
+            cmbTipoFuente.TextChanged += new System.EventHandler(this.txtFechaCorte_TextChanged);
             txtFechaCorte.TextChanged += new System.EventHandler(this.txtFechaCorte_TextChanged);
             cmbTipoIdEntidad.TextChanged += new System.EventHandler(this.txtFechaCorte_TextChanged);
             txtNumeroIdEntidad.TextChanged += new System.EventHandler(this.txtFechaCorte_TextChanged);
@@ -78,7 +88,7 @@ namespace FilesFolders
             txtConsecutivo.TextChanged += new System.EventHandler(this.txtFechaCorte_TextChanged);
             cmbExtension.TextChanged += new System.EventHandler(this.txtFechaCorte_TextChanged);
 
-            lblNombreArchivo.Text = txtModuloInformacion.Text + txtTipoFuente.Text + txtTema.Text + txtFechaCorte.Text + cmbTipoIdEntidad.Text + txtNumeroIdEntidad.Text + cmbRegimen.Text + txtConsecutivo.Text + cmbExtension.Text;
+            lblNombreArchivo.Text = txtModuloInformacion.Text + cmbTipoFuente.Text + txtTema.Text + txtFechaCorte.Text + cmbTipoIdEntidad.Text + txtNumeroIdEntidad.Text + cmbRegimen.Text + txtConsecutivo.Text + cmbExtension.Text;
         }
 
         private void btnRutaEAPB_Click(object sender, EventArgs e)
@@ -98,9 +108,14 @@ namespace FilesFolders
                 txtNumeroIdEntidad.Enabled = true;
                 txtConsecutivo.Enabled = true;
 
+                cmbTipoFuente.Enabled = true;
                 cmbTipoIdEntidad.Enabled = true;
                 cmbRegimen.Enabled = true;
                 cmbExtension.Enabled = true;
+
+                // Focus
+                cmbTipoFuente.Focus();
+
             }
         }
 
@@ -125,7 +140,7 @@ namespace FilesFolders
                 }
             }
 
-            FileName = txtModuloInformacion.Text + txtTipoFuente.Text + txtTema.Text + txtFechaCorte.Text + cmbTipoIdEntidad.Text + ceros + txtNumeroIdEntidad.Text + cmbRegimen.Text + txtConsecutivo.Text + cmbExtension.Text;
+            FileName = txtModuloInformacion.Text + cmbTipoFuente.Text + txtTema.Text + txtFechaCorte.Text + cmbTipoIdEntidad.Text + ceros + txtNumeroIdEntidad.Text + cmbRegimen.Text + txtConsecutivo.Text + cmbExtension.Text;
             lblNombreArchivo.Text = FileName;
         }
 
