@@ -182,6 +182,20 @@ namespace FilesFolders
                                 line = String.Join(",", split);
                                 contadorErrores++;
 
+                                // Corregir Caracter Ñ para SAVIASALUD
+                                if(chkBoxCarEsp.CheckState == CheckState.Checked)
+                                {
+                                    // Primer Apellido
+                                    split[4] = primerApellido = primerApellido.Replace("Ñ", "N");
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+
+                                    // Segundo Apellido
+                                    split[5] = segundoApellido = segundoApellido.Replace("Ñ", "N");
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
                                 #endregion
 
                                 #region Departamento y Municipio
@@ -1779,12 +1793,13 @@ namespace FilesFolders
                                 if (chkBoxAxSavia.CheckState == CheckState.Checked)
                                 {
                                     if (
+                                        split[6].Substring(0,2) == "87" ||
                                         split[6].Substring(0,2) == "90" ||
-                                        split[6].Substring(0, 2) == "95" ||
-                                        split[6].Substring(0, 2) == "96" ||
-                                        split[6].Substring(0, 2) == "99" ||
-                                        split[6].Substring(0, 2) == "89" || 
-                                        split[6].Substring(0, 2) == "93"
+                                        split[6].Substring(0,2) == "95" ||
+                                        split[6].Substring(0,2) == "96" ||
+                                        split[6].Substring(0,2) == "99" ||
+                                        split[6].Substring(0,2) == "89" || 
+                                        split[6].Substring(0,2) == "93"
                                         )
                                     {
                                         split[13] = "";
@@ -2235,6 +2250,17 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
 
+                                #endregion
+
+
+                                #region Diagnóstico Relacionado Nro. 1, a la salida
+                                // Diagnóstico relacionado Nro. 1, a la salida - Posición 9
+                                if (split[9] == "A09X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[9] = "A099";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 #endregion
 
                                 #region Diagnóstico relacionado Nro. 2, a la salida
