@@ -507,6 +507,13 @@ namespace FilesFolders
                                         contadorErrores++;
                                     }
                                 }
+
+                                if (split[7] == "06" && split[9] == "K021")
+                                {
+                                    split[9] = "Z012";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 
                                 if (split[9] == "")
                                 {
@@ -539,6 +546,30 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[9] == "I848" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[9] = "K649";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[9] == "I841" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[9] = "K649";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[9] == "I845" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[9] = "K649";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[9] == "I48X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[9] = "I489";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[9] == "I849" && chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
                                     split[9] = "K649";
@@ -563,27 +594,17 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-                                if (split[9] == "I841" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[9] = "K649";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[9] == "I845" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[9] = "K649";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[9] == "I48X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[9] = "I489";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
                                 if (split[9] == "O60X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
                                     split[9] = "O600";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                // Q314 ESTRIDOR LARINGEO CONGENITO
+                                // J042 LARINGOTRAQUEITIS AGUDA
+                                if (split[9] == "Q314" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[9] = "J042";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -639,6 +660,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[10] == "I848" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[10] = "K649";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[10] == "I849" && chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
                                     split[10] = "K649";
@@ -654,6 +681,14 @@ namespace FilesFolders
                                 if (split[10] == "O60X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
                                     split[10] = "O600";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                // Q314 ESTRIDOR LARINGEO CONGENITO
+                                // J042 LARINGOTRAQUEITIS AGUDA
+                                if (split[10] == "Q314" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[10] = "J042";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -684,7 +719,12 @@ namespace FilesFolders
                                         contadorErrores++;
                                     }
                                 }
-
+                                if (split[11] == "A09X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[11] = "A099";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[11] == "H547" && chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
                                     split[11] = "H546";
@@ -1750,6 +1790,17 @@ namespace FilesFolders
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
+
+                                    // Q314 ESTRIDOR LARINGEO CONGENITO
+                                    // J042 LARINGOTRAQUEITIS AGUDA
+
+                                    if (split[10] == "Q314" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                    {
+                                        split[10] = "J042";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+
                                     if (split[10] == "R500" && chkBoxDiagSavia.CheckState == CheckState.Checked)
                                     {
                                         split[10] = "R509";
@@ -2260,6 +2311,16 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
 
+                                // Q314 ESTRIDOR LARINGEO CONGENITO
+                                // J042 LARINGOTRAQUEITIS AGUDA
+
+                                if (split[8] == "Q314" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[8] = "J042";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
                                 if (split[8] == "R500" && chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
                                     split[8] = "R509";
@@ -2275,7 +2336,6 @@ namespace FilesFolders
                                 }
 
                                 #endregion
-
 
                                 #region Diagnóstico Relacionado Nro. 1, a la salida
                                 // Diagnóstico relacionado Nro. 1, a la salida - Posición 9
