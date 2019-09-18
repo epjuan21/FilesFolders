@@ -959,7 +959,7 @@ namespace FilesFolders
                                 }
                                 if (split[6] == "021146")
                                 {
-                                    split[6] = "873311";
+                                    split[6] = "873123";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
