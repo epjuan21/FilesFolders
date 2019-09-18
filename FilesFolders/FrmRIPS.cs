@@ -999,6 +999,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "902201")
+                                {
+                                    split[6] = "911009";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "902212")
                                 {
                                     split[6] = "902210";
@@ -1453,6 +1459,12 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 if (split[6] == "897012")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "911009" && split[8] == "")
                                 {
                                     split[8] = "1";
                                     line = String.Join(",", split);
