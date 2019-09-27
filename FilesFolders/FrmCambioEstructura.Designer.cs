@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlCambioEsctuctura = new System.Windows.Forms.Panel();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.txtCodigoMunicipio = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.lblEstatusEAPB = new System.Windows.Forms.Label();
@@ -38,7 +39,6 @@
             this.txtRuraCarpetaEAPB = new System.Windows.Forms.TextBox();
             this.btnRutaCarpetaEAPB = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.pnlCambioEsctuctura.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +59,17 @@
             this.pnlCambioEsctuctura.Name = "pnlCambioEsctuctura";
             this.pnlCambioEsctuctura.Size = new System.Drawing.Size(490, 244);
             this.pnlCambioEsctuctura.TabIndex = 16;
+            this.pnlCambioEsctuctura.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlCambioEsctuctura_Paint);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(404, 200);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.TabIndex = 17;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // txtCodigoMunicipio
             // 
@@ -140,16 +151,6 @@
             this.label10.TabIndex = 11;
             this.label10.Text = "Se cambiará la estructura de los RIPS contenidos en la carpeta seleccionada.\r\nSe " +
     "cambia de estructura IPS a EABP según la resolucion 3374 de 2000";
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Location = new System.Drawing.Point(404, 200);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 23);
-            this.btnSalir.TabIndex = 17;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // FrmCambioEstructura
             // 
