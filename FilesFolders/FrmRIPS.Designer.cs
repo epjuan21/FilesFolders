@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRIPS));
             this.pnlRIPS = new System.Windows.Forms.Panel();
+            this.chkBoxCarEsp = new System.Windows.Forms.CheckBox();
             this.chkBoxAxSavia = new System.Windows.Forms.CheckBox();
             this.chkBoxDxAxSum = new System.Windows.Forms.CheckBox();
             this.chkBoxCorregirAFSum = new System.Windows.Forms.CheckBox();
@@ -95,13 +96,14 @@
             this.txtRuta = new System.Windows.Forms.TextBox();
             this.btnRuta = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.chkBoxCarEsp = new System.Windows.Forms.CheckBox();
+            this.chkACSumimedical = new System.Windows.Forms.CheckBox();
             this.pnlRIPS.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlRIPS
             // 
+            this.pnlRIPS.Controls.Add(this.chkACSumimedical);
             this.pnlRIPS.Controls.Add(this.chkBoxCarEsp);
             this.pnlRIPS.Controls.Add(this.chkBoxAxSavia);
             this.pnlRIPS.Controls.Add(this.chkBoxDxAxSum);
@@ -157,6 +159,17 @@
             this.pnlRIPS.Name = "pnlRIPS";
             this.pnlRIPS.Size = new System.Drawing.Size(842, 460);
             this.pnlRIPS.TabIndex = 2;
+            // 
+            // chkBoxCarEsp
+            // 
+            this.chkBoxCarEsp.AutoSize = true;
+            this.chkBoxCarEsp.Location = new System.Drawing.Point(573, 342);
+            this.chkBoxCarEsp.Name = "chkBoxCarEsp";
+            this.chkBoxCarEsp.Size = new System.Drawing.Size(263, 17);
+            this.chkBoxCarEsp.TabIndex = 47;
+            this.chkBoxCarEsp.Text = "Corregir Caracteres especiales para SAVIASALUD";
+            this.chkBoxCarEsp.UseVisualStyleBackColor = true;
+            this.chkBoxCarEsp.CheckedChanged += new System.EventHandler(this.chkBoxAxSavia_CheckedChanged);
             // 
             // chkBoxAxSavia
             // 
@@ -761,16 +774,15 @@
             this.btnRuta.UseVisualStyleBackColor = true;
             this.btnRuta.Click += new System.EventHandler(this.btnRuta_Click);
             // 
-            // chkBoxCarEsp
+            // chkACSumimedical
             // 
-            this.chkBoxCarEsp.AutoSize = true;
-            this.chkBoxCarEsp.Location = new System.Drawing.Point(573, 342);
-            this.chkBoxCarEsp.Name = "chkBoxCarEsp";
-            this.chkBoxCarEsp.Size = new System.Drawing.Size(263, 17);
-            this.chkBoxCarEsp.TabIndex = 47;
-            this.chkBoxCarEsp.Text = "Corregir Caracteres especiales para SAVIASALUD";
-            this.chkBoxCarEsp.UseVisualStyleBackColor = true;
-            this.chkBoxCarEsp.CheckedChanged += new System.EventHandler(this.chkBoxAxSavia_CheckedChanged);
+            this.chkACSumimedical.AutoSize = true;
+            this.chkACSumimedical.Location = new System.Drawing.Point(572, 377);
+            this.chkACSumimedical.Name = "chkACSumimedical";
+            this.chkACSumimedical.Size = new System.Drawing.Size(141, 17);
+            this.chkACSumimedical.TabIndex = 48;
+            this.chkACSumimedical.Text = "Corregir AC Sumimedical";
+            this.chkACSumimedical.UseVisualStyleBackColor = true;
             // 
             // FrmRIPS
             // 
@@ -859,5 +871,6 @@
         private System.Windows.Forms.ProgressBar prgBarAM;
         private System.Windows.Forms.CheckBox chkBoxAxSavia;
         private System.Windows.Forms.CheckBox chkBoxCarEsp;
+        private System.Windows.Forms.CheckBox chkACSumimedical;
     }
 }

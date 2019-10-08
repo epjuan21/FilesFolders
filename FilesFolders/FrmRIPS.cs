@@ -481,10 +481,27 @@ namespace FilesFolders
                                 {
                                     if (split[8] == "13" && (split[9].Substring(0, 1) == "Z"))
                                     {
-                                        split[8] = "15";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
+                                        if (split[9] == "Z016")
+                                        {
+                                            split[8] = "13";
+                                            line = String.Join(",", split);
+                                            contadorErrores++;
+                                        }
+                                        else
+                                        {
+                                            split[8] = "15";
+                                            line = String.Join(",", split);
+                                            contadorErrores++;                                         
+                                        }
+
                                     }
+                                }
+
+                                if (split[7] == "10" && split[8] == "15" && split[9] == "Z016" && chkACSumimedical.CheckState == CheckState.Checked)
+                                {
+                                    split[8] = "13";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
                                 }
 
                                 #endregion
@@ -669,6 +686,12 @@ namespace FilesFolders
                                 if (split[10] == "I849" && chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
                                     split[10] = "K649";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[10] == "M725")
+                                {
+                                    split[10] = "M726";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -2113,12 +2136,29 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
 
+                                #region Tipo de Servicio
+                                
                                 // Tipo de Servicio - Posición 5
 
                                 //1 = Materiales e insumos
                                 //2 = Traslados
                                 //3 = Estancias
                                 //4 = Honorarios
+
+                                if (split[5] == "4" && split[6] == "S11104")
+                                {
+                                    split[5] = "3";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                if (split[5] == "4" && split[6] == "S20000")
+                                {
+                                    split[5] = "3";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                #endregion
 
                                 #region Codigo Servicio
                                 // Código del Servicio - Posición 6
@@ -2172,6 +2212,8 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+
+
 
                                 #endregion
 
