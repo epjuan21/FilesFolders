@@ -427,6 +427,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[7] == "07" && split[9] == "J441")
+                                {
+                                    split[7] = "10";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
 
                                 #endregion
 
@@ -498,6 +504,13 @@ namespace FilesFolders
                                 }
 
                                 if (split[7] == "10" && split[8] == "15" && split[9] == "Z016" && chkACSumimedical.CheckState == CheckState.Checked)
+                                {
+                                    split[8] = "13";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                // Finalidad 07 Detección de alteraciones del adulto
+                                if (split[8] == "10" && split[9] == "J441")
                                 {
                                     split[8] = "13";
                                     line = String.Join(",", split);
@@ -1073,6 +1086,12 @@ namespace FilesFolders
                                 #endregion
 
                                 #region Ambito
+                                if (split[6] == "232101")
+                                {
+                                    split[7] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "869500")
                                 {
                                     split[7] = "1";
@@ -1194,6 +1213,12 @@ namespace FilesFolders
                                 // 1 - Diagnóstico
                                 // 2 - Terapéutico
                                 if (split[6] == "210200")
+                                {
+                                    split[8] = "2";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "232101")
                                 {
                                     split[8] = "2";
                                     line = String.Join(",", split);
@@ -1899,7 +1924,6 @@ namespace FilesFolders
 
                                 // Codigo CUPS Archivo AP - Posoción 6
 
-
                                 if (chkBoxAxSavia.CheckState == CheckState.Checked)
                                 {
                                     if (
@@ -1907,6 +1931,7 @@ namespace FilesFolders
                                         split[6].Substring(0,2) == "90" ||
                                         split[6].Substring(0,2) == "95" ||
                                         split[6].Substring(0,2) == "96" ||
+                                        split[6].Substring(0,2) == "98" ||
                                         split[6].Substring(0,2) == "99" ||
                                         split[6].Substring(0,2) == "89" || 
                                         split[6].Substring(0,2) == "93"
