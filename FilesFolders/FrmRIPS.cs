@@ -421,13 +421,7 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 // Finalidad 07 Detección de alteraciones del adulto
-                                if (split[7] == "07" && split[9] == "I10X")
-                                {
-                                    split[7] = "10";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[7] == "07" && split[9] == "J441")
+                                if (split[7] != "10" && (split[9].Substring(0, 1) != "Z"))
                                 {
                                     split[7] = "10";
                                     line = String.Join(",", split);
@@ -2059,16 +2053,38 @@ namespace FilesFolders
                                 }
                                 #endregion
 
-                                #region Valor Total Medicamento
+                                // Número de unidades - Posición 11
+                                string numeroUnidades = split[11];
+                                double numeroUnidadesDouble = Math.Truncate(Convert.ToDouble(numeroUnidades));
+
+                                // Valor unitario de medicamento - Posición 12
+
+                                string valorUnitarioMedicamento = split[12];
+                                double valorUnitarioMedicamentoDouble = Math.Truncate(Convert.ToDouble(valorUnitarioMedicamento));
 
                                 // Valor total de medicamento - Posición 13
 
                                 string valorTotalMedicamento = split[13];
+                                double valorTotalMedicamentoDouble = Math.Truncate(Convert.ToDouble(valorTotalMedicamento));
 
-                                double valorTotalMedicamentoDouble;
+                                #region Numero de Unidades
+                                // Número de unidades - Posición 11
 
-                                valorTotalMedicamentoDouble = Math.Truncate(Convert.ToDouble(valorTotalMedicamento));
+                                numeroUnidadesDouble = valorTotalMedicamentoDouble / valorUnitarioMedicamentoDouble;
 
+                                if (chkBoxAMSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[11] = numeroUnidadesDouble.ToString();
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                #endregion
+
+                                #region Valor Total Medicamento
+                                // Valor total de medicamento - Posición 13
+
+                                // Quitar Decimales para Sumimedical
                                 if (chkBoxValSum.CheckState == CheckState.Checked)
                                 {
                                     split[13] = valorTotalMedicamentoDouble.ToString();
@@ -2104,7 +2120,7 @@ namespace FilesFolders
 
             for (int i = 1; i <= contadorErrores; i++)
             {
-                bgwAP.ReportProgress(Convert.ToInt32(i * 100 / contadorErrores));
+                bgwAM.ReportProgress(Convert.ToInt32(i * 100 / contadorErrores));
                 Thread.Sleep(50);
             }
         }
