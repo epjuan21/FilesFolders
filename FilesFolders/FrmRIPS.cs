@@ -2053,6 +2053,18 @@ namespace FilesFolders
                                 }
                                 #endregion
 
+                                #region Tipo Medicamento
+                                // Tipo Medicamento - Posición 6
+                                if (split[6] == "2")
+                                {
+                                    split[6] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                #endregion
+
+
                                 // Número de unidades - Posición 11
                                 string numeroUnidades = split[11];
                                 double numeroUnidadesDouble = Math.Truncate(Convert.ToDouble(numeroUnidades));
