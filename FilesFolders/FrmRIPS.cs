@@ -2061,9 +2061,22 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-
                                 #endregion
 
+                                #region Forma Farmaceutica
+                                // Forma Farmacéutica - Posición 8
+
+                                // Eliminar Espacios en blanco al prinipio y final de la Forma Faramcéutica
+                                String FormaFarmaceutica = split[8].ToString();
+
+                                if (split[8] != "")
+                                {
+                                    split[8] = FormaFarmaceutica.Trim();
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                #endregion
 
                                 // Número de unidades - Posición 11
                                 string numeroUnidades = split[11];
