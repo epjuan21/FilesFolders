@@ -2064,7 +2064,6 @@ namespace FilesFolders
 
                                 #endregion
 
-
                                 // Número de unidades - Posición 11
                                 string numeroUnidades = split[11];
                                 double numeroUnidadesDouble = Math.Truncate(Convert.ToDouble(numeroUnidades));
@@ -2087,6 +2086,19 @@ namespace FilesFolders
                                 if (chkBoxAMSavia.CheckState == CheckState.Checked)
                                 {
                                     split[11] = numeroUnidadesDouble.ToString();
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                #endregion
+
+                                #region Valor unitario de medicamento
+                                // Valor unitario de medicamento - Posición 12
+
+                                // Quitar Decimales para Sumimedical
+                                if (chkBoxValSum.CheckState == CheckState.Checked)
+                                {
+                                    split[12] = valorUnitarioMedicamentoDouble.ToString();
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
