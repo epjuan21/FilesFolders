@@ -2064,20 +2064,6 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-                                #endregion
-
-                                #region Forma Farmaceutica
-                                // Forma Farmacéutica - Posición 8
-
-                                // Eliminar Espacios en blanco al prinipio y final de la Forma Faramcéutica
-                                String FormaFarmaceutica = split[8].ToString();
-
-                                if (split[8] != "")
-                                {
-                                    split[8] = FormaFarmaceutica.Trim();
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
 
                                 #endregion
 
@@ -2103,6 +2089,19 @@ namespace FilesFolders
                                 if (chkBoxAMSavia.CheckState == CheckState.Checked)
                                 {
                                     split[11] = numeroUnidadesDouble.ToString();
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                #endregion
+
+                                #region Valor unitario de medicamento
+                                // Valor unitario de medicamento - Posición 12
+
+                                // Quitar Decimales para Sumimedical
+                                if (chkBoxValSum.CheckState == CheckState.Checked)
+                                {
+                                    split[12] = valorUnitarioMedicamentoDouble.ToString();
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
