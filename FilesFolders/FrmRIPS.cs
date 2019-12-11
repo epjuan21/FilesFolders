@@ -421,11 +421,14 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 // Finalidad 07 Detección de alteraciones del adulto
-                                if (split[7] != "10" && (split[9].Substring(0, 1) != "Z"))
+                                if (split[7] != "" && split[9] != "")
                                 {
-                                    split[7] = "10";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
+                                    if (split[7] != "10" && (split[9].Substring(0, 1) != "Z"))
+                                    {
+                                        split[7] = "10";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                 }
 
                                 #endregion
