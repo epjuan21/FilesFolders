@@ -1924,9 +1924,6 @@ namespace FilesFolders
                                 if (chkBoxAxSavia.CheckState == CheckState.Checked)
                                 {
                                     if (
-                                        split[6].Substring(0, 2) == "23" ||
-                                        split[6].Substring(0,2) == "57" ||
-                                        split[6].Substring(0,2) == "86" ||
                                         split[6].Substring(0,2) == "87" ||
                                         split[6].Substring(0,2) == "89" ||
                                         split[6].Substring(0,2) == "90" ||
@@ -1938,6 +1935,17 @@ namespace FilesFolders
                                         )
                                     {
                                         split[13] = "";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    else if (
+                                        split[6].Substring(0, 2) == "23" ||
+                                        split[6].Substring(0, 2) == "57" ||
+                                        split[6].Substring(0, 2) == "86"
+                                            
+                                            )
+                                    {
+                                        split[13] = "1";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
