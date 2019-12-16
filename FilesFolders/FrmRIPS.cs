@@ -1951,6 +1951,32 @@ namespace FilesFolders
                                     }
                                 }
 
+                                // Modificar Acto Quirurgico Para SSSA Segun CUPS
+
+                                if (chkBoxSSSA.CheckState == CheckState.Checked)
+                                {
+                                    if (
+                                        split[6].Substring(0, 2) == "21" ||
+                                        split[6].Substring(0, 2) == "23" ||
+                                        split[6].Substring(0, 2) == "57" ||
+                                        split[6].Substring(0, 2) == "73" ||
+                                        split[6].Substring(0, 2) == "86" ||
+                                        split[6].Substring(0, 2) == "87" ||
+                                        split[6].Substring(0, 2) == "89" ||
+                                        split[6].Substring(0, 2) == "90" ||
+                                        split[6].Substring(0, 2) == "95" ||
+                                        split[6].Substring(0, 2) == "96" ||
+                                        split[6].Substring(0, 2) == "98" ||
+                                        split[6].Substring(0, 2) == "99" ||
+                                        split[6].Substring(0, 2) == "93"
+                                        )
+                                    {
+                                        split[13] = "";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                          
+                                }
 
                                 #endregion
 
