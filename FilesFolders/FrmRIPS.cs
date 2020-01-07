@@ -1167,6 +1167,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "902221")
+                                {
+                                    split[7] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "906127")
                                 {
                                     split[7] = "1";
@@ -1965,6 +1971,7 @@ namespace FilesFolders
                                         split[6].Substring(0, 2) == "21" ||
                                         split[6].Substring(0, 2) == "23" ||
                                         split[6].Substring(0, 2) == "57" ||
+                                        split[6].Substring(0, 2) == "67" ||
                                         split[6].Substring(0, 2) == "73" ||
                                         split[6].Substring(0, 2) == "86" ||
                                         split[6].Substring(0, 2) == "87" ||
