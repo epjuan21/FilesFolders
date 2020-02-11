@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FilesFolders.ManejoArchivos
@@ -57,10 +55,8 @@ namespace FilesFolders.ManejoArchivos
 
             foreach (var file in directory.GetFiles(searchPattern, SearchOption.TopDirectoryOnly))
             {
-
                 String nameFile = file.FullName;
                 files.Add(nameFile);
-
             }
 
             return files;
@@ -75,10 +71,8 @@ namespace FilesFolders.ManejoArchivos
 
             foreach (var file in directory.GetFiles(searchPattern, SearchOption.TopDirectoryOnly))
             {
-
                 String nameFile = file.Name;
                 files.Add(nameFile);
-
             }
 
             return files;
@@ -99,12 +93,9 @@ namespace FilesFolders.ManejoArchivos
                     String nameFile = item.FullName;
                     NumeroLineas = ContarLineas(nameFile);
                 }
-
             }
 
             return NumeroLineas;
         }
-
-
     }
 }

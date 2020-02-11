@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Threading;
-using System.Drawing;
-using System.IO;
-using System.Text;
 using System.Windows.Forms;
 using FilesFolders.ManejoArchivos;
 
