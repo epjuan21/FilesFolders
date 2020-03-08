@@ -545,189 +545,242 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+
+                                #region Correcciones para SSSA
+                                if (chkBoxDXSSSA.CheckState == CheckState.Checked)
+                                {
+                                    if (split[9] == "A099")
+                                    {
+                                        split[9] = "A09X";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[9] == "K649")
+                                    {
+                                        split[9] = "I842";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                }
+                                #endregion
+
+                                #region Correcciones para SAVIASALUD
                                 // Correccion para SAVIASALUD
                                 if (split[9] == "A09X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[9] = "A099";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[9] == "D752" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[9] = "D572";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[9] == "H547" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[9] = "H546";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[9] == "I842" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[9] = "K649";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[9] == "I848" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[9] = "K649";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[9] == "I841" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[9] = "K649";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[9] == "I845" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[9] = "K649";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[9] == "I48X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[9] = "I489";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[9] == "I849" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[9] = "K649";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[9] == "K359" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[9] = "K358";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[9] == "M725" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[9] = "M726";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[9] == "N180" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[9] = "N179";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[9] == "O60X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[9] = "O600";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                // Q314 ESTRIDOR LARINGEO CONGENITO
-                                // J042 LARINGOTRAQUEITIS AGUDA
-                                if (split[9] == "Q314" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[9] = "J042";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[9] == "R500" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[9] = "R509";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
+                                    {
+                                        split[9] = "A099";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[9] == "D752" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                    {
+                                        split[9] = "D572";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[9] == "H547" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                    {
+                                        split[9] = "H546";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[9] == "I842" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                    {
+                                        split[9] = "K649";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[9] == "I848" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                    {
+                                        split[9] = "K649";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[9] == "I841" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                    {
+                                        split[9] = "K649";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[9] == "I845" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                    {
+                                        split[9] = "K649";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[9] == "I48X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                    {
+                                        split[9] = "I489";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[9] == "I849" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                    {
+                                        split[9] = "K649";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[9] == "K359" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                    {
+                                        split[9] = "K358";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[9] == "M725" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                    {
+                                        split[9] = "M726";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[9] == "N180" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                    {
+                                        split[9] = "N179";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[9] == "O60X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                    {
+                                        split[9] = "O600";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    // Q314 ESTRIDOR LARINGEO CONGENITO
+                                    // J042 LARINGOTRAQUEITIS AGUDA
+                                    if (split[9] == "Q314" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                    {
+                                        split[9] = "J042";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[9] == "R500" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                    {
+                                        split[9] = "R509";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                #endregion
+
                                 #endregion
 
                                 #region Diagnostico Relacionado 1
                                 // Código del diagnóstico relacionado 1 - Posición 10
-                                if (split[10] == "A09X")
+
+                                #region Correcciones para SSSA
+                                if (chkBoxDXSSSA.CheckState == CheckState.Checked)
                                 {
-                                    split[10] = "A099";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
+                                    if (split[10] == "A099")
+                                    {
+                                        split[10] = "A09X";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "K649")
+                                    {
+                                        split[10] = "I842";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "I489")
+                                    {
+                                        split[10] = "I48X";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                 }
-                                if (split[10] == "D752" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                #endregion
+
+                                #region Correcciones para SAVIASALUD
+                                if (chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
-                                    split[10] = "D572";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
+                                    if (split[10] == "A09X")
+                                    {
+                                        split[10] = "A099";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "D752")
+                                    {
+                                        split[10] = "D572";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "H547")
+                                    {
+                                        split[10] = "H546";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "I48X")
+                                    {
+                                        split[10] = "I489";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "I841")
+                                    {
+                                        split[10] = "K649";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "I842")
+                                    {
+                                        split[10] = "K649";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "I845")
+                                    {
+                                        split[10] = "K649";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "I848")
+                                    {
+                                        split[10] = "K649";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "I849")
+                                    {
+                                        split[10] = "K649";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "M725")
+                                    {
+                                        split[10] = "M726";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "N180")
+                                    {
+                                        split[10] = "N179";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "O60X")
+                                    {
+                                        split[10] = "O600";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    // Q314 ESTRIDOR LARINGEO CONGENITO
+                                    // J042 LARINGOTRAQUEITIS AGUDA
+                                    if (split[10] == "Q314")
+                                    {
+                                        split[10] = "J042";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "R500")
+                                    {
+                                        split[10] = "R509";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                 }
-                                if (split[10] == "H547" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[10] = "H546";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[10] == "I48X")
-                                {
-                                    split[10] = "I489";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[10] == "I841" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[10] = "K649";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[10] == "I842" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[10] = "K649";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[10] == "I845" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[10] = "K649";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[10] == "I848" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[10] = "K649";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[10] == "I849" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[10] = "K649";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[10] == "M725")
-                                {
-                                    split[10] = "M726";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[10] == "N180")
-                                {
-                                    split[10] = "N179";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[10] == "O60X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[10] = "O600";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                // Q314 ESTRIDOR LARINGEO CONGENITO
-                                // J042 LARINGOTRAQUEITIS AGUDA
-                                if (split[10] == "Q314" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[10] = "J042";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[10] == "R500" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[10] = "R509";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
+                                #endregion
+
                                 #endregion
 
                                 #region Diagnostico Relacionado 2
@@ -1806,7 +1859,6 @@ namespace FilesFolders
                                 // Evaluar si la primera letra es minuscula
 
                                 // Obtenemos la Primera Letra
-
                                 if (split[10] != "" && chkBoxDxAxSum.CheckState != CheckState.Checked)
                                 {
                                     string firstLetter = split[10].Substring(0, 1);
@@ -1819,14 +1871,96 @@ namespace FilesFolders
                                     }
                                 }
 
-                                // Quitar Diagnóstico Principal para Sumimedical
-
-                                if (split[10] != "" && chkBoxDxAxSum.CheckState == CheckState.Checked)
+                                #region Correcciones para SSSA
+                                if (chkBoxDXSSSA.CheckState == CheckState.Checked)
                                 {
-                                    split[10] = "";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
+                                    if (split[10] == "A099")
+                                    {
+                                        split[10] = "A09X";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "K649")
+                                    {
+                                        split[10] = "I842";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "I489")
+                                    {
+                                        split[10] = "I48X";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                 }
+                                #endregion
+
+                                #region Correcciones para SUMIMEDICAL
+                                if (chkBoxDxAxSum.CheckState == CheckState.Checked)
+                                {
+                                    // Quitar Diagnóstico Principal para Sumimedical
+                                    if (split[10] != "")
+                                    {
+                                        split[10] = "";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                }
+
+                                #endregion
+
+                                #region Correcciones para SAVIASALUD
+                                if (chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                {
+                                    if (split[10] == "H547")
+                                    {
+                                        split[10] = "H546";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "I48X")
+                                    {
+                                        split[10] = "I489";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "I845")
+                                    {
+                                        split[10] = "K649";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "K359")
+                                    {
+                                        split[10] = "K358";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "N180")
+                                    {
+                                        split[10] = "N179";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+
+                                    // Q314 ESTRIDOR LARINGEO CONGENITO
+                                    // J042 LARINGOTRAQUEITIS AGUDA
+
+                                    if (split[10] == "Q314")
+                                    {
+                                        split[10] = "J042";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+
+                                    if (split[10] == "R500")
+                                    {
+                                        split[10] = "R509";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                }
+                                #endregion
 
                                 // Si el campo Diagnóstico Principal esta vació y Finalidad es 3 o 4
 
@@ -1838,78 +1972,37 @@ namespace FilesFolders
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
-                                    if (split[10] == "A09X")
-                                    {
-                                        split[10] = "A099";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
                                     if (split[10] == "D752")
                                     {
                                         split[10] = "D750";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
-                                    if (split[10] == "H547" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                    {
-                                        split[10] = "H546";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                    if (split[10] == "I48X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                    {
-                                        split[10] = "I489";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                    if (split[10] == "I845" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                    {
-                                        split[10] = "K649";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                    if (split[10] == "K359" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                    {
-                                        split[10] = "K358";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                    if (split[10] == "N180" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                    {
-                                        split[10] = "N179";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-
-                                    // Q314 ESTRIDOR LARINGEO CONGENITO
-                                    // J042 LARINGOTRAQUEITIS AGUDA
-
-                                    if (split[10] == "Q314" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                    {
-                                        split[10] = "J042";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-
-                                    if (split[10] == "R500" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                    {
-                                        split[10] = "R509";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
                                 }
-
 
                                 #endregion
 
                                 #region Diagnostico Relacionado
                                 // Diagnóstico Relacionado - Posición 11
-                                if (split[11] == "A09X" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+
+                                #region Corregir Diagnostico para SAVIASALUD
+                                if (chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
-                                    split[11] = "A099";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
+                                    if (split[11] == "A09X")
+                                    {
+                                        split[11] = "A099";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[11] == "R500")
+                                    {
+                                        split[11] = "R509";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                 }
+                                #endregion
+
                                 if (split[11] == "H547")
                                 {
                                     split[11] = "H546";
@@ -1922,13 +2015,6 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-                                if (split[11] == "R500" && chkBoxDiagSavia.CheckState == CheckState.Checked)
-                                {
-                                    split[11] = "R509";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-
                                 #endregion
 
                                 #region Forma Acto Quirurgico
@@ -1957,6 +2043,7 @@ namespace FilesFolders
                                 if (chkBoxAxSavia.CheckState == CheckState.Checked)
                                 {
                                     if (
+                                        split[6].Substring(0,2) == "69" ||
                                         split[6].Substring(0,2) == "87" ||
                                         split[6].Substring(0,2) == "89" ||
                                         split[6].Substring(0,2) == "90" ||
