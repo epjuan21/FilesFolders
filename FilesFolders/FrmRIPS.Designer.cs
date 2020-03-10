@@ -1,4 +1,6 @@
-﻿namespace FilesFolders
+﻿using System;
+
+namespace FilesFolders
 {
     partial class FrmRIPS
     {
@@ -205,7 +207,6 @@
             this.chkBoxCarEsp.TabIndex = 47;
             this.chkBoxCarEsp.Text = "Corregir Caracteres especiales para SAVIASALUD";
             this.chkBoxCarEsp.UseVisualStyleBackColor = true;
-            this.chkBoxCarEsp.CheckedChanged += new System.EventHandler(this.chkBoxAxSavia_CheckedChanged);
             // 
             // chkBoxAxSavia
             // 
