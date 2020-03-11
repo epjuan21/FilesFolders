@@ -872,10 +872,7 @@ namespace FilesFolders
                                 #region Diagnostico Relacionado 3
                                 // Código del diagnóstico relacionado 3 - Posición 12
 
-                                // Evaluar si la primera letra es minuscula
-
-                                // Obtenemos la Primera Letra
-
+                                // Corregir letras minusculas
                                 if (split[12] != "")
                                 {
                                     string firstLetter = split[12].Substring(0, 1);
@@ -888,18 +885,48 @@ namespace FilesFolders
                                     }
                                 }
 
-                                if (split[12] == "I48X")
+                                #region Correcciones para SSSA
+                                if (chkBoxDXSSSA.CheckState == CheckState.Checked)
                                 {
-                                    split[12] = "I489";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
+                                    if (split[12] == "A099")
+                                    {
+                                        split[12] = "A09X";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[12] == "K649")
+                                    {
+                                        split[12] = "I842";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[12] == "I489")
+                                    {
+                                        split[12] = "I48X";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                 }
-                                if (split[12] == "I849" && chkBoxDiagSavia.CheckState == CheckState.Checked)
+                                #endregion
+
+                                #region Correcciones para SAVIASALUD
+                                if (chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
-                                    split[12] = "K649";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
+                                    if (split[12] == "I48X")
+                                    {
+                                        split[12] = "I489";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[12] == "I849")
+                                    {
+                                        split[12] = "K649";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                 }
+                                #endregion
+
                                 #endregion
 
                                 #region Tipo Diagnostico Principal
@@ -1264,6 +1291,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "906039")
+                                {
+                                    split[7] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "906127")
                                 {
                                     split[7] = "1";
@@ -1433,6 +1466,12 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 if (split[6] == "870131")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "870602")
                                 {
                                     split[8] = "1";
                                     line = String.Join(",", split);
@@ -1613,6 +1652,12 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 if (split[6] == "897012")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "906039")
                                 {
                                     split[8] = "1";
                                     line = String.Join(",", split);
@@ -2121,6 +2166,7 @@ namespace FilesFolders
                                         split[6].Substring(0, 2) == "23" ||
                                         split[6].Substring(0, 2) == "57" ||
                                         split[6].Substring(0, 2) == "67" ||
+                                        split[6].Substring(0, 2) == "69" ||
                                         split[6].Substring(0, 2) == "73" ||
                                         split[6].Substring(0, 2) == "86" ||
                                         split[6].Substring(0, 2) == "87" ||
@@ -3212,6 +3258,16 @@ namespace FilesFolders
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
+
+                                    if (TipoDocumento == "CN" && Edad <= 17 && UnidadMedidaEdad == "1")
+                                    {
+                                        CorregirDocumento(TipoDocumento, NumeroDocumento, "MS");
+
+                                        split[0] = "MS";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+
                                 }
                             }
 
