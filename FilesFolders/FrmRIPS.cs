@@ -2010,6 +2010,12 @@ namespace FilesFolders
                                 #region Correcciones para SAVIASALUD
                                 if (chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
+                                    if (split[10] == "A09X")
+                                    {
+                                        split[10] = "A090";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                     if (split[10] == "H547")
                                     {
                                         split[10] = "H546";
@@ -2037,6 +2043,12 @@ namespace FilesFolders
                                     if (split[10] == "N180")
                                     {
                                         split[10] = "N179";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "R500")
+                                    {
+                                        split[10] = "R509";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
