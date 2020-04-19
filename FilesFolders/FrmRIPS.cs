@@ -3381,10 +3381,6 @@ namespace FilesFolders
 
         #endregion
 
-        private void chkBoxAxSavia_CheckedChanged(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+    }  
 
-    }
 }

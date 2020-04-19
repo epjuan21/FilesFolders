@@ -217,7 +217,6 @@ namespace FilesFolders
             this.chkBoxAxSavia.TabIndex = 47;
             this.chkBoxAxSavia.Text = "Corregir Acto Quirurgico para SAVIASALUD";
             this.chkBoxAxSavia.UseVisualStyleBackColor = true;
-            this.chkBoxAxSavia.CheckedChanged += new System.EventHandler(this.chkBoxAxSavia_CheckedChanged);
             // 
             // chkBoxDxAxSum
             // 
