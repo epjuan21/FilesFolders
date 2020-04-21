@@ -143,14 +143,14 @@
             // cambioEstructuraToolStripMenuItem
             // 
             this.cambioEstructuraToolStripMenuItem.Name = "cambioEstructuraToolStripMenuItem";
-            this.cambioEstructuraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cambioEstructuraToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.cambioEstructuraToolStripMenuItem.Text = "Cambio Estructura";
             this.cambioEstructuraToolStripMenuItem.Click += new System.EventHandler(this.cambioEstructuraToolStripMenuItem_Click);
             // 
             // comprimirArchivoToolStripMenuItem
             // 
             this.comprimirArchivoToolStripMenuItem.Name = "comprimirArchivoToolStripMenuItem";
-            this.comprimirArchivoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.comprimirArchivoToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.comprimirArchivoToolStripMenuItem.Text = "Comprimir Archivo";
             this.comprimirArchivoToolStripMenuItem.Click += new System.EventHandler(this.comprimirArchivoToolStripMenuItem_Click);
             // 
@@ -215,7 +215,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.entidadSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

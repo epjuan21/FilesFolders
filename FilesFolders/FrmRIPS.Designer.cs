@@ -32,6 +32,7 @@ namespace FilesFolders
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRIPS));
             this.pnlRIPS = new System.Windows.Forms.Panel();
+            this.chkBoxDXSSSA = new System.Windows.Forms.CheckBox();
             this.chkBoxSSSA = new System.Windows.Forms.CheckBox();
             this.chkBoxAMSavia = new System.Windows.Forms.CheckBox();
             this.chkACSumimedical = new System.Windows.Forms.CheckBox();
@@ -101,7 +102,6 @@ namespace FilesFolders
             this.txtRuta = new System.Windows.Forms.TextBox();
             this.btnRuta = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.chkBoxDXSSSA = new System.Windows.Forms.CheckBox();
             this.pnlRIPS.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -167,6 +167,16 @@ namespace FilesFolders
             this.pnlRIPS.Name = "pnlRIPS";
             this.pnlRIPS.Size = new System.Drawing.Size(955, 512);
             this.pnlRIPS.TabIndex = 2;
+            // 
+            // chkBoxDXSSSA
+            // 
+            this.chkBoxDXSSSA.AutoSize = true;
+            this.chkBoxDXSSSA.Location = new System.Drawing.Point(573, 481);
+            this.chkBoxDXSSSA.Name = "chkBoxDXSSSA";
+            this.chkBoxDXSSSA.Size = new System.Drawing.Size(152, 17);
+            this.chkBoxDXSSSA.TabIndex = 51;
+            this.chkBoxDXSSSA.Text = "Corregir Diagnostico SSSA";
+            this.chkBoxDXSSSA.UseVisualStyleBackColor = true;
             // 
             // chkBoxSSSA
             // 
@@ -809,16 +819,6 @@ namespace FilesFolders
             this.btnRuta.Text = "Ruta";
             this.btnRuta.UseVisualStyleBackColor = true;
             this.btnRuta.Click += new System.EventHandler(this.btnRuta_Click);
-            // 
-            // chkBoxDXSSSA
-            // 
-            this.chkBoxDXSSSA.AutoSize = true;
-            this.chkBoxDXSSSA.Location = new System.Drawing.Point(573, 481);
-            this.chkBoxDXSSSA.Name = "chkBoxDXSSSA";
-            this.chkBoxDXSSSA.Size = new System.Drawing.Size(152, 17);
-            this.chkBoxDXSSSA.TabIndex = 51;
-            this.chkBoxDXSSSA.Text = "Corregir Diagnostico SSSA";
-            this.chkBoxDXSSSA.UseVisualStyleBackColor = true;
             // 
             // FrmRIPS
             // 
