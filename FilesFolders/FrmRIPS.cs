@@ -2516,7 +2516,7 @@ namespace FilesFolders
 
                                 if (split[5] == "4" && split[6] == "" && (split[7] == "SALA DE OBSERVACION MAYOR DE 6 HORAS MENOR DE 24 HORAS" || split[7] == "SALA DE OBSERVACION MENOR DE 6 HORAS"))
                                 {
-                                    split[6] = "S20000";
+                                    split[6] = "5DSB01";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -2551,20 +2551,40 @@ namespace FilesFolders
 
                                 // Se elimina el codigo del servicio
                                 // Aplica para el validador de SAVIASALUD
-                                if (split[6] == "S32302")
-                                {
-                                    split[6] = "S31301";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "S33000")
-                                {
-                                    split[6] = "S31301";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
 
+                                // Corregir Codigos AT Para SAVIASALUD
+                                if (chkBoxSaviaAT.CheckState == CheckState.Checked)
 
+                                {
+                                    // S20000 SALA DE OBSERVACION MENOR DE 6 HORAS
+                                    if (split[6] == "S20000")
+                                    {
+                                        split[6] = "5DSB01";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    // S11104 SALA DE OBSERVACION MAYOR DE 6 HORAS MENOR DE 24 HORAS
+                                    if (split[6] == "S11104")
+                                    {
+                                        split[6] = "5DSB01";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    // S31102 TRASLADO BASICO CALDAS - MEDELLIN - BELLO - RIONEGRO KMT,
+                                    if (split[6] == "S31102")
+                                    {
+                                        split[6] = "601T01";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    // S21100 ALA DE PARTO DE COMPLEJIDAD BAJA SOD
+                                    if (split[6] == "S21100")
+                                    {
+                                        split[6] = "90DS01";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                }
 
                                 #endregion
 
@@ -3389,6 +3409,31 @@ namespace FilesFolders
                 return true;
             }
             return base.ProcessDialogKey(keyData);
+        }
+
+        private void chkBoxValSum_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkBoxDxAxSum_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkBoxCorregirAFSum_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkACSumimedical_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkBoxAxSavia_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }  
 

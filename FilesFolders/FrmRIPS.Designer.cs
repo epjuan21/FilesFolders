@@ -35,12 +35,7 @@ namespace FilesFolders
             this.chkBoxDXSSSA = new System.Windows.Forms.CheckBox();
             this.chkBoxSSSA = new System.Windows.Forms.CheckBox();
             this.chkBoxAMSavia = new System.Windows.Forms.CheckBox();
-            this.chkACSumimedical = new System.Windows.Forms.CheckBox();
             this.chkBoxCarEsp = new System.Windows.Forms.CheckBox();
-            this.chkBoxAxSavia = new System.Windows.Forms.CheckBox();
-            this.chkBoxDxAxSum = new System.Windows.Forms.CheckBox();
-            this.chkBoxCorregirAFSum = new System.Windows.Forms.CheckBox();
-            this.chkBoxValSum = new System.Windows.Forms.CheckBox();
             this.lblStatusAF = new System.Windows.Forms.Label();
             this.lblStatusAM = new System.Windows.Forms.Label();
             this.lblStatusAH = new System.Windows.Forms.Label();
@@ -102,21 +97,30 @@ namespace FilesFolders
             this.txtRuta = new System.Windows.Forms.TextBox();
             this.btnRuta = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chkBoxAxSavia = new System.Windows.Forms.CheckBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.chkBoxValSum = new System.Windows.Forms.CheckBox();
+            this.chkBoxCorregirAFSum = new System.Windows.Forms.CheckBox();
+            this.chkBoxDxAxSum = new System.Windows.Forms.CheckBox();
+            this.chkACSumimedical = new System.Windows.Forms.CheckBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.chkBoxSaviaAT = new System.Windows.Forms.CheckBox();
             this.pnlRIPS.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlRIPS
             // 
-            this.pnlRIPS.Controls.Add(this.chkBoxDXSSSA);
-            this.pnlRIPS.Controls.Add(this.chkBoxSSSA);
-            this.pnlRIPS.Controls.Add(this.chkBoxAMSavia);
-            this.pnlRIPS.Controls.Add(this.chkACSumimedical);
-            this.pnlRIPS.Controls.Add(this.chkBoxCarEsp);
-            this.pnlRIPS.Controls.Add(this.chkBoxAxSavia);
-            this.pnlRIPS.Controls.Add(this.chkBoxDxAxSum);
-            this.pnlRIPS.Controls.Add(this.chkBoxCorregirAFSum);
-            this.pnlRIPS.Controls.Add(this.chkBoxValSum);
+            this.pnlRIPS.Controls.Add(this.groupBox5);
+            this.pnlRIPS.Controls.Add(this.groupBox4);
+            this.pnlRIPS.Controls.Add(this.groupBox2);
+            this.pnlRIPS.Controls.Add(this.groupBox3);
             this.pnlRIPS.Controls.Add(this.lblStatusAF);
             this.pnlRIPS.Controls.Add(this.lblStatusAM);
             this.pnlRIPS.Controls.Add(this.lblStatusAH);
@@ -129,10 +133,6 @@ namespace FilesFolders
             this.pnlRIPS.Controls.Add(this.lblAF);
             this.pnlRIPS.Controls.Add(this.lblAM);
             this.pnlRIPS.Controls.Add(this.lblAH);
-            this.pnlRIPS.Controls.Add(this.ChkBoxFac);
-            this.pnlRIPS.Controls.Add(this.chkBoxDiagSavia);
-            this.pnlRIPS.Controls.Add(this.chkBoxValCm);
-            this.pnlRIPS.Controls.Add(this.chkBoxLonDoc);
             this.pnlRIPS.Controls.Add(this.lblStatusAU);
             this.pnlRIPS.Controls.Add(this.prgBarAU);
             this.pnlRIPS.Controls.Add(this.btnAU);
@@ -165,15 +165,17 @@ namespace FilesFolders
             this.pnlRIPS.Controls.Add(this.btnRuta);
             this.pnlRIPS.Location = new System.Drawing.Point(12, 12);
             this.pnlRIPS.Name = "pnlRIPS";
-            this.pnlRIPS.Size = new System.Drawing.Size(955, 512);
+            this.pnlRIPS.Size = new System.Drawing.Size(1021, 507);
             this.pnlRIPS.TabIndex = 2;
             // 
             // chkBoxDXSSSA
             // 
             this.chkBoxDXSSSA.AutoSize = true;
-            this.chkBoxDXSSSA.Location = new System.Drawing.Point(573, 481);
+            this.chkBoxDXSSSA.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxDXSSSA.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxDXSSSA.Location = new System.Drawing.Point(12, 51);
             this.chkBoxDXSSSA.Name = "chkBoxDXSSSA";
-            this.chkBoxDXSSSA.Size = new System.Drawing.Size(152, 17);
+            this.chkBoxDXSSSA.Size = new System.Drawing.Size(161, 17);
             this.chkBoxDXSSSA.TabIndex = 51;
             this.chkBoxDXSSSA.Text = "Corregir Diagnostico SSSA";
             this.chkBoxDXSSSA.UseVisualStyleBackColor = true;
@@ -181,9 +183,11 @@ namespace FilesFolders
             // chkBoxSSSA
             // 
             this.chkBoxSSSA.AutoSize = true;
-            this.chkBoxSSSA.Location = new System.Drawing.Point(573, 446);
+            this.chkBoxSSSA.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxSSSA.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxSSSA.Location = new System.Drawing.Point(12, 28);
             this.chkBoxSSSA.Name = "chkBoxSSSA";
-            this.chkBoxSSSA.Size = new System.Drawing.Size(169, 17);
+            this.chkBoxSSSA.Size = new System.Drawing.Size(180, 17);
             this.chkBoxSSSA.TabIndex = 50;
             this.chkBoxSSSA.Text = "Corregir Acto Quirurgico SSSA";
             this.chkBoxSSSA.UseVisualStyleBackColor = true;
@@ -191,77 +195,31 @@ namespace FilesFolders
             // chkBoxAMSavia
             // 
             this.chkBoxAMSavia.AutoSize = true;
-            this.chkBoxAMSavia.Location = new System.Drawing.Point(573, 413);
+            this.chkBoxAMSavia.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxAMSavia.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxAMSavia.Location = new System.Drawing.Point(12, 77);
             this.chkBoxAMSavia.Name = "chkBoxAMSavia";
-            this.chkBoxAMSavia.Size = new System.Drawing.Size(136, 17);
+            this.chkBoxAMSavia.Size = new System.Drawing.Size(88, 17);
             this.chkBoxAMSavia.TabIndex = 49;
-            this.chkBoxAMSavia.Text = "Corregir AM Saviasalud";
+            this.chkBoxAMSavia.Text = "Corregir AM";
             this.chkBoxAMSavia.UseVisualStyleBackColor = true;
-            // 
-            // chkACSumimedical
-            // 
-            this.chkACSumimedical.AutoSize = true;
-            this.chkACSumimedical.Location = new System.Drawing.Point(572, 377);
-            this.chkACSumimedical.Name = "chkACSumimedical";
-            this.chkACSumimedical.Size = new System.Drawing.Size(141, 17);
-            this.chkACSumimedical.TabIndex = 48;
-            this.chkACSumimedical.Text = "Corregir AC Sumimedical";
-            this.chkACSumimedical.UseVisualStyleBackColor = true;
             // 
             // chkBoxCarEsp
             // 
             this.chkBoxCarEsp.AutoSize = true;
-            this.chkBoxCarEsp.Location = new System.Drawing.Point(573, 342);
+            this.chkBoxCarEsp.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxCarEsp.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxCarEsp.Location = new System.Drawing.Point(12, 54);
             this.chkBoxCarEsp.Name = "chkBoxCarEsp";
-            this.chkBoxCarEsp.Size = new System.Drawing.Size(263, 17);
+            this.chkBoxCarEsp.Size = new System.Drawing.Size(271, 17);
             this.chkBoxCarEsp.TabIndex = 47;
             this.chkBoxCarEsp.Text = "Corregir Caracteres especiales para SAVIASALUD";
             this.chkBoxCarEsp.UseVisualStyleBackColor = true;
             // 
-            // chkBoxAxSavia
-            // 
-            this.chkBoxAxSavia.AutoSize = true;
-            this.chkBoxAxSavia.Location = new System.Drawing.Point(573, 311);
-            this.chkBoxAxSavia.Name = "chkBoxAxSavia";
-            this.chkBoxAxSavia.Size = new System.Drawing.Size(232, 17);
-            this.chkBoxAxSavia.TabIndex = 47;
-            this.chkBoxAxSavia.Text = "Corregir Acto Quirurgico para SAVIASALUD";
-            this.chkBoxAxSavia.UseVisualStyleBackColor = true;
-            // 
-            // chkBoxDxAxSum
-            // 
-            this.chkBoxDxAxSum.AutoSize = true;
-            this.chkBoxDxAxSum.Location = new System.Drawing.Point(573, 280);
-            this.chkBoxDxAxSum.Name = "chkBoxDxAxSum";
-            this.chkBoxDxAxSum.Size = new System.Drawing.Size(259, 17);
-            this.chkBoxDxAxSum.TabIndex = 46;
-            this.chkBoxDxAxSum.Text = "Quitar Diagnostico y Acto Quirurgico Sumimedical";
-            this.chkBoxDxAxSum.UseVisualStyleBackColor = true;
-            // 
-            // chkBoxCorregirAFSum
-            // 
-            this.chkBoxCorregirAFSum.AutoSize = true;
-            this.chkBoxCorregirAFSum.Location = new System.Drawing.Point(573, 251);
-            this.chkBoxCorregirAFSum.Name = "chkBoxCorregirAFSum";
-            this.chkBoxCorregirAFSum.Size = new System.Drawing.Size(140, 17);
-            this.chkBoxCorregirAFSum.TabIndex = 46;
-            this.chkBoxCorregirAFSum.Text = "Corregir AF Sumimedical";
-            this.chkBoxCorregirAFSum.UseVisualStyleBackColor = true;
-            // 
-            // chkBoxValSum
-            // 
-            this.chkBoxValSum.AutoSize = true;
-            this.chkBoxValSum.Location = new System.Drawing.Point(573, 218);
-            this.chkBoxValSum.Name = "chkBoxValSum";
-            this.chkBoxValSum.Size = new System.Drawing.Size(166, 17);
-            this.chkBoxValSum.TabIndex = 45;
-            this.chkBoxValSum.Text = "Quitar decimales Sumimedical";
-            this.chkBoxValSum.UseVisualStyleBackColor = true;
-            // 
             // lblStatusAF
             // 
             this.lblStatusAF.AutoSize = true;
-            this.lblStatusAF.Location = new System.Drawing.Point(433, 341);
+            this.lblStatusAF.Location = new System.Drawing.Point(433, 308);
             this.lblStatusAF.Name = "lblStatusAF";
             this.lblStatusAF.Size = new System.Drawing.Size(49, 13);
             this.lblStatusAF.TabIndex = 44;
@@ -270,7 +228,7 @@ namespace FilesFolders
             // lblStatusAM
             // 
             this.lblStatusAM.AutoSize = true;
-            this.lblStatusAM.Location = new System.Drawing.Point(433, 311);
+            this.lblStatusAM.Location = new System.Drawing.Point(433, 278);
             this.lblStatusAM.Name = "lblStatusAM";
             this.lblStatusAM.Size = new System.Drawing.Size(49, 13);
             this.lblStatusAM.TabIndex = 44;
@@ -279,7 +237,7 @@ namespace FilesFolders
             // lblStatusAH
             // 
             this.lblStatusAH.AutoSize = true;
-            this.lblStatusAH.Location = new System.Drawing.Point(433, 281);
+            this.lblStatusAH.Location = new System.Drawing.Point(433, 248);
             this.lblStatusAH.Name = "lblStatusAH";
             this.lblStatusAH.Size = new System.Drawing.Size(49, 13);
             this.lblStatusAH.TabIndex = 44;
@@ -287,21 +245,21 @@ namespace FilesFolders
             // 
             // prgBarAF
             // 
-            this.prgBarAF.Location = new System.Drawing.Point(96, 336);
+            this.prgBarAF.Location = new System.Drawing.Point(96, 303);
             this.prgBarAF.Name = "prgBarAF";
             this.prgBarAF.Size = new System.Drawing.Size(331, 23);
             this.prgBarAF.TabIndex = 43;
             // 
             // prgBarAM
             // 
-            this.prgBarAM.Location = new System.Drawing.Point(96, 305);
+            this.prgBarAM.Location = new System.Drawing.Point(96, 272);
             this.prgBarAM.Name = "prgBarAM";
             this.prgBarAM.Size = new System.Drawing.Size(331, 23);
             this.prgBarAM.TabIndex = 43;
             // 
             // prgBarAH
             // 
-            this.prgBarAH.Location = new System.Drawing.Point(96, 275);
+            this.prgBarAH.Location = new System.Drawing.Point(96, 242);
             this.prgBarAH.Name = "prgBarAH";
             this.prgBarAH.Size = new System.Drawing.Size(331, 23);
             this.prgBarAH.TabIndex = 43;
@@ -309,7 +267,7 @@ namespace FilesFolders
             // btnAF
             // 
             this.btnAF.Image = ((System.Drawing.Image)(resources.GetObject("btnAF.Image")));
-            this.btnAF.Location = new System.Drawing.Point(51, 336);
+            this.btnAF.Location = new System.Drawing.Point(51, 303);
             this.btnAF.Name = "btnAF";
             this.btnAF.Size = new System.Drawing.Size(36, 23);
             this.btnAF.TabIndex = 42;
@@ -319,7 +277,7 @@ namespace FilesFolders
             // btnAM
             // 
             this.btnAM.Image = ((System.Drawing.Image)(resources.GetObject("btnAM.Image")));
-            this.btnAM.Location = new System.Drawing.Point(51, 305);
+            this.btnAM.Location = new System.Drawing.Point(51, 272);
             this.btnAM.Name = "btnAM";
             this.btnAM.Size = new System.Drawing.Size(36, 23);
             this.btnAM.TabIndex = 42;
@@ -329,7 +287,7 @@ namespace FilesFolders
             // btnAH
             // 
             this.btnAH.Image = ((System.Drawing.Image)(resources.GetObject("btnAH.Image")));
-            this.btnAH.Location = new System.Drawing.Point(51, 276);
+            this.btnAH.Location = new System.Drawing.Point(51, 243);
             this.btnAH.Name = "btnAH";
             this.btnAH.Size = new System.Drawing.Size(36, 23);
             this.btnAH.TabIndex = 42;
@@ -339,7 +297,7 @@ namespace FilesFolders
             // 
             this.lblAF.AutoSize = true;
             this.lblAF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAF.Location = new System.Drawing.Point(16, 341);
+            this.lblAF.Location = new System.Drawing.Point(16, 308);
             this.lblAF.Name = "lblAF";
             this.lblAF.Size = new System.Drawing.Size(22, 13);
             this.lblAF.TabIndex = 41;
@@ -349,7 +307,7 @@ namespace FilesFolders
             // 
             this.lblAM.AutoSize = true;
             this.lblAM.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAM.Location = new System.Drawing.Point(14, 311);
+            this.lblAM.Location = new System.Drawing.Point(13, 278);
             this.lblAM.Name = "lblAM";
             this.lblAM.Size = new System.Drawing.Size(25, 13);
             this.lblAM.TabIndex = 41;
@@ -359,7 +317,7 @@ namespace FilesFolders
             // 
             this.lblAH.AutoSize = true;
             this.lblAH.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAH.Location = new System.Drawing.Point(15, 281);
+            this.lblAH.Location = new System.Drawing.Point(14, 248);
             this.lblAH.Name = "lblAH";
             this.lblAH.Size = new System.Drawing.Size(24, 13);
             this.lblAH.TabIndex = 41;
@@ -368,9 +326,11 @@ namespace FilesFolders
             // ChkBoxFac
             // 
             this.ChkBoxFac.AutoSize = true;
-            this.ChkBoxFac.Location = new System.Drawing.Point(251, 66);
+            this.ChkBoxFac.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChkBoxFac.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.ChkBoxFac.Location = new System.Drawing.Point(12, 28);
             this.ChkBoxFac.Name = "ChkBoxFac";
-            this.ChkBoxFac.Size = new System.Drawing.Size(156, 17);
+            this.ChkBoxFac.Size = new System.Drawing.Size(169, 17);
             this.ChkBoxFac.TabIndex = 36;
             this.ChkBoxFac.Text = "Corregir Número de Factura";
             this.ChkBoxFac.UseVisualStyleBackColor = true;
@@ -378,9 +338,11 @@ namespace FilesFolders
             // chkBoxDiagSavia
             // 
             this.chkBoxDiagSavia.AutoSize = true;
-            this.chkBoxDiagSavia.Location = new System.Drawing.Point(174, 160);
+            this.chkBoxDiagSavia.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxDiagSavia.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxDiagSavia.Location = new System.Drawing.Point(12, 100);
             this.chkBoxDiagSavia.Name = "chkBoxDiagSavia";
-            this.chkBoxDiagSavia.Size = new System.Drawing.Size(220, 17);
+            this.chkBoxDiagSavia.Size = new System.Drawing.Size(230, 17);
             this.chkBoxDiagSavia.TabIndex = 35;
             this.chkBoxDiagSavia.Text = "Corregir Diagnósticos para SAVIASALUD";
             this.chkBoxDiagSavia.UseVisualStyleBackColor = true;
@@ -388,9 +350,11 @@ namespace FilesFolders
             // chkBoxValCm
             // 
             this.chkBoxValCm.AutoSize = true;
-            this.chkBoxValCm.Location = new System.Drawing.Point(15, 160);
+            this.chkBoxValCm.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxValCm.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxValCm.Location = new System.Drawing.Point(12, 51);
             this.chkBoxValCm.Name = "chkBoxValCm";
-            this.chkBoxValCm.Size = new System.Drawing.Size(153, 17);
+            this.chkBoxValCm.Size = new System.Drawing.Size(169, 17);
             this.chkBoxValCm.TabIndex = 34;
             this.chkBoxValCm.Text = "Corregir Cuota Moderadora";
             this.chkBoxValCm.UseVisualStyleBackColor = true;
@@ -398,9 +362,11 @@ namespace FilesFolders
             // chkBoxLonDoc
             // 
             this.chkBoxLonDoc.AutoSize = true;
-            this.chkBoxLonDoc.Location = new System.Drawing.Point(16, 395);
+            this.chkBoxLonDoc.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxLonDoc.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxLonDoc.Location = new System.Drawing.Point(12, 74);
             this.chkBoxLonDoc.Name = "chkBoxLonDoc";
-            this.chkBoxLonDoc.Size = new System.Drawing.Size(232, 17);
+            this.chkBoxLonDoc.Size = new System.Drawing.Size(251, 17);
             this.chkBoxLonDoc.TabIndex = 33;
             this.chkBoxLonDoc.Text = "Incluir Documentos de Longitud Mayor a 10";
             this.chkBoxLonDoc.UseVisualStyleBackColor = true;
@@ -408,7 +374,7 @@ namespace FilesFolders
             // lblStatusAU
             // 
             this.lblStatusAU.AutoSize = true;
-            this.lblStatusAU.Location = new System.Drawing.Point(433, 251);
+            this.lblStatusAU.Location = new System.Drawing.Point(433, 218);
             this.lblStatusAU.Name = "lblStatusAU";
             this.lblStatusAU.Size = new System.Drawing.Size(49, 13);
             this.lblStatusAU.TabIndex = 32;
@@ -416,7 +382,7 @@ namespace FilesFolders
             // 
             // prgBarAU
             // 
-            this.prgBarAU.Location = new System.Drawing.Point(96, 246);
+            this.prgBarAU.Location = new System.Drawing.Point(96, 213);
             this.prgBarAU.Name = "prgBarAU";
             this.prgBarAU.Size = new System.Drawing.Size(331, 23);
             this.prgBarAU.TabIndex = 31;
@@ -424,7 +390,7 @@ namespace FilesFolders
             // btnAU
             // 
             this.btnAU.Image = ((System.Drawing.Image)(resources.GetObject("btnAU.Image")));
-            this.btnAU.Location = new System.Drawing.Point(51, 246);
+            this.btnAU.Location = new System.Drawing.Point(51, 213);
             this.btnAU.Name = "btnAU";
             this.btnAU.Size = new System.Drawing.Size(36, 23);
             this.btnAU.TabIndex = 30;
@@ -435,7 +401,7 @@ namespace FilesFolders
             // 
             this.lblAU.AutoSize = true;
             this.lblAU.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAU.Location = new System.Drawing.Point(15, 251);
+            this.lblAU.Location = new System.Drawing.Point(14, 218);
             this.lblAU.Name = "lblAU";
             this.lblAU.Size = new System.Drawing.Size(24, 13);
             this.lblAU.TabIndex = 29;
@@ -444,7 +410,7 @@ namespace FilesFolders
             // lblStatusAT
             // 
             this.lblStatusAT.AutoSize = true;
-            this.lblStatusAT.Location = new System.Drawing.Point(433, 222);
+            this.lblStatusAT.Location = new System.Drawing.Point(433, 189);
             this.lblStatusAT.Name = "lblStatusAT";
             this.lblStatusAT.Size = new System.Drawing.Size(49, 13);
             this.lblStatusAT.TabIndex = 28;
@@ -452,7 +418,7 @@ namespace FilesFolders
             // 
             // prgBarAT
             // 
-            this.prgBarAT.Location = new System.Drawing.Point(96, 217);
+            this.prgBarAT.Location = new System.Drawing.Point(96, 184);
             this.prgBarAT.Name = "prgBarAT";
             this.prgBarAT.Size = new System.Drawing.Size(331, 23);
             this.prgBarAT.TabIndex = 27;
@@ -460,7 +426,7 @@ namespace FilesFolders
             // btnAT
             // 
             this.btnAT.Image = ((System.Drawing.Image)(resources.GetObject("btnAT.Image")));
-            this.btnAT.Location = new System.Drawing.Point(51, 217);
+            this.btnAT.Location = new System.Drawing.Point(51, 184);
             this.btnAT.Name = "btnAT";
             this.btnAT.Size = new System.Drawing.Size(36, 23);
             this.btnAT.TabIndex = 26;
@@ -471,7 +437,7 @@ namespace FilesFolders
             // 
             this.lblAT.AutoSize = true;
             this.lblAT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAT.Location = new System.Drawing.Point(15, 222);
+            this.lblAT.Location = new System.Drawing.Point(15, 189);
             this.lblAT.Name = "lblAT";
             this.lblAT.Size = new System.Drawing.Size(23, 13);
             this.lblAT.TabIndex = 25;
@@ -480,7 +446,7 @@ namespace FilesFolders
             // lblStatusDoc
             // 
             this.lblStatusDoc.AutoSize = true;
-            this.lblStatusDoc.Location = new System.Drawing.Point(431, 427);
+            this.lblStatusDoc.Location = new System.Drawing.Point(431, 381);
             this.lblStatusDoc.Name = "lblStatusDoc";
             this.lblStatusDoc.Size = new System.Drawing.Size(49, 13);
             this.lblStatusDoc.TabIndex = 24;
@@ -488,7 +454,7 @@ namespace FilesFolders
             // 
             // prgBarDoc
             // 
-            this.prgBarDoc.Location = new System.Drawing.Point(94, 422);
+            this.prgBarDoc.Location = new System.Drawing.Point(94, 376);
             this.prgBarDoc.Name = "prgBarDoc";
             this.prgBarDoc.Size = new System.Drawing.Size(331, 23);
             this.prgBarDoc.TabIndex = 23;
@@ -498,7 +464,7 @@ namespace FilesFolders
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label9.Location = new System.Drawing.Point(11, 362);
+            this.label9.Location = new System.Drawing.Point(8, 339);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(173, 21);
             this.label9.TabIndex = 22;
@@ -508,7 +474,7 @@ namespace FilesFolders
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(10, 427);
+            this.label8.Location = new System.Drawing.Point(10, 381);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(33, 13);
             this.label8.TabIndex = 21;
@@ -518,7 +484,7 @@ namespace FilesFolders
             // 
             this.lblAP.AutoSize = true;
             this.lblAP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAP.Location = new System.Drawing.Point(14, 193);
+            this.lblAP.Location = new System.Drawing.Point(15, 160);
             this.lblAP.Name = "lblAP";
             this.lblAP.Size = new System.Drawing.Size(23, 13);
             this.lblAP.TabIndex = 20;
@@ -558,7 +524,7 @@ namespace FilesFolders
             // btnDoc
             // 
             this.btnDoc.Image = ((System.Drawing.Image)(resources.GetObject("btnDoc.Image")));
-            this.btnDoc.Location = new System.Drawing.Point(49, 422);
+            this.btnDoc.Location = new System.Drawing.Point(49, 376);
             this.btnDoc.Name = "btnDoc";
             this.btnDoc.Size = new System.Drawing.Size(36, 23);
             this.btnDoc.TabIndex = 16;
@@ -623,7 +589,7 @@ namespace FilesFolders
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.lblTotalAC);
-            this.groupBox1.Location = new System.Drawing.Point(573, 16);
+            this.groupBox1.Location = new System.Drawing.Point(896, 19);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(105, 187);
             this.groupBox1.TabIndex = 9;
@@ -769,7 +735,7 @@ namespace FilesFolders
             // lblStatusAP
             // 
             this.lblStatusAP.AutoSize = true;
-            this.lblStatusAP.Location = new System.Drawing.Point(433, 192);
+            this.lblStatusAP.Location = new System.Drawing.Point(433, 159);
             this.lblStatusAP.Name = "lblStatusAP";
             this.lblStatusAP.Size = new System.Drawing.Size(49, 13);
             this.lblStatusAP.TabIndex = 7;
@@ -787,7 +753,7 @@ namespace FilesFolders
             // 
             // prgBarAP
             // 
-            this.prgBarAP.Location = new System.Drawing.Point(96, 188);
+            this.prgBarAP.Location = new System.Drawing.Point(96, 155);
             this.prgBarAP.Name = "prgBarAP";
             this.prgBarAP.Size = new System.Drawing.Size(331, 23);
             this.prgBarAP.TabIndex = 5;
@@ -795,7 +761,7 @@ namespace FilesFolders
             // btnAP
             // 
             this.btnAP.Image = ((System.Drawing.Image)(resources.GetObject("btnAP.Image")));
-            this.btnAP.Location = new System.Drawing.Point(51, 188);
+            this.btnAP.Location = new System.Drawing.Point(51, 155);
             this.btnAP.Name = "btnAP";
             this.btnAP.Size = new System.Drawing.Size(36, 23);
             this.btnAP.TabIndex = 4;
@@ -820,11 +786,146 @@ namespace FilesFolders
             this.btnRuta.UseVisualStyleBackColor = true;
             this.btnRuta.Click += new System.EventHandler(this.btnRuta_Click);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.chkBoxSaviaAT);
+            this.groupBox2.Controls.Add(this.chkBoxAxSavia);
+            this.groupBox2.Controls.Add(this.chkBoxCarEsp);
+            this.groupBox2.Controls.Add(this.chkBoxAMSavia);
+            this.groupBox2.Controls.Add(this.chkBoxDiagSavia);
+            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.groupBox2.Location = new System.Drawing.Point(577, 126);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(299, 151);
+            this.groupBox2.TabIndex = 53;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "SAVIASALUD";
+            // 
+            // chkBoxAxSavia
+            // 
+            this.chkBoxAxSavia.AutoSize = true;
+            this.chkBoxAxSavia.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxAxSavia.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxAxSavia.Location = new System.Drawing.Point(12, 31);
+            this.chkBoxAxSavia.Name = "chkBoxAxSavia";
+            this.chkBoxAxSavia.Size = new System.Drawing.Size(244, 17);
+            this.chkBoxAxSavia.TabIndex = 55;
+            this.chkBoxAxSavia.Text = "Corregir Acto Quirurgico para SAVIASALUD";
+            this.chkBoxAxSavia.UseVisualStyleBackColor = true;
+            this.chkBoxAxSavia.CheckedChanged += new System.EventHandler(this.chkBoxAxSavia_CheckedChanged);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.chkACSumimedical);
+            this.groupBox3.Controls.Add(this.chkBoxDxAxSum);
+            this.groupBox3.Controls.Add(this.chkBoxCorregirAFSum);
+            this.groupBox3.Controls.Add(this.chkBoxValSum);
+            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.groupBox3.Location = new System.Drawing.Point(577, 368);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(299, 133);
+            this.groupBox3.TabIndex = 54;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "SUMIMEDICAL";
+            // 
+            // chkBoxValSum
+            // 
+            this.chkBoxValSum.AutoSize = true;
+            this.chkBoxValSum.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxValSum.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxValSum.Location = new System.Drawing.Point(12, 36);
+            this.chkBoxValSum.Name = "chkBoxValSum";
+            this.chkBoxValSum.Size = new System.Drawing.Size(178, 17);
+            this.chkBoxValSum.TabIndex = 46;
+            this.chkBoxValSum.Text = "Quitar decimales Sumimedical";
+            this.chkBoxValSum.UseVisualStyleBackColor = true;
+            this.chkBoxValSum.CheckedChanged += new System.EventHandler(this.chkBoxValSum_CheckedChanged);
+            // 
+            // chkBoxCorregirAFSum
+            // 
+            this.chkBoxCorregirAFSum.AutoSize = true;
+            this.chkBoxCorregirAFSum.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxCorregirAFSum.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxCorregirAFSum.Location = new System.Drawing.Point(12, 59);
+            this.chkBoxCorregirAFSum.Name = "chkBoxCorregirAFSum";
+            this.chkBoxCorregirAFSum.Size = new System.Drawing.Size(151, 17);
+            this.chkBoxCorregirAFSum.TabIndex = 47;
+            this.chkBoxCorregirAFSum.Text = "Corregir AF Sumimedical";
+            this.chkBoxCorregirAFSum.UseVisualStyleBackColor = true;
+            this.chkBoxCorregirAFSum.CheckedChanged += new System.EventHandler(this.chkBoxCorregirAFSum_CheckedChanged);
+            // 
+            // chkBoxDxAxSum
+            // 
+            this.chkBoxDxAxSum.AutoSize = true;
+            this.chkBoxDxAxSum.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxDxAxSum.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxDxAxSum.Location = new System.Drawing.Point(12, 82);
+            this.chkBoxDxAxSum.Name = "chkBoxDxAxSum";
+            this.chkBoxDxAxSum.Size = new System.Drawing.Size(282, 17);
+            this.chkBoxDxAxSum.TabIndex = 48;
+            this.chkBoxDxAxSum.Text = "Quitar Diagnostico y Acto Quirurgico Sumimedical";
+            this.chkBoxDxAxSum.UseVisualStyleBackColor = true;
+            this.chkBoxDxAxSum.CheckedChanged += new System.EventHandler(this.chkBoxDxAxSum_CheckedChanged);
+            // 
+            // chkACSumimedical
+            // 
+            this.chkACSumimedical.AutoSize = true;
+            this.chkACSumimedical.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkACSumimedical.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkACSumimedical.Location = new System.Drawing.Point(12, 105);
+            this.chkACSumimedical.Name = "chkACSumimedical";
+            this.chkACSumimedical.Size = new System.Drawing.Size(152, 17);
+            this.chkACSumimedical.TabIndex = 49;
+            this.chkACSumimedical.Text = "Corregir AC Sumimedical";
+            this.chkACSumimedical.UseVisualStyleBackColor = true;
+            this.chkACSumimedical.CheckedChanged += new System.EventHandler(this.chkACSumimedical_CheckedChanged);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.chkBoxSSSA);
+            this.groupBox4.Controls.Add(this.chkBoxDXSSSA);
+            this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.groupBox4.Location = new System.Drawing.Point(577, 283);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(299, 79);
+            this.groupBox4.TabIndex = 55;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "SSSA";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.ChkBoxFac);
+            this.groupBox5.Controls.Add(this.chkBoxValCm);
+            this.groupBox5.Controls.Add(this.chkBoxLonDoc);
+            this.groupBox5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.groupBox5.Location = new System.Drawing.Point(577, 21);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(299, 99);
+            this.groupBox5.TabIndex = 56;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "General";
+            // 
+            // chkBoxSaviaAT
+            // 
+            this.chkBoxSaviaAT.AutoSize = true;
+            this.chkBoxSaviaAT.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxSaviaAT.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxSaviaAT.Location = new System.Drawing.Point(12, 123);
+            this.chkBoxSaviaAT.Name = "chkBoxSaviaAT";
+            this.chkBoxSaviaAT.Size = new System.Drawing.Size(83, 17);
+            this.chkBoxSaviaAT.TabIndex = 56;
+            this.chkBoxSaviaAT.Text = "Corregir AT";
+            this.chkBoxSaviaAT.UseVisualStyleBackColor = true;
+            // 
             // FrmRIPS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1028, 572);
+            this.ClientSize = new System.Drawing.Size(1045, 533);
             this.Controls.Add(this.pnlRIPS);
             this.Name = "FrmRIPS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -834,6 +935,14 @@ namespace FilesFolders
             this.pnlRIPS.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -894,22 +1003,27 @@ namespace FilesFolders
         private System.Windows.Forms.ProgressBar prgBarAH;
         private System.Windows.Forms.Button btnAH;
         private System.Windows.Forms.Label lblAH;
-        private System.Windows.Forms.CheckBox chkBoxValSum;
         private System.Windows.Forms.Button btnAF;
         private System.Windows.Forms.Label lblAF;
         private System.Windows.Forms.Label lblStatusAF;
         private System.Windows.Forms.ProgressBar prgBarAF;
-        private System.Windows.Forms.CheckBox chkBoxCorregirAFSum;
-        private System.Windows.Forms.CheckBox chkBoxDxAxSum;
         private System.Windows.Forms.Label lblAM;
         private System.Windows.Forms.Button btnAM;
         private System.Windows.Forms.Label lblStatusAM;
         private System.Windows.Forms.ProgressBar prgBarAM;
-        private System.Windows.Forms.CheckBox chkBoxAxSavia;
         private System.Windows.Forms.CheckBox chkBoxCarEsp;
-        private System.Windows.Forms.CheckBox chkACSumimedical;
         private System.Windows.Forms.CheckBox chkBoxAMSavia;
         private System.Windows.Forms.CheckBox chkBoxSSSA;
         private System.Windows.Forms.CheckBox chkBoxDXSSSA;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.CheckBox chkACSumimedical;
+        private System.Windows.Forms.CheckBox chkBoxDxAxSum;
+        private System.Windows.Forms.CheckBox chkBoxCorregirAFSum;
+        private System.Windows.Forms.CheckBox chkBoxValSum;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.CheckBox chkBoxAxSavia;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.CheckBox chkBoxSaviaAT;
     }
 }
