@@ -8,7 +8,8 @@ using System.Threading;
 using System.Windows.Forms;
 
 namespace FilesFolders
-{    public partial class FrmRIPS : Form
+{
+    public partial class FrmRIPS : Form
     {
         public FrmRIPS()
         {
@@ -154,7 +155,7 @@ namespace FilesFolders
                                 // Reemplazar Caracteres Especiales
 
                                 primerApellido = primerApellido.Replace("ñ", "N");
-                            
+
                                 // Borrar Espacios
                                 split[4] = primerApellido.Trim();
 
@@ -180,7 +181,7 @@ namespace FilesFolders
                                 contadorErrores++;
 
                                 // Corregir Caracter Ñ para SAVIASALUD
-                                if(chkBoxCarEsp.CheckState == CheckState.Checked)
+                                if (chkBoxCarEsp.CheckState == CheckState.Checked)
                                 {
                                     // Primer Apellido
                                     split[4] = primerApellido = primerApellido.Replace("Ñ", "N");
@@ -491,7 +492,7 @@ namespace FilesFolders
                                         {
                                             split[8] = "15";
                                             line = String.Join(",", split);
-                                            contadorErrores++;                                         
+                                            contadorErrores++;
                                         }
 
                                     }
@@ -538,7 +539,7 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-                                
+
                                 if (split[9] == "")
                                 {
                                     split[9] = "R101";
@@ -1011,7 +1012,7 @@ namespace FilesFolders
                         {
                             writer.WriteLine(line);
                         }
-                    }                
+                    }
                 }
 
                 // Eliminar Ultimo Salto de Linea CR LF del Archivo
@@ -1879,6 +1880,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "939402")
+                                {
+                                    split[8] = "2";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "936800")
                                 {
                                     split[8] = "2";
@@ -2153,15 +2160,15 @@ namespace FilesFolders
                                 if (chkBoxAxSavia.CheckState == CheckState.Checked)
                                 {
                                     if (
-                                        split[6].Substring(0,2) == "69" ||
-                                        split[6].Substring(0,2) == "87" ||
-                                        split[6].Substring(0,2) == "89" ||
-                                        split[6].Substring(0,2) == "90" ||
-                                        split[6].Substring(0,2) == "95" ||
-                                        split[6].Substring(0,2) == "96" ||
-                                        split[6].Substring(0,2) == "98" ||
-                                        split[6].Substring(0,2) == "99" || 
-                                        split[6].Substring(0,2) == "93"
+                                        split[6].Substring(0, 2) == "69" ||
+                                        split[6].Substring(0, 2) == "87" ||
+                                        split[6].Substring(0, 2) == "89" ||
+                                        split[6].Substring(0, 2) == "90" ||
+                                        split[6].Substring(0, 2) == "95" ||
+                                        split[6].Substring(0, 2) == "96" ||
+                                        split[6].Substring(0, 2) == "98" ||
+                                        split[6].Substring(0, 2) == "99" ||
+                                        split[6].Substring(0, 2) == "93"
                                         )
                                     {
                                         split[13] = "";
@@ -2172,7 +2179,7 @@ namespace FilesFolders
                                         split[6].Substring(0, 2) == "23" ||
                                         split[6].Substring(0, 2) == "57" ||
                                         split[6].Substring(0, 2) == "86"
-                                            
+
                                             )
                                     {
                                         split[13] = "1";
@@ -2207,7 +2214,7 @@ namespace FilesFolders
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
-                          
+
                                 }
 
                                 #endregion
@@ -2488,7 +2495,7 @@ namespace FilesFolders
                                 }
 
                                 #region Tipo de Servicio
-                                
+
                                 // Tipo de Servicio - Posición 5
 
                                 //1 = Materiales e insumos
@@ -2523,14 +2530,14 @@ namespace FilesFolders
 
                                 if (split[5] == "3" && split[6] == "" && split[7] == "HABITACION BIPERSONAL COMPLEJIDAD BAJA")
                                 {
-                                    split[6] = "S11102";
+                                    split[6] = "10B001";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
 
                                 if (split[5] == "2" && split[6] == "" && split[7] == "HABITACION BIPERSONAL COMPLEJIDAD BAJA")
                                 {
-                                    split[6] = "S11102";
+                                    split[6] = "10B001";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -2560,6 +2567,13 @@ namespace FilesFolders
                                     if (split[6] == "S20000")
                                     {
                                         split[6] = "5DSB01";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    // S11102 HABITACION BIPERSONAL COMPLEJIDAD BAJA
+                                    if (split[6] == "S11102")
+                                    {
+                                        split[6] = "10B001";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
@@ -3411,30 +3425,6 @@ namespace FilesFolders
             return base.ProcessDialogKey(keyData);
         }
 
-        private void chkBoxValSum_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chkBoxDxAxSum_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chkBoxCorregirAFSum_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chkACSumimedical_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chkBoxAxSavia_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-    }  
+    }
 
 }

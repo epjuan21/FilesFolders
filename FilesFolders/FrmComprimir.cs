@@ -110,7 +110,6 @@ namespace FilesFolders
 
                 // Focus
                 cmbTipoFuente.Focus();
-
             }
         }
 

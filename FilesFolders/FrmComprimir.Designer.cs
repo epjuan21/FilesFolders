@@ -33,6 +33,7 @@
             this.txtRutaEAPB = new System.Windows.Forms.TextBox();
             this.btnRutaEAPB = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cmbTipoFuente = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnComprimir = new System.Windows.Forms.Button();
             this.lblNombreArchivo = new System.Windows.Forms.Label();
@@ -57,7 +58,6 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.cmbTipoFuente = new System.Windows.Forms.ComboBox();
             this.pnlComprimirArchivo.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -136,6 +136,18 @@
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Comprimir Archivo";
+            // 
+            // cmbTipoFuente
+            // 
+            this.cmbTipoFuente.FormattingEnabled = true;
+            this.cmbTipoFuente.Items.AddRange(new object[] {
+            "170",
+            "165",
+            "165COVI"});
+            this.cmbTipoFuente.Location = new System.Drawing.Point(9, 76);
+            this.cmbTipoFuente.Name = "cmbTipoFuente";
+            this.cmbTipoFuente.Size = new System.Drawing.Size(50, 21);
+            this.cmbTipoFuente.TabIndex = 26;
             // 
             // label1
             // 
@@ -294,7 +306,7 @@
             this.lblTipoIdEntidad.ForeColor = System.Drawing.SystemColors.WindowText;
             this.lblTipoIdEntidad.Location = new System.Drawing.Point(117, 162);
             this.lblTipoIdEntidad.Name = "lblTipoIdEntidad";
-            this.lblTipoIdEntidad.Size = new System.Drawing.Size(189, 13);
+            this.lblTipoIdEntidad.Size = new System.Drawing.Size(190, 13);
             this.lblTipoIdEntidad.TabIndex = 6;
             this.lblTipoIdEntidad.Text = "Tipo de Identificación de la Entidad";
             // 
@@ -327,7 +339,7 @@
             this.lblTipoFuente.ForeColor = System.Drawing.SystemColors.WindowText;
             this.lblTipoFuente.Location = new System.Drawing.Point(65, 78);
             this.lblTipoFuente.Name = "lblTipoFuente";
-            this.lblTipoFuente.Size = new System.Drawing.Size(84, 13);
+            this.lblTipoFuente.Size = new System.Drawing.Size(85, 13);
             this.lblTipoFuente.TabIndex = 3;
             this.lblTipoFuente.Text = "Tipo de Fuente";
             // 
@@ -371,17 +383,6 @@
             this.label25.Size = new System.Drawing.Size(402, 20);
             this.label25.TabIndex = 6;
             this.label25.Text = "Seleccione la ruta donde se encuentran los archivos RIPS";
-            // 
-            // cmbTipoFuente
-            // 
-            this.cmbTipoFuente.FormattingEnabled = true;
-            this.cmbTipoFuente.Items.AddRange(new object[] {
-            "170",
-            "165"});
-            this.cmbTipoFuente.Location = new System.Drawing.Point(9, 76);
-            this.cmbTipoFuente.Name = "cmbTipoFuente";
-            this.cmbTipoFuente.Size = new System.Drawing.Size(50, 21);
-            this.cmbTipoFuente.TabIndex = 26;
             // 
             // FrmComprimir
             // 
