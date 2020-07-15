@@ -813,7 +813,6 @@ namespace FilesFolders
             this.chkBoxAxSavia.TabIndex = 55;
             this.chkBoxAxSavia.Text = "Corregir Acto Quirurgico para SAVIASALUD";
             this.chkBoxAxSavia.UseVisualStyleBackColor = true;
-            this.chkBoxAxSavia.CheckedChanged += new System.EventHandler(this.chkBoxAxSavia_CheckedChanged);
             // 
             // groupBox3
             // 
@@ -841,7 +840,6 @@ namespace FilesFolders
             this.chkBoxValSum.TabIndex = 46;
             this.chkBoxValSum.Text = "Quitar decimales Sumimedical";
             this.chkBoxValSum.UseVisualStyleBackColor = true;
-            this.chkBoxValSum.CheckedChanged += new System.EventHandler(this.chkBoxValSum_CheckedChanged);
             // 
             // chkBoxCorregirAFSum
             // 
@@ -854,7 +852,6 @@ namespace FilesFolders
             this.chkBoxCorregirAFSum.TabIndex = 47;
             this.chkBoxCorregirAFSum.Text = "Corregir AF Sumimedical";
             this.chkBoxCorregirAFSum.UseVisualStyleBackColor = true;
-            this.chkBoxCorregirAFSum.CheckedChanged += new System.EventHandler(this.chkBoxCorregirAFSum_CheckedChanged);
             // 
             // chkBoxDxAxSum
             // 
@@ -867,7 +864,6 @@ namespace FilesFolders
             this.chkBoxDxAxSum.TabIndex = 48;
             this.chkBoxDxAxSum.Text = "Quitar Diagnostico y Acto Quirurgico Sumimedical";
             this.chkBoxDxAxSum.UseVisualStyleBackColor = true;
-            this.chkBoxDxAxSum.CheckedChanged += new System.EventHandler(this.chkBoxDxAxSum_CheckedChanged);
             // 
             // chkACSumimedical
             // 
@@ -880,7 +876,6 @@ namespace FilesFolders
             this.chkACSumimedical.TabIndex = 49;
             this.chkACSumimedical.Text = "Corregir AC Sumimedical";
             this.chkACSumimedical.UseVisualStyleBackColor = true;
-            this.chkACSumimedical.CheckedChanged += new System.EventHandler(this.chkACSumimedical_CheckedChanged);
             // 
             // groupBox4
             // 
