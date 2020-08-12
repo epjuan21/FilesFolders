@@ -2591,10 +2591,24 @@ namespace FilesFolders
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
-                                    // S21100 ALA DE PARTO DE COMPLEJIDAD BAJA SOD
+                                    // S21100 SALA DE PARTO DE COMPLEJIDAD BAJA SOD
                                     if (split[6] == "S21100")
                                     {
                                         split[6] = "90DS01";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    // S22102 SALA DE PEQUEÑA CIRUGIA
+                                    if (split[6] == "S22101")
+                                    {
+                                        split[6] = "5DS003";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    // S22103 SALA DE YESOS
+                                    if (split[6] == "S22103")
+                                    {
+                                        split[6] = "5DS004";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
