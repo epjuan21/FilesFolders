@@ -2598,8 +2598,8 @@ namespace FilesFolders
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
-                                    // S22102 SALA DE PEQUEÑA CIRUGIA
-                                    if (split[6] == "S22101")
+                                    // S22101 SALA DE PEQUEÑA CIRUGIA
+                                    if (split[6] == "S22101" || split[6] == "S22102")
                                     {
                                         split[6] = "5DS003";
                                         line = String.Join(",", split);
@@ -2612,6 +2612,13 @@ namespace FilesFolders
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
+                                    // S33000 HORA PROFESIONAL MEDICO TRASLADO PACIENTES
+                                    //if (split[6] == "S33000")
+                                    //{
+                                    //    split[6] = "";
+                                    //    line = String.Join(",", split);
+                                    //    contadorErrores++;
+                                    //}
                                 }
 
                                 #endregion
