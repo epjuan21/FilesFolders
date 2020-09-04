@@ -146,7 +146,7 @@
             "165COVI"});
             this.cmbTipoFuente.Location = new System.Drawing.Point(9, 76);
             this.cmbTipoFuente.Name = "cmbTipoFuente";
-            this.cmbTipoFuente.Size = new System.Drawing.Size(50, 21);
+            this.cmbTipoFuente.Size = new System.Drawing.Size(67, 21);
             this.cmbTipoFuente.TabIndex = 26;
             // 
             // label1
@@ -252,7 +252,7 @@
             // 
             this.txtTema.Location = new System.Drawing.Point(9, 103);
             this.txtTema.Name = "txtTema";
-            this.txtTema.Size = new System.Drawing.Size(50, 22);
+            this.txtTema.Size = new System.Drawing.Size(67, 22);
             this.txtTema.TabIndex = 12;
             // 
             // lblExtension
@@ -326,7 +326,7 @@
             this.lblTema.AutoSize = true;
             this.lblTema.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTema.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblTema.Location = new System.Drawing.Point(65, 106);
+            this.lblTema.Location = new System.Drawing.Point(82, 106);
             this.lblTema.Name = "lblTema";
             this.lblTema.Size = new System.Drawing.Size(114, 13);
             this.lblTema.TabIndex = 4;
@@ -337,7 +337,7 @@
             this.lblTipoFuente.AutoSize = true;
             this.lblTipoFuente.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTipoFuente.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblTipoFuente.Location = new System.Drawing.Point(65, 78);
+            this.lblTipoFuente.Location = new System.Drawing.Point(82, 79);
             this.lblTipoFuente.Name = "lblTipoFuente";
             this.lblTipoFuente.Size = new System.Drawing.Size(85, 13);
             this.lblTipoFuente.TabIndex = 3;
@@ -348,7 +348,7 @@
             this.lblModuloInformacion.AutoSize = true;
             this.lblModuloInformacion.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblModuloInformacion.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.lblModuloInformacion.Location = new System.Drawing.Point(65, 50);
+            this.lblModuloInformacion.Location = new System.Drawing.Point(82, 50);
             this.lblModuloInformacion.Name = "lblModuloInformacion";
             this.lblModuloInformacion.Size = new System.Drawing.Size(129, 13);
             this.lblModuloInformacion.TabIndex = 2;
@@ -358,7 +358,7 @@
             // 
             this.txtModuloInformacion.Location = new System.Drawing.Point(9, 47);
             this.txtModuloInformacion.Name = "txtModuloInformacion";
-            this.txtModuloInformacion.Size = new System.Drawing.Size(50, 22);
+            this.txtModuloInformacion.Size = new System.Drawing.Size(67, 22);
             this.txtModuloInformacion.TabIndex = 1;
             // 
             // label23
