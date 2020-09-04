@@ -134,7 +134,19 @@ namespace FilesFolders
                 }
             }
 
-            FileName = txtModuloInformacion.Text + cmbTipoFuente.Text + txtTema.Text + txtFechaCorte.Text + cmbTipoIdEntidad.Text + ceros + txtNumeroIdEntidad.Text + cmbRegimen.Text + txtConsecutivo.Text + cmbExtension.Text;
+            // Obtenemos el Item Seleccinadoi en Tipo Fuente
+            // Si seleccionamos el Item 2 que es 165COVI, entonces en el nombre del archvio no debe ir el Tema de Información
+            int selectedIndex = cmbTipoFuente.SelectedIndex;
+
+            if (selectedIndex == 2) 
+            {
+                FileName = txtModuloInformacion.Text + cmbTipoFuente.Text + txtFechaCorte.Text + cmbTipoIdEntidad.Text + ceros + txtNumeroIdEntidad.Text + cmbRegimen.Text + txtConsecutivo.Text + cmbExtension.Text;
+            }
+            else
+            {
+                FileName = txtModuloInformacion.Text + cmbTipoFuente.Text + txtTema.Text + txtFechaCorte.Text + cmbTipoIdEntidad.Text + ceros + txtNumeroIdEntidad.Text + cmbRegimen.Text + txtConsecutivo.Text + cmbExtension.Text;
+            }
+
             lblNombreArchivo.Text = FileName;
         }
 
@@ -249,5 +261,6 @@ namespace FilesFolders
             }
 
         }
+
     }
 }
