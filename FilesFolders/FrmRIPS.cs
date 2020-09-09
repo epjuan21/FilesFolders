@@ -540,6 +540,13 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
 
+                                if (split[9] == "I844")
+                                {
+                                    split[9] = "K649";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
                                 if (split[9] == "")
                                 {
                                     split[9] = "R101";
@@ -676,6 +683,22 @@ namespace FilesFolders
                                 #region Diagnostico Relacionado 1
                                 // Código del diagnóstico relacionado 1 - Posición 10
 
+                                // Evaluar si la primera letra es minuscula
+
+                                // Obtenemos la Primera Letra
+
+                                if (split[11] != "")
+                                {
+                                    string firstLetter = split[11].Substring(0, 1);
+
+                                    if (char.IsLower(Convert.ToChar(firstLetter)))
+                                    {
+                                        split[11] = split[11].ToUpper();
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                }
+
                                 #region Correcciones para SSSA
                                 if (chkBoxDXSSSA.CheckState == CheckState.Checked)
                                 {
@@ -734,6 +757,18 @@ namespace FilesFolders
                                         contadorErrores++;
                                     }
                                     if (split[10] == "I842")
+                                    {
+                                        split[10] = "K649";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "I843")
+                                    {
+                                        split[10] = "K649";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "I844")
                                     {
                                         split[10] = "K649";
                                         line = String.Join(",", split);
@@ -807,8 +842,7 @@ namespace FilesFolders
 
                                     if (char.IsLower(Convert.ToChar(firstLetter)))
                                     {
-                                        split[11
-                                            ] = split[11].ToUpper();
+                                        split[11] = split[11].ToUpper();
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
@@ -3008,7 +3042,6 @@ namespace FilesFolders
                                     }
                                 }
                                 #endregion
-
 
                                 #region #region Diagnóstico Relacionado 1 de Egreso
                                 // Diagnóstico Relacionado 1 de Egreso - Posición 11
