@@ -569,9 +569,21 @@ namespace FilesFolders
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
+                                    if (split[9] == "M321")
+                                    {
+                                        split[9] = "L932";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                     if (split[9] == "I489")
                                     {
                                         split[9] = "I48X";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[9] == "U072")
+                                    {
+                                        split[9] = "J22X";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
@@ -866,6 +878,12 @@ namespace FilesFolders
                                     if (split[11] == "I489")
                                     {
                                         split[11] = "I48X";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[9] == "U072")
+                                    {
+                                        split[9] = "J22X";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
@@ -2013,6 +2031,12 @@ namespace FilesFolders
                                 #region Correcciones para SSSA
                                 if (chkBoxDXSSSA.CheckState == CheckState.Checked)
                                 {
+                                    if (split[10] == "A090")
+                                    {
+                                        split[10] = "A09X";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                     if (split[10] == "A099")
                                     {
                                         split[10] = "A09X";
