@@ -19,20 +19,20 @@ namespace FilesFolders
         string dirPath;
         string Edad;
         string UnidadMedidaEdad;
-        CWork bgwEAPB = new CWork();
+        readonly CWork bgwEAPB = new CWork();
         #endregion
 
-        private void btnSalir_Click(object sender, EventArgs e)
+        private void BtnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btnProcesarEAPB_Click(object sender, EventArgs e)
+        private void BtnProcesarEAPB_Click(object sender, EventArgs e)
         {
-            bgwEAPB.ODoWorker(bgwEAPB_DoWork, bgwEAPB_ProgressChanged, bgwEAPB_RunWorkerCompleted);
+            bgwEAPB.ODoWorker(BgwEAPB_DoWork, BgwEAPB_ProgressChanged, BgwEAPB_RunWorkerCompleted);
         }
 
-        private void btnRutaCarpetaEAPB_Click(object sender, EventArgs e)
+        private void BtnRutaCarpetaEAPB_Click(object sender, EventArgs e)
         {
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -45,7 +45,7 @@ namespace FilesFolders
             }
         }
 
-        private void bgwEAPB_DoWork(object sender, DoWorkEventArgs e)
+        private void BgwEAPB_DoWork(object sender, DoWorkEventArgs e)
         {
             DirectoryInfo di = new DirectoryInfo(dirPath);
 
@@ -1053,7 +1053,7 @@ namespace FilesFolders
             }
         }
 
-        private void bgwEAPB_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        private void BgwEAPB_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             lblEstatusEAPB.Visible = true;
             prgBarEAPB.Value = e.ProgressPercentage;
@@ -1061,7 +1061,7 @@ namespace FilesFolders
             lblEstatusEAPB.Text = "Procesando...... " + prgBarEAPB.Value.ToString() + "%";
         }
 
-        private void bgwEAPB_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void BgwEAPB_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             lblEstatusEAPB.Text = "Finalizado";
         }
@@ -1153,7 +1153,7 @@ namespace FilesFolders
             btnProcesarEAPB.Enabled = false;
         }
 
-        private void pnlCambioEsctuctura_Paint(object sender, PaintEventArgs e)
+        private void PnlCambioEsctuctura_Paint(object sender, PaintEventArgs e)
         {
 
         }

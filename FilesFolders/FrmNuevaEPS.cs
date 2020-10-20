@@ -19,7 +19,7 @@ namespace FilesFolders
 
         #region Variables
 
-        CWork bgwNuevaEPS = new CWork();
+        readonly CWork bgwNuevaEPS = new CWork();
 
         string dirPath;
 
@@ -33,13 +33,10 @@ namespace FilesFolders
         string SeparadorNombre;
         long ProgressValue;
 
-        // Creamos una Variable Tipo Lista para almacenar los nombres de los archivos
-        List<string> ListaArchivos = new List<string>();
+        public List<string> ListaArchivos { get; private set; }
+        public List<string> ListaArchivosFullName { get; private set; }
 
-        // Creamos una variable tipo lista para obtener el numbre completo de cada archvio, que incluye la ruta
-        List<string> ListaArchivosFullName = new List<string>();
-
-        CArchivos Lista = new CArchivos();
+        readonly CArchivos Lista = new CArchivos();
         #endregion
 
         private void FrmNuevaEPS_Load(object sender, EventArgs e)
@@ -66,11 +63,11 @@ namespace FilesFolders
             SeparadorNombre = "_";
 
             // Establecemos el Nombre del Archivo
-            txtPeriodo.TextChanged += new System.EventHandler(this.txtPeriodo_TextChanged);
+            txtPeriodo.TextChanged += new System.EventHandler(this.TxtPeriodo_TextChanged);
             lblNombre.Text = txtTipo.Text + SeparadorNombre + txtCodigoHabilitacion.Text + txtPeriodo.Text + txtExtension.Text;
         }
 
-        private void btnRuta_Click(object sender, EventArgs e)
+        private void BtnRuta_Click(object sender, EventArgs e)
         {
             // Ubicación de la Carpeta con los RIPS
             if (fbdNueva.ShowDialog() == DialogResult.OK)
@@ -92,12 +89,12 @@ namespace FilesFolders
             }
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
+        private void BtnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btnIniciar_Click(object sender, EventArgs e)
+        private void BtnIniciar_Click(object sender, EventArgs e)
         {
             if (txtNombreArchivo.Text == "")
             {
@@ -106,11 +103,11 @@ namespace FilesFolders
             }
             else
             {
-                bgwNuevaEPS.ODoWorker(bgwNuevaEPS_DoWork, bgwNuevaEPS_ProgressChanged, bgwNuevaEPS_RunWorkerCompleted);
+                bgwNuevaEPS.ODoWorker(BgwNuevaEPS_DoWork, BgwNuevaEPS_ProgressChanged, BgwNuevaEPS_RunWorkerCompleted);
             }
         }
 
-        private void bgwNuevaEPS_DoWork(object sender, DoWorkEventArgs e)
+        private void BgwNuevaEPS_DoWork(object sender, DoWorkEventArgs e)
         {
             // Inicializamos el valor de la Barra de Progreso en 0
             ProgressValue = 0;
@@ -212,7 +209,7 @@ namespace FilesFolders
             }
         }
 
-        private void bgwNuevaEPS_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        private void BgwNuevaEPS_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             lblStatus.Visible = true;
             prgBarNE.Value = e.ProgressPercentage;
@@ -220,12 +217,12 @@ namespace FilesFolders
             lblStatus.Text = "Procesando...... " + prgBarNE.Value.ToString() + "%";
         }
 
-        private void bgwNuevaEPS_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void BgwNuevaEPS_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             lblStatus.Text = "Finalizado";
         }
 
-        private void btnComprimir_Click(object sender, EventArgs e)
+        private void BtnComprimir_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtPeriodo.Text))
             {
@@ -237,7 +234,7 @@ namespace FilesFolders
             }
         }
 
-        private void txtPeriodo_TextChanged(object sender, EventArgs e)
+        private void TxtPeriodo_TextChanged(object sender, EventArgs e)
         {
             NombreArchivoComprimido = txtTipo.Text + SeparadorNombre + txtCodigoHabilitacion.Text + SeparadorNombre  + txtPeriodo.Text + txtExtension.Text;
             lblNombre.Text = NombreArchivoComprimido;

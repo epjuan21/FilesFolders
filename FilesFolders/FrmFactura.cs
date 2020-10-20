@@ -18,8 +18,7 @@ namespace FilesFolders
 
         #region Variables
         string dirPath;
-
-        CWork bgwNumFac = new CWork();
+        readonly CWork bgwNumFac = new CWork();
         #endregion
 
         private void FrmFactura_Load(object sender, EventArgs e)
@@ -29,10 +28,9 @@ namespace FilesFolders
 
             // Inhabilitar Botones Hasta Seleccionar Ruta
             btnNumFac.Enabled = false;
-
         }
         
-        private void btnRuta_Click(object sender, EventArgs e)
+        private void BtnRuta_Click(object sender, EventArgs e)
         {
             // Ubicación de la Carpeta con los RIPS
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
@@ -47,7 +45,7 @@ namespace FilesFolders
             }
         }
 
-        private void btnNumFac_Click(object sender, EventArgs e)
+        private void BtnNumFac_Click(object sender, EventArgs e)
         {
             if (txtNumFac.Text == "")
             {
@@ -56,12 +54,12 @@ namespace FilesFolders
             }
             else
             {
-                bgwNumFac.ODoWorker(bgwNumFac_DoWork, bgwNumFac_ProgressChanged, bgwNumFac_RunWorkerCompleted);
+                bgwNumFac.ODoWorker(BgwNumFac_DoWork, BgwNumFac_ProgressChanged, BgwNumFac_RunWorkerCompleted);
             }
 
         }
 
-        private void bgwNumFac_DoWork(object sender, DoWorkEventArgs e)
+        private void BgwNumFac_DoWork(object sender, DoWorkEventArgs e)
         {
             DirectoryInfo di = new DirectoryInfo(dirPath);
             int contadorErrores = 0;
@@ -154,19 +152,19 @@ namespace FilesFolders
             }
         }
 
-        private void bgwNumFac_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        private void BgwNumFac_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             lblStatusNumFac.Visible = true;
             prgBarNumFac.Value = e.ProgressPercentage;
             lblStatusNumFac.Text = "Procesando...... " + prgBarNumFac.Value.ToString() + "%";
         }
 
-        private void bgwNumFac_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void BgwNumFac_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             lblStatusNumFac.Text = "Finalizado";
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
+        private void BtnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }

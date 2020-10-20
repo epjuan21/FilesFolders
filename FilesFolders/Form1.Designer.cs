@@ -82,7 +82,7 @@
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
             this.salirToolStripMenuItem.Text = "Salir";
-            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.SalirToolStripMenuItem_Click);
             // 
             // carpetasToolStripMenuItem
             // 
@@ -101,35 +101,35 @@
             this.rIPSToolStripMenuItem.Name = "rIPSToolStripMenuItem";
             this.rIPSToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.rIPSToolStripMenuItem.Text = "RIPS Masivo";
-            this.rIPSToolStripMenuItem.Click += new System.EventHandler(this.rIPSToolStripMenuItem_Click);
+            this.rIPSToolStripMenuItem.Click += new System.EventHandler(this.RIPSToolStripMenuItem_Click);
             // 
             // rIPSIndividualToolStripMenuItem
             // 
             this.rIPSIndividualToolStripMenuItem.Name = "rIPSIndividualToolStripMenuItem";
             this.rIPSIndividualToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.rIPSIndividualToolStripMenuItem.Text = "RIPS Individual";
-            this.rIPSIndividualToolStripMenuItem.Click += new System.EventHandler(this.rIPSIndividualToolStripMenuItem_Click);
+            this.rIPSIndividualToolStripMenuItem.Click += new System.EventHandler(this.RIPSIndividualToolStripMenuItem_Click);
             // 
             // rIPSCarpetasToolStripMenuItem
             // 
             this.rIPSCarpetasToolStripMenuItem.Name = "rIPSCarpetasToolStripMenuItem";
             this.rIPSCarpetasToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.rIPSCarpetasToolStripMenuItem.Text = "RIPS Carpetas";
-            this.rIPSCarpetasToolStripMenuItem.Click += new System.EventHandler(this.rIPSCarpetasToolStripMenuItem_Click);
+            this.rIPSCarpetasToolStripMenuItem.Click += new System.EventHandler(this.RIPSCarpetasToolStripMenuItem_Click);
             // 
             // rIPSFacturaToolStripMenuItem
             // 
             this.rIPSFacturaToolStripMenuItem.Name = "rIPSFacturaToolStripMenuItem";
             this.rIPSFacturaToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.rIPSFacturaToolStripMenuItem.Text = "RIPS Factura";
-            this.rIPSFacturaToolStripMenuItem.Click += new System.EventHandler(this.rIPSFacturaToolStripMenuItem_Click);
+            this.rIPSFacturaToolStripMenuItem.Click += new System.EventHandler(this.RIPSFacturaToolStripMenuItem_Click);
             // 
             // rIPSNuevaEPSToolStripMenuItem
             // 
             this.rIPSNuevaEPSToolStripMenuItem.Name = "rIPSNuevaEPSToolStripMenuItem";
             this.rIPSNuevaEPSToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.rIPSNuevaEPSToolStripMenuItem.Text = "RIPS Nueva EPS";
-            this.rIPSNuevaEPSToolStripMenuItem.Click += new System.EventHandler(this.rIPSNuevaEPSToolStripMenuItem_Click);
+            this.rIPSNuevaEPSToolStripMenuItem.Click += new System.EventHandler(this.RIPSNuevaEPSToolStripMenuItem_Click);
             // 
             // rIPSEABPToolStripMenuItem
             // 
@@ -145,14 +145,14 @@
             this.cambioEstructuraToolStripMenuItem.Name = "cambioEstructuraToolStripMenuItem";
             this.cambioEstructuraToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.cambioEstructuraToolStripMenuItem.Text = "Cambio Estructura";
-            this.cambioEstructuraToolStripMenuItem.Click += new System.EventHandler(this.cambioEstructuraToolStripMenuItem_Click);
+            this.cambioEstructuraToolStripMenuItem.Click += new System.EventHandler(this.CambioEstructuraToolStripMenuItem_Click);
             // 
             // comprimirArchivoToolStripMenuItem
             // 
             this.comprimirArchivoToolStripMenuItem.Name = "comprimirArchivoToolStripMenuItem";
             this.comprimirArchivoToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.comprimirArchivoToolStripMenuItem.Text = "Comprimir Archivo";
-            this.comprimirArchivoToolStripMenuItem.Click += new System.EventHandler(this.comprimirArchivoToolStripMenuItem_Click);
+            this.comprimirArchivoToolStripMenuItem.Click += new System.EventHandler(this.ComprimirArchivoToolStripMenuItem_Click);
             // 
             // Id
             // 
@@ -194,7 +194,7 @@
             this.button1.Size = new System.Drawing.Size(45, 40);
             this.button1.TabIndex = 10;
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+            this.button1.Click += new System.EventHandler(this.SalirToolStripMenuItem_Click);
             // 
             // Form1
             // 

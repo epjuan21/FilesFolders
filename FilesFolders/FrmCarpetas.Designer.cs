@@ -76,7 +76,7 @@
             this.btnRutaCarpeta.TabIndex = 8;
             this.btnRutaCarpeta.Text = "Ruta";
             this.btnRutaCarpeta.UseVisualStyleBackColor = true;
-            this.btnRutaCarpeta.Click += new System.EventHandler(this.btnRutaCarpeta_Click);
+            this.btnRutaCarpeta.Click += new System.EventHandler(this.BtnRutaCarpeta_Click);
             // 
             // label13
             // 
@@ -97,7 +97,7 @@
             this.btnSalir.TabIndex = 11;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.btnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
             // FrmCarpetas
             // 

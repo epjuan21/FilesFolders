@@ -11,13 +11,6 @@ namespace FilesFolders
             InitializeComponent();
         }
 
-        #region Variables
-
-        CArchivos LineasUS = new CArchivos();
-        CArchivos LineasAC = new CArchivos();
-        CArchivos Lista = new CArchivos();
-        #endregion
-
         #region FormLoad
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -26,54 +19,54 @@ namespace FilesFolders
         #endregion
 
         #region Menu
-        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SalirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void rIPSToolStripMenuItem_Click(object sender, EventArgs e)
+        private void RIPSToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmRIPS frmRIPS = new FrmRIPS();
             frmRIPS.ShowDialog();
         }
 
-        private void rIPSIndividualToolStripMenuItem_Click(object sender, EventArgs e)
+        private void RIPSIndividualToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmRIPSIndividual frmRIPSIndividual = new FrmRIPSIndividual();
             frmRIPSIndividual.ShowDialog();
         }
 
-        private void rIPSCarpetasToolStripMenuItem_Click(object sender, EventArgs e)
+        private void RIPSCarpetasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmCarpetas frmCarpetas = new FrmCarpetas();
             frmCarpetas.ShowDialog();
         }
 
-        private void rIPSEAPBToolStripMenuItem_Click(object sender, EventArgs e)
+        private void RIPSEAPBToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
 
         }
 
-        private void cambioEstructuraToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CambioEstructuraToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmCambioEstructura frmCambioEstructura = new FrmCambioEstructura();
             frmCambioEstructura.ShowDialog();
         }
 
-        private void comprimirArchivoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ComprimirArchivoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmComprimir frmComprimir = new FrmComprimir();
             frmComprimir.ShowDialog();
         }
 
-        private void rIPSFacturaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void RIPSFacturaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmFactura frmFactura = new FrmFactura();
             frmFactura.ShowDialog();
         }
 
-        private void rIPSNuevaEPSToolStripMenuItem_Click(object sender, EventArgs e)
+        private void RIPSNuevaEPSToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmNuevaEPS frmNuevaEPS = new FrmNuevaEPS();
             frmNuevaEPS.ShowDialog();

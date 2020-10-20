@@ -75,18 +75,18 @@ namespace FilesFolders
 
             // Nombre Archivo Comprimido EAPB
 
-            cmbTipoFuente.TextChanged += new System.EventHandler(this.txtFechaCorte_TextChanged);
-            txtFechaCorte.TextChanged += new System.EventHandler(this.txtFechaCorte_TextChanged);
-            cmbTipoIdEntidad.TextChanged += new System.EventHandler(this.txtFechaCorte_TextChanged);
-            txtNumeroIdEntidad.TextChanged += new System.EventHandler(this.txtFechaCorte_TextChanged);
-            cmbRegimen.TextChanged += new System.EventHandler(this.txtFechaCorte_TextChanged);
-            txtConsecutivo.TextChanged += new System.EventHandler(this.txtFechaCorte_TextChanged);
-            cmbExtension.TextChanged += new System.EventHandler(this.txtFechaCorte_TextChanged);
+            cmbTipoFuente.TextChanged += new System.EventHandler(this.TxtFechaCorte_TextChanged);
+            txtFechaCorte.TextChanged += new System.EventHandler(this.TxtFechaCorte_TextChanged);
+            cmbTipoIdEntidad.TextChanged += new System.EventHandler(this.TxtFechaCorte_TextChanged);
+            txtNumeroIdEntidad.TextChanged += new System.EventHandler(this.TxtFechaCorte_TextChanged);
+            cmbRegimen.TextChanged += new System.EventHandler(this.TxtFechaCorte_TextChanged);
+            txtConsecutivo.TextChanged += new System.EventHandler(this.TxtFechaCorte_TextChanged);
+            cmbExtension.TextChanged += new System.EventHandler(this.TxtFechaCorte_TextChanged);
 
             lblNombreArchivo.Text = txtModuloInformacion.Text + cmbTipoFuente.Text + txtTema.Text + txtFechaCorte.Text + cmbTipoIdEntidad.Text + txtNumeroIdEntidad.Text + cmbRegimen.Text + txtConsecutivo.Text + cmbExtension.Text;
         }
 
-        private void btnRutaEAPB_Click(object sender, EventArgs e)
+        private void BtnRutaEAPB_Click(object sender, EventArgs e)
         {
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -113,7 +113,7 @@ namespace FilesFolders
             }
         }
 
-        private void txtFechaCorte_TextChanged(object sender, EventArgs e)
+        private void TxtFechaCorte_TextChanged(object sender, EventArgs e)
         {
             // Obtenemos la candidad de digitos en el Campo Numero Id Entidad
             int charCount = txtNumeroIdEntidad.Text.Length;
@@ -130,7 +130,7 @@ namespace FilesFolders
             {
                 for (int i = 1; i < charLeft; i++)
                 {
-                    ceros = ceros + "0";
+                    ceros += "0";
                 }
             }
 
@@ -159,18 +159,18 @@ namespace FilesFolders
             ZipFile.CreateFromDirectory(dir, fileName, CompressionLevel.Fastest, false);
         }
 
-        private void btnComprimir_Click(object sender, EventArgs e)
+        private void BtnComprimir_Click(object sender, EventArgs e)
         {
-            cambiarNombreArchivos(dirPath, txtFechaCorte.Text);
+            CambiarNombreArchivos(dirPath, txtFechaCorte.Text);
             ZipDirFile(dirPath);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void cambiarNombreArchivos(string dirPath, string periodo)
+        private void CambiarNombreArchivos(string dirPath, string periodo)
         {
             string SeparadorCarpeta;
             SeparadorCarpeta = "\\";

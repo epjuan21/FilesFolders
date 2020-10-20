@@ -70,7 +70,7 @@
             this.btnRuta.TabIndex = 2;
             this.btnRuta.Text = "Ruta";
             this.btnRuta.UseVisualStyleBackColor = true;
-            this.btnRuta.Click += new System.EventHandler(this.btnRuta_Click);
+            this.btnRuta.Click += new System.EventHandler(this.BtnRuta_Click);
             // 
             // txtRuta
             // 
@@ -87,7 +87,7 @@
             this.btnNumFac.Size = new System.Drawing.Size(76, 23);
             this.btnNumFac.TabIndex = 18;
             this.btnNumFac.UseVisualStyleBackColor = true;
-            this.btnNumFac.Click += new System.EventHandler(this.btnNumFac_Click);
+            this.btnNumFac.Click += new System.EventHandler(this.BtnNumFac_Click);
             // 
             // prgBarNumFac
             // 
@@ -129,7 +129,7 @@
             this.btnSalir.TabIndex = 23;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.btnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
             // FrmFactura
             // 

@@ -14,15 +14,15 @@ namespace FilesFolders
 
         #region Variables
         string dirPath;
-        CArchivos Lista = new CArchivos();
+        readonly CArchivos Lista = new CArchivos();
         #endregion
 
-        private void btnSalir_Click(object sender, EventArgs e)
+        private void BtnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void btnRutaCarpeta_Click(object sender, EventArgs e)
+        private void BtnRutaCarpeta_Click(object sender, EventArgs e)
         {
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -32,17 +32,11 @@ namespace FilesFolders
                 dirPath = folderBrowserDialog1.SelectedPath;
 
                 #region Variables
-                // Creamos una Variable Tipo Lista para almacenar los nombres de los archivos
-                List<string> ListaArchivos = new List<string>();
-
                 // Creamos una lista para almacenar los numeros de Factura Temporales
                 List<string> ListaNumerosFactura = new List<string>();
 
                 // Creamos una lista para almacenar los numeros de Factura Unicos
                 List<string> ListaNumerosFacturaUnicos = new List<string>();
-
-                // Creamos una variable tipo lista para obtener el numbre completo de cada archvio, que incluye la ruta
-                List<string> ListaArchivosFullName = new List<string>();
 
                 // Cremos una variable tipo Lista para almacenar los nombres de los directorios nuevos creados
                 //List<string> ListaDirectorios = new List<string>();
@@ -50,10 +44,10 @@ namespace FilesFolders
                 #endregion
 
                 // Almacenamos en la variable Tipo Lista los nombres de los archivos
-                ListaArchivos = Lista.ListarArchivosName(dirPath, "*.txt");
+                List<string> ListaArchivos = Lista.ListarArchivosName(dirPath, "*.txt");
 
                 // Almacenamos los nombres completos de los archivos en la variable ListaArchivosFullName
-                ListaArchivosFullName = Lista.ListarArchivosFullName(dirPath, "*.txt");
+                List<string> ListaArchivosFullName = Lista.ListarArchivosFullName(dirPath, "*.txt");
 
                 foreach (var NombreArchivo in ListaArchivos)
                 {

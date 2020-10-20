@@ -79,7 +79,7 @@
             this.btnSalir.TabIndex = 8;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.btnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
             // label14
             // 
@@ -327,7 +327,7 @@
             this.btnRutaIndividual.TabIndex = 0;
             this.btnRutaIndividual.Text = "Ruta";
             this.btnRutaIndividual.UseVisualStyleBackColor = true;
-            this.btnRutaIndividual.Click += new System.EventHandler(this.btnRutaIndividual_Click);
+            this.btnRutaIndividual.Click += new System.EventHandler(this.BtnRutaIndividual_Click);
             // 
             // FrmRIPSIndividual
             // 

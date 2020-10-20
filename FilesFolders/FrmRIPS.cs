@@ -18,16 +18,15 @@ namespace FilesFolders
 
         #region Variables
         string dirPath;
-
-        CWork bgwAC = new CWork();
-        CWork bgwAP = new CWork();
-        CWork bgwAT = new CWork();
-        CWork bgwAU = new CWork();
-        CWork bgwDOC = new CWork();
-        CWork bgwUS = new CWork();
-        CWork bgwAH = new CWork();
-        CWork bgwAF = new CWork();
-        CWork bgwAM = new CWork();
+        readonly CWork bgwAC = new CWork();
+        readonly CWork bgwAP = new CWork();
+        readonly CWork bgwAT = new CWork();
+        readonly CWork bgwAU = new CWork();
+        readonly CWork bgwDOC = new CWork();
+        readonly CWork bgwUS = new CWork();
+        readonly CWork bgwAH = new CWork();
+        readonly CWork bgwAF = new CWork();
+        readonly CWork bgwAM = new CWork();
         #endregion
 
         private void FrmRIPS_Load(object sender, EventArgs e)
@@ -65,7 +64,7 @@ namespace FilesFolders
 
         #region Ruta Cargue Masivo
         // Seleccionamos la Carpeta donde se ecuentran los RIPS
-        private void btnRuta_Click(object sender, EventArgs e)
+        private void BtnRuta_Click(object sender, EventArgs e)
         {
             // Ubicación de la Carpeta con los RIPS
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
@@ -120,12 +119,12 @@ namespace FilesFolders
         #endregion
 
         #region US
-        private void btnUS_Click_1(object sender, EventArgs e)
+        private void BtnUS_Click_1(object sender, EventArgs e)
         {
-            bgwUS.ODoWorker(bgwUS_DoWork, bgwUS_ProgressChanged, bgwUS_RunWorkerCompleted);
+            bgwUS.ODoWorker(BgwUS_DoWork, BgwUS_ProgressChanged, BgwUS_RunWorkerCompleted);
         }
 
-        private void bgwUS_DoWork(object sender, DoWorkEventArgs e)
+        private void BgwUS_DoWork(object sender, DoWorkEventArgs e)
         {
             DirectoryInfo di = new DirectoryInfo(dirPath);
             int contadorErrores = 0;
@@ -289,26 +288,26 @@ namespace FilesFolders
 
         }
 
-        private void bgwUS_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        private void BgwUS_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             lblStatusUS.Visible = true;
             prgBarUS.Value = e.ProgressPercentage;
             lblStatusUS.Text = "Procesando...... " + prgBarUS.Value.ToString() + "%";
         }
 
-        private void bgwUS_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void BgwUS_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             lblStatusUS.Text = "Finalizado";
         }
         #endregion
 
         #region AC
-        private void btnAC_Click_1(object sender, EventArgs e)
+        private void BtnAC_Click_1(object sender, EventArgs e)
         {
-            bgwAC.ODoWorker(bgwAC_DoWork, bgwAC_ProgressChanged, bgwAC_RunWorkerCompleted);
+            bgwAC.ODoWorker(BgwAC_DoWork, BgwAC_ProgressChanged, BgwAC_RunWorkerCompleted);
         }
 
-        private void bgwAC_DoWork(object sender, DoWorkEventArgs e)
+        private void BgwAC_DoWork(object sender, DoWorkEventArgs e)
         {
             DirectoryInfo di = new DirectoryInfo(dirPath);
             int contadorErrores = 0;
@@ -1085,26 +1084,26 @@ namespace FilesFolders
 
         }
 
-        private void bgwAC_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        private void BgwAC_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             lblStatusAC.Visible = true;
             prgBarAC.Value = e.ProgressPercentage;
             lblStatusAC.Text = "Procesando...... " + prgBarAC.Value.ToString() + "%";
         }
 
-        private void bgwAC_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void BgwAC_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             lblStatusAC.Text = "Finalizado";
         }
         #endregion
 
         #region AP
-        private void btnAP_Click_1(object sender, EventArgs e)
+        private void BtnAP_Click_1(object sender, EventArgs e)
         {
-            bgwAP.ODoWorker(bgwAP_DoWork, bgwAP_ProgressChanged, bgwAP_RunWorkerCompleted);
+            bgwAP.ODoWorker(BgwAP_DoWork, BgwAP_ProgressChanged, BgwAP_RunWorkerCompleted);
         }
 
-        private void bgwAP_DoWork(object sender, DoWorkEventArgs e)
+        private void BgwAP_DoWork(object sender, DoWorkEventArgs e)
         {
             DirectoryInfo di = new DirectoryInfo(dirPath);
             int contadorErrores = 0;
@@ -2327,14 +2326,14 @@ namespace FilesFolders
             }
         }
 
-        private void bgwAP_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        private void BgwAP_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             lblStatusAP.Visible = true;
             prgBarAP.Value = e.ProgressPercentage;
             lblStatusAP.Text = "Procesando...... " + prgBarAP.Value.ToString() + "%";
         }
 
-        private void bgwAP_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void BgwAP_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             lblStatusAP.Text = "Finalizado";
         }
@@ -2343,12 +2342,12 @@ namespace FilesFolders
 
         #region AM
 
-        private void btnAM_Click(object sender, EventArgs e)
+        private void BtnAM_Click(object sender, EventArgs e)
         {
-            bgwAM.ODoWorker(bgwAM_DoWork, bgwAM_ProgressChanged, bgwAM_RunWorkerCompleted);
+            bgwAM.ODoWorker(BgwAM_DoWork, BgwAM_ProgressChanged, BgwAM_RunWorkerCompleted);
         }
 
-        private void bgwAM_DoWork(object sender, DoWorkEventArgs e)
+        private void BgwAM_DoWork(object sender, DoWorkEventArgs e)
         {
             DirectoryInfo di = new DirectoryInfo(dirPath);
             int contadorErrores = 0;
@@ -2500,14 +2499,14 @@ namespace FilesFolders
             }
         }
 
-        private void bgwAM_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        private void BgwAM_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             lblStatusAM.Visible = true;
             prgBarAM.Value = e.ProgressPercentage;
             lblStatusAM.Text = "Procesando...... " + prgBarAM.Value.ToString() + "%";
         }
 
-        private void bgwAM_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void BgwAM_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             lblStatusAM.Text = "Finalizado";
         }
@@ -2515,12 +2514,12 @@ namespace FilesFolders
         #endregion
 
         #region AT
-        private void btnAT_Click_1(object sender, EventArgs e)
+        private void BtnAT_Click_1(object sender, EventArgs e)
         {
-            bgwAT.ODoWorker(bgwAT_DoWork, bgwAT_ProgressChanged, bgwAT_RunWorkerCompleted);
+            bgwAT.ODoWorker(BgwAT_DoWork, BgwAT_ProgressChanged, BgwAT_RunWorkerCompleted);
         }
 
-        private void bgwAT_DoWork(object sender, DoWorkEventArgs e)
+        private void BgwAT_DoWork(object sender, DoWorkEventArgs e)
         {
             DirectoryInfo di = new DirectoryInfo(dirPath);
             int contadorErrores = 0;
@@ -2746,26 +2745,26 @@ namespace FilesFolders
             }
         }
 
-        private void bgwAT_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        private void BgwAT_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             lblStatusAT.Visible = true;
             prgBarAT.Value = e.ProgressPercentage;
             lblStatusAT.Text = "Procesando...... " + prgBarAT.Value.ToString() + "%";
         }
 
-        private void bgwAT_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void BgwAT_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             lblStatusAT.Text = "Finalizado";
         }
         #endregion
 
         #region AU
-        private void btnAU_Click_1(object sender, EventArgs e)
+        private void BtnAU_Click_1(object sender, EventArgs e)
         {
-            bgwAU.ODoWorker(bgwAU_DoWork, bgwAU_ProgressChanged, bgwAU_RunWorkerCompleted);
+            bgwAU.ODoWorker(BgwAU_DoWork, BgwAU_ProgressChanged, BgwAU_RunWorkerCompleted);
         }
 
-        private void bgwAU_DoWork(object sender, DoWorkEventArgs e)
+        private void BgwAU_DoWork(object sender, DoWorkEventArgs e)
         {
             DirectoryInfo di = new DirectoryInfo(dirPath);
             int contadorErrores = 0;
@@ -3005,26 +3004,26 @@ namespace FilesFolders
             }
         }
 
-        private void bgwAU_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        private void BgwAU_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             lblStatusAU.Visible = true;
             prgBarAU.Value = e.ProgressPercentage;
             lblStatusAU.Text = "Procesando...... " + prgBarAU.Value.ToString() + "%";
         }
 
-        private void bgwAU_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void BgwAU_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             lblStatusAU.Text = "Finalizado";
         }
         #endregion
 
         #region AH
-        private void btnAH_Click(object sender, EventArgs e)
+        private void BtnAH_Click(object sender, EventArgs e)
         {
-            bgwAH.ODoWorker(bgwAH_DoWork, bgwAH_ProgressChanged, bgwAH_RunWorkerCompleted);
+            bgwAH.ODoWorker(BgwAH_DoWork, BgwAH_ProgressChanged, BgwAH_RunWorkerCompleted);
         }
 
-        private void bgwAH_DoWork(object sender, DoWorkEventArgs e)
+        private void BgwAH_DoWork(object sender, DoWorkEventArgs e)
         {
             DirectoryInfo di = new DirectoryInfo(dirPath);
             int contadorErrores = 0;
@@ -3119,14 +3118,14 @@ namespace FilesFolders
             }
         }
 
-        private void bgwAH_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        private void BgwAH_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             lblStatusAH.Visible = true;
             prgBarAH.Value = e.ProgressPercentage;
             lblStatusAH.Text = "Procesando...... " + prgBarAH.Value.ToString() + "%";
         }
 
-        private void bgwAH_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void BgwAH_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             lblStatusAH.Text = "Finalizado";
         }
@@ -3134,12 +3133,12 @@ namespace FilesFolders
         #endregion
 
         #region AF
-        private void btnAF_Click(object sender, EventArgs e)
+        private void BtnAF_Click(object sender, EventArgs e)
         {
-            bgwAF.ODoWorker(bgwAF_DoWork, bgwAF_ProgressChanged, bgwAF_RunWorkerCompleted);
+            bgwAF.ODoWorker(BgwAF_DoWork, BgwAF_ProgressChanged, BgwAF_RunWorkerCompleted);
         }
 
-        private void bgwAF_DoWork(object sender, DoWorkEventArgs e)
+        private void BgwAF_DoWork(object sender, DoWorkEventArgs e)
         {
             DirectoryInfo di = new DirectoryInfo(dirPath);
             int contadorErrores = 0;
@@ -3283,26 +3282,26 @@ namespace FilesFolders
             }
         }
 
-        private void bgwAF_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        private void BgwAF_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             lblStatusAF.Visible = true;
             prgBarAF.Value = e.ProgressPercentage;
             lblStatusAF.Text = "Procesando...... " + prgBarAF.Value.ToString() + "%";
         }
 
-        private void bgwAF_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void BgwAF_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             lblStatusAF.Text = "Finalizado";
         }
         #endregion
 
         #region Correción Documentos
-        private void btnDoc_Click(object sender, EventArgs e)
+        private void BtnDoc_Click(object sender, EventArgs e)
         {
-            bgwDOC.ODoWorker(bgwDOC_DoWork, bgwDOC_ProgressChanged, bgwDOC_RunWorkerCompleted);
+            bgwDOC.ODoWorker(BgwDOC_DoWork, BgwDOC_ProgressChanged, BgwDOC_RunWorkerCompleted);
         }
 
-        private void bgwDOC_DoWork(object sender, DoWorkEventArgs e)
+        private void BgwDOC_DoWork(object sender, DoWorkEventArgs e)
         {
             DirectoryInfo di = new DirectoryInfo(dirPath);
             int contadorErrores = 0;
@@ -3345,7 +3344,7 @@ namespace FilesFolders
                                     // Se Cambia el Tipo de Documento por CC
                                     if (TipoDocumento == "TI" && Edad >= 18 && UnidadMedidaEdad == "1" && LongitudNumeroDocumento == 10)
                                     {
-                                        CorregirDocumento(TipoDocumento, NumeroDocumento, "CC");
+                                        CorregirDocumento(NumeroDocumento, "CC");
 
                                         split[0] = "CC";
                                         line = String.Join(",", split);
@@ -3356,7 +3355,7 @@ namespace FilesFolders
                                     // Se Cambia el Tipo de Documento por CC Aún si la Longitud del Número de Documento es mayor a 10
                                     if (TipoDocumento == "TI" && Edad >= 18 && UnidadMedidaEdad == "1" && chkBoxLonDoc.CheckState == CheckState.Checked)
                                     {
-                                        CorregirDocumento(TipoDocumento, NumeroDocumento, "CC");
+                                        CorregirDocumento(NumeroDocumento, "CC");
 
                                         split[0] = "CC";
                                         line = String.Join(",", split);
@@ -3367,7 +3366,7 @@ namespace FilesFolders
                                     // Se cambia el Tipo de Documento por TI
                                     if (TipoDocumento == "RC" && (Edad >= 7 && Edad <= 17) && UnidadMedidaEdad == "1" && LongitudNumeroDocumento == 10)
                                     {
-                                        CorregirDocumento(TipoDocumento, NumeroDocumento, "TI");
+                                        CorregirDocumento(NumeroDocumento, "TI");
 
                                         split[0] = "TI";
                                         line = String.Join(",", split);
@@ -3378,7 +3377,7 @@ namespace FilesFolders
                                     // Se cambia Tipo de Documento CC Por RC
                                     if (TipoDocumento == "CC" && Edad < 13 && UnidadMedidaEdad == "2")
                                     {
-                                        CorregirDocumento(TipoDocumento, NumeroDocumento, "RC");
+                                        CorregirDocumento(NumeroDocumento, "RC");
 
                                         split[0] = "RC";
                                         line = String.Join(",", split);
@@ -3388,7 +3387,7 @@ namespace FilesFolders
                                     // Se cambia el Tipo de Documento por TI
                                     if (TipoDocumento == "CC" && (Edad >= 7 && Edad <= 17) && UnidadMedidaEdad == "1" && LongitudNumeroDocumento == 10)
                                     {
-                                        CorregirDocumento(TipoDocumento, NumeroDocumento, "TI");
+                                        CorregirDocumento(NumeroDocumento, "TI");
 
                                         split[0] = "TI";
                                         line = String.Join(",", split);
@@ -3397,7 +3396,7 @@ namespace FilesFolders
 
                                     if (TipoDocumento == "CN" && Edad <= 17 && UnidadMedidaEdad == "1")
                                     {
-                                        CorregirDocumento(TipoDocumento, NumeroDocumento, "MS");
+                                        CorregirDocumento(NumeroDocumento, "MS");
 
                                         split[0] = "MS";
                                         line = String.Join(",", split);
@@ -3428,19 +3427,19 @@ namespace FilesFolders
             }
         }
 
-        private void bgwDOC_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        private void BgwDOC_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             lblStatusDoc.Visible = true;
             prgBarDoc.Value = e.ProgressPercentage;
             lblStatusDoc.Text = "Procesando...... " + prgBarDoc.Value.ToString() + "%"; ;
         }
 
-        private void bgwDOC_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void BgwDOC_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             lblStatusDoc.Text = "Finalizado";
         }
 
-        public void CorregirDocumento(String TipoDocumento, String NumeroDocumento, String TipoDocumentoCorrecto)
+        public void CorregirDocumento(String NumeroDocumento, String TipoDocumentoCorrecto)
         {
             DirectoryInfo di = new DirectoryInfo(dirPath);
 

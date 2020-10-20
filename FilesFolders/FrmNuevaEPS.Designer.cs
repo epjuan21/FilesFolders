@@ -73,7 +73,7 @@
             this.btnRuta.TabIndex = 1;
             this.btnRuta.Text = "Ruta";
             this.btnRuta.UseVisualStyleBackColor = true;
-            this.btnRuta.Click += new System.EventHandler(this.btnRuta_Click);
+            this.btnRuta.Click += new System.EventHandler(this.BtnRuta_Click);
             // 
             // txtRuta
             // 
@@ -90,7 +90,7 @@
             this.btnSalir.TabIndex = 3;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.btnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
             // btnIniciar
             // 
@@ -100,7 +100,7 @@
             this.btnIniciar.TabIndex = 4;
             this.btnIniciar.Text = "Iniciar";
             this.btnIniciar.UseVisualStyleBackColor = true;
-            this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
+            this.btnIniciar.Click += new System.EventHandler(this.BtnIniciar_Click);
             // 
             // txtNombreArchivo
             // 
@@ -142,7 +142,7 @@
             this.btnComprimir.Size = new System.Drawing.Size(40, 34);
             this.btnComprimir.TabIndex = 9;
             this.btnComprimir.UseVisualStyleBackColor = true;
-            this.btnComprimir.Click += new System.EventHandler(this.btnComprimir_Click);
+            this.btnComprimir.Click += new System.EventHandler(this.BtnComprimir_Click);
             // 
             // groupBox1
             // 
@@ -243,7 +243,7 @@
             this.txtPeriodo.Name = "txtPeriodo";
             this.txtPeriodo.Size = new System.Drawing.Size(100, 22);
             this.txtPeriodo.TabIndex = 3;
-            this.txtPeriodo.TextChanged += new System.EventHandler(this.txtPeriodo_TextChanged);
+            this.txtPeriodo.TextChanged += new System.EventHandler(this.TxtPeriodo_TextChanged);
             // 
             // txtCodigoHabilitacion
             // 

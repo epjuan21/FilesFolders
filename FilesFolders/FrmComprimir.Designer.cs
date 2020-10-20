@@ -82,7 +82,7 @@
             this.btnSalir.TabIndex = 15;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.button1_Click);
+            this.btnSalir.Click += new System.EventHandler(this.Button1_Click);
             // 
             // txtRutaEAPB
             // 
@@ -100,7 +100,7 @@
             this.btnRutaEAPB.TabIndex = 13;
             this.btnRutaEAPB.Text = "Ruta";
             this.btnRutaEAPB.UseVisualStyleBackColor = true;
-            this.btnRutaEAPB.Click += new System.EventHandler(this.btnRutaEAPB_Click);
+            this.btnRutaEAPB.Click += new System.EventHandler(this.BtnRutaEAPB_Click);
             // 
             // groupBox3
             // 
@@ -168,7 +168,7 @@
             this.btnComprimir.Size = new System.Drawing.Size(50, 30);
             this.btnComprimir.TabIndex = 24;
             this.btnComprimir.UseVisualStyleBackColor = true;
-            this.btnComprimir.Click += new System.EventHandler(this.btnComprimir_Click);
+            this.btnComprimir.Click += new System.EventHandler(this.BtnComprimir_Click);
             // 
             // lblNombreArchivo
             // 

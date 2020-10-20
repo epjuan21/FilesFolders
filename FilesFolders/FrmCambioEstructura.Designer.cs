@@ -59,7 +59,7 @@
             this.pnlCambioEsctuctura.Name = "pnlCambioEsctuctura";
             this.pnlCambioEsctuctura.Size = new System.Drawing.Size(490, 244);
             this.pnlCambioEsctuctura.TabIndex = 16;
-            this.pnlCambioEsctuctura.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlCambioEsctuctura_Paint);
+            this.pnlCambioEsctuctura.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlCambioEsctuctura_Paint);
             // 
             // btnSalir
             // 
@@ -69,7 +69,7 @@
             this.btnSalir.TabIndex = 17;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.btnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
             // txtCodigoMunicipio
             // 
@@ -111,7 +111,7 @@
             this.btnProcesarEAPB.Size = new System.Drawing.Size(75, 23);
             this.btnProcesarEAPB.TabIndex = 12;
             this.btnProcesarEAPB.UseVisualStyleBackColor = true;
-            this.btnProcesarEAPB.Click += new System.EventHandler(this.btnProcesarEAPB_Click);
+            this.btnProcesarEAPB.Click += new System.EventHandler(this.BtnProcesarEAPB_Click);
             // 
             // lblTituloEAPB
             // 
@@ -140,7 +140,7 @@
             this.btnRutaCarpetaEAPB.TabIndex = 9;
             this.btnRutaCarpetaEAPB.Text = "Ruta";
             this.btnRutaCarpetaEAPB.UseVisualStyleBackColor = true;
-            this.btnRutaCarpetaEAPB.Click += new System.EventHandler(this.btnRutaCarpetaEAPB_Click);
+            this.btnRutaCarpetaEAPB.Click += new System.EventHandler(this.BtnRutaCarpetaEAPB_Click);
             // 
             // label10
             // 

@@ -272,7 +272,7 @@ namespace FilesFolders
             this.btnAF.Size = new System.Drawing.Size(36, 23);
             this.btnAF.TabIndex = 42;
             this.btnAF.UseVisualStyleBackColor = true;
-            this.btnAF.Click += new System.EventHandler(this.btnAF_Click);
+            this.btnAF.Click += new System.EventHandler(this.BtnAF_Click);
             // 
             // btnAM
             // 
@@ -282,7 +282,7 @@ namespace FilesFolders
             this.btnAM.Size = new System.Drawing.Size(36, 23);
             this.btnAM.TabIndex = 42;
             this.btnAM.UseVisualStyleBackColor = true;
-            this.btnAM.Click += new System.EventHandler(this.btnAM_Click);
+            this.btnAM.Click += new System.EventHandler(this.BtnAM_Click);
             // 
             // btnAH
             // 
@@ -395,7 +395,7 @@ namespace FilesFolders
             this.btnAU.Size = new System.Drawing.Size(36, 23);
             this.btnAU.TabIndex = 30;
             this.btnAU.UseVisualStyleBackColor = true;
-            this.btnAU.Click += new System.EventHandler(this.btnAU_Click_1);
+            this.btnAU.Click += new System.EventHandler(this.BtnAU_Click_1);
             // 
             // lblAU
             // 
@@ -431,7 +431,7 @@ namespace FilesFolders
             this.btnAT.Size = new System.Drawing.Size(36, 23);
             this.btnAT.TabIndex = 26;
             this.btnAT.UseVisualStyleBackColor = true;
-            this.btnAT.Click += new System.EventHandler(this.btnAT_Click_1);
+            this.btnAT.Click += new System.EventHandler(this.BtnAT_Click_1);
             // 
             // lblAT
             // 
@@ -529,7 +529,7 @@ namespace FilesFolders
             this.btnDoc.Size = new System.Drawing.Size(36, 23);
             this.btnDoc.TabIndex = 16;
             this.btnDoc.UseVisualStyleBackColor = true;
-            this.btnDoc.Click += new System.EventHandler(this.btnDoc_Click);
+            this.btnDoc.Click += new System.EventHandler(this.BtnDoc_Click);
             // 
             // lblStatusUS
             // 
@@ -555,7 +555,7 @@ namespace FilesFolders
             this.btnUS.Size = new System.Drawing.Size(36, 23);
             this.btnUS.TabIndex = 13;
             this.btnUS.UseVisualStyleBackColor = true;
-            this.btnUS.Click += new System.EventHandler(this.btnUS_Click_1);
+            this.btnUS.Click += new System.EventHandler(this.BtnUS_Click_1);
             // 
             // lblStatusAC
             // 
@@ -749,7 +749,7 @@ namespace FilesFolders
             this.btnAC.Size = new System.Drawing.Size(36, 23);
             this.btnAC.TabIndex = 6;
             this.btnAC.UseVisualStyleBackColor = true;
-            this.btnAC.Click += new System.EventHandler(this.btnAC_Click_1);
+            this.btnAC.Click += new System.EventHandler(this.BtnAC_Click_1);
             // 
             // prgBarAP
             // 
@@ -766,7 +766,7 @@ namespace FilesFolders
             this.btnAP.Size = new System.Drawing.Size(36, 23);
             this.btnAP.TabIndex = 4;
             this.btnAP.UseVisualStyleBackColor = true;
-            this.btnAP.Click += new System.EventHandler(this.btnAP_Click_1);
+            this.btnAP.Click += new System.EventHandler(this.BtnAP_Click_1);
             // 
             // txtRuta
             // 
@@ -784,7 +784,7 @@ namespace FilesFolders
             this.btnRuta.TabIndex = 0;
             this.btnRuta.Text = "Ruta";
             this.btnRuta.UseVisualStyleBackColor = true;
-            this.btnRuta.Click += new System.EventHandler(this.btnRuta_Click);
+            this.btnRuta.Click += new System.EventHandler(this.BtnRuta_Click);
             // 
             // groupBox2
             // 
