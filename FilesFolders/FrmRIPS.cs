@@ -117,7 +117,6 @@ namespace FilesFolders
                 btnEliminarAd.Enabled = true;
 
                 chkBoxLonDoc.Enabled = true;
-
             }
         }
         #endregion
