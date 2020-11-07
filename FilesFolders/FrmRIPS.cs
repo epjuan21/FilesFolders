@@ -3440,6 +3440,39 @@ namespace FilesFolders
         }
         #endregion
 
+        #region AD
+
+        // Eliminar Archvio AD
+        private void BtnEliminarAd_Click(object sender, EventArgs e)
+        {
+            DirectoryInfo di = new DirectoryInfo(dirPath);
+
+            foreach (var fi in di.GetFiles("*CT*", SearchOption.AllDirectories))
+            {
+                String path = fi.FullName;
+                List<String> lines = new List<String>();
+
+                if (File.Exists(path))
+                {
+                    var lineaConAD = System.IO.File.ReadAllLines(path);
+                    var lineaSinAD = lineaConAD.Where(line => !line.Contains("AD"));
+                    System.IO.File.WriteAllLines(path, lineaSinAD);
+                }
+
+                // Eliminar Ultimo Salto de Linea CR LF del Archivo
+
+                string myFileData = File.ReadAllText(path);
+
+                if (myFileData.EndsWith(Environment.NewLine))
+                {
+                    File.WriteAllText(path, myFileData.TrimEnd(Environment.NewLine.ToCharArray()));
+                }
+            }
+
+            MessageBox.Show("Se ha eliminado el archivo AD Correctamente");
+        }
+        #endregion
+
         #region Correción Documentos
         private void BtnDoc_Click(object sender, EventArgs e)
         {

@@ -33,6 +33,7 @@ namespace FilesFolders
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRIPS));
             this.pnlRIPS = new System.Windows.Forms.Panel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.chkBoxPrefijoFE = new System.Windows.Forms.CheckBox();
             this.ChkBoxFac = new System.Windows.Forms.CheckBox();
             this.chkBoxValCm = new System.Windows.Forms.CheckBox();
             this.chkBoxLonDoc = new System.Windows.Forms.CheckBox();
@@ -107,7 +108,7 @@ namespace FilesFolders
             this.txtRuta = new System.Windows.Forms.TextBox();
             this.btnRuta = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.chkBoxPrefijoFE = new System.Windows.Forms.CheckBox();
+            this.btnEliminarAd = new System.Windows.Forms.Button();
             this.pnlRIPS.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -118,6 +119,7 @@ namespace FilesFolders
             // 
             // pnlRIPS
             // 
+            this.pnlRIPS.Controls.Add(this.btnEliminarAd);
             this.pnlRIPS.Controls.Add(this.groupBox5);
             this.pnlRIPS.Controls.Add(this.groupBox4);
             this.pnlRIPS.Controls.Add(this.groupBox2);
@@ -166,7 +168,7 @@ namespace FilesFolders
             this.pnlRIPS.Controls.Add(this.btnRuta);
             this.pnlRIPS.Location = new System.Drawing.Point(12, 12);
             this.pnlRIPS.Name = "pnlRIPS";
-            this.pnlRIPS.Size = new System.Drawing.Size(1021, 535);
+            this.pnlRIPS.Size = new System.Drawing.Size(1021, 562);
             this.pnlRIPS.TabIndex = 2;
             // 
             // groupBox5
@@ -179,10 +181,22 @@ namespace FilesFolders
             this.groupBox5.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.groupBox5.Location = new System.Drawing.Point(577, 21);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(299, 130);
+            this.groupBox5.Size = new System.Drawing.Size(299, 123);
             this.groupBox5.TabIndex = 56;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "General";
+            // 
+            // chkBoxPrefijoFE
+            // 
+            this.chkBoxPrefijoFE.AutoSize = true;
+            this.chkBoxPrefijoFE.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.chkBoxPrefijoFE.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxPrefijoFE.Location = new System.Drawing.Point(12, 98);
+            this.chkBoxPrefijoFE.Name = "chkBoxPrefijoFE";
+            this.chkBoxPrefijoFE.Size = new System.Drawing.Size(119, 17);
+            this.chkBoxPrefijoFE.TabIndex = 37;
+            this.chkBoxPrefijoFE.Text = "Corregir Prefijo FE";
+            this.chkBoxPrefijoFE.UseVisualStyleBackColor = true;
             // 
             // ChkBoxFac
             // 
@@ -226,7 +240,7 @@ namespace FilesFolders
             this.groupBox4.Controls.Add(this.chkBoxDXSSSA);
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox4.Location = new System.Drawing.Point(577, 314);
+            this.groupBox4.Location = new System.Drawing.Point(577, 307);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(299, 79);
             this.groupBox4.TabIndex = 55;
@@ -266,7 +280,7 @@ namespace FilesFolders
             this.groupBox2.Controls.Add(this.chkBoxDiagSavia);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox2.Location = new System.Drawing.Point(577, 157);
+            this.groupBox2.Location = new System.Drawing.Point(577, 150);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(299, 151);
             this.groupBox2.TabIndex = 53;
@@ -341,7 +355,7 @@ namespace FilesFolders
             this.groupBox3.Controls.Add(this.chkBoxValSum);
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox3.Location = new System.Drawing.Point(577, 399);
+            this.groupBox3.Location = new System.Drawing.Point(577, 392);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(299, 133);
             this.groupBox3.TabIndex = 54;
@@ -918,23 +932,23 @@ namespace FilesFolders
             this.btnRuta.UseVisualStyleBackColor = true;
             this.btnRuta.Click += new System.EventHandler(this.BtnRuta_Click);
             // 
-            // chkBoxPrefijoFE
+            // btnEliminarAd
             // 
-            this.chkBoxPrefijoFE.AutoSize = true;
-            this.chkBoxPrefijoFE.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.chkBoxPrefijoFE.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.chkBoxPrefijoFE.Location = new System.Drawing.Point(12, 98);
-            this.chkBoxPrefijoFE.Name = "chkBoxPrefijoFE";
-            this.chkBoxPrefijoFE.Size = new System.Drawing.Size(119, 17);
-            this.chkBoxPrefijoFE.TabIndex = 37;
-            this.chkBoxPrefijoFE.Text = "Corregir Prefijo FE";
-            this.chkBoxPrefijoFE.UseVisualStyleBackColor = true;
+            this.btnEliminarAd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarAd.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.btnEliminarAd.Location = new System.Drawing.Point(12, 420);
+            this.btnEliminarAd.Name = "btnEliminarAd";
+            this.btnEliminarAd.Size = new System.Drawing.Size(132, 23);
+            this.btnEliminarAd.TabIndex = 38;
+            this.btnEliminarAd.Text = "Eliminar AD";
+            this.btnEliminarAd.UseVisualStyleBackColor = true;
+            this.btnEliminarAd.Click += new System.EventHandler(this.BtnEliminarAd_Click);
             // 
             // FrmRIPS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1045, 553);
+            this.ClientSize = new System.Drawing.Size(1037, 579);
             this.Controls.Add(this.pnlRIPS);
             this.Name = "FrmRIPS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1035,5 +1049,6 @@ namespace FilesFolders
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.CheckBox chkBoxSaviaAT;
         private System.Windows.Forms.CheckBox chkBoxPrefijoFE;
+        private System.Windows.Forms.Button btnEliminarAd;
     }
 }
