@@ -3469,6 +3469,11 @@ namespace FilesFolders
                 }
             }
 
+            foreach (var fi in di.GetFiles("*AD*", SearchOption.AllDirectories))
+            {
+                fi.Delete();
+            }
+
             MessageBox.Show("Se ha eliminado el archivo AD Correctamente");
         }
         #endregion
