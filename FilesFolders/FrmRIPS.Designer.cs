@@ -32,10 +32,24 @@ namespace FilesFolders
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRIPS));
             this.pnlRIPS = new System.Windows.Forms.Panel();
-            this.chkBoxDXSSSA = new System.Windows.Forms.CheckBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.ChkBoxFac = new System.Windows.Forms.CheckBox();
+            this.chkBoxValCm = new System.Windows.Forms.CheckBox();
+            this.chkBoxLonDoc = new System.Windows.Forms.CheckBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.chkBoxSSSA = new System.Windows.Forms.CheckBox();
-            this.chkBoxAMSavia = new System.Windows.Forms.CheckBox();
+            this.chkBoxDXSSSA = new System.Windows.Forms.CheckBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chkBoxSaviaAT = new System.Windows.Forms.CheckBox();
+            this.chkBoxAxSavia = new System.Windows.Forms.CheckBox();
             this.chkBoxCarEsp = new System.Windows.Forms.CheckBox();
+            this.chkBoxAMSavia = new System.Windows.Forms.CheckBox();
+            this.chkBoxDiagSavia = new System.Windows.Forms.CheckBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.chkACSumimedical = new System.Windows.Forms.CheckBox();
+            this.chkBoxDxAxSum = new System.Windows.Forms.CheckBox();
+            this.chkBoxCorregirAFSum = new System.Windows.Forms.CheckBox();
+            this.chkBoxValSum = new System.Windows.Forms.CheckBox();
             this.lblStatusAF = new System.Windows.Forms.Label();
             this.lblStatusAM = new System.Windows.Forms.Label();
             this.lblStatusAH = new System.Windows.Forms.Label();
@@ -48,10 +62,6 @@ namespace FilesFolders
             this.lblAF = new System.Windows.Forms.Label();
             this.lblAM = new System.Windows.Forms.Label();
             this.lblAH = new System.Windows.Forms.Label();
-            this.ChkBoxFac = new System.Windows.Forms.CheckBox();
-            this.chkBoxDiagSavia = new System.Windows.Forms.CheckBox();
-            this.chkBoxValCm = new System.Windows.Forms.CheckBox();
-            this.chkBoxLonDoc = new System.Windows.Forms.CheckBox();
             this.lblStatusAU = new System.Windows.Forms.Label();
             this.prgBarAU = new System.Windows.Forms.ProgressBar();
             this.btnAU = new System.Windows.Forms.Button();
@@ -97,22 +107,13 @@ namespace FilesFolders
             this.txtRuta = new System.Windows.Forms.TextBox();
             this.btnRuta = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.chkBoxAxSavia = new System.Windows.Forms.CheckBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.chkBoxValSum = new System.Windows.Forms.CheckBox();
-            this.chkBoxCorregirAFSum = new System.Windows.Forms.CheckBox();
-            this.chkBoxDxAxSum = new System.Windows.Forms.CheckBox();
-            this.chkACSumimedical = new System.Windows.Forms.CheckBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.chkBoxSaviaAT = new System.Windows.Forms.CheckBox();
+            this.chkBoxPrefijoFE = new System.Windows.Forms.CheckBox();
             this.pnlRIPS.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlRIPS
@@ -165,20 +166,72 @@ namespace FilesFolders
             this.pnlRIPS.Controls.Add(this.btnRuta);
             this.pnlRIPS.Location = new System.Drawing.Point(12, 12);
             this.pnlRIPS.Name = "pnlRIPS";
-            this.pnlRIPS.Size = new System.Drawing.Size(1021, 507);
+            this.pnlRIPS.Size = new System.Drawing.Size(1021, 535);
             this.pnlRIPS.TabIndex = 2;
             // 
-            // chkBoxDXSSSA
+            // groupBox5
             // 
-            this.chkBoxDXSSSA.AutoSize = true;
-            this.chkBoxDXSSSA.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkBoxDXSSSA.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.chkBoxDXSSSA.Location = new System.Drawing.Point(12, 51);
-            this.chkBoxDXSSSA.Name = "chkBoxDXSSSA";
-            this.chkBoxDXSSSA.Size = new System.Drawing.Size(161, 17);
-            this.chkBoxDXSSSA.TabIndex = 51;
-            this.chkBoxDXSSSA.Text = "Corregir Diagnostico SSSA";
-            this.chkBoxDXSSSA.UseVisualStyleBackColor = true;
+            this.groupBox5.Controls.Add(this.chkBoxPrefijoFE);
+            this.groupBox5.Controls.Add(this.ChkBoxFac);
+            this.groupBox5.Controls.Add(this.chkBoxValCm);
+            this.groupBox5.Controls.Add(this.chkBoxLonDoc);
+            this.groupBox5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.groupBox5.Location = new System.Drawing.Point(577, 21);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(299, 130);
+            this.groupBox5.TabIndex = 56;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "General";
+            // 
+            // ChkBoxFac
+            // 
+            this.ChkBoxFac.AutoSize = true;
+            this.ChkBoxFac.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChkBoxFac.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.ChkBoxFac.Location = new System.Drawing.Point(12, 28);
+            this.ChkBoxFac.Name = "ChkBoxFac";
+            this.ChkBoxFac.Size = new System.Drawing.Size(169, 17);
+            this.ChkBoxFac.TabIndex = 36;
+            this.ChkBoxFac.Text = "Corregir Número de Factura";
+            this.ChkBoxFac.UseVisualStyleBackColor = true;
+            // 
+            // chkBoxValCm
+            // 
+            this.chkBoxValCm.AutoSize = true;
+            this.chkBoxValCm.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxValCm.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxValCm.Location = new System.Drawing.Point(12, 51);
+            this.chkBoxValCm.Name = "chkBoxValCm";
+            this.chkBoxValCm.Size = new System.Drawing.Size(169, 17);
+            this.chkBoxValCm.TabIndex = 34;
+            this.chkBoxValCm.Text = "Corregir Cuota Moderadora";
+            this.chkBoxValCm.UseVisualStyleBackColor = true;
+            // 
+            // chkBoxLonDoc
+            // 
+            this.chkBoxLonDoc.AutoSize = true;
+            this.chkBoxLonDoc.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxLonDoc.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxLonDoc.Location = new System.Drawing.Point(12, 74);
+            this.chkBoxLonDoc.Name = "chkBoxLonDoc";
+            this.chkBoxLonDoc.Size = new System.Drawing.Size(251, 17);
+            this.chkBoxLonDoc.TabIndex = 33;
+            this.chkBoxLonDoc.Text = "Incluir Documentos de Longitud Mayor a 10";
+            this.chkBoxLonDoc.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.chkBoxSSSA);
+            this.groupBox4.Controls.Add(this.chkBoxDXSSSA);
+            this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.groupBox4.Location = new System.Drawing.Point(577, 314);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(299, 79);
+            this.groupBox4.TabIndex = 55;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "SSSA";
             // 
             // chkBoxSSSA
             // 
@@ -192,17 +245,57 @@ namespace FilesFolders
             this.chkBoxSSSA.Text = "Corregir Acto Quirurgico SSSA";
             this.chkBoxSSSA.UseVisualStyleBackColor = true;
             // 
-            // chkBoxAMSavia
+            // chkBoxDXSSSA
             // 
-            this.chkBoxAMSavia.AutoSize = true;
-            this.chkBoxAMSavia.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkBoxAMSavia.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.chkBoxAMSavia.Location = new System.Drawing.Point(12, 77);
-            this.chkBoxAMSavia.Name = "chkBoxAMSavia";
-            this.chkBoxAMSavia.Size = new System.Drawing.Size(88, 17);
-            this.chkBoxAMSavia.TabIndex = 49;
-            this.chkBoxAMSavia.Text = "Corregir AM";
-            this.chkBoxAMSavia.UseVisualStyleBackColor = true;
+            this.chkBoxDXSSSA.AutoSize = true;
+            this.chkBoxDXSSSA.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxDXSSSA.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxDXSSSA.Location = new System.Drawing.Point(12, 51);
+            this.chkBoxDXSSSA.Name = "chkBoxDXSSSA";
+            this.chkBoxDXSSSA.Size = new System.Drawing.Size(161, 17);
+            this.chkBoxDXSSSA.TabIndex = 51;
+            this.chkBoxDXSSSA.Text = "Corregir Diagnostico SSSA";
+            this.chkBoxDXSSSA.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.chkBoxSaviaAT);
+            this.groupBox2.Controls.Add(this.chkBoxAxSavia);
+            this.groupBox2.Controls.Add(this.chkBoxCarEsp);
+            this.groupBox2.Controls.Add(this.chkBoxAMSavia);
+            this.groupBox2.Controls.Add(this.chkBoxDiagSavia);
+            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.groupBox2.Location = new System.Drawing.Point(577, 157);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(299, 151);
+            this.groupBox2.TabIndex = 53;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "SAVIASALUD";
+            // 
+            // chkBoxSaviaAT
+            // 
+            this.chkBoxSaviaAT.AutoSize = true;
+            this.chkBoxSaviaAT.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxSaviaAT.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxSaviaAT.Location = new System.Drawing.Point(12, 123);
+            this.chkBoxSaviaAT.Name = "chkBoxSaviaAT";
+            this.chkBoxSaviaAT.Size = new System.Drawing.Size(83, 17);
+            this.chkBoxSaviaAT.TabIndex = 56;
+            this.chkBoxSaviaAT.Text = "Corregir AT";
+            this.chkBoxSaviaAT.UseVisualStyleBackColor = true;
+            // 
+            // chkBoxAxSavia
+            // 
+            this.chkBoxAxSavia.AutoSize = true;
+            this.chkBoxAxSavia.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxAxSavia.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxAxSavia.Location = new System.Drawing.Point(12, 31);
+            this.chkBoxAxSavia.Name = "chkBoxAxSavia";
+            this.chkBoxAxSavia.Size = new System.Drawing.Size(244, 17);
+            this.chkBoxAxSavia.TabIndex = 55;
+            this.chkBoxAxSavia.Text = "Corregir Acto Quirurgico para SAVIASALUD";
+            this.chkBoxAxSavia.UseVisualStyleBackColor = true;
             // 
             // chkBoxCarEsp
             // 
@@ -215,6 +308,93 @@ namespace FilesFolders
             this.chkBoxCarEsp.TabIndex = 47;
             this.chkBoxCarEsp.Text = "Corregir Caracteres especiales para SAVIASALUD";
             this.chkBoxCarEsp.UseVisualStyleBackColor = true;
+            // 
+            // chkBoxAMSavia
+            // 
+            this.chkBoxAMSavia.AutoSize = true;
+            this.chkBoxAMSavia.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxAMSavia.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxAMSavia.Location = new System.Drawing.Point(12, 77);
+            this.chkBoxAMSavia.Name = "chkBoxAMSavia";
+            this.chkBoxAMSavia.Size = new System.Drawing.Size(88, 17);
+            this.chkBoxAMSavia.TabIndex = 49;
+            this.chkBoxAMSavia.Text = "Corregir AM";
+            this.chkBoxAMSavia.UseVisualStyleBackColor = true;
+            // 
+            // chkBoxDiagSavia
+            // 
+            this.chkBoxDiagSavia.AutoSize = true;
+            this.chkBoxDiagSavia.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxDiagSavia.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxDiagSavia.Location = new System.Drawing.Point(12, 100);
+            this.chkBoxDiagSavia.Name = "chkBoxDiagSavia";
+            this.chkBoxDiagSavia.Size = new System.Drawing.Size(230, 17);
+            this.chkBoxDiagSavia.TabIndex = 35;
+            this.chkBoxDiagSavia.Text = "Corregir Diagnósticos para SAVIASALUD";
+            this.chkBoxDiagSavia.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.chkACSumimedical);
+            this.groupBox3.Controls.Add(this.chkBoxDxAxSum);
+            this.groupBox3.Controls.Add(this.chkBoxCorregirAFSum);
+            this.groupBox3.Controls.Add(this.chkBoxValSum);
+            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.groupBox3.Location = new System.Drawing.Point(577, 399);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(299, 133);
+            this.groupBox3.TabIndex = 54;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "SUMIMEDICAL";
+            // 
+            // chkACSumimedical
+            // 
+            this.chkACSumimedical.AutoSize = true;
+            this.chkACSumimedical.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkACSumimedical.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkACSumimedical.Location = new System.Drawing.Point(12, 105);
+            this.chkACSumimedical.Name = "chkACSumimedical";
+            this.chkACSumimedical.Size = new System.Drawing.Size(152, 17);
+            this.chkACSumimedical.TabIndex = 49;
+            this.chkACSumimedical.Text = "Corregir AC Sumimedical";
+            this.chkACSumimedical.UseVisualStyleBackColor = true;
+            // 
+            // chkBoxDxAxSum
+            // 
+            this.chkBoxDxAxSum.AutoSize = true;
+            this.chkBoxDxAxSum.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxDxAxSum.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxDxAxSum.Location = new System.Drawing.Point(12, 82);
+            this.chkBoxDxAxSum.Name = "chkBoxDxAxSum";
+            this.chkBoxDxAxSum.Size = new System.Drawing.Size(282, 17);
+            this.chkBoxDxAxSum.TabIndex = 48;
+            this.chkBoxDxAxSum.Text = "Quitar Diagnostico y Acto Quirurgico Sumimedical";
+            this.chkBoxDxAxSum.UseVisualStyleBackColor = true;
+            // 
+            // chkBoxCorregirAFSum
+            // 
+            this.chkBoxCorregirAFSum.AutoSize = true;
+            this.chkBoxCorregirAFSum.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxCorregirAFSum.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxCorregirAFSum.Location = new System.Drawing.Point(12, 59);
+            this.chkBoxCorregirAFSum.Name = "chkBoxCorregirAFSum";
+            this.chkBoxCorregirAFSum.Size = new System.Drawing.Size(151, 17);
+            this.chkBoxCorregirAFSum.TabIndex = 47;
+            this.chkBoxCorregirAFSum.Text = "Corregir AF Sumimedical";
+            this.chkBoxCorregirAFSum.UseVisualStyleBackColor = true;
+            // 
+            // chkBoxValSum
+            // 
+            this.chkBoxValSum.AutoSize = true;
+            this.chkBoxValSum.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxValSum.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxValSum.Location = new System.Drawing.Point(12, 36);
+            this.chkBoxValSum.Name = "chkBoxValSum";
+            this.chkBoxValSum.Size = new System.Drawing.Size(178, 17);
+            this.chkBoxValSum.TabIndex = 46;
+            this.chkBoxValSum.Text = "Quitar decimales Sumimedical";
+            this.chkBoxValSum.UseVisualStyleBackColor = true;
             // 
             // lblStatusAF
             // 
@@ -322,54 +502,6 @@ namespace FilesFolders
             this.lblAH.Size = new System.Drawing.Size(24, 13);
             this.lblAH.TabIndex = 41;
             this.lblAH.Text = "AH";
-            // 
-            // ChkBoxFac
-            // 
-            this.ChkBoxFac.AutoSize = true;
-            this.ChkBoxFac.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChkBoxFac.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.ChkBoxFac.Location = new System.Drawing.Point(12, 28);
-            this.ChkBoxFac.Name = "ChkBoxFac";
-            this.ChkBoxFac.Size = new System.Drawing.Size(169, 17);
-            this.ChkBoxFac.TabIndex = 36;
-            this.ChkBoxFac.Text = "Corregir Número de Factura";
-            this.ChkBoxFac.UseVisualStyleBackColor = true;
-            // 
-            // chkBoxDiagSavia
-            // 
-            this.chkBoxDiagSavia.AutoSize = true;
-            this.chkBoxDiagSavia.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkBoxDiagSavia.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.chkBoxDiagSavia.Location = new System.Drawing.Point(12, 100);
-            this.chkBoxDiagSavia.Name = "chkBoxDiagSavia";
-            this.chkBoxDiagSavia.Size = new System.Drawing.Size(230, 17);
-            this.chkBoxDiagSavia.TabIndex = 35;
-            this.chkBoxDiagSavia.Text = "Corregir Diagnósticos para SAVIASALUD";
-            this.chkBoxDiagSavia.UseVisualStyleBackColor = true;
-            // 
-            // chkBoxValCm
-            // 
-            this.chkBoxValCm.AutoSize = true;
-            this.chkBoxValCm.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkBoxValCm.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.chkBoxValCm.Location = new System.Drawing.Point(12, 51);
-            this.chkBoxValCm.Name = "chkBoxValCm";
-            this.chkBoxValCm.Size = new System.Drawing.Size(169, 17);
-            this.chkBoxValCm.TabIndex = 34;
-            this.chkBoxValCm.Text = "Corregir Cuota Moderadora";
-            this.chkBoxValCm.UseVisualStyleBackColor = true;
-            // 
-            // chkBoxLonDoc
-            // 
-            this.chkBoxLonDoc.AutoSize = true;
-            this.chkBoxLonDoc.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkBoxLonDoc.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.chkBoxLonDoc.Location = new System.Drawing.Point(12, 74);
-            this.chkBoxLonDoc.Name = "chkBoxLonDoc";
-            this.chkBoxLonDoc.Size = new System.Drawing.Size(251, 17);
-            this.chkBoxLonDoc.TabIndex = 33;
-            this.chkBoxLonDoc.Text = "Incluir Documentos de Longitud Mayor a 10";
-            this.chkBoxLonDoc.UseVisualStyleBackColor = true;
             // 
             // lblStatusAU
             // 
@@ -786,141 +918,23 @@ namespace FilesFolders
             this.btnRuta.UseVisualStyleBackColor = true;
             this.btnRuta.Click += new System.EventHandler(this.BtnRuta_Click);
             // 
-            // groupBox2
+            // chkBoxPrefijoFE
             // 
-            this.groupBox2.Controls.Add(this.chkBoxSaviaAT);
-            this.groupBox2.Controls.Add(this.chkBoxAxSavia);
-            this.groupBox2.Controls.Add(this.chkBoxCarEsp);
-            this.groupBox2.Controls.Add(this.chkBoxAMSavia);
-            this.groupBox2.Controls.Add(this.chkBoxDiagSavia);
-            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox2.Location = new System.Drawing.Point(577, 126);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(299, 151);
-            this.groupBox2.TabIndex = 53;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "SAVIASALUD";
-            // 
-            // chkBoxAxSavia
-            // 
-            this.chkBoxAxSavia.AutoSize = true;
-            this.chkBoxAxSavia.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkBoxAxSavia.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.chkBoxAxSavia.Location = new System.Drawing.Point(12, 31);
-            this.chkBoxAxSavia.Name = "chkBoxAxSavia";
-            this.chkBoxAxSavia.Size = new System.Drawing.Size(244, 17);
-            this.chkBoxAxSavia.TabIndex = 55;
-            this.chkBoxAxSavia.Text = "Corregir Acto Quirurgico para SAVIASALUD";
-            this.chkBoxAxSavia.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.chkACSumimedical);
-            this.groupBox3.Controls.Add(this.chkBoxDxAxSum);
-            this.groupBox3.Controls.Add(this.chkBoxCorregirAFSum);
-            this.groupBox3.Controls.Add(this.chkBoxValSum);
-            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox3.Location = new System.Drawing.Point(577, 368);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(299, 133);
-            this.groupBox3.TabIndex = 54;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "SUMIMEDICAL";
-            // 
-            // chkBoxValSum
-            // 
-            this.chkBoxValSum.AutoSize = true;
-            this.chkBoxValSum.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkBoxValSum.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.chkBoxValSum.Location = new System.Drawing.Point(12, 36);
-            this.chkBoxValSum.Name = "chkBoxValSum";
-            this.chkBoxValSum.Size = new System.Drawing.Size(178, 17);
-            this.chkBoxValSum.TabIndex = 46;
-            this.chkBoxValSum.Text = "Quitar decimales Sumimedical";
-            this.chkBoxValSum.UseVisualStyleBackColor = true;
-            // 
-            // chkBoxCorregirAFSum
-            // 
-            this.chkBoxCorregirAFSum.AutoSize = true;
-            this.chkBoxCorregirAFSum.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkBoxCorregirAFSum.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.chkBoxCorregirAFSum.Location = new System.Drawing.Point(12, 59);
-            this.chkBoxCorregirAFSum.Name = "chkBoxCorregirAFSum";
-            this.chkBoxCorregirAFSum.Size = new System.Drawing.Size(151, 17);
-            this.chkBoxCorregirAFSum.TabIndex = 47;
-            this.chkBoxCorregirAFSum.Text = "Corregir AF Sumimedical";
-            this.chkBoxCorregirAFSum.UseVisualStyleBackColor = true;
-            // 
-            // chkBoxDxAxSum
-            // 
-            this.chkBoxDxAxSum.AutoSize = true;
-            this.chkBoxDxAxSum.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkBoxDxAxSum.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.chkBoxDxAxSum.Location = new System.Drawing.Point(12, 82);
-            this.chkBoxDxAxSum.Name = "chkBoxDxAxSum";
-            this.chkBoxDxAxSum.Size = new System.Drawing.Size(282, 17);
-            this.chkBoxDxAxSum.TabIndex = 48;
-            this.chkBoxDxAxSum.Text = "Quitar Diagnostico y Acto Quirurgico Sumimedical";
-            this.chkBoxDxAxSum.UseVisualStyleBackColor = true;
-            // 
-            // chkACSumimedical
-            // 
-            this.chkACSumimedical.AutoSize = true;
-            this.chkACSumimedical.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkACSumimedical.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.chkACSumimedical.Location = new System.Drawing.Point(12, 105);
-            this.chkACSumimedical.Name = "chkACSumimedical";
-            this.chkACSumimedical.Size = new System.Drawing.Size(152, 17);
-            this.chkACSumimedical.TabIndex = 49;
-            this.chkACSumimedical.Text = "Corregir AC Sumimedical";
-            this.chkACSumimedical.UseVisualStyleBackColor = true;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.chkBoxSSSA);
-            this.groupBox4.Controls.Add(this.chkBoxDXSSSA);
-            this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox4.Location = new System.Drawing.Point(577, 283);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(299, 79);
-            this.groupBox4.TabIndex = 55;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "SSSA";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.ChkBoxFac);
-            this.groupBox5.Controls.Add(this.chkBoxValCm);
-            this.groupBox5.Controls.Add(this.chkBoxLonDoc);
-            this.groupBox5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.groupBox5.Location = new System.Drawing.Point(577, 21);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(299, 99);
-            this.groupBox5.TabIndex = 56;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "General";
-            // 
-            // chkBoxSaviaAT
-            // 
-            this.chkBoxSaviaAT.AutoSize = true;
-            this.chkBoxSaviaAT.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkBoxSaviaAT.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.chkBoxSaviaAT.Location = new System.Drawing.Point(12, 123);
-            this.chkBoxSaviaAT.Name = "chkBoxSaviaAT";
-            this.chkBoxSaviaAT.Size = new System.Drawing.Size(83, 17);
-            this.chkBoxSaviaAT.TabIndex = 56;
-            this.chkBoxSaviaAT.Text = "Corregir AT";
-            this.chkBoxSaviaAT.UseVisualStyleBackColor = true;
+            this.chkBoxPrefijoFE.AutoSize = true;
+            this.chkBoxPrefijoFE.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.chkBoxPrefijoFE.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxPrefijoFE.Location = new System.Drawing.Point(12, 98);
+            this.chkBoxPrefijoFE.Name = "chkBoxPrefijoFE";
+            this.chkBoxPrefijoFE.Size = new System.Drawing.Size(119, 17);
+            this.chkBoxPrefijoFE.TabIndex = 37;
+            this.chkBoxPrefijoFE.Text = "Corregir Prefijo FE";
+            this.chkBoxPrefijoFE.UseVisualStyleBackColor = true;
             // 
             // FrmRIPS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1045, 533);
+            this.ClientSize = new System.Drawing.Size(1045, 553);
             this.Controls.Add(this.pnlRIPS);
             this.Name = "FrmRIPS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -928,16 +942,16 @@ namespace FilesFolders
             this.Load += new System.EventHandler(this.FrmRIPS_Load);
             this.pnlRIPS.ResumeLayout(false);
             this.pnlRIPS.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1020,5 +1034,6 @@ namespace FilesFolders
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.CheckBox chkBoxSaviaAT;
+        private System.Windows.Forms.CheckBox chkBoxPrefijoFE;
     }
 }

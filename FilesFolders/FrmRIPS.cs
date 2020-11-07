@@ -340,12 +340,28 @@ namespace FilesFolders
 
                                 if (ChkBoxFac.CheckState == CheckState.Checked)
                                 {
-
                                     if (FirsLetter == "V")
                                     {
                                         split[0] = NumeroFactura.Substring(3, Longitud - 3);
                                         line = String.Join(",", split);
                                         contadorErrores++;
+                                    }
+                                }
+
+                                if (chkBoxPrefijoFE.CheckState == CheckState.Checked)
+                                {
+                                    if (!NumeroFactura.Contains("FE"))
+                                    {
+                                        if (FirsLetter == "V")
+                                        {
+                                            NumeroFactura = NumeroFactura.Substring(3, Longitud - 3);
+
+                                            NumeroFactura = String.Concat("FE", NumeroFactura);
+
+                                            split[0] = NumeroFactura;
+                                            line = String.Join(",", split);
+                                            contadorErrores++;
+                                        }
                                     }
                                 }
 
@@ -1136,12 +1152,28 @@ namespace FilesFolders
 
                                 if (ChkBoxFac.CheckState == CheckState.Checked)
                                 {
-
                                     if (FirsLetter == "V")
                                     {
                                         split[0] = NumeroFactura.Substring(3, Longitud - 3);
                                         line = String.Join(",", split);
                                         contadorErrores++;
+                                    }
+                                }
+
+                                if (chkBoxPrefijoFE.CheckState == CheckState.Checked)
+                                {
+                                    if (!NumeroFactura.Contains("FE"))
+                                    {
+                                        if (FirsLetter == "V")
+                                        {
+                                            NumeroFactura = NumeroFactura.Substring(3, Longitud - 3);
+
+                                            NumeroFactura = String.Concat("FE", NumeroFactura);
+
+                                            split[0] = NumeroFactura;
+                                            line = String.Join(",", split);
+                                            contadorErrores++;
+                                        }
                                     }
                                 }
                                 #endregion
@@ -2393,6 +2425,30 @@ namespace FilesFolders
                                         contadorErrores++;
                                     }
                                 }
+
+                                if (chkBoxPrefijoFE.CheckState == CheckState.Checked)
+                                {
+                                    if (!NumeroFactura.Contains("FE"))
+                                    {
+                                        if (FirsLetter == "V")
+                                        {
+                                            NumeroFactura = NumeroFactura.Substring(3, Longitud - 3);
+
+                                            NumeroFactura = String.Concat("FE", NumeroFactura);
+
+                                            split[0] = NumeroFactura;
+                                            line = String.Join(",", split);
+                                            contadorErrores++;
+                                        }
+                                        else
+                                        {
+                                            NumeroFactura = String.Concat("FE", NumeroFactura);
+                                            split[0] = NumeroFactura;
+                                            line = String.Join(",", split);
+                                            contadorErrores++;
+                                        }
+                                    }
+                                }
                                 #endregion
 
                                 #region Tipo Medicamento
@@ -2549,6 +2605,35 @@ namespace FilesFolders
 
                                 // Número Factura - Posición 0
                                 string NumeroFactura = split[0];
+
+                                // Obtenemos la Primera Letra del Número de la Factura
+                                string FirsLetter = NumeroFactura.Substring(0, 1);
+
+                                int Longitud = NumeroFactura.Length;
+
+                                if (chkBoxPrefijoFE.CheckState == CheckState.Checked)
+                                {
+                                    if (!NumeroFactura.Contains("FE"))
+                                    {
+                                        if (FirsLetter == "V")
+                                        {
+                                            NumeroFactura = NumeroFactura.Substring(3, Longitud - 3);
+
+                                            NumeroFactura = String.Concat("FE", NumeroFactura);
+
+                                            split[0] = NumeroFactura;
+                                            line = String.Join(",", split);
+                                            contadorErrores++;
+                                        }
+                                        else
+                                        {
+                                            NumeroFactura = String.Concat("FE", NumeroFactura);
+                                            split[0] = NumeroFactura;
+                                            line = String.Join(",", split);
+                                            contadorErrores++;
+                                        }
+                                    }
+                                }
 
                                 if (NumeroFactura.Length == 9)
                                 {
@@ -2803,12 +2888,28 @@ namespace FilesFolders
 
                                 if (ChkBoxFac.CheckState == CheckState.Checked)
                                 {
-
                                     if (FirsLetter == "V")
                                     {
                                         split[0] = NumeroFactura.Substring(3, Longitud - 3);
                                         line = String.Join(",", split);
                                         contadorErrores++;
+                                    }
+                                }
+
+                                if (chkBoxPrefijoFE.CheckState == CheckState.Checked)
+                                {
+                                    if (!NumeroFactura.Contains("FE"))
+                                    {
+                                        if (FirsLetter == "V")
+                                        {
+                                            NumeroFactura = NumeroFactura.Substring(3, Longitud - 3);
+
+                                            NumeroFactura = String.Concat("FE", NumeroFactura);
+
+                                            split[0] = NumeroFactura;
+                                            line = String.Join(",", split);
+                                            contadorErrores++;
+                                        }
                                     }
                                 }
                                 #endregion
@@ -3062,12 +3163,35 @@ namespace FilesFolders
 
                                 if (ChkBoxFac.CheckState == CheckState.Checked)
                                 {
-
                                     if (FirsLetter == "V")
                                     {
                                         split[0] = NumeroFactura.Substring(3, Longitud - 3);
                                         line = String.Join(",", split);
                                         contadorErrores++;
+                                    }
+                                    else
+                                    {
+                                        NumeroFactura = String.Concat("FE", NumeroFactura);
+                                        split[0] = NumeroFactura;
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                }
+
+                                if (chkBoxPrefijoFE.CheckState == CheckState.Checked)
+                                {
+                                    if (!NumeroFactura.Contains("FE"))
+                                    {
+                                        if (FirsLetter == "V")
+                                        {
+                                            NumeroFactura = NumeroFactura.Substring(3, Longitud - 3);
+
+                                            NumeroFactura = String.Concat("FE", NumeroFactura);
+
+                                            split[0] = NumeroFactura;
+                                            line = String.Join(",", split);
+                                            contadorErrores++;
+                                        }
                                     }
                                 }
                                 #endregion
@@ -3166,15 +3290,30 @@ namespace FilesFolders
                             {
                                 String[] split = line.Split(',');
 
-                                #region Código Entidad Administradora
+                                #region Numero Identificacion
 
-                                // Código Entidad Administradora - Poisición 8
+                                // Numero Identificacion - Poisición 3
 
                                 string codigoEntidadAF = split[3];
 
                                 if (codigoEntidadAF == "890981494-2")
                                 {
                                     split[3] = "890981494";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                #endregion
+
+                                #region Numero Factura
+
+                                // Numero Factura - Posicion 4
+                                string numeroFactura = split[4];
+
+                                if (!numeroFactura.Contains("FE"))
+                                {
+                                    numeroFactura = String.Concat("FE", numeroFactura);
+                                    split[4] = numeroFactura;
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
