@@ -60,6 +60,8 @@ namespace FilesFolders
             btnAH.Enabled = false;
             btnAF.Enabled = false;
             btnAM.Enabled = false;
+
+            btnEliminarAd.Enabled = false;
         }
 
         #region Ruta Cargue Masivo
@@ -112,8 +114,10 @@ namespace FilesFolders
                 btnAH.Enabled = true;
                 btnAF.Enabled = true;
                 btnAM.Enabled = true;
+                btnEliminarAd.Enabled = true;
 
                 chkBoxLonDoc.Enabled = true;
+
             }
         }
         #endregion
