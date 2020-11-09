@@ -365,6 +365,13 @@ namespace FilesFolders
                                             line = String.Join(",", split);
                                             contadorErrores++;
                                         }
+                                        else
+                                        {
+                                            NumeroFactura = String.Concat("FE", NumeroFactura);
+                                            split[0] = NumeroFactura;
+                                            line = String.Join(",", split);
+                                            contadorErrores++;
+                                        }
                                     }
                                 }
 
@@ -1173,6 +1180,13 @@ namespace FilesFolders
 
                                             NumeroFactura = String.Concat("FE", NumeroFactura);
 
+                                            split[0] = NumeroFactura;
+                                            line = String.Join(",", split);
+                                            contadorErrores++;
+                                        }
+                                        else
+                                        {
+                                            NumeroFactura = String.Concat("FE", NumeroFactura);
                                             split[0] = NumeroFactura;
                                             line = String.Join(",", split);
                                             contadorErrores++;
@@ -2909,6 +2923,13 @@ namespace FilesFolders
 
                                             NumeroFactura = String.Concat("FE", NumeroFactura);
 
+                                            split[0] = NumeroFactura;
+                                            line = String.Join(",", split);
+                                            contadorErrores++;
+                                        }
+                                        else
+                                        {
+                                            NumeroFactura = String.Concat("FE", NumeroFactura);
                                             split[0] = NumeroFactura;
                                             line = String.Join(",", split);
                                             contadorErrores++;
