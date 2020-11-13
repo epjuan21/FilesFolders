@@ -1776,6 +1776,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "906625")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "911009" && split[8] == "")
                                 {
                                     split[8] = "1";
@@ -1939,6 +1945,12 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 if (split[6] == "906916")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "907002")
                                 {
                                     split[8] = "1";
                                     line = String.Join(",", split);
@@ -2732,6 +2744,13 @@ namespace FilesFolders
                                     if (split[6] == "S20000")
                                     {
                                         split[6] = "5DSB01";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    // S11101 TRASLADO ASISTENCIAL BASICO TERRESTRE PRIMARIO
+                                    if (split[6] == "S11101")
+                                    {
+                                        split[6] = "601T01";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
