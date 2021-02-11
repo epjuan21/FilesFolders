@@ -3530,7 +3530,7 @@ namespace FilesFolders
                 }
             }
 
-            foreach (var fi in di.GetFiles("*AD*", SearchOption.AllDirectories))
+            foreach (var fi in di.GetFiles("AD*", SearchOption.AllDirectories))
             {
                 fi.Delete();
             }
