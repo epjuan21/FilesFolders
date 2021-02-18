@@ -1494,6 +1494,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "579401")
+                                {
+                                    split[8] = "2";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "579500")
                                 {
                                     split[8] = "2";
@@ -3230,13 +3236,6 @@ namespace FilesFolders
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
-                                    else
-                                    {
-                                        NumeroFactura = String.Concat("FE", NumeroFactura);
-                                        split[0] = NumeroFactura;
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
                                 }
 
                                 if (chkBoxPrefijoFE.CheckState == CheckState.Checked)
@@ -3253,8 +3252,16 @@ namespace FilesFolders
                                             line = String.Join(",", split);
                                             contadorErrores++;
                                         }
+                                        else
+                                        {
+                                            NumeroFactura = String.Concat("FE", NumeroFactura);
+                                            split[0] = NumeroFactura;
+                                            line = String.Join(",", split);
+                                            contadorErrores++;
+                                        }
                                     }
                                 }
+
                                 #endregion
 
                                 #region #region Diagnóstico Relacionado 1 de Egreso
