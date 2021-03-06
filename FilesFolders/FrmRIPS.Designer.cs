@@ -32,6 +32,7 @@ namespace FilesFolders
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRIPS));
             this.pnlRIPS = new System.Windows.Forms.Panel();
+            this.btnEliminarAd = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.chkBoxPrefijoFE = new System.Windows.Forms.CheckBox();
             this.ChkBoxFac = new System.Windows.Forms.CheckBox();
@@ -108,7 +109,6 @@ namespace FilesFolders
             this.txtRuta = new System.Windows.Forms.TextBox();
             this.btnRuta = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.btnEliminarAd = new System.Windows.Forms.Button();
             this.pnlRIPS.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -170,6 +170,18 @@ namespace FilesFolders
             this.pnlRIPS.Name = "pnlRIPS";
             this.pnlRIPS.Size = new System.Drawing.Size(1021, 562);
             this.pnlRIPS.TabIndex = 2;
+            // 
+            // btnEliminarAd
+            // 
+            this.btnEliminarAd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarAd.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.btnEliminarAd.Location = new System.Drawing.Point(12, 420);
+            this.btnEliminarAd.Name = "btnEliminarAd";
+            this.btnEliminarAd.Size = new System.Drawing.Size(132, 23);
+            this.btnEliminarAd.TabIndex = 38;
+            this.btnEliminarAd.Text = "Eliminar AD";
+            this.btnEliminarAd.UseVisualStyleBackColor = true;
+            this.btnEliminarAd.Click += new System.EventHandler(this.BtnEliminarAd_Click);
             // 
             // groupBox5
             // 
@@ -486,6 +498,7 @@ namespace FilesFolders
             this.btnAH.Size = new System.Drawing.Size(36, 23);
             this.btnAH.TabIndex = 42;
             this.btnAH.UseVisualStyleBackColor = true;
+            this.btnAH.Click += new System.EventHandler(this.BtnAH_Click);
             // 
             // lblAF
             // 
@@ -931,18 +944,6 @@ namespace FilesFolders
             this.btnRuta.Text = "Ruta";
             this.btnRuta.UseVisualStyleBackColor = true;
             this.btnRuta.Click += new System.EventHandler(this.BtnRuta_Click);
-            // 
-            // btnEliminarAd
-            // 
-            this.btnEliminarAd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarAd.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.btnEliminarAd.Location = new System.Drawing.Point(12, 420);
-            this.btnEliminarAd.Name = "btnEliminarAd";
-            this.btnEliminarAd.Size = new System.Drawing.Size(132, 23);
-            this.btnEliminarAd.TabIndex = 38;
-            this.btnEliminarAd.Text = "Eliminar AD";
-            this.btnEliminarAd.UseVisualStyleBackColor = true;
-            this.btnEliminarAd.Click += new System.EventHandler(this.BtnEliminarAd_Click);
             // 
             // FrmRIPS
             // 

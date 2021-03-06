@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -377,6 +378,17 @@ namespace FilesFolders
 
                                 #endregion
 
+                                #region Número de autorización
+                                // Número de autorización - Posición 5
+
+                                // Numero Autorizacion
+                                string numeroAutorizacion = split[5];
+                                split[5] = Regex.Replace(numeroAutorizacion, @"[^0-9]", "");
+
+                                line = String.Join(",", split);
+                                contadorErrores++;
+                                #endregion
+
                                 #region CUPS
                                 // Codigo CUPS Archivo AC - Posición 6
                                 if (split[6] == "890300")
@@ -428,6 +440,12 @@ namespace FilesFolders
                                 if (split[6] == "890305" && split[7] == "" && split[9] == "Z300")
                                 {
                                     split[7] = "03";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "890601" && split[7] == "")
+                                {
+                                    split[7] = "10";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -485,6 +503,12 @@ namespace FilesFolders
                                 if (split[6] == "890305" && split[8] == "" && split[9] == "Z300")
                                 {
                                     split[8] = "15";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "890601" && split[8] == "")
+                                {
+                                    split[8] = "13";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -1076,7 +1100,6 @@ namespace FilesFolders
                                 }
 
                                 #endregion
-
                             }
 
                             lines.Add(line);
@@ -1195,6 +1218,17 @@ namespace FilesFolders
                                 }
                                 #endregion
 
+                                #region Número de autorización
+                                // Número de autorización - Posición 5
+
+                                // Numero Autorizacion
+                                string numeroAutorizacion = split[5];
+                                split[5] = Regex.Replace(numeroAutorizacion, @"[^0-9]", "");
+
+                                line = String.Join(",", split);
+                                contadorErrores++;
+                                #endregion
+
                                 #region CUPS
                                 // Codigo CUPS Archivo AP - Posoción 6
                                 if (split[6] == "4")
@@ -1287,6 +1321,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "*908856")
+                                {
+                                    split[6] = "908856";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "965200")
                                 {
                                     split[6] = "965201";
@@ -1314,6 +1354,11 @@ namespace FilesFolders
                                 #endregion
 
                                 #region Ambito
+                                // Ambito del Procedimiento
+                                // 1 - Ambulatorio
+                                // 2 - Hospitalario
+                                // 3 - En Urgencias
+
                                 if (split[6] == "232101")
                                 {
                                     split[7] = "1";
@@ -1428,6 +1473,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "908856")
+                                {
+                                    split[7] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "936800")
                                 {
                                     split[7] = "1";
@@ -1464,6 +1515,7 @@ namespace FilesFolders
                                 // Finalidad - Posición 8
                                 // 1 - Diagnóstico
                                 // 2 - Terapéutico
+
                                 if (split[6] == "210200")
                                 {
                                     split[8] = "2";
@@ -1795,6 +1847,12 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 if (split[6] == "906625")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "908856")
                                 {
                                     split[8] = "1";
                                     line = String.Join(",", split);
@@ -2142,6 +2200,12 @@ namespace FilesFolders
                                     if (split[10] == "I489")
                                     {
                                         split[10] = "I48X";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "U072")
+                                    {
+                                        split[10] = "J181";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
@@ -2504,6 +2568,17 @@ namespace FilesFolders
                                 }
                                 #endregion
 
+                                #region Código del medicamento
+                                // Código del medicamento - Posición 5
+
+                                if (split[5] == "20055559-6")
+                                {
+                                    split[5] = "20041458-1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                #endregion
+
                                 #region Tipo Medicamento
                                 // Tipo Medicamento - Posición 6
                                 if (split[6] == "2")
@@ -2512,7 +2587,6 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-
                                 #endregion
 
                                 #region Forma Farmaceutica
@@ -2527,7 +2601,6 @@ namespace FilesFolders
                                 contadorErrores++;
 
                                 #endregion
-
 
                                 // Número de unidades - Posición 11
                                 string numeroUnidades = split[11];
@@ -2895,7 +2968,6 @@ namespace FilesFolders
                 Thread.Sleep(100);
             }
         }
-
         private void BgwAT_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             lblStatusAT.Visible = true;
@@ -3177,7 +3249,6 @@ namespace FilesFolders
                 Thread.Sleep(100);
             }
         }
-
         private void BgwAU_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             lblStatusAU.Visible = true;
@@ -3261,7 +3332,17 @@ namespace FilesFolders
                                         }
                                     }
                                 }
+                                #endregion
 
+                                #region Número de autorización
+                                // Número de autorización - Posición 7
+
+                                // Numero Autorizacion
+                                string numeroAutorizacion = split[7];
+                                split[7] = Regex.Replace(numeroAutorizacion, @"[^0-9]", "");
+
+                                line = String.Join(",", split);
+                                contadorErrores++;
                                 #endregion
 
                                 #region #region Diagnóstico Relacionado 1 de Egreso
@@ -3335,7 +3416,6 @@ namespace FilesFolders
         {
             bgwAF.ODoWorker(BgwAF_DoWork, BgwAF_ProgressChanged, BgwAF_RunWorkerCompleted);
         }
-
         private void BgwAF_DoWork(object sender, DoWorkEventArgs e)
         {
             DirectoryInfo di = new DirectoryInfo(dirPath);
@@ -3752,7 +3832,6 @@ namespace FilesFolders
             }
             return base.ProcessDialogKey(keyData);
         }
-
     }
 
 }
