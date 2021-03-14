@@ -589,6 +589,13 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
 
+                                if (split[9] == "K589")
+                                {
+                                    split[9] = "K588";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
                                 if (split[9] == "I844")
                                 {
                                     split[9] = "K649";
@@ -862,6 +869,12 @@ namespace FilesFolders
                                     if (split[10] == "N180")
                                     {
                                         split[10] = "N179";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "N188")
+                                    {
+                                        split[10] = "N189";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
