@@ -383,10 +383,12 @@ namespace FilesFolders
 
                                 // Numero Autorizacion
                                 string numeroAutorizacion = split[5];
-                                split[5] = Regex.Replace(numeroAutorizacion, @"[^0-9]", "");
-
-                                line = String.Join(",", split);
-                                contadorErrores++;
+                                if (numeroAutorizacion != "")
+                                {
+                                    split[5] = Regex.Replace(numeroAutorizacion, @"[^0-9]", "");
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 #endregion
 
                                 #region CUPS
@@ -589,6 +591,20 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
 
+                                if (split[9] == "I844")
+                                {
+                                    split[9] = "K649";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                if (split[9] == "K588")
+                                {
+                                    split[9] = "K580";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
                                 if (split[9] == "K589")
                                 {
                                     split[9] = "K588";
@@ -596,12 +612,13 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
 
-                                if (split[9] == "I844")
+                                if (split[9] == "M329")
                                 {
-                                    split[9] = "K649";
+                                    split[9] = "M331";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+
 
                                 if (split[9] == "")
                                 {
@@ -2590,6 +2607,21 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+
+                                // Corregir Codigo Medicamento para SSSA
+
+                                if (chkBoxAMSSSA.CheckState ==  CheckState.Checked)
+                                {
+                                    // ACIDO TRANEXAMICO 500 MG TABLE
+                                    if (split[5] == "20138453-1")
+                                    {
+                                        split[5] = "20072679-1";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                }
+
+
                                 #endregion
 
                                 #region Tipo Medicamento
