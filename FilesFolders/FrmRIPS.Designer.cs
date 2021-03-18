@@ -958,7 +958,6 @@ namespace FilesFolders
             this.chkBoxAMSSSA.TabIndex = 52;
             this.chkBoxAMSSSA.Text = "Corregir AM SSSA";
             this.chkBoxAMSSSA.UseVisualStyleBackColor = true;
-            this.chkBoxAMSSSA.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // FrmRIPS
             // 

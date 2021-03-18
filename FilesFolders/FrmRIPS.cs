@@ -2619,6 +2619,14 @@ namespace FilesFolders
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
+
+                                    // HIDROXICINA CLORHIDRATO 100 MG
+                                    if (split[5] == "020028014-1")
+                                    {
+                                        split[5] = "40205-1";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                 }
 
 
