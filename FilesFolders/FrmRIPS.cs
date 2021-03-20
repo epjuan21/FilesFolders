@@ -1539,6 +1539,13 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "982102" && split[7] == "")
+                                {
+                                    split[7] = "3";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
                                 #endregion
 
                                 #region Finalidad
