@@ -1715,6 +1715,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "871050")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "871060")
                                 {
                                     split[8] = "1";
@@ -2608,17 +2614,16 @@ namespace FilesFolders
                                 #region Código del medicamento
                                 // Código del medicamento - Posición 5
 
-                                if (split[5] == "20055559-6")
-                                {
-                                    split[5] = "20041458-1";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-
                                 // Corregir Codigo Medicamento para SSSA
-
                                 if (chkBoxAMSSSA.CheckState ==  CheckState.Checked)
                                 {
+                                    if (split[5] == "20055559-6")
+                                    {
+                                        split[5] = "20041458-1";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+
                                     // ACIDO TRANEXAMICO 500 MG TABLE
                                     if (split[5] == "20138453-1")
                                     {
@@ -2963,6 +2968,24 @@ namespace FilesFolders
                                 }
 
                                 #endregion
+
+                                #region NombreServicio
+                                // Nombre del Servicio - Posición 7
+
+                                // Corregir Nombre del Servicio Para SAVIASALUD
+                                if (chkBoxSaviaAT.CheckState == CheckState.Checked)
+                                {
+                                    // S20000 SALA DE OBSERVACION MENOR DE 6 HORAS
+                                    if (split[6] == "5DSB01")
+                                    {
+                                        split[7] = "DERECHOS DE SALA DE OBSERVACION EN URGENCIAS COMPLEJIDAD BAJA";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                }
+
+                                #endregion
+
 
                                 #region Valor Unitario
                                 // Valor Unitario - Posición 9
