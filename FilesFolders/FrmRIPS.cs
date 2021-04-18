@@ -629,6 +629,12 @@ namespace FilesFolders
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
+                                    if (split[9] == "H103")
+                                    {
+                                        split[9] = "H118";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                     if (split[9] == "K649")
                                     {
                                         split[9] = "I842";
@@ -786,6 +792,12 @@ namespace FilesFolders
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
+                                    if (split[10] == "K588")
+                                    {
+                                        split[10] = "K580";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                     if (split[10] == "K649")
                                     {
                                         split[10] = "I842";
@@ -795,6 +807,12 @@ namespace FilesFolders
                                     if (split[10] == "I489")
                                     {
                                         split[10] = "I48X";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "U071")
+                                    {
+                                        split[10] = "J181";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
@@ -1374,6 +1392,7 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+
                                 #endregion
 
                                 #region Ambito
@@ -2398,6 +2417,18 @@ namespace FilesFolders
                                     if (split[11] == "R500")
                                     {
                                         split[11] = "R509";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                }
+                                #endregion
+
+                                #region Corregir Diagnostico para SSSA
+                                if (chkBoxDXSSSA.CheckState == CheckState.Checked)
+                                {
+                                    if (split[11] == "A099")
+                                    {
+                                        split[11] = "A09X";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
