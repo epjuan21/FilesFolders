@@ -611,8 +611,6 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-
-
                                 if (split[9] == "")
                                 {
                                     split[9] = "R101";
@@ -641,6 +639,12 @@ namespace FilesFolders
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
+                                    if (split[9] == "M179")
+                                    {
+                                        split[9] = "L932";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                     if (split[9] == "M321")
                                     {
                                         split[9] = "L932";
@@ -650,6 +654,12 @@ namespace FilesFolders
                                     if (split[9] == "I489")
                                     {
                                         split[9] = "I48X";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[9] == "U071")
+                                    {
+                                        split[9] = "J22X";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
@@ -811,6 +821,12 @@ namespace FilesFolders
                                         contadorErrores++;
                                     }
                                     if (split[10] == "U071")
+                                    {
+                                        split[10] = "J181";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "U072")
                                     {
                                         split[10] = "J181";
                                         line = String.Join(",", split);
@@ -1344,12 +1360,6 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-                                if (split[6] == "902212")
-                                {
-                                    split[6] = "902210";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
                                 if (split[6] == "903825")
                                 {
                                     split[6] = "903895";
@@ -1509,6 +1519,18 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "903026")
+                                {
+                                    split[7] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "903703")
+                                {
+                                    split[7] = "3";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "906039")
                                 {
                                     split[7] = "1";
@@ -1575,6 +1597,24 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "993122" && split[7] == "")
+                                {
+                                    split[7] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "993501" && split[7] == "")
+                                {
+                                    split[7] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "993520" && split[7] == "")
+                                {
+                                    split[7] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
 
                                 #endregion
 
@@ -1584,6 +1624,12 @@ namespace FilesFolders
                                 // 2 - Terapéutico
 
                                 if (split[6] == "210200")
+                                {
+                                    split[8] = "2";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "211204")
                                 {
                                     split[8] = "2";
                                     line = String.Join(",", split);
@@ -2009,13 +2055,19 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-                                if (split[6] == "902210")
+                                if (split[6] == "902221")
                                 {
                                     split[8] = "1";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-                                if (split[6] == "902221")
+                                if (split[6] == "903026")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "903703")
                                 {
                                     split[8] = "1";
                                     line = String.Join(",", split);
@@ -2237,6 +2289,24 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "993122" && split[8] == "")
+                                {
+                                    split[8] = "3";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "993501" && split[8] == "")
+                                {
+                                    split[8] = "3";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "993520" && split[8] == "")
+                                {
+                                    split[8] = "3";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 #endregion
 
                                 #region Personal
@@ -2291,6 +2361,12 @@ namespace FilesFolders
                                     if (split[10] == "I489")
                                     {
                                         split[10] = "I48X";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "M321")
+                                    {
+                                        split[10] = "L932";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
@@ -2759,6 +2835,19 @@ namespace FilesFolders
 
                                 #endregion
 
+                                #region UnidadMedicamento
+
+                                // Unidad de medida del medicamento - Posición 10
+
+                                string unidadMedidaMedicamento = split[10];
+
+                                unidadMedidaMedicamento = Regex.Replace(unidadMedidaMedicamento, @"[^\w\s]", "").Replace("  ", " ").Replace("Ñ", "N").Replace("Ó", "O").Replace("(", "").Trim();
+                                split[10] = unidadMedidaMedicamento.Trim();
+                                line = String.Join(",", split);
+                                contadorErrores++;
+                                
+                                #endregion
+
                                 // Número de unidades - Posición 11
                                 string numeroUnidades = split[11];
                                 double numeroUnidadesDouble = Math.Truncate(Convert.ToDouble(numeroUnidades));
@@ -2772,21 +2861,6 @@ namespace FilesFolders
 
                                 string valorTotalMedicamento = split[13];
                                 double valorTotalMedicamentoDouble = Math.Truncate(Convert.ToDouble(valorTotalMedicamento));
-
-                                #region UnidadMedicamento
-
-                                // Unidad de medida del medicamento
-
-                                string nombreGenericoMedicamento = split[10];
-
-                                if (nombreGenericoMedicamento.Contains('?'))
-                                {
-                                    nombreGenericoMedicamento = Regex.Replace(nombreGenericoMedicamento, @"[^\w\s]", "").Replace("  ", " ").Replace("Ñ", "N").Replace("Ó", "O").Replace("(","").Trim();
-                                    split[10] = nombreGenericoMedicamento;
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                #endregion
 
                                 #region Numero de Unidades
                                 // Número de unidades - Posición 11
@@ -3565,7 +3639,6 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 #endregion
-
                             }
 
                             lines.Add(line);
