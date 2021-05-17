@@ -38,7 +38,6 @@
             this.lblNombreArchivo = new System.Windows.Forms.Label();
             this.prgBarNE = new System.Windows.Forms.ProgressBar();
             this.lblStatus = new System.Windows.Forms.Label();
-            this.btnComprimir = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblEtiquetaNombreArchivo = new System.Windows.Forms.Label();
@@ -51,6 +50,7 @@
             this.txtCodigoHabilitacion = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTipo = new System.Windows.Forms.TextBox();
+            this.btnComprimir = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -134,16 +134,6 @@
             this.lblStatus.TabIndex = 8;
             this.lblStatus.Text = "Status";
             // 
-            // btnComprimir
-            // 
-            this.btnComprimir.Image = global::FilesFolders.Properties.Resources.icons8_Archive_Folder_32;
-            this.btnComprimir.Location = new System.Drawing.Point(365, 153);
-            this.btnComprimir.Name = "btnComprimir";
-            this.btnComprimir.Size = new System.Drawing.Size(40, 34);
-            this.btnComprimir.TabIndex = 9;
-            this.btnComprimir.UseVisualStyleBackColor = true;
-            this.btnComprimir.Click += new System.EventHandler(this.BtnComprimir_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblNombre);
@@ -226,7 +216,7 @@
             this.lblTipo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblTipo.Location = new System.Drawing.Point(114, 46);
             this.lblTipo.Name = "lblTipo";
-            this.lblTipo.Size = new System.Drawing.Size(70, 13);
+            this.lblTipo.Size = new System.Drawing.Size(71, 13);
             this.lblTipo.TabIndex = 5;
             this.lblTipo.Text = "Tipo Archivo";
             // 
@@ -268,6 +258,16 @@
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Size = new System.Drawing.Size(99, 22);
             this.txtTipo.TabIndex = 0;
+            // 
+            // btnComprimir
+            // 
+            this.btnComprimir.Image = global::FilesFolders.Properties.Resources.icons8_Archive_Folder_32;
+            this.btnComprimir.Location = new System.Drawing.Point(365, 153);
+            this.btnComprimir.Name = "btnComprimir";
+            this.btnComprimir.Size = new System.Drawing.Size(40, 34);
+            this.btnComprimir.TabIndex = 9;
+            this.btnComprimir.UseVisualStyleBackColor = true;
+            this.btnComprimir.Click += new System.EventHandler(this.BtnComprimir_Click);
             // 
             // FrmNuevaEPS
             // 

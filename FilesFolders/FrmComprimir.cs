@@ -33,7 +33,7 @@ namespace FilesFolders
             cmbExtension.TabIndex = 7;
             btnComprimir.TabIndex = 8;
             btnSalir.TabIndex = 9;
-            
+
             // TextBox Inhabilitados Permanentemente
             txtModuloInformacion.Enabled = false;
             txtTema.Enabled = false;
@@ -138,7 +138,7 @@ namespace FilesFolders
             // Si seleccionamos el Item 2 que es 165COVI, entonces en el nombre del archvio no debe ir el Tema de Información
             int selectedIndex = cmbTipoFuente.SelectedIndex;
 
-            if (selectedIndex == 2) 
+            if (selectedIndex == 2)
             {
                 FileName = txtModuloInformacion.Text + cmbTipoFuente.Text + txtFechaCorte.Text + cmbTipoIdEntidad.Text + ceros + txtNumeroIdEntidad.Text + cmbRegimen.Text + txtConsecutivo.Text + cmbExtension.Text;
             }
@@ -178,9 +178,9 @@ namespace FilesFolders
             string PeriodoArchivo;
             string Month = periodo.Substring(4, 2);
             string Year = periodo.Substring(0, 4);
-            
-            PeriodoArchivo = string.Format("{0}{1}",Month, Year);
-            
+
+            PeriodoArchivo = string.Format("{0}{1}", Month, Year);
+
             System.IO.FileInfo[] files = new System.IO.DirectoryInfo(dirPath).GetFiles();
 
             // Cambiar Nombres de Archivos
@@ -259,8 +259,6 @@ namespace FilesFolders
                     }
                 }
             }
-
         }
-
     }
 }

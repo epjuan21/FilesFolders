@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCarpetas));
             this.pnlRIPSCarpetas = new System.Windows.Forms.Panel();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
             this.txtRutaCarpeta = new System.Windows.Forms.TextBox();
             this.btnRutaCarpeta = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.pnlRIPSCarpetas.SuspendLayout();
             this.SuspendLayout();
@@ -50,6 +50,16 @@
             this.pnlRIPSCarpetas.Name = "pnlRIPSCarpetas";
             this.pnlRIPSCarpetas.Size = new System.Drawing.Size(609, 181);
             this.pnlRIPSCarpetas.TabIndex = 14;
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(525, 146);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.TabIndex = 11;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
             // label22
             // 
@@ -88,16 +98,6 @@
             this.label13.Size = new System.Drawing.Size(236, 20);
             this.label13.TabIndex = 7;
             this.label13.Text = "Generación de carpetas por RIPS";
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Location = new System.Drawing.Point(525, 146);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 23);
-            this.btnSalir.TabIndex = 11;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.BtnSalir_Click);
             // 
             // FrmCarpetas
             // 

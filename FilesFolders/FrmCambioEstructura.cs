@@ -1152,10 +1152,5 @@ namespace FilesFolders
             // Inhabilitar Botones Hasta Seleccionar Ruta
             btnProcesarEAPB.Enabled = false;
         }
-
-        private void PnlCambioEsctuctura_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

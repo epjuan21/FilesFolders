@@ -61,6 +61,30 @@ namespace FilesFolders.ManejoArchivos
 
             return files;
         }
+
+        /// <summary>
+        /// Retorna una Lista de todos los archivos de una carpeta según un criterio
+        /// Muestra el Noombre completo del Archivo incluyendo la Ruta
+        /// Tiene en cuenta Subcarpetas
+        /// </summary>
+        /// <param name="directoryPath"></param>
+        /// <param name="searchPattern"></param>
+        /// <returns></returns>
+        public List<string> ListarArchivosFullNameRecursive(string directoryPath, string searchPattern)
+        {
+            directory = new DirectoryInfo(directoryPath);
+
+            List<string> files = new List<string>();
+
+            foreach (var file in directory.GetFiles(searchPattern, SearchOption.AllDirectories))
+            {
+                String nameFile = file.FullName;
+                files.Add(nameFile);
+            }
+
+            return files;
+        }
+
         // Retorna una Lista de todos los archivos de una carpeta según un criterio
         // Muestra el Nombre del archivo Unicamente, sin incluir la ruta
         public List<string> ListarArchivosName(string directoryPath, string searchPattern)
@@ -77,7 +101,20 @@ namespace FilesFolders.ManejoArchivos
 
             return files;
         }
+        public List<string> ListarArchivosNameRecursive(string directoryPath, string searchPattern)
+        {
+            directory = new DirectoryInfo(directoryPath);
 
+            List<string> files = new List<string>();
+
+            foreach (var file in directory.GetFiles(searchPattern, SearchOption.AllDirectories))
+            {
+                String nameFile = file.Name;
+                files.Add(nameFile);
+            }
+
+            return files;
+        }
         public string Lineas(string directoryPath, string searchPattern)
         {
             directory = new DirectoryInfo(directoryPath);

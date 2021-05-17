@@ -221,12 +221,11 @@ namespace FilesFolders
         {
             lblStatus.Text = "Finalizado";
         }
-
         private void BtnComprimir_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtPeriodo.Text))
             {
-                MessageBox.Show("Se debe especificar el oeriodo del archivo","Advertencia");
+                MessageBox.Show("Se debe especificar el oeriodo del archivo", "Advertencia");
             }
             else
             {
@@ -236,7 +235,7 @@ namespace FilesFolders
 
         private void TxtPeriodo_TextChanged(object sender, EventArgs e)
         {
-            NombreArchivoComprimido = txtTipo.Text + SeparadorNombre + txtCodigoHabilitacion.Text + SeparadorNombre  + txtPeriodo.Text + txtExtension.Text;
+            NombreArchivoComprimido = txtTipo.Text + SeparadorNombre + txtCodigoHabilitacion.Text + SeparadorNombre + txtPeriodo.Text + txtExtension.Text;
             lblNombre.Text = NombreArchivoComprimido;
         }
 

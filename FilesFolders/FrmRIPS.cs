@@ -150,6 +150,20 @@ namespace FilesFolders
                             {
                                 String[] split = line.Split(',');
 
+                                #region Codigo Entidad Administradora
+                                
+                                // Código entidad administradora
+                                string codigoEntidadAdministradora = split[2];
+
+                                if (chkBoxEntidadAdministradora.CheckState == CheckState.Checked && String.IsNullOrEmpty(codigoEntidadAdministradora))
+                                {
+                                    split[2] = "05091";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                #endregion
+
                                 #region Apellidos y Nombres
 
                                 // Primer Apellido - Posición 4
@@ -158,6 +172,7 @@ namespace FilesFolders
                                 // Reemplazar Caracteres Especiales
 
                                 primerApellido = primerApellido.Replace("ñ", "N");
+                                primerApellido = primerApellido.Replace(".", "");
 
                                 // Borrar Espacios
                                 split[4] = primerApellido.Trim();
@@ -1573,6 +1588,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "935302" && split[7] == "")
+                                {
+                                    split[7] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "993102" && split[7] == "")
                                 {
                                     split[7] = "1";
@@ -2751,7 +2772,7 @@ namespace FilesFolders
                                 // Código del medicamento - Posición 5
 
                                 // Corregir Codigo Medicamento para SSSA
-                                if (chkBoxAMSSSA.CheckState ==  CheckState.Checked)
+                                if (chkBoxAMSSSA.CheckState == CheckState.Checked)
                                 {
                                     if (split[5] == "20055559-6")
                                     {
@@ -2845,7 +2866,7 @@ namespace FilesFolders
                                 split[10] = unidadMedidaMedicamento.Trim();
                                 line = String.Join(",", split);
                                 contadorErrores++;
-                                
+
                                 #endregion
 
                                 // Número de unidades - Posición 11
@@ -3170,7 +3191,7 @@ namespace FilesFolders
                                 string nombreServicio = split[7];
 
                                 //nombreServicio = Regex.Replace(nombreServicio, @"[ ](?=[ ])|[^-_,A-Za-z0-9 ]+", "");
-                                nombreServicio = Regex.Replace(nombreServicio, @"[^\w\s]", "").Replace("  ", " ").Replace("Ñ","N").Replace("Ó","O").Trim();
+                                nombreServicio = Regex.Replace(nombreServicio, @"[^\w\s]", "").Replace("  ", " ").Replace("Ñ", "N").Replace("Ó", "O").Trim();
 
                                 split[7] = nombreServicio;
                                 line = String.Join(",", split);
@@ -4120,5 +4141,4 @@ namespace FilesFolders
             return base.ProcessDialogKey(keyData);
         }
     }
-
 }

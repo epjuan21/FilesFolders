@@ -29,7 +29,7 @@ namespace FilesFolders
             // Inhabilitar Botones Hasta Seleccionar Ruta
             btnNumFac.Enabled = false;
         }
-        
+
         private void BtnRuta_Click(object sender, EventArgs e)
         {
             // Ubicación de la Carpeta con los RIPS

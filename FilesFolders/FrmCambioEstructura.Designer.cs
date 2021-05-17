@@ -59,7 +59,6 @@
             this.pnlCambioEsctuctura.Name = "pnlCambioEsctuctura";
             this.pnlCambioEsctuctura.Size = new System.Drawing.Size(490, 244);
             this.pnlCambioEsctuctura.TabIndex = 16;
-            this.pnlCambioEsctuctura.Paint += new System.Windows.Forms.PaintEventHandler(this.PnlCambioEsctuctura_Paint);
             // 
             // btnSalir
             // 

@@ -42,12 +42,6 @@ namespace FilesFolders
             frmCarpetas.ShowDialog();
         }
 
-        private void RIPSEAPBToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
         private void CambioEstructuraToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmCambioEstructura frmCambioEstructura = new FrmCambioEstructura();

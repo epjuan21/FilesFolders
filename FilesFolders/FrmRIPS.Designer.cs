@@ -39,6 +39,7 @@ namespace FilesFolders
             this.chkBoxValCm = new System.Windows.Forms.CheckBox();
             this.chkBoxLonDoc = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.chkBoxAMSSSA = new System.Windows.Forms.CheckBox();
             this.chkBoxSSSA = new System.Windows.Forms.CheckBox();
             this.chkBoxDXSSSA = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -109,7 +110,7 @@ namespace FilesFolders
             this.txtRuta = new System.Windows.Forms.TextBox();
             this.btnRuta = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.chkBoxAMSSSA = new System.Windows.Forms.CheckBox();
+            this.chkBoxEntidadAdministradora = new System.Windows.Forms.CheckBox();
             this.pnlRIPS.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -169,7 +170,7 @@ namespace FilesFolders
             this.pnlRIPS.Controls.Add(this.btnRuta);
             this.pnlRIPS.Location = new System.Drawing.Point(12, 12);
             this.pnlRIPS.Name = "pnlRIPS";
-            this.pnlRIPS.Size = new System.Drawing.Size(1021, 562);
+            this.pnlRIPS.Size = new System.Drawing.Size(1021, 578);
             this.pnlRIPS.TabIndex = 2;
             // 
             // btnEliminarAd
@@ -186,6 +187,7 @@ namespace FilesFolders
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.chkBoxEntidadAdministradora);
             this.groupBox5.Controls.Add(this.chkBoxPrefijoFE);
             this.groupBox5.Controls.Add(this.ChkBoxFac);
             this.groupBox5.Controls.Add(this.chkBoxValCm);
@@ -194,7 +196,7 @@ namespace FilesFolders
             this.groupBox5.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.groupBox5.Location = new System.Drawing.Point(577, 21);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(299, 123);
+            this.groupBox5.Size = new System.Drawing.Size(299, 143);
             this.groupBox5.TabIndex = 56;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "General";
@@ -254,12 +256,24 @@ namespace FilesFolders
             this.groupBox4.Controls.Add(this.chkBoxDXSSSA);
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox4.Location = new System.Drawing.Point(577, 307);
+            this.groupBox4.Location = new System.Drawing.Point(577, 327);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(299, 107);
             this.groupBox4.TabIndex = 55;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "SSSA";
+            // 
+            // chkBoxAMSSSA
+            // 
+            this.chkBoxAMSSSA.AutoSize = true;
+            this.chkBoxAMSSSA.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxAMSSSA.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxAMSSSA.Location = new System.Drawing.Point(12, 75);
+            this.chkBoxAMSSSA.Name = "chkBoxAMSSSA";
+            this.chkBoxAMSSSA.Size = new System.Drawing.Size(116, 17);
+            this.chkBoxAMSSSA.TabIndex = 52;
+            this.chkBoxAMSSSA.Text = "Corregir AM SSSA";
+            this.chkBoxAMSSSA.UseVisualStyleBackColor = true;
             // 
             // chkBoxSSSA
             // 
@@ -294,7 +308,7 @@ namespace FilesFolders
             this.groupBox2.Controls.Add(this.chkBoxDiagSavia);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox2.Location = new System.Drawing.Point(577, 150);
+            this.groupBox2.Location = new System.Drawing.Point(577, 170);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(299, 151);
             this.groupBox2.TabIndex = 53;
@@ -369,7 +383,7 @@ namespace FilesFolders
             this.groupBox3.Controls.Add(this.chkBoxValSum);
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox3.Location = new System.Drawing.Point(577, 420);
+            this.groupBox3.Location = new System.Drawing.Point(577, 440);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(299, 133);
             this.groupBox3.TabIndex = 54;
@@ -947,17 +961,17 @@ namespace FilesFolders
             this.btnRuta.UseVisualStyleBackColor = true;
             this.btnRuta.Click += new System.EventHandler(this.BtnRuta_Click);
             // 
-            // chkBoxAMSSSA
+            // chkBoxEntidadAdministradora
             // 
-            this.chkBoxAMSSSA.AutoSize = true;
-            this.chkBoxAMSSSA.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkBoxAMSSSA.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.chkBoxAMSSSA.Location = new System.Drawing.Point(12, 75);
-            this.chkBoxAMSSSA.Name = "chkBoxAMSSSA";
-            this.chkBoxAMSSSA.Size = new System.Drawing.Size(116, 17);
-            this.chkBoxAMSSSA.TabIndex = 52;
-            this.chkBoxAMSSSA.Text = "Corregir AM SSSA";
-            this.chkBoxAMSSSA.UseVisualStyleBackColor = true;
+            this.chkBoxEntidadAdministradora.AutoSize = true;
+            this.chkBoxEntidadAdministradora.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.chkBoxEntidadAdministradora.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxEntidadAdministradora.Location = new System.Drawing.Point(12, 121);
+            this.chkBoxEntidadAdministradora.Name = "chkBoxEntidadAdministradora";
+            this.chkBoxEntidadAdministradora.Size = new System.Drawing.Size(193, 17);
+            this.chkBoxEntidadAdministradora.TabIndex = 38;
+            this.chkBoxEntidadAdministradora.Text = "Corregir Entidad Administradora";
+            this.chkBoxEntidadAdministradora.UseVisualStyleBackColor = true;
             // 
             // FrmRIPS
             // 
@@ -965,6 +979,9 @@ namespace FilesFolders
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1037, 602);
             this.Controls.Add(this.pnlRIPS);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmRIPS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Corrección RIPS";
@@ -1066,5 +1083,6 @@ namespace FilesFolders
         private System.Windows.Forms.CheckBox chkBoxPrefijoFE;
         private System.Windows.Forms.Button btnEliminarAd;
         private System.Windows.Forms.CheckBox chkBoxAMSSSA;
+        private System.Windows.Forms.CheckBox chkBoxEntidadAdministradora;
     }
 }
