@@ -34,6 +34,7 @@ namespace FilesFolders
             this.pnlRIPS = new System.Windows.Forms.Panel();
             this.btnEliminarAd = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.chkBoxEntidadAdministradora = new System.Windows.Forms.CheckBox();
             this.chkBoxPrefijoFE = new System.Windows.Forms.CheckBox();
             this.ChkBoxFac = new System.Windows.Forms.CheckBox();
             this.chkBoxValCm = new System.Windows.Forms.CheckBox();
@@ -110,17 +111,20 @@ namespace FilesFolders
             this.txtRuta = new System.Windows.Forms.TextBox();
             this.btnRuta = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.chkBoxEntidadAdministradora = new System.Windows.Forms.CheckBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.chkBoxAQSura = new System.Windows.Forms.CheckBox();
             this.pnlRIPS.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlRIPS
             // 
+            this.pnlRIPS.Controls.Add(this.groupBox6);
             this.pnlRIPS.Controls.Add(this.btnEliminarAd);
             this.pnlRIPS.Controls.Add(this.groupBox5);
             this.pnlRIPS.Controls.Add(this.groupBox4);
@@ -170,7 +174,7 @@ namespace FilesFolders
             this.pnlRIPS.Controls.Add(this.btnRuta);
             this.pnlRIPS.Location = new System.Drawing.Point(12, 12);
             this.pnlRIPS.Name = "pnlRIPS";
-            this.pnlRIPS.Size = new System.Drawing.Size(1021, 578);
+            this.pnlRIPS.Size = new System.Drawing.Size(1078, 578);
             this.pnlRIPS.TabIndex = 2;
             // 
             // btnEliminarAd
@@ -200,6 +204,18 @@ namespace FilesFolders
             this.groupBox5.TabIndex = 56;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "General";
+            // 
+            // chkBoxEntidadAdministradora
+            // 
+            this.chkBoxEntidadAdministradora.AutoSize = true;
+            this.chkBoxEntidadAdministradora.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.chkBoxEntidadAdministradora.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxEntidadAdministradora.Location = new System.Drawing.Point(12, 121);
+            this.chkBoxEntidadAdministradora.Name = "chkBoxEntidadAdministradora";
+            this.chkBoxEntidadAdministradora.Size = new System.Drawing.Size(193, 17);
+            this.chkBoxEntidadAdministradora.TabIndex = 38;
+            this.chkBoxEntidadAdministradora.Text = "Corregir Entidad Administradora";
+            this.chkBoxEntidadAdministradora.UseVisualStyleBackColor = true;
             // 
             // chkBoxPrefijoFE
             // 
@@ -961,23 +977,35 @@ namespace FilesFolders
             this.btnRuta.UseVisualStyleBackColor = true;
             this.btnRuta.Click += new System.EventHandler(this.BtnRuta_Click);
             // 
-            // chkBoxEntidadAdministradora
+            // groupBox6
             // 
-            this.chkBoxEntidadAdministradora.AutoSize = true;
-            this.chkBoxEntidadAdministradora.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.chkBoxEntidadAdministradora.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.chkBoxEntidadAdministradora.Location = new System.Drawing.Point(12, 121);
-            this.chkBoxEntidadAdministradora.Name = "chkBoxEntidadAdministradora";
-            this.chkBoxEntidadAdministradora.Size = new System.Drawing.Size(193, 17);
-            this.chkBoxEntidadAdministradora.TabIndex = 38;
-            this.chkBoxEntidadAdministradora.Text = "Corregir Entidad Administradora";
-            this.chkBoxEntidadAdministradora.UseVisualStyleBackColor = true;
+            this.groupBox6.Controls.Add(this.chkBoxAQSura);
+            this.groupBox6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox6.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.groupBox6.Location = new System.Drawing.Point(896, 213);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(179, 100);
+            this.groupBox6.TabIndex = 57;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "SURA";
+            // 
+            // chkBoxAQSura
+            // 
+            this.chkBoxAQSura.AutoSize = true;
+            this.chkBoxAQSura.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxAQSura.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxAQSura.Location = new System.Drawing.Point(9, 35);
+            this.chkBoxAQSura.Name = "chkBoxAQSura";
+            this.chkBoxAQSura.Size = new System.Drawing.Size(152, 17);
+            this.chkBoxAQSura.TabIndex = 0;
+            this.chkBoxAQSura.Text = "Corregir Acto Quirurgico";
+            this.chkBoxAQSura.UseVisualStyleBackColor = true;
             // 
             // FrmRIPS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1037, 602);
+            this.ClientSize = new System.Drawing.Size(1114, 602);
             this.Controls.Add(this.pnlRIPS);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -998,6 +1026,8 @@ namespace FilesFolders
             this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1084,5 +1114,7 @@ namespace FilesFolders
         private System.Windows.Forms.Button btnEliminarAd;
         private System.Windows.Forms.CheckBox chkBoxAMSSSA;
         private System.Windows.Forms.CheckBox chkBoxEntidadAdministradora;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.CheckBox chkBoxAQSura;
     }
 }

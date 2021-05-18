@@ -32,15 +32,14 @@ namespace FilesFolders
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.utiliadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ediciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rIPSMasivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rIPSEABPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cambioEstructuraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.comprimirArchivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.utilidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sURAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modificarNombresDeSoportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cambioEstructuraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.comprimirArchivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevaEPSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -49,7 +48,6 @@ namespace FilesFolders
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
-            this.utiliadesToolStripMenuItem,
             this.ediciónToolStripMenuItem,
             this.utilidadesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -72,11 +70,6 @@ namespace FilesFolders
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
-            // 
-            // utiliadesToolStripMenuItem
-            // 
-            this.utiliadesToolStripMenuItem.Name = "utiliadesToolStripMenuItem";
-            this.utiliadesToolStripMenuItem.Size = new System.Drawing.Size(12, 20);
             // 
             // ediciónToolStripMenuItem
             // 
@@ -103,6 +96,20 @@ namespace FilesFolders
             this.rIPSEABPToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.rIPSEABPToolStripMenuItem.Text = "RIPS EABP";
             // 
+            // cambioEstructuraToolStripMenuItem
+            // 
+            this.cambioEstructuraToolStripMenuItem.Name = "cambioEstructuraToolStripMenuItem";
+            this.cambioEstructuraToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.cambioEstructuraToolStripMenuItem.Text = "Cambio Estructura";
+            this.cambioEstructuraToolStripMenuItem.Click += new System.EventHandler(this.cambioEstructuraToolStripMenuItem_Click);
+            // 
+            // comprimirArchivoToolStripMenuItem
+            // 
+            this.comprimirArchivoToolStripMenuItem.Name = "comprimirArchivoToolStripMenuItem";
+            this.comprimirArchivoToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.comprimirArchivoToolStripMenuItem.Text = "Comprimir Archivo";
+            this.comprimirArchivoToolStripMenuItem.Click += new System.EventHandler(this.comprimirArchivoToolStripMenuItem_Click);
+            // 
             // utilidadesToolStripMenuItem
             // 
             this.utilidadesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -117,7 +124,7 @@ namespace FilesFolders
             this.sURAToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.modificarNombresDeSoportesToolStripMenuItem});
             this.sURAToolStripMenuItem.Name = "sURAToolStripMenuItem";
-            this.sURAToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.sURAToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.sURAToolStripMenuItem.Text = "SURA";
             // 
             // modificarNombresDeSoportesToolStripMenuItem
@@ -127,24 +134,10 @@ namespace FilesFolders
             this.modificarNombresDeSoportesToolStripMenuItem.Text = "Modificar Nombres de Soportes";
             this.modificarNombresDeSoportesToolStripMenuItem.Click += new System.EventHandler(this.modificarNombresDeSoportesToolStripMenuItem_Click);
             // 
-            // cambioEstructuraToolStripMenuItem
-            // 
-            this.cambioEstructuraToolStripMenuItem.Name = "cambioEstructuraToolStripMenuItem";
-            this.cambioEstructuraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cambioEstructuraToolStripMenuItem.Text = "Cambio Estructura";
-            this.cambioEstructuraToolStripMenuItem.Click += new System.EventHandler(this.cambioEstructuraToolStripMenuItem_Click);
-            // 
-            // comprimirArchivoToolStripMenuItem
-            // 
-            this.comprimirArchivoToolStripMenuItem.Name = "comprimirArchivoToolStripMenuItem";
-            this.comprimirArchivoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.comprimirArchivoToolStripMenuItem.Text = "Comprimir Archivo";
-            this.comprimirArchivoToolStripMenuItem.Click += new System.EventHandler(this.comprimirArchivoToolStripMenuItem_Click);
-            // 
             // nuevaEPSToolStripMenuItem
             // 
             this.nuevaEPSToolStripMenuItem.Name = "nuevaEPSToolStripMenuItem";
-            this.nuevaEPSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nuevaEPSToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.nuevaEPSToolStripMenuItem.Text = "Nueva EPS";
             this.nuevaEPSToolStripMenuItem.Click += new System.EventHandler(this.nuevaEPSToolStripMenuItem_Click);
             // 
@@ -171,7 +164,6 @@ namespace FilesFolders
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem utiliadesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ediciónToolStripMenuItem;
