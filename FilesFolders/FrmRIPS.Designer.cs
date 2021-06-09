@@ -187,7 +187,6 @@ namespace FilesFolders
             this.btnEliminarAd.TabIndex = 38;
             this.btnEliminarAd.Text = "Eliminar AD";
             this.btnEliminarAd.UseVisualStyleBackColor = true;
-            this.btnEliminarAd.Click += new System.EventHandler(this.BtnEliminarAd_Click);
             // 
             // groupBox5
             // 

@@ -304,7 +304,6 @@ namespace FilesFolders
                 bgwUS.ReportProgress(Convert.ToInt32(i * 100 / contadorErrores));
                 Thread.Sleep(100);
             }
-
         }
 
         private void BgwUS_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -325,7 +324,6 @@ namespace FilesFolders
         {
             bgwAC.ODoWorker(BgwAC_DoWork, BgwAC_ProgressChanged, BgwAC_RunWorkerCompleted);
         }
-
         private void BgwAC_DoWork(object sender, DoWorkEventArgs e)
         {
             DirectoryInfo di = new DirectoryInfo(dirPath);
@@ -405,6 +403,14 @@ namespace FilesFolders
 
                                 #region CUPS
                                 // Codigo CUPS Archivo AC - Posición 6
+
+                                // Quitar Asteriscos
+                                string cups = split[6].Replace("*", "");
+                                cups = cups.Substring(0, 6);
+                                split[6] = cups;
+                                line = String.Join(",", split);
+                                contadorErrores++;
+
                                 if (split[6] == "890300")
                                 {
                                     split[6] = "890301";
@@ -1300,6 +1306,14 @@ namespace FilesFolders
 
                                 #region CUPS
                                 // Codigo CUPS Archivo AP - Posoción 6
+
+                                // Eliminar Asteriscos y Guiones
+                                string cups = split[6].Replace("*", "");
+                                cups = cups.Substring(0, 6);
+                                split[6] = cups;
+                                line = String.Join(",", split);
+                                contadorErrores++;
+
                                 if (split[6] == "4")
                                 {
                                     split[6] = "869500";
@@ -3943,44 +3957,6 @@ namespace FilesFolders
         }
         #endregion
 
-        #region AD
-
-        // Eliminar Archvio AD
-        private void BtnEliminarAd_Click(object sender, EventArgs e)
-        {
-            DirectoryInfo di = new DirectoryInfo(dirPath);
-
-            foreach (var fi in di.GetFiles("*CT*", SearchOption.AllDirectories))
-            {
-                String path = fi.FullName;
-                List<String> lines = new List<String>();
-
-                if (File.Exists(path))
-                {
-                    var lineaConAD = System.IO.File.ReadAllLines(path);
-                    var lineaSinAD = lineaConAD.Where(line => !line.Contains("AD"));
-                    System.IO.File.WriteAllLines(path, lineaSinAD);
-                }
-
-                // Eliminar Ultimo Salto de Linea CR LF del Archivo
-
-                string myFileData = File.ReadAllText(path);
-
-                if (myFileData.EndsWith(Environment.NewLine))
-                {
-                    File.WriteAllText(path, myFileData.TrimEnd(Environment.NewLine.ToCharArray()));
-                }
-            }
-
-            foreach (var fi in di.GetFiles("AD*", SearchOption.AllDirectories))
-            {
-                fi.Delete();
-            }
-
-            MessageBox.Show("Se ha eliminado el archivo AD Correctamente");
-        }
-        #endregion
-
         #region Correción Documentos
         private void BtnDoc_Click(object sender, EventArgs e)
         {
@@ -4174,9 +4150,7 @@ namespace FilesFolders
                 }
             }
         }
-
         #endregion
-
         protected override bool ProcessDialogKey(Keys keyData)
         {
             if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
