@@ -107,7 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Cups.cs" />
-    <Compile Include="Clases\Departamentos.cs" />
+    <Compile Include="Clases\Departamento.cs" />
     <Compile Include="Clases\Municipio.cs" />
     <Compile Include="CWork.cs" />
     <Compile Include="CWorker.cs" />

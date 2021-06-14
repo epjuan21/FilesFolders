@@ -30,8 +30,7 @@ namespace FilesFolders
         readonly CWork bgwAF = new CWork();
         readonly CWork bgwAM = new CWork();
 
-        Dictionary<string, string> departamentos = new Dictionary<string, string>();
-
+        List<Departamento> departamentos = Departamento.GetDepartamentos();
         List<Municipio> municipios = Municipio.GetMunicipios();
         #endregion
 
@@ -138,9 +137,6 @@ namespace FilesFolders
             DirectoryInfo di = new DirectoryInfo(dirPath);
             int contadorErrores = 0;
 
-            departamentos.Add("30", "05");
-            departamentos.Add("91", "05");
-
             foreach (var fi in di.GetFiles("*US*", SearchOption.AllDirectories))
             {
                 String path = fi.FullName;
@@ -222,8 +218,21 @@ namespace FilesFolders
 
                                 #endregion
 
-                                #region Departamento y Municipio
+                                #region Departamento
+                                // Departamento - Posición 11
+                                foreach (Departamento departamento in departamentos)
+                                {
+                                    if (split[11] == departamento.departamentoViejo)
+                                    {
+                                        split[11] = departamento.departamentoNuevo;
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                }
+                                #endregion
 
+                                #region Municipio
+                                // Municipio - Posición 12
                                 foreach (Municipio municipio in municipios)
                                 {
                                     if (split[12] == municipio.municipioViejo)
@@ -233,54 +242,9 @@ namespace FilesFolders
                                         contadorErrores++;
                                     }   
                                 }
-
-                                //foreach (KeyValuePair<string, string> departamento in departamentos)
-                                //{
-                                //    if (departamento.Key == split[11])
-                                //    {
-                                //        split[11] = departamento.Value;
-                                //        line = String.Join(",", split);
-                                //        contadorErrores++;
-                                //    }
-                                //}
-
-                                // Codigo Departamento y Municipio Archivo US - Posoción 11 y Posición 12
-                                //if (split[11] == "30" && split[12] == "530")
-                                //{
-                                //    split[11] = "05";
-                                //    split[12] = "091";
-                                //    line = String.Join(",", split);
-                                //    contadorErrores++;
-                                //}
-                                //if (split[11] == "91" && split[12] == "591")
-                                //{
-                                //    split[11] = "05";
-                                //    split[12] = "091";
-                                //    line = String.Join(",", split);
-                                //    contadorErrores++;
-                                //}
-                                //if (split[11] == "11" && split[12] == "005")
-                                //{
-                                //    split[11] = "11";
-                                //    split[12] = "001";
-                                //    line = String.Join(",", split);
-                                //    contadorErrores++;
-                                //}
-                                //if (split[11] == "05" && split[12] == "91")
-                                //{
-                                //    split[11] = "05";
-                                //    split[12] = "091";
-                                //    line = String.Join(",", split);
-                                //    contadorErrores++;
-                                //}
-                                //if (split[11] == "05" && split[12] == "999")
-                                //{
-                                //    split[11] = "05";
-                                //    split[12] = "091";
-                                //    line = String.Join(",", split);
-                                //    contadorErrores++;
-                                //}
                                 #endregion
+
+
 
                                 #region TipoUsuario
                                 // Tipo de Usuario
