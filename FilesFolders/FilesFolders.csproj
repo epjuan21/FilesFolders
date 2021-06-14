@@ -106,6 +106,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\Cups.cs" />
+    <Compile Include="Clases\Departamentos.cs" />
+    <Compile Include="Clases\Municipio.cs" />
     <Compile Include="CWork.cs" />
     <Compile Include="CWorker.cs" />
     <Compile Include="Form1.cs">

@@ -7,6 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
+using FilesFolders.Clases;
 
 namespace FilesFolders
 {
@@ -28,6 +29,10 @@ namespace FilesFolders
         readonly CWork bgwAH = new CWork();
         readonly CWork bgwAF = new CWork();
         readonly CWork bgwAM = new CWork();
+
+        Dictionary<string, string> departamentos = new Dictionary<string, string>();
+
+        List<Municipio> municipios = Municipio.GetMunicipios();
         #endregion
 
         private void FrmRIPS_Load(object sender, EventArgs e)
@@ -133,6 +138,9 @@ namespace FilesFolders
             DirectoryInfo di = new DirectoryInfo(dirPath);
             int contadorErrores = 0;
 
+            departamentos.Add("30", "05");
+            departamentos.Add("91", "05");
+
             foreach (var fi in di.GetFiles("*US*", SearchOption.AllDirectories))
             {
                 String path = fi.FullName;
@@ -215,42 +223,63 @@ namespace FilesFolders
                                 #endregion
 
                                 #region Departamento y Municipio
+
+                                foreach (Municipio municipio in municipios)
+                                {
+                                    if (split[12] == municipio.municipioViejo)
+                                    {
+                                        split[12] = municipio.municipioNuevo;
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }   
+                                }
+
+                                //foreach (KeyValuePair<string, string> departamento in departamentos)
+                                //{
+                                //    if (departamento.Key == split[11])
+                                //    {
+                                //        split[11] = departamento.Value;
+                                //        line = String.Join(",", split);
+                                //        contadorErrores++;
+                                //    }
+                                //}
+
                                 // Codigo Departamento y Municipio Archivo US - Posoción 11 y Posición 12
-                                if (split[11] == "30" && split[12] == "530")
-                                {
-                                    split[11] = "05";
-                                    split[12] = "091";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[11] == "91" && split[12] == "591")
-                                {
-                                    split[11] = "05";
-                                    split[12] = "091";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[11] == "11" && split[12] == "005")
-                                {
-                                    split[11] = "11";
-                                    split[12] = "001";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[11] == "05" && split[12] == "91")
-                                {
-                                    split[11] = "05";
-                                    split[12] = "091";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[11] == "05" && split[12] == "999")
-                                {
-                                    split[11] = "05";
-                                    split[12] = "091";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
+                                //if (split[11] == "30" && split[12] == "530")
+                                //{
+                                //    split[11] = "05";
+                                //    split[12] = "091";
+                                //    line = String.Join(",", split);
+                                //    contadorErrores++;
+                                //}
+                                //if (split[11] == "91" && split[12] == "591")
+                                //{
+                                //    split[11] = "05";
+                                //    split[12] = "091";
+                                //    line = String.Join(",", split);
+                                //    contadorErrores++;
+                                //}
+                                //if (split[11] == "11" && split[12] == "005")
+                                //{
+                                //    split[11] = "11";
+                                //    split[12] = "001";
+                                //    line = String.Join(",", split);
+                                //    contadorErrores++;
+                                //}
+                                //if (split[11] == "05" && split[12] == "91")
+                                //{
+                                //    split[11] = "05";
+                                //    split[12] = "091";
+                                //    line = String.Join(",", split);
+                                //    contadorErrores++;
+                                //}
+                                //if (split[11] == "05" && split[12] == "999")
+                                //{
+                                //    split[11] = "05";
+                                //    split[12] = "091";
+                                //    line = String.Join(",", split);
+                                //    contadorErrores++;
+                                //}
                                 #endregion
 
                                 #region TipoUsuario
@@ -3122,6 +3151,13 @@ namespace FilesFolders
 
                                 #region Codigo Servicio
                                 // Código del Servicio - Posición 6
+
+                                // Quitar Asteriscos
+                                string cupsAT = split[6].Replace("*", "");
+                                cupsAT = cupsAT.Substring(0, 6);
+                                split[6] = cupsAT;
+                                line = String.Join(",", split);
+                                contadorErrores++;
 
                                 if (split[5] == "4" && split[6] == "" && (split[7] == "SALA DE OBSERVACION MAYOR DE 6 HORAS MENOR DE 24 HORAS" || split[7] == "SALA DE OBSERVACION MENOR DE 6 HORAS"))
                                 {
