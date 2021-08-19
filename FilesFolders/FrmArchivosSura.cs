@@ -116,7 +116,7 @@ namespace FilesFolders
                     // Renombrar archvios
                     File.Move(nombreAnteriorArchivo, nombreNuevoArchivo);
                 }
-                else if (nombreArchivo.StartsWith("SOPORTES"))
+                else if (nombreArchivo.StartsWith("SOPORTE"))
                 {
                     // Establecer el Nombre Anterior del Archivo
                     nombreAnteriorArchivo = string.Format("{0}{1}{2}", fullDirectoryName, separadorCarpeta, nombreArchivo);

@@ -32,6 +32,8 @@ namespace FilesFolders
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRIPS));
             this.pnlRIPS = new System.Windows.Forms.Panel();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.chkBoxAQSura = new System.Windows.Forms.CheckBox();
             this.btnEliminarAd = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.chkBoxEntidadAdministradora = new System.Windows.Forms.CheckBox();
@@ -111,15 +113,13 @@ namespace FilesFolders
             this.txtRuta = new System.Windows.Forms.TextBox();
             this.btnRuta = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.chkBoxAQSura = new System.Windows.Forms.CheckBox();
             this.pnlRIPS.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlRIPS
@@ -176,6 +176,31 @@ namespace FilesFolders
             this.pnlRIPS.Name = "pnlRIPS";
             this.pnlRIPS.Size = new System.Drawing.Size(1078, 578);
             this.pnlRIPS.TabIndex = 2;
+            this.pnlRIPS.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlRIPS_Paint);
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.chkBoxAQSura);
+            this.groupBox6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox6.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.groupBox6.Location = new System.Drawing.Point(896, 213);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(179, 100);
+            this.groupBox6.TabIndex = 57;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "SURA";
+            // 
+            // chkBoxAQSura
+            // 
+            this.chkBoxAQSura.AutoSize = true;
+            this.chkBoxAQSura.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxAQSura.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxAQSura.Location = new System.Drawing.Point(9, 35);
+            this.chkBoxAQSura.Name = "chkBoxAQSura";
+            this.chkBoxAQSura.Size = new System.Drawing.Size(152, 17);
+            this.chkBoxAQSura.TabIndex = 0;
+            this.chkBoxAQSura.Text = "Corregir Acto Quirurgico";
+            this.chkBoxAQSura.UseVisualStyleBackColor = true;
             // 
             // btnEliminarAd
             // 
@@ -976,30 +1001,6 @@ namespace FilesFolders
             this.btnRuta.UseVisualStyleBackColor = true;
             this.btnRuta.Click += new System.EventHandler(this.BtnRuta_Click);
             // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.chkBoxAQSura);
-            this.groupBox6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox6.Location = new System.Drawing.Point(896, 213);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(179, 100);
-            this.groupBox6.TabIndex = 57;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "SURA";
-            // 
-            // chkBoxAQSura
-            // 
-            this.chkBoxAQSura.AutoSize = true;
-            this.chkBoxAQSura.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkBoxAQSura.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.chkBoxAQSura.Location = new System.Drawing.Point(9, 35);
-            this.chkBoxAQSura.Name = "chkBoxAQSura";
-            this.chkBoxAQSura.Size = new System.Drawing.Size(152, 17);
-            this.chkBoxAQSura.TabIndex = 0;
-            this.chkBoxAQSura.Text = "Corregir Acto Quirurgico";
-            this.chkBoxAQSura.UseVisualStyleBackColor = true;
-            // 
             // FrmRIPS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1015,6 +1016,8 @@ namespace FilesFolders
             this.Load += new System.EventHandler(this.FrmRIPS_Load);
             this.pnlRIPS.ResumeLayout(false);
             this.pnlRIPS.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -1025,8 +1028,6 @@ namespace FilesFolders
             this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
 
         }

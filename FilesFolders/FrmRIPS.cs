@@ -244,8 +244,6 @@ namespace FilesFolders
                                 }
                                 #endregion
 
-
-
                                 #region TipoUsuario
                                 // Tipo de Usuario
 
@@ -322,7 +320,7 @@ namespace FilesFolders
             DirectoryInfo di = new DirectoryInfo(dirPath);
             int contadorErrores = 0;
 
-            foreach (var fi in di.GetFiles("*AC*", SearchOption.AllDirectories))
+            foreach (var fi in di.GetFiles("AC*", SearchOption.AllDirectories))
             {
                 String path = fi.FullName;
                 List<String> lines = new List<String>();
@@ -1225,7 +1223,7 @@ namespace FilesFolders
             DirectoryInfo di = new DirectoryInfo(dirPath);
             int contadorErrores = 0;
 
-            foreach (var fi in di.GetFiles("*AP*", SearchOption.AllDirectories))
+            foreach (var fi in di.GetFiles("AP*", SearchOption.AllDirectories))
             {
                 String path = fi.FullName;
                 List<String> lines = new List<String>();
@@ -1635,6 +1633,12 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 if (split[6] == "993520" && split[7] == "")
+                                {
+                                    split[7] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "993522" && split[7] == "")
                                 {
                                     split[7] = "1";
                                     line = String.Join(",", split);
@@ -2321,6 +2325,12 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 if (split[6] == "993501" && split[8] == "")
+                                {
+                                    split[8] = "3";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "993520" && split[8] == "")
                                 {
                                     split[8] = "3";
                                     line = String.Join(",", split);
@@ -4159,6 +4169,11 @@ namespace FilesFolders
                 return true;
             }
             return base.ProcessDialogKey(keyData);
+        }
+
+        private void pnlRIPS_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
