@@ -154,6 +154,17 @@ namespace FilesFolders
                             {
                                 String[] split = line.Split(',');
 
+                                #region Tipo Documento
+                                // Tipo de identificación del usuario - Posición 0
+                                string TipoIdUsuario = split[0];
+                                if (TipoIdUsuario == "NV")
+                                {
+                                    split[0] = "MS";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                #endregion
+
                                 #region Codigo Entidad Administradora
 
                                 // Código entidad administradora
@@ -377,6 +388,17 @@ namespace FilesFolders
                                     }
                                 }
 
+                                #endregion
+
+                                #region Tipo Documento
+                                // Tipo de identificación del usuario - Posición 2
+                                string TipoIdUsuario = split[2];
+                                if (TipoIdUsuario == "NV")
+                                {
+                                    split[2] = "MS";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 #endregion
 
                                 #region Número de autorización
@@ -1305,6 +1327,12 @@ namespace FilesFolders
                                 line = String.Join(",", split);
                                 contadorErrores++;
 
+                                if (split[6] == "021126")
+                                {
+                                    split[6] = "872011";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "4")
                                 {
                                     split[6] = "869500";
@@ -1374,6 +1402,12 @@ namespace FilesFolders
                                 if (split[6] == "902201")
                                 {
                                     split[6] = "911009";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "902212")
+                                {
+                                    split[6] = "911015";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -1617,6 +1651,12 @@ namespace FilesFolders
                                 if (split[6] == "982102" && split[7] == "")
                                 {
                                     split[7] = "3";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "993120" && split[7] == "")
+                                {
+                                    split[7] = "1";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -2318,6 +2358,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "993120" && split[8] == "")
+                                {
+                                    split[8] = "2";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "993122" && split[8] == "")
                                 {
                                     split[8] = "3";
@@ -2653,6 +2699,7 @@ namespace FilesFolders
                                         split[6].Substring(0, 2) == "86" ||
                                         split[6].Substring(0, 2) == "87" ||
                                         split[6].Substring(0, 2) == "89" ||
+                                        split[6].Substring(0, 2) == "91" ||
                                         split[6].Substring(0, 2) == "90" ||
                                         split[6].Substring(0, 2) == "95" ||
                                         split[6].Substring(0, 2) == "96" ||
@@ -2844,7 +2891,13 @@ namespace FilesFolders
                                         line = string.Join(",", split);
                                         contadorErrores++;
                                     }
-
+                                    // ACETATO DE MEDROXIPROGESTERONA
+                                    if (split[5] == "19997397-10")
+                                    {
+                                        split[5] = "20011793-1";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                     // ACIDO TRANEXAMICO 500 MG TABLE
                                     if (split[5] == "20138453-1")
                                     {
@@ -2852,7 +2905,6 @@ namespace FilesFolders
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
-
                                     // HIDROXICINA CLORHIDRATO 100 MG
                                     if (split[5] == "020028014-1")
                                     {
@@ -2885,6 +2937,13 @@ namespace FilesFolders
                                     if (split[5] == "C07AG01")
                                     {
                                         split[5] = "20090031-1";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    // BETAMETASONA ACETATO 4 MG/ML VITALIS
+                                    if (split[5] == "19980025-14")
+                                    {
+                                        split[5] = "19940157-1";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
@@ -3121,17 +3180,43 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+
+                                if (split[5] == "4" && split[6] == "5DSB01")
+                                {
+                                    split[5] = "3";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[5] == "" && split[6] == "17")
+                                {
+                                    split[5] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
                                 #endregion
 
                                 #region Codigo Servicio
                                 // Código del Servicio - Posición 6
 
                                 // Quitar Asteriscos
-                                string cupsAT = split[6].Replace("*", "");
-                                cupsAT = cupsAT.Substring(0, 6);
-                                split[6] = cupsAT;
-                                line = String.Join(",", split);
-                                contadorErrores++;
+                                string cupsAT = split[6];
+
+                                int pos = cupsAT.IndexOf('*');
+
+                                if (pos >= 0) {
+                                    cupsAT = cupsAT.Remove(pos);
+                                    split[6] = cupsAT;
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                if (split[6] == "17")
+                                {
+                                    split[6] = "976500";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
 
                                 if (split[5] == "4" && split[6] == "" && (split[7] == "SALA DE OBSERVACION MAYOR DE 6 HORAS MENOR DE 24 HORAS" || split[7] == "SALA DE OBSERVACION MENOR DE 6 HORAS"))
                                 {
@@ -3442,6 +3527,12 @@ namespace FilesFolders
                                     if (split[8] == "I489")
                                     {
                                         split[8] = "I48X";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[8] == "U072")
+                                    {
+                                        split[8] = "J181";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
