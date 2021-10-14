@@ -37,6 +37,8 @@ namespace FilesFolders
 
         public List<string> ListaArchivos { get; private set; }
         public List<string> ListaArchivosFullNameRecursive { get; private set; }
+
+        public List<string> ListaArchivosFullName { get; private set; }
         public List<string> ListaCarpetas { get; private set; }
 
         public List<string> ListaCarpetasRIPS { get; private set; }
@@ -70,7 +72,7 @@ namespace FilesFolders
             // Obtener Nombres de Directorios
             //DirectoryInfo informacionDirectorio = new DirectoryInfo(dirPath);
 
-            // Almacenamos los nombres completos de los archivos en la variable ListaArchivosFullName
+            // Almacenamos los nombres completos de los archivos en la variable ListaArchivosFullNameRecursive
             ListaArchivosFullNameRecursive = Lista.ListarArchivosFullNameRecursive(dirPath, "*.pdf");
 
             // Obtenemos el Numero de Archivos
@@ -144,6 +146,9 @@ namespace FilesFolders
                 // Obtenemos nombre de la carpeta que contiene los archivos
                 directoryName = new DirectoryInfo(folder).Name;
 
+                // Almacenamos los nombres de los archivos
+                ListaArchivosFullName = Lista.ListarArchivosFullNameRecursive(folder, "*.pdf");
+
                 // Extaemos el Número de la Factura
                 string numeroFactura = ExtractNumber(directoryName);
 
@@ -154,10 +159,8 @@ namespace FilesFolders
                 string sufijo = "PBS";
                 string nombreCarpeta = "";
 
-
                 // Almacenamos en la variable Tipo Lista los nombres de la Carpetas que Contienen los RIPS
                 ListaCarpetasRIPS = Lista.ListarNombresCarpetas(folder);
-
 
                 // Recorremos Subcarpeta con RIPS
                 foreach (var folderRIPS in ListaCarpetasRIPS)
@@ -173,10 +176,18 @@ namespace FilesFolders
                 string nuevaCarpeta = string.Format("{0}\\{1}", folder, nombreCarpeta);
 
                 // Creamos Carpeta Principal Con Soportes en PDF
-
                 Directory.CreateDirectory(nuevaCarpeta);
 
+                // Mover Soportes en PDF a la Nueva Carpeta Creada
 
+                foreach (var item in ListaArchivosFullName)
+                {
+                    string sourceFile = item;
+                    string fileName = Path.GetFileName(item);
+                    string destinationFile = string.Format("{0}\\{1}", nuevaCarpeta, fileName);
+
+                    File.Move(sourceFile, destinationFile);
+                }
             }
         }
 
