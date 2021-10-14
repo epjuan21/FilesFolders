@@ -37,6 +37,9 @@ namespace FilesFolders
 
         public List<string> ListaArchivos { get; private set; }
         public List<string> ListaArchivosFullNameRecursive { get; private set; }
+        public List<string> ListaCarpetas { get; private set; }
+
+        public List<string> ListaCarpetasRIPS { get; private set; }
 
         readonly CArchivos Lista = new CArchivos();
 
@@ -76,6 +79,9 @@ namespace FilesFolders
             // Almacenamos en la variable Tipo Lista los nombres de los archivos
             ListaArchivos = Lista.ListarArchivosNameRecursive(dirPath, "*.pdf");
 
+            // Almacenamos en la variable Tipo Lista los nombres de la Subcarpetas del la Carpeta Principal
+            ListaCarpetas = Lista.ListarNombresCarpetas(dirPath);
+
             // Separador Carpetas
             separadorCarpeta = "\\";
 
@@ -99,7 +105,7 @@ namespace FilesFolders
                 // Obtenemos la Extensión del archivo
                 extensionArchivo = Path.GetExtension(nombreArchivo);
 
-                // Establecemos los datos para el nombre del archivo
+                // Establecemos las variables para el nombre del archivo
                 string tipoSoporteFactura = "IMGFACTURA";
                 string tipoSoporte = "IMGSOPORTES";
                 string nitSopore = "890981494";
@@ -131,6 +137,47 @@ namespace FilesFolders
                 // Actualizar Barra de Progreso
                 bgwArchivo.ReportProgress((int)progressValue);
             }
+
+            // Recorremos Carpetas Principales
+            foreach (var folder in ListaCarpetas)
+            {
+                // Obtenemos nombre de la carpeta que contiene los archivos
+                directoryName = new DirectoryInfo(folder).Name;
+
+                // Extaemos el Número de la Factura
+                string numeroFactura = ExtractNumber(directoryName);
+
+                // Establecemos las variables para el nombre de la carpeta
+                string nit = "890981494";
+                string prefijo = "FE";
+                string valorAF = "";
+                string sufijo = "PBS";
+                string nombreCarpeta = "";
+
+
+                // Almacenamos en la variable Tipo Lista los nombres de la Carpetas que Contienen los RIPS
+                ListaCarpetasRIPS = Lista.ListarNombresCarpetas(folder);
+
+
+                // Recorremos Subcarpeta con RIPS
+                foreach (var folderRIPS in ListaCarpetasRIPS)
+                {
+                    // Obtenemos el Valor del AF
+                    valorAF = Lista.valorAF(folderRIPS, "*AF*");
+                }
+
+                int valor = (int)Convert.ToDouble(valorAF);
+
+                nombreCarpeta = string.Format("{0}_{1}_{2}_{3}_{4}", nit, prefijo, numeroFactura, valor, sufijo);
+
+                string nuevaCarpeta = string.Format("{0}\\{1}", folder, nombreCarpeta);
+
+                // Creamos Carpeta Principal Con Soportes en PDF
+
+                Directory.CreateDirectory(nuevaCarpeta);
+
+
+            }
         }
 
         private void BgwSuraArchivos_ProgressChanged(object sender, ProgressChangedEventArgs e)
@@ -145,7 +192,6 @@ namespace FilesFolders
         {
             lblStatus.Text = "Finalizado";
         }
-
         public string ExtractNumber(string original)
         {
             return new string(original.Where(c => Char.IsDigit(c)).ToArray());

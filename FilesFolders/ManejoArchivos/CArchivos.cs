@@ -43,6 +43,7 @@ namespace FilesFolders.ManejoArchivos
         /// <summary>
         /// Retorna una Lista de todos los archivos de una carpeta según un criterio
         /// Muestra el Noombre completo del Archivo incluyendo la Ruta
+        /// No tiene en cuenta subcarpetas
         /// </summary>
         /// <param name="directoryPath"></param>
         /// <param name="searchPattern"></param>
@@ -64,7 +65,7 @@ namespace FilesFolders.ManejoArchivos
 
         /// <summary>
         /// Retorna una Lista de todos los archivos de una carpeta según un criterio
-        /// Muestra el Noombre completo del Archivo incluyendo la Ruta
+        /// Muestra el Nombre completo del Archivo incluyendo la Ruta
         /// Tiene en cuenta Subcarpetas
         /// </summary>
         /// <param name="directoryPath"></param>
@@ -85,8 +86,14 @@ namespace FilesFolders.ManejoArchivos
             return files;
         }
 
-        // Retorna una Lista de todos los archivos de una carpeta según un criterio
-        // Muestra el Nombre del archivo Unicamente, sin incluir la ruta
+        /// <summary>
+        /// Retorna una Lista de todos los archivos de una carpeta según un criterio
+        /// Muestra el Nombre del archivo Unicamente, sin incluir la ruta
+        /// No incluye subcarpetas
+        /// </summary>
+        /// <param name="directoryPath"></param>
+        /// <param name="searchPattern"></param>
+        /// <returns></returns>
         public List<string> ListarArchivosName(string directoryPath, string searchPattern)
         {
             directory = new DirectoryInfo(directoryPath);
@@ -101,6 +108,14 @@ namespace FilesFolders.ManejoArchivos
 
             return files;
         }
+        /// <summary>
+        /// Retorna una Lista de todos los archivos de una carpeta según un criterio
+        /// Muestra el Nombre del archivo Unicamente, sin incluir la ruta
+        /// Incluye Subcarpetas
+        /// </summary>
+        /// <param name="directoryPath"></param>
+        /// <param name="searchPattern"></param>
+        /// <returns></returns>
         public List<string> ListarArchivosNameRecursive(string directoryPath, string searchPattern)
         {
             directory = new DirectoryInfo(directoryPath);
@@ -133,6 +148,66 @@ namespace FilesFolders.ManejoArchivos
             }
 
             return NumeroLineas;
+        }
+        /// <summary>
+        /// Retorna una Lista de todos los nombrs de carpetas de una ruta especifica
+        /// Muestra el nombre completo de la carpeta, incluyendo al ruta
+        /// No incluye subcarpetas
+        /// </summary>
+        /// <param name="directoryPath"></param>
+        /// <param name="searchPattern"></param>
+        /// <returns></returns>
+        public List<string> ListarNombresCarpetas(string directoryPath)
+        {
+            directory = new DirectoryInfo(directoryPath);
+
+            List<string> folders = new List<string>();
+
+            foreach (var folder in directory.GetDirectories())
+            {
+                String nameFolder = folder.FullName;
+                folders.Add(nameFolder);
+            }
+
+            return folders;
+        }
+        public string valorAF(string directoryPath, string searchPatters)
+        {
+            directory = new DirectoryInfo(directoryPath);
+            String valorNetoAF = "";
+
+            foreach (var item in directory.GetFiles(searchPatters, SearchOption.AllDirectories))
+            {
+                string path = item.FullName;
+                List<String> lines = new List<String>();
+
+                if(File.Exists(path))
+                {
+                    using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("Windows-1252")))
+                    {
+                        String line;
+
+                        while ((line = reader.ReadLine()) != null )
+                        {
+                            if (line.Contains(","))
+                            {
+                                String[] split = line.Split(',');
+
+                                // Obtenemos Valor Neto - Posición 16
+                                valorNetoAF = split[16];
+
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Archivo no Existe");
+                    return valorNetoAF = "0";
+                }
+            }
+
+            return valorNetoAF;
         }
     }
 }
