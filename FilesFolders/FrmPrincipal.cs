@@ -51,5 +51,11 @@ namespace FilesFolders
             FrmNuevaEPS frmNuevaEPS = new FrmNuevaEPS();
             frmNuevaEPS.ShowDialog();
         }
+
+        private void soportesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmArchivosCoosalud FrmArchivosCoosalud = new FrmArchivosCoosalud();
+            FrmArchivosCoosalud.ShowDialog();
+        }
     }
 }

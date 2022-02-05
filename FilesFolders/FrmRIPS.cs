@@ -3332,7 +3332,7 @@ namespace FilesFolders
                                     // S33000 HORA PROFESIONAL MEDICO TRASLADO PACIENTES
                                     if (split[6] == "S33000")
                                     {
-                                        split[6] = "602T01";
+                                        split[6] = "S50003";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }

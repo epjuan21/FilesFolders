@@ -51,6 +51,7 @@
             this.Regimen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.entidadSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.coosaludToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.entidadSetBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -99,35 +100,35 @@
             // rIPSToolStripMenuItem
             // 
             this.rIPSToolStripMenuItem.Name = "rIPSToolStripMenuItem";
-            this.rIPSToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.rIPSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.rIPSToolStripMenuItem.Text = "RIPS Masivo";
             this.rIPSToolStripMenuItem.Click += new System.EventHandler(this.RIPSToolStripMenuItem_Click);
             // 
             // rIPSIndividualToolStripMenuItem
             // 
             this.rIPSIndividualToolStripMenuItem.Name = "rIPSIndividualToolStripMenuItem";
-            this.rIPSIndividualToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.rIPSIndividualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.rIPSIndividualToolStripMenuItem.Text = "RIPS Individual";
             this.rIPSIndividualToolStripMenuItem.Click += new System.EventHandler(this.RIPSIndividualToolStripMenuItem_Click);
             // 
             // rIPSCarpetasToolStripMenuItem
             // 
             this.rIPSCarpetasToolStripMenuItem.Name = "rIPSCarpetasToolStripMenuItem";
-            this.rIPSCarpetasToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.rIPSCarpetasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.rIPSCarpetasToolStripMenuItem.Text = "RIPS Carpetas";
             this.rIPSCarpetasToolStripMenuItem.Click += new System.EventHandler(this.RIPSCarpetasToolStripMenuItem_Click);
             // 
             // rIPSFacturaToolStripMenuItem
             // 
             this.rIPSFacturaToolStripMenuItem.Name = "rIPSFacturaToolStripMenuItem";
-            this.rIPSFacturaToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.rIPSFacturaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.rIPSFacturaToolStripMenuItem.Text = "RIPS Factura";
             this.rIPSFacturaToolStripMenuItem.Click += new System.EventHandler(this.RIPSFacturaToolStripMenuItem_Click);
             // 
             // rIPSNuevaEPSToolStripMenuItem
             // 
             this.rIPSNuevaEPSToolStripMenuItem.Name = "rIPSNuevaEPSToolStripMenuItem";
-            this.rIPSNuevaEPSToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.rIPSNuevaEPSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.rIPSNuevaEPSToolStripMenuItem.Text = "RIPS Nueva EPS";
             this.rIPSNuevaEPSToolStripMenuItem.Click += new System.EventHandler(this.RIPSNuevaEPSToolStripMenuItem_Click);
             // 
@@ -135,22 +136,23 @@
             // 
             this.rIPSEABPToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cambioEstructuraToolStripMenuItem,
-            this.comprimirArchivoToolStripMenuItem});
+            this.comprimirArchivoToolStripMenuItem,
+            this.coosaludToolStripMenuItem});
             this.rIPSEABPToolStripMenuItem.Name = "rIPSEABPToolStripMenuItem";
-            this.rIPSEABPToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
-            this.rIPSEABPToolStripMenuItem.Text = "RIPS EABP";
+            this.rIPSEABPToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.rIPSEABPToolStripMenuItem.Text = "Utilidads";
             // 
             // cambioEstructuraToolStripMenuItem
             // 
             this.cambioEstructuraToolStripMenuItem.Name = "cambioEstructuraToolStripMenuItem";
-            this.cambioEstructuraToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.cambioEstructuraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cambioEstructuraToolStripMenuItem.Text = "Cambio Estructura";
             this.cambioEstructuraToolStripMenuItem.Click += new System.EventHandler(this.CambioEstructuraToolStripMenuItem_Click);
             // 
             // comprimirArchivoToolStripMenuItem
             // 
             this.comprimirArchivoToolStripMenuItem.Name = "comprimirArchivoToolStripMenuItem";
-            this.comprimirArchivoToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.comprimirArchivoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.comprimirArchivoToolStripMenuItem.Text = "Comprimir Archivo";
             this.comprimirArchivoToolStripMenuItem.Click += new System.EventHandler(this.ComprimirArchivoToolStripMenuItem_Click);
             // 
@@ -196,6 +198,13 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.SalirToolStripMenuItem_Click);
             // 
+            // coosaludToolStripMenuItem
+            // 
+            this.coosaludToolStripMenuItem.Name = "coosaludToolStripMenuItem";
+            this.coosaludToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.coosaludToolStripMenuItem.Text = "Coosalud";
+            this.coosaludToolStripMenuItem.Click += new System.EventHandler(this.coosaludToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -214,6 +223,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.entidadSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -239,6 +249,7 @@
         private System.Windows.Forms.ToolStripMenuItem comprimirArchivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rIPSFacturaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rIPSNuevaEPSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem coosaludToolStripMenuItem;
     }
 }
 

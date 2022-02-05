@@ -70,5 +70,11 @@ namespace FilesFolders
             }
             return base.ProcessDialogKey(keyData);
         }
+
+        private void coosaludToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmArchivosCoosalud FrmArchivosCoosalud = new FrmArchivosCoosalud();
+            FrmArchivosCoosalud.ShowDialog();
+        }
     }
 }
