@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FilesFolders.Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -7,7 +8,6 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
-using FilesFolders.Clases;
 
 namespace FilesFolders
 {
@@ -251,7 +251,7 @@ namespace FilesFolders
                                         split[12] = municipio.municipioNuevo;
                                         line = String.Join(",", split);
                                         contadorErrores++;
-                                    }   
+                                    }
                                 }
                                 #endregion
 
@@ -3235,7 +3235,8 @@ namespace FilesFolders
 
                                 int pos = cupsAT.IndexOf('*');
 
-                                if (pos >= 0) {
+                                if (pos >= 0)
+                                {
                                     cupsAT = cupsAT.Remove(pos);
                                     split[6] = cupsAT;
                                     line = String.Join(",", split);
@@ -3280,6 +3281,23 @@ namespace FilesFolders
                                 if (split[5] == "4" && split[6] == "" && split[7] == "SALA DE PEQUEÑA CIRUGIA (SUTURAS)")
                                 {
                                     split[6] = "S22102";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                if (split[5] == "4" && split[6] == "S22102" && split[7] == "SALA DE PEQUENA CIRUGIA SUTURAS")
+                                {
+                                    split[5] = "3";
+                                    split[6] = "5DS003";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                // SALA DE YESOS
+                                if (split[5] == "4" && split[6] == "" && split[7] == "SALA DE YESOS")
+                                {
+                                    split[5] = "3";
+                                    split[6] = "5DS004";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }

@@ -181,13 +181,13 @@ namespace FilesFolders.ManejoArchivos
                 string path = item.FullName;
                 List<String> lines = new List<String>();
 
-                if(File.Exists(path))
+                if (File.Exists(path))
                 {
                     using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("Windows-1252")))
                     {
                         String line;
 
-                        while ((line = reader.ReadLine()) != null )
+                        while ((line = reader.ReadLine()) != null)
                         {
                             if (line.Contains(","))
                             {

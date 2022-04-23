@@ -3,11 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FilesFolders
@@ -109,7 +106,7 @@ namespace FilesFolders
                 if (nombreArchivo.StartsWith("FE"))
                 {
                     // Establecer el Nombre Anterior del Archivo
-                    nombreAnteriorArchivo = string.Format("{0}{1}{2}", fullDirectoryName, separadorCarpeta, nombreArchivo);              
+                    nombreAnteriorArchivo = string.Format("{0}{1}{2}", fullDirectoryName, separadorCarpeta, nombreArchivo);
 
                     // Establere Nombre y Ruta Completa de la Nueva Carpeta para la Factura
                     string nuevaCarpeta = string.Format("{0}\\{1}", fullDirectoryName, carpetaFactura);
