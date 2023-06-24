@@ -42,6 +42,8 @@ namespace FilesFolders
             this.chkBoxValCm = new System.Windows.Forms.CheckBox();
             this.chkBoxLonDoc = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.chkBoxTipoDocSSSA = new System.Windows.Forms.CheckBox();
+            this.chkBoxAFSSSA = new System.Windows.Forms.CheckBox();
             this.chkBoxAMSSSA = new System.Windows.Forms.CheckBox();
             this.chkBoxSSSA = new System.Windows.Forms.CheckBox();
             this.chkBoxDXSSSA = new System.Windows.Forms.CheckBox();
@@ -291,6 +293,8 @@ namespace FilesFolders
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.chkBoxTipoDocSSSA);
+            this.groupBox4.Controls.Add(this.chkBoxAFSSSA);
             this.groupBox4.Controls.Add(this.chkBoxAMSSSA);
             this.groupBox4.Controls.Add(this.chkBoxSSSA);
             this.groupBox4.Controls.Add(this.chkBoxDXSSSA);
@@ -298,17 +302,41 @@ namespace FilesFolders
             this.groupBox4.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.groupBox4.Location = new System.Drawing.Point(577, 327);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(299, 107);
+            this.groupBox4.Size = new System.Drawing.Size(405, 107);
             this.groupBox4.TabIndex = 55;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "SSSA";
+            // 
+            // chkBoxTipoDocSSSA
+            // 
+            this.chkBoxTipoDocSSSA.AutoSize = true;
+            this.chkBoxTipoDocSSSA.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxTipoDocSSSA.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxTipoDocSSSA.Location = new System.Drawing.Point(171, 49);
+            this.chkBoxTipoDocSSSA.Name = "chkBoxTipoDocSSSA";
+            this.chkBoxTipoDocSSSA.Size = new System.Drawing.Size(190, 17);
+            this.chkBoxTipoDocSSSA.TabIndex = 54;
+            this.chkBoxTipoDocSSSA.Text = "Corregir Tipos Documento SSSA";
+            this.chkBoxTipoDocSSSA.UseVisualStyleBackColor = true;
+            // 
+            // chkBoxAFSSSA
+            // 
+            this.chkBoxAFSSSA.AutoSize = true;
+            this.chkBoxAFSSSA.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxAFSSSA.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxAFSSSA.Location = new System.Drawing.Point(171, 74);
+            this.chkBoxAFSSSA.Name = "chkBoxAFSSSA";
+            this.chkBoxAFSSSA.Size = new System.Drawing.Size(112, 17);
+            this.chkBoxAFSSSA.TabIndex = 53;
+            this.chkBoxAFSSSA.Text = "Corregir AF SSSA";
+            this.chkBoxAFSSSA.UseVisualStyleBackColor = true;
             // 
             // chkBoxAMSSSA
             // 
             this.chkBoxAMSSSA.AutoSize = true;
             this.chkBoxAMSSSA.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkBoxAMSSSA.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.chkBoxAMSSSA.Location = new System.Drawing.Point(12, 75);
+            this.chkBoxAMSSSA.Location = new System.Drawing.Point(12, 74);
             this.chkBoxAMSSSA.Name = "chkBoxAMSSSA";
             this.chkBoxAMSSSA.Size = new System.Drawing.Size(116, 17);
             this.chkBoxAMSSSA.TabIndex = 52;
@@ -1116,5 +1144,7 @@ namespace FilesFolders
         private System.Windows.Forms.CheckBox chkBoxEntidadAdministradora;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.CheckBox chkBoxAQSura;
+        private System.Windows.Forms.CheckBox chkBoxAFSSSA;
+        private System.Windows.Forms.CheckBox chkBoxTipoDocSSSA;
     }
 }

@@ -11,6 +11,7 @@ namespace FilesFolders.ManejoArchivos
 
         private string NumeroLineas;
         private DirectoryInfo directory;
+        private int Edad;
 
         public CArchivos()
         {
@@ -42,7 +43,7 @@ namespace FilesFolders.ManejoArchivos
 
         /// <summary>
         /// Retorna una Lista de todos los archivos de una carpeta según un criterio
-        /// Muestra el Noombre completo del Archivo incluyendo la Ruta
+        /// Muestra el Nombre completo del Archivo incluyendo la Ruta
         /// No tiene en cuenta subcarpetas
         /// </summary>
         /// <param name="directoryPath"></param>
@@ -130,6 +131,13 @@ namespace FilesFolders.ManejoArchivos
 
             return files;
         }
+        /// <summary>
+        /// Retorna el numero de lineas de los archivos de una carpeta según un criterio
+        /// No Incluye Subcarpetas
+        /// </summary>
+        /// <param name="directoryPath"></param>
+        /// <param name="searchPattern"></param>
+        /// <returns></returns>
         public string Lineas(string directoryPath, string searchPattern)
         {
             directory = new DirectoryInfo(directoryPath);
@@ -171,6 +179,53 @@ namespace FilesFolders.ManejoArchivos
 
             return folders;
         }
+        /// <summary>
+        /// Obtiene la edad de un usuario segun su numero de documento
+        /// Busca la edad en todos los archivos US de los directorios y subdirectorios
+        /// </summary>
+        /// <param name="NumeroDocumento">El número de documetno del Usuario</param>
+        /// <param name="dirPath">La ruta del directorio raíz donde se buscarán los archivos</param>
+        /// <returns>La edad del usuario como un número entero</returns>
+        public int ObtenerEdad(String NumeroDocumento, string dirPath)
+        {
+            DirectoryInfo di = new DirectoryInfo(dirPath);
+
+            foreach (var fi in di.GetFiles("*US*", SearchOption.AllDirectories))
+            {
+                String path = fi.FullName;
+                List<String> lines = new List<String>();
+
+                if (File.Exists(path))
+                {
+                    using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("Windows-1252")))
+                    {
+                        String line;
+
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            if (line.Contains(","))
+                            {
+                                String[] split = line.Split(',');
+
+                                // Posición Numero de Documento en el Archivo US
+                                string NumeroDocumentoUS = split[1];
+
+                                if (NumeroDocumento == NumeroDocumentoUS)
+                                {
+                                    // Edad - Posición 8 del Archivo US
+                                    Edad = int.Parse(split[8]);
+                                }
+                            }
+
+                            lines.Add(line);
+                        }
+                    }
+                }
+            }
+
+            return Edad;
+        }
+
         public string valorAF(string directoryPath, string searchPatters)
         {
             directory = new DirectoryInfo(directoryPath);

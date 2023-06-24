@@ -1,4 +1,5 @@
 ﻿using FilesFolders.Clases;
+using FilesFolders.ManejoArchivos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
+using static System.Windows.Forms.LinkLabel;
 
 namespace FilesFolders
 {
@@ -20,6 +22,8 @@ namespace FilesFolders
 
         #region Variables
         string dirPath;
+        string Edad;
+        string UnidadMedidaEdad;
         readonly CWork bgwAC = new CWork();
         readonly CWork bgwAP = new CWork();
         readonly CWork bgwAT = new CWork();
@@ -29,6 +33,9 @@ namespace FilesFolders
         readonly CWork bgwAH = new CWork();
         readonly CWork bgwAF = new CWork();
         readonly CWork bgwAM = new CWork();
+
+        readonly CArchivos CArchivos = new CArchivos();
+        readonly Correcciones Correcciones = new Correcciones();
 
         List<Departamento> departamentos = Departamento.GetDepartamentos();
         List<Municipio> municipios = Municipio.GetMunicipios();
@@ -142,6 +149,7 @@ namespace FilesFolders
                 String path = fi.FullName;
                 List<String> lines = new List<String>();
 
+
                 if (File.Exists(path))
                 {
                     using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("Windows-1252")))
@@ -155,22 +163,32 @@ namespace FilesFolders
                                 String[] split = line.Split(',');
 
                                 #region Tipo Documento
+
                                 // Tipo de identificación del usuario - Posición 0
-                                string TipoIdUsuario = split[0];
-                                if (TipoIdUsuario == "NV")
+
+                                if (chkBoxTipoDocSSSA.CheckState == CheckState.Checked)
                                 {
-                                    split[0] = "MS";
+                                    split[0] = Correcciones.CorregirTipoDocumento(ref line, 0, 8, -1, 1, 9, "");
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+
                                 #endregion
 
                                 #region Codigo Entidad Administradora
 
                                 // Código entidad administradora
+
                                 string codigoEntidadAdministradora = split[2];
 
                                 if (chkBoxEntidadAdministradora.CheckState == CheckState.Checked && String.IsNullOrEmpty(codigoEntidadAdministradora))
+                                {
+                                    split[2] = "05091";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                if (chkBoxAFSSSA.CheckState == CheckState.Checked && (codigoEntidadAdministradora == "DLS001" || codigoEntidadAdministradora == "FMS001"))
                                 {
                                     split[2] = "05091";
                                     line = String.Join(",", split);
@@ -277,7 +295,7 @@ namespace FilesFolders
 
                                 #endregion
                             }
-
+                           
                             lines.Add(line);
                         }
                     }
@@ -285,7 +303,7 @@ namespace FilesFolders
                     using (StreamWriter writer = new StreamWriter(path, false, Encoding.GetEncoding("Windows-1252")))
                     {
                         foreach (String line in lines)
-                        {
+                            {
                             writer.WriteLine(line);
                         }
                     }
@@ -335,6 +353,7 @@ namespace FilesFolders
             {
                 String path = fi.FullName;
                 List<String> lines = new List<String>();
+                //List<String> modifiedLines = new List<String>();
 
                 if (File.Exists(path))
                 {
@@ -347,6 +366,9 @@ namespace FilesFolders
                             if (line.Contains(","))
                             {
                                 String[] split = line.Split(',');
+
+                                int EdadUsuario = CArchivos.ObtenerEdad(split[3], dirPath);
+                                string UnidadMedidaEdad = ObtenerUnidadMedidaEdad(split[3]);
 
                                 #region Factura
                                 // Número Factura - Posición 0
@@ -391,14 +413,16 @@ namespace FilesFolders
                                 #endregion
 
                                 #region Tipo Documento
+
                                 // Tipo de identificación del usuario - Posición 2
-                                string TipoIdUsuario = split[2];
-                                if (TipoIdUsuario == "NV")
+
+                                if (chkBoxTipoDocSSSA.CheckState == CheckState.Checked)
                                 {
-                                    split[2] = "MS";
+                                    split[2] = Correcciones.CorregirTipoDocumento(ref line, 2, -1, EdadUsuario, 3, -1, UnidadMedidaEdad);
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+
                                 #endregion
 
                                 #region Número de autorización
@@ -645,6 +669,13 @@ namespace FilesFolders
                                 if (split[9] == "")
                                 {
                                     split[9] = "R101";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                if (split[9] == "Z002" && EdadUsuario < 5 && UnidadMedidaEdad == "1")
+                                {
+                                    split[9] = "Z001";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -1262,6 +1293,9 @@ namespace FilesFolders
                             {
                                 String[] split = line.Split(',');
 
+                                int EdadUsuario = CArchivos.ObtenerEdad(split[3], dirPath);
+                                string UnidadMedidaEdad = ObtenerUnidadMedidaEdad(split[3]);
+
                                 #region Factura
                                 // Número Factura - Posición 0
                                 string NumeroFactura = split[0];
@@ -1306,6 +1340,19 @@ namespace FilesFolders
                                 }
                                 #endregion
 
+                                #region Tipo Documento
+
+                                // Tipo de identificación del usuario - Posición 2
+
+                                if (chkBoxTipoDocSSSA.CheckState == CheckState.Checked)
+                                {
+                                    split[2] = Correcciones.CorregirTipoDocumento(ref line, 2, -1, EdadUsuario, 3, -1, UnidadMedidaEdad);
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                #endregion
+
                                 #region Número de autorización
                                 // Número de autorización - Posición 5
 
@@ -1319,6 +1366,20 @@ namespace FilesFolders
 
                                 #region CUPS
                                 // Codigo CUPS Archivo AP - Posoción 6
+
+                                if (split[6] == "2")
+                                {
+                                    split[6] = "890301";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                if (split[6] == "22")
+                                {
+                                    split[6] = "890301";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
 
                                 // Eliminar Asteriscos y Guiones
                                 string cups = split[6].Replace("*", "");
@@ -1516,6 +1577,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "890301")
+                                {
+                                    split[7] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "892901")
                                 {
                                     split[7] = "1";
@@ -1583,6 +1650,12 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 if (split[6] == "903426")
+                                {
+                                    split[7] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "903604")
                                 {
                                     split[7] = "1";
                                     line = String.Join(",", split);
@@ -2034,6 +2107,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "890301")
+                                {
+                                    split[8] = "4";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "892901")
                                 {
                                     split[8] = "4";
@@ -2167,6 +2246,12 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
                                 if (split[6] == "903026")
+                                {
+                                    split[8] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "903604")
                                 {
                                     split[8] = "1";
                                     line = String.Join(",", split);
@@ -2878,6 +2963,9 @@ namespace FilesFolders
                             {
                                 String[] split = line.Split(',');
 
+                                int EdadUsuario = CArchivos.ObtenerEdad(split[3], dirPath);
+                                string UnidadMedidaEdad = ObtenerUnidadMedidaEdad(split[3]);
+
                                 #region Factura
                                 // Número Factura - Posición 0
                                 string NumeroFactura = split[0];
@@ -2922,36 +3010,57 @@ namespace FilesFolders
                                 }
                                 #endregion
 
+                                #region TipoDocumento
+
+                                // Tipo de identificación del usuario - Posición 2
+
+                                split[2] = Correcciones.CorregirTipoDocumento(ref line, 2, -1, EdadUsuario, 3, -1, UnidadMedidaEdad);
+                                line = String.Join(",", split);
+                                contadorErrores++;
+
+                                #endregion
+
                                 #region Código del medicamento
                                 // Código del medicamento - Posición 5
 
                                 // Corregir Codigo Medicamento para SSSA
                                 if (chkBoxAMSSSA.CheckState == CheckState.Checked)
                                 {
-                                    if (split[5] == "20055559-6")
+                                    //  Ausencia de Codigo de Medicamento
+                                    if (split[5] == "")
                                     {
-                                        split[5] = "20041458-1";
-                                        line = string.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                    // ACETATO DE MEDROXIPROGESTERONA
-                                    if (split[5] == "19997397-10")
-                                    {
-                                        split[5] = "20011793-1";
+                                        split[5] = "20105341-1";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
-                                    // ACIDO TRANEXAMICO 500 MG TABLE
-                                    if (split[5] == "20138453-1")
+                                    //  Codido de Mericamento con solo un Guion "-"
+                                    if (split[5] == "-")
                                     {
-                                        split[5] = "20072679-1";
+                                        split[5] = "20105341-1";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
-                                    // HIDROXICINA CLORHIDRATO 100 MG
-                                    if (split[5] == "020028014-1")
+                                    if (split[5] == "-")
                                     {
-                                        split[5] = "40205-1";
+                                        split[7] = "SOLUCION SALINA";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[5] == "-")
+                                    {
+                                        split[8] = "SOLUCION INYECTABLE";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[5] == "-")
+                                    {
+                                        split[9] = "0.9 G";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[5] == "-")
+                                    {
+                                        split[10] = "CADA BOLSA POR 100 M";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
@@ -2983,10 +3092,94 @@ namespace FilesFolders
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
-                                    // BETAMETASONA ACETATO 4 MG/ML VITALIS
-                                    if (split[5] == "19980025-14")
+                                    // VACUNA ANTITETANICA
+                                    if (split[5] == "19940997-05")
                                     {
-                                        split[5] = "19940157-1";
+                                        split[5] = "29151-2";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    // DEXAMETASONA FOSFATO 8MG / 2 M
+                                    if (split[5] == "19997625-07")
+                                    {
+                                        split[5] = "28346-16";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    // SODIO CLORURO AL 0.9%
+                                    if (split[5] == "20055558-07")
+                                    {
+                                        split[5] = "51076-2";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    // METAMIZOL SODICO( DIPIRONA)1G
+                                    if (split[5] == "19907058-02" || split[5] == "20055558-02")
+                                    {
+                                        split[5] = "33644-4";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    // HIOSCINA N-BUTIL BROMURO + DIP
+                                    if (split[5] == "19926478-03")
+                                    {
+                                        split[5] = "36344-1";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    // TRAMADOL INYECTABLE X 50 MG/ML
+                                    if (split[5] == "53285-02")
+                                    {
+                                        split[5] = "51716-1";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    // ACETAMINOFEN 500 MG
+                                    if (split[5] == "19935303-04")
+                                    {
+                                        split[5] = "53560-3";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    // DIFENHIDRAMINA HCL SOLUCION INYECTABLE
+                                    if (split[5] == "19962547-01" || split[5] == "20096034-01")
+                                    {
+                                        split[5] = "19919306-1";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    // FIREXIFEN JARABE
+                                    if (split[5] == "20155033-03")
+                                    {
+                                        split[5] = "20155033-1";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    // HIDROCORTISONA 100 MG
+                                    if (split[5] == "19940721-05")
+                                    {
+                                        split[5] = "19940721-12";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    // HIDROXIZINA CLOHIDRATO 100 MG
+                                    if (split[5] == "20028014-01")
+                                    {
+                                        split[5] = "20028014-1";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    // LACTATO DE RINGER (SOLUCION HA,SOLUCION INYECTABLE
+                                    if (split[5] == "20055559-6")
+                                    {
+                                        split[5] = "32606-1";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    // ACIDO TRANEXAMICO 500 MG TABLE
+                                    if (split[5] == "20138453-1")
+                                    {
+                                        split[5] = "20072679-1";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
@@ -2996,6 +3189,12 @@ namespace FilesFolders
 
                                 #region Tipo Medicamento
                                 // Tipo Medicamento - Posición 6
+                                if (split[6] == "")
+                                {
+                                    split[6] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "2")
                                 {
                                     split[6] = "1";
@@ -3035,22 +3234,17 @@ namespace FilesFolders
 
                                 #endregion
 
+                                #region Numero de Unidades
                                 // Número de unidades - Posición 11
+
                                 string numeroUnidades = split[11];
                                 double numeroUnidadesDouble = Math.Truncate(Convert.ToDouble(numeroUnidades));
-
-                                // Valor unitario de medicamento - Posición 12
 
                                 string valorUnitarioMedicamento = split[12];
                                 double valorUnitarioMedicamentoDouble = Math.Truncate(Convert.ToDouble(valorUnitarioMedicamento));
 
-                                // Valor total de medicamento - Posición 13
-
                                 string valorTotalMedicamento = split[13];
                                 double valorTotalMedicamentoDouble = Math.Truncate(Convert.ToDouble(valorTotalMedicamento));
-
-                                #region Numero de Unidades
-                                // Número de unidades - Posición 11
 
                                 numeroUnidadesDouble = valorTotalMedicamentoDouble / valorUnitarioMedicamentoDouble;
 
@@ -3064,6 +3258,7 @@ namespace FilesFolders
                                 #endregion
 
                                 #region Valor unitario de medicamento
+                                
                                 // Valor unitario de medicamento - Posición 12
 
                                 // Quitar Decimales para Sumimedical
@@ -3077,6 +3272,7 @@ namespace FilesFolders
                                 #endregion
 
                                 #region Valor Total Medicamento
+
                                 // Valor total de medicamento - Posición 13
 
                                 // Quitar Decimales para Sumimedical
@@ -3162,6 +3358,11 @@ namespace FilesFolders
                             {
                                 String[] split = line.Split(',');
 
+                                int EdadUsuario = CArchivos.ObtenerEdad(split[3], dirPath);
+                                string UnidadMedidaEdad = ObtenerUnidadMedidaEdad(split[3]);
+
+                                #region Factura
+
                                 // Número Factura - Posición 0
                                 string NumeroFactura = split[0];
 
@@ -3200,6 +3401,20 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                #endregion
+
+                                #region Tipo Documento
+
+                                // Tipo de identificación del usuario - Posición 2
+
+                                if (chkBoxTipoDocSSSA.CheckState == CheckState.Checked)
+                                {
+                                    split[2] = Correcciones.CorregirTipoDocumento(ref line, 2, -1, EdadUsuario, 3, -1, UnidadMedidaEdad);
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                #endregion
 
                                 #region Tipo de Servicio
 
@@ -3210,29 +3425,57 @@ namespace FilesFolders
                                 //3 = Estancias
                                 //4 = Honorarios
 
-                                if (split[5] == "4" && split[6] == "S11104")
+                                if (split[5] == "" && split[6] == "1")
                                 {
-                                    split[5] = "3";
+                                    split[5] = "1";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-
-                                if (split[5] == "4" && split[6] == "S20000")
+                                if (split[5] == "" && split[6] == "7")
                                 {
-                                    split[5] = "3";
+                                    split[5] = "1";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-
-                                if (split[5] == "4" && split[6] == "5DSB01")
+                                if (split[5] == "" && split[6] == "8")
                                 {
-                                    split[5] = "3";
+                                    split[5] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[5] == "" && split[6] == "11")
+                                {
+                                    split[5] = "1";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
                                 if (split[5] == "" && split[6] == "17")
                                 {
                                     split[5] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[5] == "" && split[6] == "18")
+                                {
+                                    split[5] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[5] == "4" && split[6] == "S11104")
+                                {
+                                    split[5] = "3";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[5] == "4" && split[6] == "S20000")
+                                {
+                                    split[5] = "3";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[5] == "4" && split[6] == "5DSB01")
+                                {
+                                    split[5] = "3";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -3416,7 +3659,6 @@ namespace FilesFolders
 
                                 #endregion
 
-
                                 #region Valor Unitario
                                 // Valor Unitario - Posición 9
                                 string valorUnitarioAT = split[9];
@@ -3522,6 +3764,9 @@ namespace FilesFolders
                             {
                                 String[] split = line.Split(',');
 
+                                int EdadUsuario = CArchivos.ObtenerEdad(split[3], dirPath);
+                                string UnidadMedidaEdad = ObtenerUnidadMedidaEdad(split[3]);
+
                                 #region Factura
                                 // Número Factura - Posición 0
                                 string NumeroFactura = split[0];
@@ -3564,6 +3809,19 @@ namespace FilesFolders
                                         }
                                     }
                                 }
+                                #endregion
+
+                                #region Tipo Documento
+
+                                // Tipo de identificación del usuario - Posición 2
+
+                                if (chkBoxTipoDocSSSA.CheckState == CheckState.Checked)
+                                {
+                                    split[2] = Correcciones.CorregirTipoDocumento(ref line, 2, -1, EdadUsuario, 3, -1, UnidadMedidaEdad);
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
                                 #endregion
 
                                 #region Diagnóstico de Salida
@@ -3809,6 +4067,9 @@ namespace FilesFolders
                             {
                                 String[] split = line.Split(',');
 
+                                int EdadUsuario = CArchivos.ObtenerEdad(split[3], dirPath);
+                                string UnidadMedidaEdad = ObtenerUnidadMedidaEdad(split[3]);
+
                                 #region Factura
                                 // Número Factura - Posición 0
                                 string NumeroFactura = split[0];
@@ -3851,6 +4112,19 @@ namespace FilesFolders
                                         }
                                     }
                                 }
+                                #endregion
+
+                                #region Tipo Documento
+
+                                // Tipo de identificación del usuario - Posición 2
+
+                                if (chkBoxTipoDocSSSA.CheckState == CheckState.Checked)
+                                {
+                                    split[2] = Correcciones.CorregirTipoDocumento(ref line, 2, -1, EdadUsuario, 3, -1, UnidadMedidaEdad);
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
                                 #endregion
 
                                 #region Número de autorización
@@ -3980,6 +4254,18 @@ namespace FilesFolders
                                 {
                                     numeroFactura = String.Concat("FE", numeroFactura);
                                     split[4] = numeroFactura;
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                #endregion
+
+                                #region CodigoEntidad
+
+                                // Codigo entidad administradora - Posición 8
+                                if (chkBoxAFSSSA.CheckState == CheckState.Checked)
+                                {
+                                    split[8] = "05091";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -4313,6 +4599,7 @@ namespace FilesFolders
             }
         }
         #endregion
+
         protected override bool ProcessDialogKey(Keys keyData)
         {
             if (Form.ModifierKeys == Keys.None && keyData == Keys.Escape)
@@ -4323,9 +4610,50 @@ namespace FilesFolders
             return base.ProcessDialogKey(keyData);
         }
 
+        public string ObtenerUnidadMedidaEdad(String NumeroDocumento)
+        {
+            DirectoryInfo di = new DirectoryInfo(dirPath);
+
+            foreach (var fi in di.GetFiles("*US*", SearchOption.AllDirectories))
+            {
+                String path = fi.FullName;
+                List<String> lines = new List<String>();
+
+                if (File.Exists(path))
+                {
+                    using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("Windows-1252")))
+                    {
+                        String line;
+
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            if (line.Contains(","))
+                            {
+                                String[] split = line.Split(',');
+
+                                string NumeroDocumentoUS = split[1];
+
+                                if (NumeroDocumento == NumeroDocumentoUS)
+                                {
+                                    // Unidad de Medida de la Edad - Posición 9 del Archivo US
+                                    UnidadMedidaEdad = split[9];
+                                }
+                            }
+
+                            lines.Add(line);
+                        }
+                    }
+
+                }
+            }
+
+            return UnidadMedidaEdad;
+        }
+
         private void pnlRIPS_Paint(object sender, PaintEventArgs e)
         {
 
         }
+
     }
 }
