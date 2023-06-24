@@ -144,7 +144,7 @@ namespace FilesFolders
             DirectoryInfo di = new DirectoryInfo(dirPath);
             int contadorErrores = 0;
 
-            foreach (var fi in di.GetFiles("*US*", SearchOption.AllDirectories))
+            foreach (var fi in di.GetFiles("*", SearchOption.AllDirectories).Where(file => file.Extension.Equals(".txt") && file.Name.StartsWith("US")))
             {
                 String path = fi.FullName;
                 List<String> lines = new List<String>();
@@ -349,7 +349,7 @@ namespace FilesFolders
             DirectoryInfo di = new DirectoryInfo(dirPath);
             int contadorErrores = 0;
 
-            foreach (var fi in di.GetFiles("AC*", SearchOption.AllDirectories))
+            foreach (var fi in di.GetFiles("*", SearchOption.AllDirectories).Where(file => file.Extension.Equals(".txt") && file.Name.StartsWith("AC")))
             {
                 String path = fi.FullName;
                 List<String> lines = new List<String>();
@@ -368,7 +368,7 @@ namespace FilesFolders
                                 String[] split = line.Split(',');
 
                                 int EdadUsuario = CArchivos.ObtenerEdad(split[3], dirPath);
-                                string UnidadMedidaEdad = ObtenerUnidadMedidaEdad(split[3]);
+                                string UnidadMedidaEdad = CArchivos.ObtenerUnidadMedidaEdad(split[3],dirPath);
 
                                 #region Factura
                                 // Número Factura - Posición 0
@@ -1276,7 +1276,7 @@ namespace FilesFolders
             DirectoryInfo di = new DirectoryInfo(dirPath);
             int contadorErrores = 0;
 
-            foreach (var fi in di.GetFiles("AP*", SearchOption.AllDirectories))
+            foreach (var fi in di.GetFiles("*", SearchOption.AllDirectories).Where(file => file.Extension.Equals(".txt") && file.Name.StartsWith("AP")))
             {
                 String path = fi.FullName;
                 List<String> lines = new List<String>();
@@ -1294,7 +1294,7 @@ namespace FilesFolders
                                 String[] split = line.Split(',');
 
                                 int EdadUsuario = CArchivos.ObtenerEdad(split[3], dirPath);
-                                string UnidadMedidaEdad = ObtenerUnidadMedidaEdad(split[3]);
+                                string UnidadMedidaEdad = CArchivos.ObtenerUnidadMedidaEdad(split[3],dirPath);
 
                                 #region Factura
                                 // Número Factura - Posición 0
@@ -2946,7 +2946,7 @@ namespace FilesFolders
             DirectoryInfo di = new DirectoryInfo(dirPath);
             int contadorErrores = 0;
 
-            foreach (var fi in di.GetFiles("*AM*", SearchOption.AllDirectories))
+            foreach (var fi in di.GetFiles("*", SearchOption.AllDirectories).Where(file => file.Extension.Equals(".txt") && file.Name.StartsWith("AM")))
             {
                 String path = fi.FullName;
                 List<String> lines = new List<String>();
@@ -2964,7 +2964,7 @@ namespace FilesFolders
                                 String[] split = line.Split(',');
 
                                 int EdadUsuario = CArchivos.ObtenerEdad(split[3], dirPath);
-                                string UnidadMedidaEdad = ObtenerUnidadMedidaEdad(split[3]);
+                                string UnidadMedidaEdad = CArchivos.ObtenerUnidadMedidaEdad(split[3],dirPath);
 
                                 #region Factura
                                 // Número Factura - Posición 0
@@ -3341,7 +3341,7 @@ namespace FilesFolders
             DirectoryInfo di = new DirectoryInfo(dirPath);
             int contadorErrores = 0;
 
-            foreach (var fi in di.GetFiles("*AT*", SearchOption.AllDirectories))
+            foreach (var fi in di.GetFiles("*", SearchOption.AllDirectories).Where(file => file.Extension.Equals(".txt") && file.Name.StartsWith("AT")))
             {
                 String path = fi.FullName;
                 List<String> lines = new List<String>();
@@ -3359,7 +3359,7 @@ namespace FilesFolders
                                 String[] split = line.Split(',');
 
                                 int EdadUsuario = CArchivos.ObtenerEdad(split[3], dirPath);
-                                string UnidadMedidaEdad = ObtenerUnidadMedidaEdad(split[3]);
+                                string UnidadMedidaEdad = CArchivos.ObtenerUnidadMedidaEdad(split[3],dirPath);
 
                                 #region Factura
 
@@ -3747,7 +3747,7 @@ namespace FilesFolders
             DirectoryInfo di = new DirectoryInfo(dirPath);
             int contadorErrores = 0;
 
-            foreach (var fi in di.GetFiles("*AU*", SearchOption.AllDirectories))
+            foreach (var fi in di.GetFiles("*", SearchOption.AllDirectories).Where(file => file.Extension.Equals(".txt") && file.Name.StartsWith("AU")))
             {
                 String path = fi.FullName;
                 List<String> lines = new List<String>();
@@ -3765,7 +3765,7 @@ namespace FilesFolders
                                 String[] split = line.Split(',');
 
                                 int EdadUsuario = CArchivos.ObtenerEdad(split[3], dirPath);
-                                string UnidadMedidaEdad = ObtenerUnidadMedidaEdad(split[3]);
+                                string UnidadMedidaEdad = CArchivos.ObtenerUnidadMedidaEdad(split[3],dirPath);
 
                                 #region Factura
                                 // Número Factura - Posición 0
@@ -4050,7 +4050,7 @@ namespace FilesFolders
             DirectoryInfo di = new DirectoryInfo(dirPath);
             int contadorErrores = 0;
 
-            foreach (var fi in di.GetFiles("*AH*", SearchOption.AllDirectories))
+            foreach (var fi in di.GetFiles("*", SearchOption.AllDirectories).Where(file => file.Extension.Equals(".txt") && file.Name.StartsWith("AH")))
             {
                 String path = fi.FullName;
                 List<String> lines = new List<String>();
@@ -4068,7 +4068,7 @@ namespace FilesFolders
                                 String[] split = line.Split(',');
 
                                 int EdadUsuario = CArchivos.ObtenerEdad(split[3], dirPath);
-                                string UnidadMedidaEdad = ObtenerUnidadMedidaEdad(split[3]);
+                                string UnidadMedidaEdad = CArchivos.ObtenerUnidadMedidaEdad(split[3],dirPath);
 
                                 #region Factura
                                 // Número Factura - Posición 0
@@ -4213,7 +4213,7 @@ namespace FilesFolders
             DirectoryInfo di = new DirectoryInfo(dirPath);
             int contadorErrores = 0;
 
-            foreach (var fi in di.GetFiles("*AF*", SearchOption.AllDirectories))
+            foreach (var fi in di.GetFiles("*", SearchOption.AllDirectories).Where(file => file.Extension.Equals(".txt") && file.Name.StartsWith("AF")))
             {
                 String path = fi.FullName;
                 List<String> lines = new List<String>();
@@ -4608,51 +4608,6 @@ namespace FilesFolders
                 return true;
             }
             return base.ProcessDialogKey(keyData);
-        }
-
-        public string ObtenerUnidadMedidaEdad(String NumeroDocumento)
-        {
-            DirectoryInfo di = new DirectoryInfo(dirPath);
-
-            foreach (var fi in di.GetFiles("*US*", SearchOption.AllDirectories))
-            {
-                String path = fi.FullName;
-                List<String> lines = new List<String>();
-
-                if (File.Exists(path))
-                {
-                    using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("Windows-1252")))
-                    {
-                        String line;
-
-                        while ((line = reader.ReadLine()) != null)
-                        {
-                            if (line.Contains(","))
-                            {
-                                String[] split = line.Split(',');
-
-                                string NumeroDocumentoUS = split[1];
-
-                                if (NumeroDocumento == NumeroDocumentoUS)
-                                {
-                                    // Unidad de Medida de la Edad - Posición 9 del Archivo US
-                                    UnidadMedidaEdad = split[9];
-                                }
-                            }
-
-                            lines.Add(line);
-                        }
-                    }
-
-                }
-            }
-
-            return UnidadMedidaEdad;
-        }
-
-        private void pnlRIPS_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
     }

@@ -178,7 +178,6 @@ namespace FilesFolders
             this.pnlRIPS.Name = "pnlRIPS";
             this.pnlRIPS.Size = new System.Drawing.Size(1078, 578);
             this.pnlRIPS.TabIndex = 2;
-            this.pnlRIPS.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlRIPS_Paint);
             // 
             // groupBox6
             // 

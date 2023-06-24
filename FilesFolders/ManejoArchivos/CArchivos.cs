@@ -12,6 +12,7 @@ namespace FilesFolders.ManejoArchivos
         private string NumeroLineas;
         private DirectoryInfo directory;
         private int Edad;
+        private string UnidadMedidaEdad;
 
         public CArchivos()
         {
@@ -224,6 +225,53 @@ namespace FilesFolders.ManejoArchivos
             }
 
             return Edad;
+        }
+
+        /// <summary>
+        /// Obtiene la unidad de medida edad de un usuario segun su numero de documento
+        /// Busca la unidad de medida de la edad en todos los archivos US de los directorios y subdirectorios
+        /// </summary>
+        /// <param name="NumeroDocumento">El número de documetno del Usuario</param>
+        /// <param name="dirPath">La ruta del directorio raíz donde se buscarán los archivos</param>
+        /// <returns>La edad del usuario como un número entero</returns>
+        public string ObtenerUnidadMedidaEdad(String NumeroDocumento, string dirPath)
+        {
+            DirectoryInfo di = new DirectoryInfo(dirPath);
+
+            foreach (var fi in di.GetFiles("*US*", SearchOption.AllDirectories))
+            {
+                String path = fi.FullName;
+                List<String> lines = new List<String>();
+
+                if (File.Exists(path))
+                {
+                    using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("Windows-1252")))
+                    {
+                        String line;
+
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            if (line.Contains(","))
+                            {
+                                String[] split = line.Split(',');
+
+                                string NumeroDocumentoUS = split[1];
+
+                                if (NumeroDocumento == NumeroDocumentoUS)
+                                {
+                                    // Unidad de Medida de la Edad - Posición 9 del Archivo US
+                                    UnidadMedidaEdad = split[9];
+                                }
+                            }
+
+                            lines.Add(line);
+                        }
+                    }
+
+                }
+            }
+
+            return UnidadMedidaEdad;
         }
 
         public string valorAF(string directoryPath, string searchPatters)
