@@ -441,93 +441,79 @@ namespace FilesFolders
                                 #region CUPS
                                 // Codigo CUPS Archivo AC - Posición 6
 
-                                // Quitar Asteriscos
-                                string cups = split[6].Replace("*", "");
-                                cups = cups.Substring(0, 6);
-                                split[6] = cups;
+                                // Eliminar Asteriscos y Guiones
+                                split[6] = Correcciones.EliminarCaracteresEspeciales(split[6]);
                                 line = String.Join(",", split);
                                 contadorErrores++;
 
-                                if (split[6] == "890300")
-                                {
-                                    split[6] = "890301";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "890200")
-                                {
-                                    split[6] = "890201";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "890600")
-                                {
-                                    split[6] = "890601";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
+                                // Corrección de Códigos
+                                split[6] = Correcciones.CorregirCUPS(ref line, 6);
+                                line = String.Join(",", split);
+                                contadorErrores++;
+
                                 #endregion
 
                                 #region Finalidad
+
                                 // Finalidad - Posicion 7
-                                if (split[6] == "890201" && split[7] == "")
-                                {
-                                    split[7] = "10";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "890203" && split[7] == "")
-                                {
-                                    split[7] = "10";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "890301" && split[7] == "")
-                                {
-                                    split[7] = "10";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "890305" && split[7] == "")
-                                {
-                                    split[7] = "04";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "890305" && split[7] == "" && split[9] == "Z300")
-                                {
-                                    split[7] = "03";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "890601" && split[7] == "")
-                                {
-                                    split[7] = "10";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "890701" && split[7] == "")
-                                {
-                                    split[7] = "10";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "890703" && split[7] == "")
-                                {
-                                    split[7] = "10";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                // Finalidad 07 Detección de alteraciones del adulto
-                                if (split[7] != "" && split[9] != "")
-                                {
-                                    if (split[7] != "10" && (split[9].Substring(0, 1) != "Z"))
-                                    {
-                                        split[7] = "10";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                }
+                                //if (split[6] == "890201" && split[7] == "")
+                                //{
+                                //    split[7] = "10";
+                                //    line = String.Join(",", split);
+                                //    contadorErrores++;
+                                //}
+                                //if (split[6] == "890203" && split[7] == "")
+                                //{
+                                //    split[7] = "10";
+                                //    line = String.Join(",", split);
+                                //    contadorErrores++;
+                                //}
+                                //if (split[6] == "890301" && split[7] == "")
+                                //{
+                                //    split[7] = "10";
+                                //    line = String.Join(",", split);
+                                //    contadorErrores++;
+                                //}
+                                //if (split[6] == "890305" && split[7] == "")
+                                //{
+                                //    split[7] = "04";
+                                //    line = String.Join(",", split);
+                                //    contadorErrores++;
+                                //}
+                                //if (split[6] == "890305" && split[7] == "" && split[9] == "Z300")
+                                //{
+                                //    split[7] = "03";
+                                //    line = String.Join(",", split);
+                                //    contadorErrores++;
+                                //}
+                                //if (split[6] == "890601" && split[7] == "")
+                                //{
+                                //    split[7] = "10";
+                                //    line = String.Join(",", split);
+                                //    contadorErrores++;
+                                //}
+                                //if (split[6] == "890701" && split[7] == "")
+                                //{
+                                //    split[7] = "10";
+                                //    line = String.Join(",", split);
+                                //    contadorErrores++;
+                                //}
+                                //if (split[6] == "890703" && split[7] == "")
+                                //{
+                                //    split[7] = "10";
+                                //    line = String.Join(",", split);
+                                //    contadorErrores++;
+                                //}
+                                //// Finalidad 07 Detección de alteraciones del adulto
+                                //if (split[7] != "" && split[9] != "")
+                                //{
+                                //    if (split[7] != "10" && (split[9].Substring(0, 1) != "Z"))
+                                //    {
+                                //        split[7] = "10";
+                                //        line = String.Join(",", split);
+                                //        contadorErrores++;
+                                //    }
+                                //}
 
                                 #endregion
 
@@ -1367,153 +1353,13 @@ namespace FilesFolders
                                 #region CUPS
                                 // Codigo CUPS Archivo AP - Posoción 6
 
-                                if (split[6] == "2")
-                                {
-                                    split[6] = "890301";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-
-                                if (split[6] == "22")
-                                {
-                                    split[6] = "890301";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-
                                 // Eliminar Asteriscos y Guiones
-                                string cups = split[6].Replace("*", "");
-                                cups = cups.Substring(0, 6);
-                                split[6] = cups;
+                                split[6] = Correcciones.EliminarCaracteresEspeciales(split[6]);
                                 line = String.Join(",", split);
-                                contadorErrores++;
 
-                                if (split[6] == "021126")
-                                {
-                                    split[6] = "872011";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "4")
-                                {
-                                    split[6] = "869500";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "021145")
-                                {
-                                    split[6] = "871060";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "021146")
-                                {
-                                    split[6] = "873123";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "232100")
-                                {
-                                    split[6] = "232104";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "542801")
-                                {
-                                    split[6] = "542700";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "579400")
-                                {
-                                    split[6] = "579401";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "579500")
-                                {
-                                    split[6] = "579501";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "697100")
-                                {
-                                    split[6] = "697101";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "673411")
-                                {
-                                    split[6] = "863101";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "873123")
-                                {
-                                    split[6] = "873122";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "873211")
-                                {
-                                    split[6] = "873210";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "902201")
-                                {
-                                    split[6] = "911009";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "902212")
-                                {
-                                    split[6] = "911015";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "903825")
-                                {
-                                    split[6] = "903895";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "906916")
-                                {
-                                    split[6] = "906915";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "*908856")
-                                {
-                                    split[6] = "908856";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "965200")
-                                {
-                                    split[6] = "965201";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "995199")
-                                {
-                                    split[6] = "993513";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "995200")
-                                {
-                                    split[6] = "993122";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-                                if (split[6] == "997300")
-                                {
-                                    split[6] = "997301";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
+                                // Corrección de Códigos
+                                split[6] = Correcciones.CorregirCUPS(ref line, 6);
+                                line = String.Join(",", split);
 
                                 #endregion
 
@@ -3483,17 +3329,15 @@ namespace FilesFolders
                                 #endregion
 
                                 #region Codigo Servicio
+
                                 // Código del Servicio - Posición 6
 
-                                // Quitar Asteriscos
-                                string cupsAT = split[6];
-
-                                int pos = cupsAT.IndexOf('*');
-
-                                if (pos >= 0)
+                                // Eliminar Asteriscos y Guiones
+                                string cups = split[6].Replace("*", "");
+                                if (cups.Length > 6)
                                 {
-                                    cupsAT = cupsAT.Remove(pos);
-                                    split[6] = cupsAT;
+                                    cups = cups.Substring(0, 6);
+                                    split[6] = cups;
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
