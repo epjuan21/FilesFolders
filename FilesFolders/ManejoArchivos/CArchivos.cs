@@ -274,6 +274,12 @@ namespace FilesFolders.ManejoArchivos
             return UnidadMedidaEdad;
         }
 
+        /// <summary>
+        /// Obtiene Valor Neto del AF
+        /// </summary>
+        /// <param name="directoryPath">La ruta del directorio raíz donde se buscarán los archivos</param>
+        /// <param name="searchPatters">Patron de Busqueda que indica que tipo de archvio se va a buscar</param>
+        /// <returns>La edad del usuario como un número entero</returns>
         public string valorAF(string directoryPath, string searchPatters)
         {
             directory = new DirectoryInfo(directoryPath);
@@ -309,8 +315,65 @@ namespace FilesFolders.ManejoArchivos
                     return valorNetoAF = "0";
                 }
             }
-
             return valorNetoAF;
         }
+        /// <summary>
+        /// Obtiene Valores del AF
+        /// </summary>
+        /// <param name="directoryPath">La ruta del directorio raíz donde se buscarán los archivos</param>
+        /// <param name="valorPos">Posición donde se encuentra el Valor buscado</param>
+        /// <param name="searchPatters">Patron de Busqueda que indica que tipo de archvio se va a buscar</param>
+        /// <returns>Valores del Archivo AF</returns>
+        public decimal ObtenerSumatoriaValores(string directoryPath, int valorPos, string searchPatters)
+        {
+            directory = new DirectoryInfo(directoryPath);
+            decimal sumatoriaValores = 0;
+
+            foreach (var item in directory.GetFiles(searchPatters, SearchOption.AllDirectories))
+            {
+                string path = item.FullName;
+                List<String> lines = new List<String>();
+
+                if (File.Exists(path))
+                {
+                    using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("Windows-1252")))
+                    {
+                        String line;
+
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            if (line.Contains(","))
+                            {
+                                String[] split = line.Split(',');
+
+                                if (split.Length > valorPos)
+                                {
+                                    // Intenta convertir el valor a decimal
+                                    if (decimal.TryParse(split[valorPos], out decimal valor))
+                                    {
+                                        // Suma el valor a la sumatoria total
+                                        sumatoriaValores += valor;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Archivo no Existe");
+                    return 0;
+                }
+            }
+            return sumatoriaValores;
+        }
+
+        /// <summary>
+        /// Obtiene Valores del Archvio AC
+        /// </summary>
+        /// <param name="directoryPath">La ruta del directorio raíz donde se buscarán los archivos</param>
+        /// <param name="valorPos">Posición donde se encuentra el Valor buscado</param>
+        /// <param name="searchPatters">Patron de Busqueda que indica que tipo de archvio se va a buscar</param>
+        /// <returns>Valores del Archivo AC</returns>
     }
 }

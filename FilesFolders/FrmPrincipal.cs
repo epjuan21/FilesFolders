@@ -50,5 +50,11 @@ namespace FilesFolders
             FrmArchivosCoosalud FrmArchivosCoosalud = new FrmArchivosCoosalud();
             FrmArchivosCoosalud.ShowDialog();
         }
+
+        private void resumenRIPSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmRIPSIndividual frmRIPSIndividual = new FrmRIPSIndividual();
+            frmRIPSIndividual.ShowDialog();
+        }
     }
 }

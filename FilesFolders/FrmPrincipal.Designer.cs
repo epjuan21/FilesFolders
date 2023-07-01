@@ -43,6 +43,7 @@ namespace FilesFolders
             this.nuevaEPSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cOOSALUDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.soportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resumenRIPSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,7 +86,7 @@ namespace FilesFolders
             // rIPSMasivoToolStripMenuItem
             // 
             this.rIPSMasivoToolStripMenuItem.Name = "rIPSMasivoToolStripMenuItem";
-            this.rIPSMasivoToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.rIPSMasivoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.rIPSMasivoToolStripMenuItem.Text = "RIPS Masivo";
             this.rIPSMasivoToolStripMenuItem.Click += new System.EventHandler(this.rIPSMasivoToolStripMenuItem_Click);
             // 
@@ -95,7 +96,7 @@ namespace FilesFolders
             this.cambioEstructuraToolStripMenuItem,
             this.comprimirArchivoToolStripMenuItem});
             this.rIPSEABPToolStripMenuItem.Name = "rIPSEABPToolStripMenuItem";
-            this.rIPSEABPToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.rIPSEABPToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.rIPSEABPToolStripMenuItem.Text = "RIPS EABP";
             // 
             // cambioEstructuraToolStripMenuItem
@@ -117,7 +118,8 @@ namespace FilesFolders
             this.utilidadesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sURAToolStripMenuItem,
             this.nuevaEPSToolStripMenuItem,
-            this.cOOSALUDToolStripMenuItem});
+            this.cOOSALUDToolStripMenuItem,
+            this.resumenRIPSToolStripMenuItem});
             this.utilidadesToolStripMenuItem.Name = "utilidadesToolStripMenuItem";
             this.utilidadesToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.utilidadesToolStripMenuItem.Text = "Utilidades";
@@ -155,9 +157,16 @@ namespace FilesFolders
             // soportesToolStripMenuItem
             // 
             this.soportesToolStripMenuItem.Name = "soportesToolStripMenuItem";
-            this.soportesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.soportesToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.soportesToolStripMenuItem.Text = "Soportes";
             this.soportesToolStripMenuItem.Click += new System.EventHandler(this.soportesToolStripMenuItem_Click);
+            // 
+            // resumenRIPSToolStripMenuItem
+            // 
+            this.resumenRIPSToolStripMenuItem.Name = "resumenRIPSToolStripMenuItem";
+            this.resumenRIPSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.resumenRIPSToolStripMenuItem.Text = "Resumen RIPS";
+            this.resumenRIPSToolStripMenuItem.Click += new System.EventHandler(this.resumenRIPSToolStripMenuItem_Click);
             // 
             // FrmPrincipal
             // 
@@ -195,5 +204,6 @@ namespace FilesFolders
         private System.Windows.Forms.ToolStripMenuItem nuevaEPSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cOOSALUDToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem soportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem resumenRIPSToolStripMenuItem;
     }
 }
