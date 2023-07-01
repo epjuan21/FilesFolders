@@ -1822,10 +1822,12 @@ namespace FilesFolders
                                 #region TipoDocumento
 
                                 // Tipo de identificación del usuario - Posición 2
-
-                                split[2] = Correcciones.CorregirTipoDocumento(ref line, 2, -1, EdadUsuario, 3, -1, UnidadMedidaEdad);
-                                line = String.Join(",", split);
-                                contadorErrores++;
+                                if (chkBoxTipoDocSSSA.CheckState == CheckState.Checked)
+                                {
+                                    split[2] = Correcciones.CorregirTipoDocumento(ref line, 2, -1, EdadUsuario, 3, -1, UnidadMedidaEdad);
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
 
                                 #endregion
 
@@ -1835,163 +1837,16 @@ namespace FilesFolders
                                 // Corregir Codigo Medicamento para SSSA
                                 if (chkBoxAMSSSA.CheckState == CheckState.Checked)
                                 {
-                                    //  Ausencia de Codigo de Medicamento
-                                    if (split[5] == "")
-                                    {
-                                        split[5] = "20105341-1";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                    //  Codido de Mericamento con solo un Guion "-"
-                                    if (split[5] == "-")
-                                    {
-                                        split[5] = "20105341-1";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                    if (split[5] == "-")
-                                    {
-                                        split[7] = "SOLUCION SALINA";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                    if (split[5] == "-")
-                                    {
-                                        split[8] = "SOLUCION INYECTABLE";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                    if (split[5] == "-")
-                                    {
-                                        split[9] = "0.9 G";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                    if (split[5] == "-")
-                                    {
-                                        split[10] = "CADA BOLSA POR 100 M";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                    //  SUCCINILCOLINA 40MG/2ML
-                                    if (split[5] == "J07AM01")
-                                    {
-                                        split[5] = "58815-1";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                    //  SOLUCION SALINA 250MG
-                                    if (split[5] == "B05BB01")
-                                    {
-                                        split[5] = "20055558-7";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                    //  AZATIOPRINA
-                                    if (split[5] == "L04AX01")
-                                    {
-                                        split[5] = "20023909-1";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                    //  LABETALOL
-                                    if (split[5] == "C07AG01")
-                                    {
-                                        split[5] = "20090031-1";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                    // VACUNA ANTITETANICA
-                                    if (split[5] == "19940997-05")
-                                    {
-                                        split[5] = "29151-2";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                    // DEXAMETASONA FOSFATO 8MG / 2 M
-                                    if (split[5] == "19997625-07")
-                                    {
-                                        split[5] = "28346-16";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                    // SODIO CLORURO AL 0.9%
-                                    if (split[5] == "20055558-07")
-                                    {
-                                        split[5] = "51076-2";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                    // METAMIZOL SODICO( DIPIRONA)1G
-                                    if (split[5] == "19907058-02" || split[5] == "20055558-02")
-                                    {
-                                        split[5] = "33644-4";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                    // HIOSCINA N-BUTIL BROMURO + DIP
-                                    if (split[5] == "19926478-03")
-                                    {
-                                        split[5] = "36344-1";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                    // TRAMADOL INYECTABLE X 50 MG/ML
-                                    if (split[5] == "53285-02")
-                                    {
-                                        split[5] = "51716-1";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                    // ACETAMINOFEN 500 MG
-                                    if (split[5] == "19935303-04")
-                                    {
-                                        split[5] = "53560-3";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                    // DIFENHIDRAMINA HCL SOLUCION INYECTABLE
-                                    if (split[5] == "19962547-01" || split[5] == "20096034-01")
-                                    {
-                                        split[5] = "19919306-1";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                    // FIREXIFEN JARABE
-                                    if (split[5] == "20155033-03")
-                                    {
-                                        split[5] = "20155033-1";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                    // HIDROCORTISONA 100 MG
-                                    if (split[5] == "19940721-05")
-                                    {
-                                        split[5] = "19940721-12";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                    // HIDROXIZINA CLOHIDRATO 100 MG
-                                    if (split[5] == "20028014-01")
-                                    {
-                                        split[5] = "20028014-1";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                    // LACTATO DE RINGER (SOLUCION HA,SOLUCION INYECTABLE
-                                    if (split[5] == "20055559-6")
-                                    {
-                                        split[5] = "32606-1";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                    // ACIDO TRANEXAMICO 500 MG TABLE
-                                    if (split[5] == "20138453-1")
-                                    {
-                                        split[5] = "20072679-1";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
+                                    split[5] = Correcciones.CorregirCUMMedicamento(ref line, 5);
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                if(chkBoxAMSavia.CheckState == CheckState.Checked)
+                                {
+                                    split[5] = Correcciones.CorregirCUMMedicamento(ref line, 5, "SAVIASALUD");
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
                                 }
 
                                 #endregion

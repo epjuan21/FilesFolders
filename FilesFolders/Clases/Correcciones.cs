@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Collections.Specialized.BitVector32;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace FilesFolders.Clases
 {
@@ -32,6 +34,13 @@ namespace FilesFolders.Clases
             string NumeroIdUsuario = split[numeroIdUsuarioPos];
             string documentoCorrecto = TipoIdUsuario;
 
+            // Corregit Tipo de Documento CC
+            
+            if(TipoIdUsuario == "CC" && Edad < 18 && UnidadMedidaEdad == "1")
+            {
+                documentoCorrecto = "TI";
+            }
+            
             // Corregir Tipo de Documento CE
 
             if (TipoIdUsuario == "CE" && Edad > 17)
@@ -108,6 +117,11 @@ namespace FilesFolders.Clases
             }
 
             // Corregir Tipo de Documento TI
+
+            if(TipoIdUsuario == "TI" && Edad < 7 && UnidadMedidaEdad == "1")
+            {
+                documentoCorrecto = "RC";
+            }
 
             if (TipoIdUsuario == "TI" && (Edad < 24) && (UnidadMedidaEdad == "2" || UnidadMedidaEdad == "3"))
             {
@@ -958,173 +972,172 @@ namespace FilesFolders.Clases
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "869500" && ambito == "")
+            if (codigoCUPS == "869500" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "865101" && ambito == "")
+            if (codigoCUPS == "865101" && ambito == "")
             {
                 ambitoCorregido = "3";
             }
-            if (split[6] == "862701" && ambito == "")
+            if (codigoCUPS == "862701" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "870112" && ambito == "")
+            if (codigoCUPS == "870112" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "872011" && ambito == "")
+            if (codigoCUPS == "872011" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "873111" && ambito == "")
+            if (codigoCUPS == "873111" && ambito == "")
             {
                 ambitoCorregido = "1";
             }   
-            if (split[6] == "873112" && ambito == "")
+            if (codigoCUPS == "873112" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "873422" && ambito == "")
+            if (codigoCUPS == "873422" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "890301" && ambito == "")
+            if (codigoCUPS == "890301" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "892901" && ambito == "")
+            if (codigoCUPS == "892901" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "895001" && ambito == "")
+            if (codigoCUPS == "895001" && ambito == "")
             {
                 ambitoCorregido = "2";
             }
-            if (split[6] == "897011" && ambito == "")
+            if (codigoCUPS == "897011" && ambito == "")
             {
                 ambitoCorregido = "2";
             }
-            if (split[6] == "897012" && ambito == "")
+            if (codigoCUPS == "897012" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "901107" && ambito == "")
+            if (codigoCUPS == "901107" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "901235" && ambito == "")
+            if (codigoCUPS == "901235" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "901236" && ambito == "")
+            if (codigoCUPS == "901236" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "901237" && ambito == "")
+            if (codigoCUPS == "901237" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "901305" && ambito == "")
+            if (codigoCUPS == "901305" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "902221" && ambito == "")
+            if (codigoCUPS == "902221" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "903026" && ambito == "")
+            if (codigoCUPS == "903026" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "903426" && ambito == "")
+            if (codigoCUPS == "903426" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "903604" && ambito == "")
+            if (codigoCUPS == "903604" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "903703" && ambito == "")
+            if (codigoCUPS == "903703" && ambito == "")
             {
                 ambitoCorregido = "3";
             }
-            if (split[6] == "906039" && ambito == "")
+            if (codigoCUPS == "906039" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "906127" && ambito == "")
+            if (codigoCUPS == "906127" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "907004" && ambito == "")
+            if (codigoCUPS == "907004" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "908856" && ambito == "")
+            if (codigoCUPS == "908856" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "936800" && ambito == "")
+            if (codigoCUPS == "936800" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "950601" && ambito == "")
+            if (codigoCUPS == "950601" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "911018" && ambito == "")
+            if (codigoCUPS == "911018" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "935302" && ambito == "")
+            if (codigoCUPS == "935302" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "993102" && ambito == "")
+            if (codigoCUPS == "993102" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "963300" && ambito == "")
+            if (codigoCUPS == "963300" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "981100" && ambito == "")
+            if (codigoCUPS == "981100" && ambito == "")
             {
                 ambitoCorregido = "3";
             }
-            if (split[6] == "982102" && ambito == "")
+            if (codigoCUPS == "982102" && ambito == "")
             {
                 ambitoCorregido = "3";
             }
-            if (split[6] == "992101" && ambito == "")
+            if (codigoCUPS == "992101" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "993120" && ambito == "")
+            if (codigoCUPS == "993120" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "993122" && ambito == "")
+            if (codigoCUPS == "993122" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "993501" && ambito == "")
+            if (codigoCUPS == "993501" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "993520" && ambito == "")
+            if (codigoCUPS == "993520" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
-            if (split[6] == "993522" && ambito == "")
+            if (codigoCUPS == "993522" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
             return ambitoCorregido;
         }
-
 
         /// <summary>
         /// Elimina los caracteres especiales de un código.
@@ -1145,6 +1158,145 @@ namespace FilesFolders.Clases
             }
 
             return codigo;
+        }
+
+        /// <summary>
+        /// Corrige Códigos CUM de Medicamnetos.
+        /// </summary>
+        /// <param name="line">Indica la linea en la que se encuentra el ciclo</param>
+        /// <param name="codigoCUMPos">Posición del Código CUM en la línea evaluada</param>
+        /// <returns>El Código CUM Corregido.</returns>
+        public string CorregirCUMMedicamento(ref string line, int codigoCUMPos, string Entidad = "")
+        {
+            string[] split = line.Split(',');
+            string codigoCUM = split[codigoCUMPos];
+            string codigoCUMCorregido = codigoCUM;
+
+            //  Ausencia de Codigo de Medicamento
+            if (codigoCUM == "")
+            {
+                codigoCUMCorregido = "20105341-1";
+            }
+            //  Codido de Mericamento con solo un Guion "-"
+            if (codigoCUM == "-")
+            {
+                codigoCUMCorregido = "20105341-1";
+            }
+            if (codigoCUM == "-")
+            {
+                codigoCUMCorregido = "SOLUCION SALINA";
+            }
+            if (codigoCUM == "-")
+            {
+                split[8] = "SOLUCION INYECTABLE";
+            }
+            if (codigoCUM == "-")
+            {
+                split[9] = "0.9 G";
+            }
+            if (codigoCUM == "-")
+            {
+                split[10] = "CADA BOLSA POR 100 M";
+            }
+
+            // MEDROXIPROGESTERONA Y ESTROGEN
+            if (codigoCUM == "20002868-3"  && Entidad == "SAVIASALUD")
+            {
+                codigoCUMCorregido = "19999216-1";
+            }
+
+            // CALCIO CARBONATO
+            if (codigoCUM == "19965399-4" && Entidad == "SAVIASALUD")
+            {
+                codigoCUMCorregido = "207110-1";
+            }
+
+            //  SUCCINILCOLINA 40MG/2ML
+            if (codigoCUM == "J07AM01" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "58815-1";
+            }
+            //  SOLUCION SALINA 250MG
+            if (codigoCUM == "B05BB01" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "20055558-7";
+            }
+            //  AZATIOPRINA
+            if (codigoCUM == "L04AX01" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "20023909-1";
+            }
+            //  LABETALOL
+            if (codigoCUM == "C07AG01" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "20090031-1";
+            }
+            // VACUNA ANTITETANICA
+            if (codigoCUM == "19940997-05" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "29151-2";
+            }
+            // DEXAMETASONA FOSFATO 8MG / 2 M
+            if (codigoCUM == "19997625-07" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "28346-16";
+            }
+            // SODIO CLORURO AL 0.9%
+            if (codigoCUM == "20055558-07" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "51076-2";
+            }
+            // METAMIZOL SODICO( DIPIRONA)1G
+            if ((codigoCUM == "19907058-02" || split[5] == "20055558-02") && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "33644-4";
+            }
+            // HIOSCINA N-BUTIL BROMURO + DIP
+            if (codigoCUM == "19926478-03" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "36344-1";
+            }
+            // TRAMADOL INYECTABLE X 50 MG/ML
+            if (codigoCUM == "53285-02" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "51716-1";
+            }
+            // ACETAMINOFEN 500 MG
+            if (codigoCUM == "19935303-04" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "53560-3";
+            }
+            // DIFENHIDRAMINA HCL SOLUCION INYECTABLE
+            if ((codigoCUM == "19962547-01" || split[5] == "20096034-01") && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "19919306-1";
+            }
+            // FIREXIFEN JARABE
+            if (codigoCUM == "20155033-03" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "20155033-1";
+            }
+            // HIDROCORTISONA 100 MG
+            if (codigoCUM == "19940721-05" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "19940721-12";
+            }
+            // HIDROXIZINA CLOHIDRATO 100 MG
+            if (codigoCUM == "20028014-01" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "20028014-1";
+            }
+            // LACTATO DE RINGER (SOLUCION HA,SOLUCION INYECTABLE
+            if (codigoCUM == "20055559-6" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "32606-1";
+            }
+            // ACIDO TRANEXAMICO 500 MG TABLE
+            if (codigoCUM == "20138453-1" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "20072679-1";
+            }
+            return codigoCUMCorregido;
         }
 
     }
