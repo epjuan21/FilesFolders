@@ -1837,7 +1837,7 @@ namespace FilesFolders
                                 // Corregir Codigo Medicamento para SSSA
                                 if (chkBoxAMSSSA.CheckState == CheckState.Checked)
                                 {
-                                    split[5] = Correcciones.CorregirCUMMedicamento(ref line, 5);
+                                    split[5] = Correcciones.CorregirCUMMedicamento(ref line, 5, "SSSA");
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }

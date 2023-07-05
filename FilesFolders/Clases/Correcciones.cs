@@ -133,11 +133,6 @@ namespace FilesFolders.Clases
                 documentoCorrecto = "CC";
             }
 
-            if (NumeroIdUsuario.Length < 9 && Edad < 18)
-            {
-                documentoCorrecto = "MS";
-            }
-
             return documentoCorrecto;
         }
 
@@ -1277,7 +1272,7 @@ namespace FilesFolders.Clases
                 codigoCUMCorregido = "20155033-1";
             }
             // HIDROCORTISONA 100 MG
-            if (codigoCUM == "19940721-05" && Entidad == "SSSA")
+            if (codigoCUM == "19940721-05" && (Entidad == "SSSA" || Entidad == "SAVIASALUD"))
             {
                 codigoCUMCorregido = "19940721-12";
             }
@@ -1287,7 +1282,7 @@ namespace FilesFolders.Clases
                 codigoCUMCorregido = "20028014-1";
             }
             // LACTATO DE RINGER (SOLUCION HA,SOLUCION INYECTABLE
-            if (codigoCUM == "20055559-6" && Entidad == "SSSA")
+            if (codigoCUM == "20055559-6")
             {
                 codigoCUMCorregido = "32606-1";
             }
@@ -1295,6 +1290,51 @@ namespace FilesFolders.Clases
             if (codigoCUM == "20138453-1" && Entidad == "SSSA")
             {
                 codigoCUMCorregido = "20072679-1";
+            }
+            // CLOZAPINA
+            if (codigoCUM == "19955124-1" && Entidad == "SAVIASALUD")
+            {
+                codigoCUMCorregido = "19974655-1";
+            }
+            // VALPROICO ACIDO
+            if (codigoCUM == "19956468-1" && Entidad == "SAVIASALUD")
+            {
+                codigoCUMCorregido = "20205262-1";
+            }
+            // ACETILSALICILICO ACIDO
+            if (codigoCUM == "19936296-8" && Entidad == "SAVIASALUD")
+            {
+                codigoCUMCorregido = "57642-1";
+            }
+            // IBUPROFENO
+            if (codigoCUM == "19980114-8" && Entidad == "SAVIASALUD")
+            {
+                codigoCUMCorregido = "51330-12";
+            }
+            // AMOXICILINA
+            if (codigoCUM == "20100042-1" && Entidad == "SAVIASALUD")
+            {
+                codigoCUMCorregido = "19957924-1";
+            }
+            // CLOPIDOGREL
+            if (codigoCUM == "20011353-1" && Entidad == "SAVIASALUD")
+            {
+                codigoCUMCorregido = "19933487-1";
+            }
+            // ALPRAZOLAM
+            if (codigoCUM == "20012839-1" && Entidad == "SAVIASALUD")
+            {
+                codigoCUMCorregido = "13874-1";
+            }
+            // TETANOS TOXOIDE
+            if (codigoCUM == "19940997-5" && Entidad == "SAVIASALUD")
+            {
+                codigoCUMCorregido = "29151-2";
+            }
+            // METILPREDNISOLONA
+            if (codigoCUM == "202576-1" && Entidad == "SAVIASALUD")
+            {
+                codigoCUMCorregido = "19990590-16";
             }
             return codigoCUMCorregido;
         }
