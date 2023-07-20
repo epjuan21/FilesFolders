@@ -34,13 +34,30 @@ namespace FilesFolders.Clases
             string NumeroIdUsuario = split[numeroIdUsuarioPos];
             string documentoCorrecto = TipoIdUsuario;
 
+            // Corregit Tipo de Documento AS
+
+            if (TipoIdUsuario == "AS" && Edad < 18 && UnidadMedidaEdad == "1")
+            {
+                documentoCorrecto = "MS";
+            }
+
+            if (TipoIdUsuario == "AS" && Edad < 30 && UnidadMedidaEdad == "3")
+            {
+                documentoCorrecto = "MS";
+            }
+
             // Corregit Tipo de Documento CC
-            
-            if(TipoIdUsuario == "CC" && Edad < 18 && UnidadMedidaEdad == "1")
+
+            if (TipoIdUsuario == "CC" && (Edad >= 7 && Edad < 18) && UnidadMedidaEdad == "1")
             {
                 documentoCorrecto = "TI";
             }
-            
+
+            if ((TipoIdUsuario == "CC" && Edad < 8 && UnidadMedidaEdad == "1") || (TipoIdUsuario == "CC" && Edad < 12 && UnidadMedidaEdad == "2") || (TipoIdUsuario == "CC" && Edad < 30 && UnidadMedidaEdad == "3"))
+            {
+                documentoCorrecto = "RC";
+            }
+
             // Corregir Tipo de Documento CE
 
             if (TipoIdUsuario == "CE" && Edad > 17)
@@ -74,6 +91,13 @@ namespace FilesFolders.Clases
             if (TipoIdUsuario == "DE" && Edad < 18)
             {
                 documentoCorrecto = "MS";
+            }
+
+            // Corregir Tipo de Documento MS
+
+            if (TipoIdUsuario == "MS" && Edad >= 18 && UnidadMedidaEdad == "1")
+            {
+                documentoCorrecto = "AS";
             }
 
             // Corregir Tipo de Documento PA
@@ -116,14 +140,19 @@ namespace FilesFolders.Clases
                 documentoCorrecto = "TI";
             }
 
+            if (TipoIdUsuario == "RC" && Edad >= 18 && UnidadMedidaEdad == "1")
+            {
+                documentoCorrecto = "CC";
+            }
+
             // Corregir Tipo de Documento TI
 
-            if(TipoIdUsuario == "TI" && Edad < 7 && UnidadMedidaEdad == "1")
+            if (TipoIdUsuario == "TI" && Edad < 7 && UnidadMedidaEdad == "1")
             {
                 documentoCorrecto = "RC";
             }
 
-            if (TipoIdUsuario == "TI" && (Edad < 24) && (UnidadMedidaEdad == "2" || UnidadMedidaEdad == "3"))
+            if (TipoIdUsuario == "TI" && Edad < 24 && (UnidadMedidaEdad == "2" || UnidadMedidaEdad == "3"))
             {
                 documentoCorrecto = "RC";
             }
@@ -148,11 +177,12 @@ namespace FilesFolders.Clases
             string codigoCUPS = split[codigoPos];
             string codigoCUPSCorregido = codigoCUPS;
 
-            if (codigoCUPS == "2")
+            if (codigoCUPS == "02")
             {
-                codigoCUPSCorregido = "890301";
+                codigoCUPSCorregido = "973800";
             }
-            if (codigoCUPS == "22")
+
+            if (codigoCUPS == "2" || codigoCUPS == "16" || codigoCUPS == "22")
             {
                 codigoCUPSCorregido = "890301";
             }
@@ -1179,7 +1209,7 @@ namespace FilesFolders.Clases
             }
             if (codigoCUM == "-")
             {
-                codigoCUMCorregido = "SOLUCION SALINA";
+                split[7] = "SOLUCION SALINA";
             }
             if (codigoCUM == "-")
             {
@@ -1335,6 +1365,26 @@ namespace FilesFolders.Clases
             if (codigoCUM == "202576-1" && Entidad == "SAVIASALUD")
             {
                 codigoCUMCorregido = "19990590-16";
+            }
+            // BETAMETASONA 4 MG/ML SOLUCION I
+            if (codigoCUM == "19980025-14" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "19938121-3";
+            }
+            // NISTATINA
+            if (codigoCUM == "19997076-2" && Entidad == "SAVIASALUD")
+            {
+                codigoCUMCorregido = "19984679-4";
+            }
+            // GENTAMICINA
+            if (codigoCUM == "19997076-2" && Entidad == "SAVIASALUD")
+            {
+                codigoCUMCorregido = "28035-5";
+            }
+            // NIFEDIPINA
+            if (codigoCUM == "51316-2" && Entidad == "SAVIASALUD")
+            {
+                codigoCUMCorregido = "20025310-19";
             }
             return codigoCUMCorregido;
         }
