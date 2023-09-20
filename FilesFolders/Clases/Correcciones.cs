@@ -459,7 +459,6 @@ namespace FilesFolders.Clases
 
                     // 86 PROCEDIMIENTOS EN PIEL Y TEJIDO CELULAR SUBCUTANEO
 
-
                 if (codigoCUPS == "861101" && finalidad == "")
                 {
                     finalidadCorregida = "2";
@@ -696,6 +695,14 @@ namespace FilesFolders.Clases
                 {
                     finalidadCorregida = "1";
                 }
+                if (codigoCUPS == "906129" && finalidad == "")
+                {
+                    finalidadCorregida = "1";
+                }
+                if (codigoCUPS == "906440" && finalidad == "")
+                {
+                    finalidadCorregida = "1";
+                }
                 if (codigoCUPS == "906625" && finalidad == "")
                 {
                     finalidadCorregida = "1";
@@ -924,7 +931,13 @@ namespace FilesFolders.Clases
                     finalidadCorregida = "2";
                 }
 
-                    // 98 EXTRACCION DE CUERPO EXTRAÑO Y CALCULO NO OPERATORIO
+                if (codigoCUPS == "973800" && finalidad == "")
+                {
+                    finalidadCorregida = "2";
+                }
+
+
+                // 98 EXTRACCION DE CUERPO EXTRAÑO Y CALCULO NO OPERATORIO
 
                 if (codigoCUPS == "981100" && finalidad == "")
                 {
@@ -960,6 +973,10 @@ namespace FilesFolders.Clases
                     finalidadCorregida = "3";
                 }
                 if (codigoCUPS == "993520" && finalidad == "")
+                {
+                    finalidadCorregida = "3";
+                }
+                if (codigoCUPS == "993522" && finalidad == "")
                 {
                     finalidadCorregida = "3";
                 }
@@ -1097,6 +1114,14 @@ namespace FilesFolders.Clases
             {
                 ambitoCorregido = "1";
             }
+            if (codigoCUPS == "906129" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
+            if (codigoCUPS == "906440" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
             if (codigoCUPS == "907004" && ambito == "")
             {
                 ambitoCorregido = "1";
@@ -1126,6 +1151,10 @@ namespace FilesFolders.Clases
                 ambitoCorregido = "1";
             }
             if (codigoCUPS == "963300" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
+            if (codigoCUPS == "973800" && ambito == "")
             {
                 ambitoCorregido = "1";
             }

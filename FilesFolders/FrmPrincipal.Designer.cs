@@ -44,7 +44,10 @@ namespace FilesFolders
             this.cOOSALUDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.soportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resumenRIPSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -86,7 +89,7 @@ namespace FilesFolders
             // rIPSMasivoToolStripMenuItem
             // 
             this.rIPSMasivoToolStripMenuItem.Name = "rIPSMasivoToolStripMenuItem";
-            this.rIPSMasivoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rIPSMasivoToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.rIPSMasivoToolStripMenuItem.Text = "RIPS Masivo";
             this.rIPSMasivoToolStripMenuItem.Click += new System.EventHandler(this.rIPSMasivoToolStripMenuItem_Click);
             // 
@@ -96,7 +99,7 @@ namespace FilesFolders
             this.cambioEstructuraToolStripMenuItem,
             this.comprimirArchivoToolStripMenuItem});
             this.rIPSEABPToolStripMenuItem.Name = "rIPSEABPToolStripMenuItem";
-            this.rIPSEABPToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rIPSEABPToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.rIPSEABPToolStripMenuItem.Text = "RIPS EABP";
             // 
             // cambioEstructuraToolStripMenuItem
@@ -129,7 +132,7 @@ namespace FilesFolders
             this.sURAToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.modificarNombresDeSoportesToolStripMenuItem});
             this.sURAToolStripMenuItem.Name = "sURAToolStripMenuItem";
-            this.sURAToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.sURAToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.sURAToolStripMenuItem.Text = "SURA";
             // 
             // modificarNombresDeSoportesToolStripMenuItem
@@ -142,7 +145,7 @@ namespace FilesFolders
             // nuevaEPSToolStripMenuItem
             // 
             this.nuevaEPSToolStripMenuItem.Name = "nuevaEPSToolStripMenuItem";
-            this.nuevaEPSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nuevaEPSToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.nuevaEPSToolStripMenuItem.Text = "Nueva EPS";
             this.nuevaEPSToolStripMenuItem.Click += new System.EventHandler(this.nuevaEPSToolStripMenuItem_Click);
             // 
@@ -151,7 +154,7 @@ namespace FilesFolders
             this.cOOSALUDToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.soportesToolStripMenuItem});
             this.cOOSALUDToolStripMenuItem.Name = "cOOSALUDToolStripMenuItem";
-            this.cOOSALUDToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cOOSALUDToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.cOOSALUDToolStripMenuItem.Text = "COOSALUD";
             // 
             // soportesToolStripMenuItem
@@ -164,15 +167,32 @@ namespace FilesFolders
             // resumenRIPSToolStripMenuItem
             // 
             this.resumenRIPSToolStripMenuItem.Name = "resumenRIPSToolStripMenuItem";
-            this.resumenRIPSToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.resumenRIPSToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.resumenRIPSToolStripMenuItem.Text = "Resumen RIPS";
             this.resumenRIPSToolStripMenuItem.Click += new System.EventHandler(this.resumenRIPSToolStripMenuItem_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 572);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1097, 22);
+            this.statusStrip1.TabIndex = 3;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(87, 17);
+            this.toolStripStatusLabel1.Text = "Versión 1.0.0.64";
             // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1097, 594);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
@@ -183,6 +203,8 @@ namespace FilesFolders
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,5 +227,7 @@ namespace FilesFolders
         private System.Windows.Forms.ToolStripMenuItem cOOSALUDToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem soportesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resumenRIPSToolStripMenuItem;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }

@@ -188,7 +188,10 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
 
-                                if (chkBoxAFSSSA.CheckState == CheckState.Checked && (codigoEntidadAdministradora == "DLS001" || codigoEntidadAdministradora == "FMS001"))
+                                if (
+                                        chkBoxAFSSSA.CheckState == CheckState.Checked && 
+                                        (codigoEntidadAdministradora == "DLS001" || 
+                                        codigoEntidadAdministradora == "FMS001" || codigoEntidadAdministradora == "AT1501" || codigoEntidadAdministradora == "36906"))
                                 {
                                     split[2] = "05091";
                                     line = String.Join(",", split);
@@ -1628,6 +1631,7 @@ namespace FilesFolders
                                     if (
                                         split[6].Substring(0, 2) == "21" ||
                                         split[6].Substring(0, 2) == "23" ||
+                                        split[6].Substring(0, 2) == "24" ||
                                         split[6].Substring(0, 2) == "57" ||
                                         split[6].Substring(0, 2) == "67" ||
                                         split[6].Substring(0, 2) == "69" ||
@@ -1639,6 +1643,7 @@ namespace FilesFolders
                                         split[6].Substring(0, 2) == "90" ||
                                         split[6].Substring(0, 2) == "95" ||
                                         split[6].Substring(0, 2) == "96" ||
+                                        split[6].Substring(0, 2) == "97" ||
                                         split[6].Substring(0, 2) == "98" ||
                                         split[6].Substring(0, 2) == "99" ||
                                         split[6].Substring(0, 2) == "93"
