@@ -115,6 +115,7 @@ namespace FilesFolders
             this.txtRuta = new System.Windows.Forms.TextBox();
             this.btnRuta = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.chkBoxAutCapita = new System.Windows.Forms.CheckBox();
             this.pnlRIPS.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -181,12 +182,13 @@ namespace FilesFolders
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.chkBoxAutCapita);
             this.groupBox6.Controls.Add(this.chkBoxAQSura);
             this.groupBox6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox6.Location = new System.Drawing.Point(896, 213);
+            this.groupBox6.Location = new System.Drawing.Point(846, 213);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(179, 100);
+            this.groupBox6.Size = new System.Drawing.Size(215, 100);
             this.groupBox6.TabIndex = 57;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "SURA";
@@ -198,9 +200,9 @@ namespace FilesFolders
             this.chkBoxAQSura.ForeColor = System.Drawing.SystemColors.GrayText;
             this.chkBoxAQSura.Location = new System.Drawing.Point(9, 35);
             this.chkBoxAQSura.Name = "chkBoxAQSura";
-            this.chkBoxAQSura.Size = new System.Drawing.Size(152, 17);
+            this.chkBoxAQSura.Size = new System.Drawing.Size(110, 17);
             this.chkBoxAQSura.TabIndex = 0;
-            this.chkBoxAQSura.Text = "Corregir Acto Quirurgico";
+            this.chkBoxAQSura.Text = "Corregir AP Sura";
             this.chkBoxAQSura.UseVisualStyleBackColor = true;
             // 
             // btnEliminarAd
@@ -223,7 +225,7 @@ namespace FilesFolders
             this.groupBox5.Controls.Add(this.chkBoxLonDoc);
             this.groupBox5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.groupBox5.Location = new System.Drawing.Point(577, 21);
+            this.groupBox5.Location = new System.Drawing.Point(541, 13);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(299, 143);
             this.groupBox5.TabIndex = 56;
@@ -299,7 +301,7 @@ namespace FilesFolders
             this.groupBox4.Controls.Add(this.chkBoxDXSSSA);
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox4.Location = new System.Drawing.Point(577, 327);
+            this.groupBox4.Location = new System.Drawing.Point(541, 319);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(405, 107);
             this.groupBox4.TabIndex = 55;
@@ -375,7 +377,7 @@ namespace FilesFolders
             this.groupBox2.Controls.Add(this.chkBoxDiagSavia);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox2.Location = new System.Drawing.Point(577, 170);
+            this.groupBox2.Location = new System.Drawing.Point(541, 162);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(299, 151);
             this.groupBox2.TabIndex = 53;
@@ -450,7 +452,7 @@ namespace FilesFolders
             this.groupBox3.Controls.Add(this.chkBoxValSum);
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.groupBox3.Location = new System.Drawing.Point(577, 440);
+            this.groupBox3.Location = new System.Drawing.Point(541, 432);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(299, 133);
             this.groupBox3.TabIndex = 54;
@@ -831,9 +833,9 @@ namespace FilesFolders
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.lblTotalAC);
-            this.groupBox1.Location = new System.Drawing.Point(896, 19);
+            this.groupBox1.Location = new System.Drawing.Point(846, 19);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(105, 187);
+            this.groupBox1.Size = new System.Drawing.Size(72, 187);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Total Archivos";
@@ -1015,7 +1017,7 @@ namespace FilesFolders
             this.txtRuta.Enabled = false;
             this.txtRuta.Location = new System.Drawing.Point(93, 21);
             this.txtRuta.Name = "txtRuta";
-            this.txtRuta.Size = new System.Drawing.Size(474, 20);
+            this.txtRuta.Size = new System.Drawing.Size(389, 20);
             this.txtRuta.TabIndex = 1;
             // 
             // btnRuta
@@ -1027,6 +1029,18 @@ namespace FilesFolders
             this.btnRuta.Text = "Ruta";
             this.btnRuta.UseVisualStyleBackColor = true;
             this.btnRuta.Click += new System.EventHandler(this.BtnRuta_Click);
+            // 
+            // chkBoxAutCapita
+            // 
+            this.chkBoxAutCapita.AutoSize = true;
+            this.chkBoxAutCapita.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkBoxAutCapita.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.chkBoxAutCapita.Location = new System.Drawing.Point(8, 61);
+            this.chkBoxAutCapita.Name = "chkBoxAutCapita";
+            this.chkBoxAutCapita.Size = new System.Drawing.Size(197, 17);
+            this.chkBoxAutCapita.TabIndex = 1;
+            this.chkBoxAutCapita.Text = "Agregar Autorización para Capita";
+            this.chkBoxAutCapita.UseVisualStyleBackColor = true;
             // 
             // FrmRIPS
             // 
@@ -1145,5 +1159,6 @@ namespace FilesFolders
         private System.Windows.Forms.CheckBox chkBoxAQSura;
         private System.Windows.Forms.CheckBox chkBoxAFSSSA;
         private System.Windows.Forms.CheckBox chkBoxTipoDocSSSA;
+        private System.Windows.Forms.CheckBox chkBoxAutCapita;
     }
 }

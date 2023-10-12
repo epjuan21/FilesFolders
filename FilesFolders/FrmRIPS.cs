@@ -189,8 +189,8 @@ namespace FilesFolders
                                 }
 
                                 if (
-                                        chkBoxAFSSSA.CheckState == CheckState.Checked && 
-                                        (codigoEntidadAdministradora == "DLS001" || 
+                                        chkBoxAFSSSA.CheckState == CheckState.Checked &&
+                                        (codigoEntidadAdministradora == "DLS001" ||
                                         codigoEntidadAdministradora == "FMS001" || codigoEntidadAdministradora == "AT1501" || codigoEntidadAdministradora == "36906"))
                                 {
                                     split[2] = "05091";
@@ -298,7 +298,7 @@ namespace FilesFolders
 
                                 #endregion
                             }
-                           
+
                             lines.Add(line);
                         }
                     }
@@ -306,7 +306,7 @@ namespace FilesFolders
                     using (StreamWriter writer = new StreamWriter(path, false, Encoding.GetEncoding("Windows-1252")))
                     {
                         foreach (String line in lines)
-                            {
+                        {
                             writer.WriteLine(line);
                         }
                     }
@@ -371,7 +371,7 @@ namespace FilesFolders
                                 String[] split = line.Split(',');
 
                                 int EdadUsuario = CArchivos.ObtenerEdad(split[3], dirPath);
-                                string UnidadMedidaEdad = CArchivos.ObtenerUnidadMedidaEdad(split[3],dirPath);
+                                string UnidadMedidaEdad = CArchivos.ObtenerUnidadMedidaEdad(split[3], dirPath);
 
                                 #region Factura
                                 // Número Factura - Posición 0
@@ -430,14 +430,16 @@ namespace FilesFolders
 
                                 #region Número de autorización
                                 // Número de autorización - Posición 5
-
-                                // Numero Autorizacion
-                                //string numeroAutorizacion = split[5];
-                                //if (numeroAutorizacion != "")
-                                //{
-                                //    split[5] = Regex.Replace(numeroAutorizacion, @"[^0-9]", "");
-                                //    line = String.Join(",", split);
-                                //    contadorErrores++;
+                                if (chkBoxAutCapita.CheckState == CheckState.Checked)
+                                {
+                                    if (split[5] == "")
+                                    {
+                                        split[5] = "1-1";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                }
+                                contadorErrores++;
                                 //}
                                 #endregion
 
@@ -1229,7 +1231,7 @@ namespace FilesFolders
                                 String[] split = line.Split(',');
 
                                 int EdadUsuario = CArchivos.ObtenerEdad(split[3], dirPath);
-                                string UnidadMedidaEdad = CArchivos.ObtenerUnidadMedidaEdad(split[3],dirPath);
+                                string UnidadMedidaEdad = CArchivos.ObtenerUnidadMedidaEdad(split[3], dirPath);
 
                                 #region Factura
                                 // Número Factura - Posición 0
@@ -1291,12 +1293,15 @@ namespace FilesFolders
                                 #region Número de autorización
                                 // Número de autorización - Posición 5
 
-                                // Numero Autorizacion
-                                //string numeroAutorizacion = split[5];
-                                //split[5] = Regex.Replace(numeroAutorizacion, @"[^0-9]", "");
-
-                                //line = String.Join(",", split);
-                                //contadorErrores++;
+                                if (chkBoxAutCapita.CheckState == CheckState.Checked)
+                                {
+                                    if (split[5] == "")
+                                    {
+                                        split[5] = "1-1";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                }
                                 #endregion
 
                                 #region CUPS
@@ -1343,7 +1348,6 @@ namespace FilesFolders
                                 // Diagnóstico Principal - Posición 10
 
                                 // Evaluar si la primera letra es minuscula
-
                                 // Obtenemos la Primera Letra
                                 if (split[10] != "" && chkBoxDxAxSum.CheckState != CheckState.Checked)
                                 {
@@ -1357,7 +1361,7 @@ namespace FilesFolders
                                     }
                                 }
 
-                                #region Correcciones para SSSA
+                                // Inicio Correcciones para SSSA
                                 if (chkBoxDXSSSA.CheckState == CheckState.Checked)
                                 {
                                     if (split[10] == "A090")
@@ -1397,13 +1401,12 @@ namespace FilesFolders
                                         contadorErrores++;
                                     }
                                 }
-                                #endregion
+                                // Final Correcciones para SSSA
 
-                                #region Correcciones para SUMIMEDICAL
+                                // Inicio Correcciones para SUMIMEDICAL
                                 if (chkBoxDxAxSum.CheckState == CheckState.Checked)
                                 {
                                     // Quitar Diagnóstico Principal para Sumimedical
-
                                     if (
                                         split[6].Substring(0, 2) == "21" ||
                                         split[6].Substring(0, 2) == "23" ||
@@ -1426,19 +1429,36 @@ namespace FilesFolders
                                         contadorErrores++;
                                     }
                                 }
-                                #endregion
+                                // Final Correcciones para SUMIMEDICAL
 
-                                #region Correcciones para SURA
-                                if (chkBoxAQSura.CheckState == CheckState.Checked && split[10] != "")
+                                // Inicio Correcciones para SURA
+                                if (chkBoxAQSura.CheckState == CheckState.Checked)
                                 {
                                     // Quitar Diagnóstico Principal para SURA
-                                    split[10] = "";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
+                                    if (
+                                        split[6].Substring(0, 2) == "21" ||
+                                        split[6].Substring(0, 2) == "67" ||
+                                        split[6].Substring(0, 2) == "69" ||
+                                        split[6].Substring(0, 2) == "73" ||
+                                        split[6].Substring(0, 2) == "87" ||
+                                        split[6].Substring(0, 2) == "89" ||
+                                        split[6].Substring(0, 2) == "90" ||
+                                        split[6].Substring(0, 2) == "95" ||
+                                        split[6].Substring(0, 2) == "96" ||
+                                        split[6].Substring(0, 2) == "97" ||
+                                        split[6].Substring(0, 2) == "98" ||
+                                        split[6].Substring(0, 2) == "99" ||
+                                        split[6].Substring(0, 2) == "93"
+                                        )
+                                    {
+                                        split[10] = "";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                 }
-                                #endregion
+                                // Final Correcciones para SURA
 
-                                #region Correcciones para SAVIASALUD
+                                // Inicio Correcciones para SAVIASALUD
                                 if (chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
                                     if (split[10] == "A09X")
@@ -1501,32 +1521,14 @@ namespace FilesFolders
                                         contadorErrores++;
                                     }
                                 }
-                                #endregion
-
-                                // Si el campo Diagnóstico Principal esta vació y Finalidad es 3 o 4
-
-                                if (chkBoxDxAxSum.CheckState != CheckState.Checked)
-                                {
-                                    if (split[10] == "" && (split[8] == "3" || split[8] == "4"))
-                                    {
-                                        split[10] = "Z012";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                    if (split[10] == "D752")
-                                    {
-                                        split[10] = "D750";
-                                        line = String.Join(",", split);
-                                        contadorErrores++;
-                                    }
-                                }
+                                // Final Correcciones para SAVIASALUD
 
                                 #endregion
 
                                 #region Diagnostico Relacionado
                                 // Diagnóstico Relacionado - Posición 11
 
-                                #region Corregir Diagnostico para SAVIASALUD
+                                // Corregir Diagnostico para SAVIASALUD
                                 if (chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
                                     if (split[11] == "A09X")
@@ -1542,9 +1544,39 @@ namespace FilesFolders
                                         contadorErrores++;
                                     }
                                 }
-                                #endregion
 
-                                #region Corregir Diagnostico para SSSA
+                                // Inicio Corregir Diagnóstico Relacionado para SURA
+                                if (chkBoxAQSura.CheckState == CheckState.Checked)
+                                {
+                                    // Si el CUPS tiene alguno de lso siguientes Códigos
+                                    // Se elimina el Diagnóstico Relacionado 1
+                                    if (
+                                        split[6].Substring(0, 2) == "21" ||
+                                        split[6].Substring(0, 2) == "23" ||
+                                        split[6].Substring(0, 2) == "57" ||
+                                        split[6].Substring(0, 2) == "67" ||
+                                        split[6].Substring(0, 2) == "69" ||
+                                        split[6].Substring(0, 2) == "73" ||
+                                        split[6].Substring(0, 2) == "87" ||
+                                        split[6].Substring(0, 2) == "89" ||
+                                        split[6].Substring(0, 2) == "90" ||
+                                        split[6].Substring(0, 2) == "91" ||
+                                        split[6].Substring(0, 2) == "95" ||
+                                        split[6].Substring(0, 2) == "96" ||
+                                        split[6].Substring(0, 2) == "97" ||
+                                        split[6].Substring(0, 2) == "98" ||
+                                        split[6].Substring(0, 2) == "99" ||
+                                        split[6].Substring(0, 2) == "93"
+                                        )
+                                    {
+                                        split[11] = "";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                }
+                                // Final Corregir Diagnóstico Relacionado para SURA
+
+                                // Corregir Diagnostico para SSSA
                                 if (chkBoxDXSSSA.CheckState == CheckState.Checked)
                                 {
                                     if (split[11] == "A099")
@@ -1554,7 +1586,6 @@ namespace FilesFolders
                                         contadorErrores++;
                                     }
                                 }
-                                #endregion
 
                                 if (split[11] == "H547")
                                 {
@@ -1570,11 +1601,40 @@ namespace FilesFolders
                                 }
                                 #endregion
 
+                                #region Complicacion
+                                // Complicación - Posición 12
+
+                                // Corregir Código Complicación para SURA
+                                if (chkBoxAQSura.CheckState == CheckState.Checked)
+                                {
+                                    // Quitar Diagnóstico Principal para SURA
+                                    if (
+                                        split[6].Substring(0, 2) == "21" ||
+                                        split[6].Substring(0, 2) == "23" ||
+                                        split[6].Substring(0, 2) == "67" ||
+                                        split[6].Substring(0, 2) == "69" ||
+                                        split[6].Substring(0, 2) == "73" ||
+                                        split[6].Substring(0, 2) == "87" ||
+                                        split[6].Substring(0, 2) == "89" ||
+                                        split[6].Substring(0, 2) == "90" ||
+                                        split[6].Substring(0, 2) == "95" ||
+                                        split[6].Substring(0, 2) == "96" ||
+                                        split[6].Substring(0, 2) == "98" ||
+                                        split[6].Substring(0, 2) == "99" ||
+                                        split[6].Substring(0, 2) == "93"
+                                        )
+                                    {
+                                        split[12] = "";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                }
+                                #endregion
+
                                 #region Forma Acto Quirurgico
                                 // Forma de realización del acto quirúrgico - Posición 13
 
                                 // Quitar Acto Quirurgico para Sumimedical
-
                                 if (split[13] != "" && chkBoxDxAxSum.CheckState == CheckState.Checked)
                                 {
                                     split[13] = "";
@@ -1655,8 +1715,7 @@ namespace FilesFolders
                                     }
                                 }
 
-                                // Modificar Acto Quirurgico Para SURA
-
+                                // Inicio Modificar Acto Quirurgico Para SURA
                                 if (chkBoxAQSura.CheckState == CheckState.Checked)
                                 {
                                     if (
@@ -1683,6 +1742,7 @@ namespace FilesFolders
                                         contadorErrores++;
                                     }
                                 }
+                                // Final Modificar Acto Quirurgico Para SURA
 
                                 #endregion
 
@@ -1779,7 +1839,7 @@ namespace FilesFolders
                                 String[] split = line.Split(',');
 
                                 int EdadUsuario = CArchivos.ObtenerEdad(split[3], dirPath);
-                                string UnidadMedidaEdad = CArchivos.ObtenerUnidadMedidaEdad(split[3],dirPath);
+                                string UnidadMedidaEdad = CArchivos.ObtenerUnidadMedidaEdad(split[3], dirPath);
 
                                 #region Factura
                                 // Número Factura - Posición 0
@@ -1837,6 +1897,20 @@ namespace FilesFolders
 
                                 #endregion
 
+                                #region Número de Autorización
+                                // Número de autorización - Posición 5
+
+                                if (chkBoxAutCapita.CheckState == CheckState.Checked)
+                                {
+                                    if (split[4] == "")
+                                    {
+                                        split[4] = "1-1";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                }
+                                #endregion
+
                                 #region Código del medicamento
                                 // Código del medicamento - Posición 5
 
@@ -1848,7 +1922,7 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
 
-                                if(chkBoxAMSavia.CheckState == CheckState.Checked)
+                                if (chkBoxAMSavia.CheckState == CheckState.Checked)
                                 {
                                     split[5] = Correcciones.CorregirCUMMedicamento(ref line, 5, "SAVIASALUD");
                                     line = String.Join(",", split);
@@ -1928,7 +2002,7 @@ namespace FilesFolders
                                 #endregion
 
                                 #region Valor unitario de medicamento
-                                
+
                                 // Valor unitario de medicamento - Posición 12
 
                                 // Quitar Decimales para Sumimedical
@@ -2029,7 +2103,7 @@ namespace FilesFolders
                                 String[] split = line.Split(',');
 
                                 int EdadUsuario = CArchivos.ObtenerEdad(split[3], dirPath);
-                                string UnidadMedidaEdad = CArchivos.ObtenerUnidadMedidaEdad(split[3],dirPath);
+                                string UnidadMedidaEdad = CArchivos.ObtenerUnidadMedidaEdad(split[3], dirPath);
 
                                 #region Factura
 
@@ -2433,7 +2507,7 @@ namespace FilesFolders
                                 String[] split = line.Split(',');
 
                                 int EdadUsuario = CArchivos.ObtenerEdad(split[3], dirPath);
-                                string UnidadMedidaEdad = CArchivos.ObtenerUnidadMedidaEdad(split[3],dirPath);
+                                string UnidadMedidaEdad = CArchivos.ObtenerUnidadMedidaEdad(split[3], dirPath);
 
                                 #region Factura
                                 // Número Factura - Posición 0
@@ -2736,7 +2810,7 @@ namespace FilesFolders
                                 String[] split = line.Split(',');
 
                                 int EdadUsuario = CArchivos.ObtenerEdad(split[3], dirPath);
-                                string UnidadMedidaEdad = CArchivos.ObtenerUnidadMedidaEdad(split[3],dirPath);
+                                string UnidadMedidaEdad = CArchivos.ObtenerUnidadMedidaEdad(split[3], dirPath);
 
                                 #region Factura
                                 // Número Factura - Posición 0
