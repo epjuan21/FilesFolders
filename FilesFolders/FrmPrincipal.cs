@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace FilesFolders
@@ -55,6 +56,12 @@ namespace FilesFolders
         {
             FrmRIPSIndividual frmRIPSIndividual = new FrmRIPSIndividual();
             frmRIPSIndividual.ShowDialog();
+        }
+
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+            Version version = Assembly.GetExecutingAssembly().GetName().Version;
+            tsslVersion.Text = version.ToString();
         }
     }
 }

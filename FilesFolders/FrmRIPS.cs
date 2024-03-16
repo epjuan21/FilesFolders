@@ -347,6 +347,7 @@ namespace FilesFolders
         {
             bgwAC.ODoWorker(BgwAC_DoWork, BgwAC_ProgressChanged, BgwAC_RunWorkerCompleted);
         }
+
         private void BgwAC_DoWork(object sender, DoWorkEventArgs e)
         {
             DirectoryInfo di = new DirectoryInfo(dirPath);
@@ -429,7 +430,9 @@ namespace FilesFolders
                                 #endregion
 
                                 #region Número de autorización
+                               
                                 // Número de autorización - Posición 5
+                               
                                 if (chkBoxAutCapita.CheckState == CheckState.Checked)
                                 {
                                     if (split[5] == "")
@@ -439,8 +442,7 @@ namespace FilesFolders
                                         contadorErrores++;
                                     }
                                 }
-                                contadorErrores++;
-                                //}
+                                
                                 #endregion
 
                                 #region CUPS
@@ -2160,6 +2162,22 @@ namespace FilesFolders
 
                                 #endregion
 
+                                #region Autorizacion
+
+                                // Autorizacion - Posición 4
+
+                                if (chkBoxAutCapita.CheckState == CheckState.Checked)
+                                {
+                                    if (split[4] == "")
+                                    {
+                                        split[4] = "1-1";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                }
+
+                                #endregion
+
                                 #region Tipo de Servicio
 
                                 // Tipo de Servicio - Posición 5
@@ -2566,6 +2584,22 @@ namespace FilesFolders
 
                                 #endregion
 
+                                #region Autorizacion
+
+                                // Autorizacion - Posición 6
+
+                                if (chkBoxAutCapita.CheckState == CheckState.Checked)
+                                {
+                                    if (split[6] == "")
+                                    {
+                                        split[6] = "1-1";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                }
+
+                                #endregion
+
                                 #region Diagnóstico de Salida
 
                                 // Diagnóstico de salida - Posición 8
@@ -2768,6 +2802,7 @@ namespace FilesFolders
                 Thread.Sleep(100);
             }
         }
+
         private void BgwAU_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             lblStatusAU.Visible = true;
