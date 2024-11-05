@@ -31,6 +31,18 @@ namespace FilesFolders.Clases
                 departamentoNuevo = "05"
             });
 
+            departamentos.Add(new Departamento
+            {
+                departamentoViejo = "34",
+                departamentoNuevo = "05"
+            });
+
+            departamentos.Add(new Departamento
+            {
+                departamentoViejo = "42",
+                departamentoNuevo = "05"
+            });
+
             return departamentos;
         }
     }

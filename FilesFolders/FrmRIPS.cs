@@ -24,6 +24,7 @@ namespace FilesFolders
         string dirPath;
         string Edad;
         string UnidadMedidaEdad;
+        string autorizacion;
         readonly CWork bgwAC = new CWork();
         readonly CWork bgwAP = new CWork();
         readonly CWork bgwAT = new CWork();
@@ -188,16 +189,49 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
 
+                                if (chkBoxAFSSSAValdivia.CheckState == CheckState.Checked && (split[2] == "4000" || split[2] == "5002" || split[2] == "5005" || split[2] == "6002" || split[2] == "6003" || split[2] == "6007" || split[2] == "6011" || split[2] == "9001" || split[2] == "9004" || split[2] == "9007" || split[2] == "9011" || split[2] == "9015" || split[2] == "10034"))
+                                {
+                                    split[2] = "05854";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
                                 if (
-                                        chkBoxAFSSSA.CheckState == CheckState.Checked &&
+                                        chkBoxEAPBUS.CheckState == CheckState.Checked &&
                                         (codigoEntidadAdministradora == "DLS001" ||
-                                        codigoEntidadAdministradora == "FMS001" || codigoEntidadAdministradora == "AT1501" || codigoEntidadAdministradora == "36906"))
+                                        codigoEntidadAdministradora == "FMS001" || 
+                                        codigoEntidadAdministradora == "AT1501" || 
+                                        codigoEntidadAdministradora == "36906" ||
+                                        codigoEntidadAdministradora == "CCF30" ||
+                                        codigoEntidadAdministradora == "36937"
+                                        ))
                                 {
                                     split[2] = "05091";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
 
+                                #endregion
+
+                                #region TipoUsuario
+                                // Tipo de Usuario
+
+                                // Obtenemos la EPS
+                                string EAPB = split[2];
+
+                                if (EAPB == "EPSS40")
+                                {
+                                    split[3] = "2";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                if (EAPB == "EPS040")
+                                {
+                                    split[3] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 #endregion
 
                                 #region Apellidos y Nombres
@@ -276,26 +310,17 @@ namespace FilesFolders
                                 }
                                 #endregion
 
-                                #region TipoUsuario
-                                // Tipo de Usuario
+                                #region Zona
+                                // Zona - Posición 13
 
-                                // Obtenemos la EPS
-                                string EAPB = split[2];
+                                string zona = split[13];
 
-                                if (EAPB == "EPSS40")
+                                if (String.IsNullOrEmpty(zona))
                                 {
-                                    split[3] = "2";
+                                    split[13] = "R";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-
-                                if (EAPB == "EPS040")
-                                {
-                                    split[3] = "1";
-                                    line = String.Join(",", split);
-                                    contadorErrores++;
-                                }
-
                                 #endregion
                             }
 
@@ -430,9 +455,18 @@ namespace FilesFolders
                                 #endregion
 
                                 #region Número de autorización
-                               
                                 // Número de autorización - Posición 5
-                               
+
+                                autorizacion = split[5];
+                                autorizacion = RemoveNonAlphanumeric(autorizacion);
+
+                                if (chkBoxAutNueva.CheckState == CheckState.Checked)
+                                {
+                                    split[5] = autorizacion;
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
                                 if (chkBoxAutCapita.CheckState == CheckState.Checked)
                                 {
                                     if (split[5] == "")
@@ -481,6 +515,18 @@ namespace FilesFolders
                                 if (split[6] == "890203" && split[8] == "")
                                 {
                                     split[8] = "13";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "890205" && split[7] == "10" && split[8] == "")
+                                {
+                                    split[8] = "13";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[6] == "890205" &&split[7] == "04" && split[8] == "")
+                                {
+                                    split[8] = "15";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -539,7 +585,6 @@ namespace FilesFolders
                                             line = String.Join(",", split);
                                             contadorErrores++;
                                         }
-
                                     }
                                 }
 
@@ -592,9 +637,9 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
 
-                                if (split[9] == "K589")
+                                if (split[9] == "K589" || split[9] == "K588")
                                 {
-                                    split[9] = "K588";
+                                    split[9] = "K580";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -619,6 +664,27 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
 
+                                if (split[9] == "Z002" && EdadUsuario >= 10 && UnidadMedidaEdad == "1")
+                                {
+                                    split[9] = "Z000";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                if (split[9] == "Z002" && EdadUsuario < 12 && UnidadMedidaEdad == "2")
+                                {
+                                    split[9] = "Z001";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                if (split[9] == "Z001" && EdadUsuario > 4 && UnidadMedidaEdad == "1")
+                                {
+                                    split[9] = "Z002";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
                                 #region Correcciones para SSSA
                                 if (chkBoxDXSSSA.CheckState == CheckState.Checked)
                                 {
@@ -636,7 +702,7 @@ namespace FilesFolders
                                     }
                                     if (split[9] == "K649")
                                     {
-                                        split[9] = "I842";
+                                        split[9] = "I48X";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
@@ -649,6 +715,24 @@ namespace FilesFolders
                                     if (split[9] == "M321")
                                     {
                                         split[9] = "L932";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[9] == "N184")
+                                    {
+                                        split[9] = "N188";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[9] == "I480")
+                                    {
+                                        split[9] = "I48X";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[9] == "I482")
+                                    {
+                                        split[9] = "I48X";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
@@ -667,6 +751,24 @@ namespace FilesFolders
                                     if (split[9] == "U072")
                                     {
                                         split[9] = "J22X";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[9] == "E301" && EdadUsuario > 8 && UnidadMedidaEdad == "1")
+                                    {
+                                        split[9] = "F99X";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[9] == "Z001" && EdadUsuario > 4 && UnidadMedidaEdad == "1")
+                                    {
+                                        split[9] = "Z002";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[9] == "Z00")
+                                    {
+                                        split[9] = "Z000";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
@@ -782,13 +884,13 @@ namespace FilesFolders
 
                                 // Obtenemos la Primera Letra
 
-                                if (split[11] != "")
+                                if (split[10] != "")
                                 {
-                                    string firstLetter = split[11].Substring(0, 1);
+                                    string firstLetter = split[10].Substring(0, 1);
 
                                     if (char.IsLower(Convert.ToChar(firstLetter)))
                                     {
-                                        split[11] = split[11].ToUpper();
+                                        split[10] = split[10].ToUpper();
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
@@ -811,7 +913,19 @@ namespace FilesFolders
                                     }
                                     if (split[10] == "K649")
                                     {
-                                        split[10] = "I842";
+                                        split[10] = "I48X";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "I480")
+                                    {
+                                        split[10] = "I48X";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "I482")
+                                    {
+                                        split[10] = "I48X";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
@@ -827,9 +941,21 @@ namespace FilesFolders
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
+                                    if (split[10] == "N184")
+                                    {
+                                        split[10] = "N188";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                     if (split[10] == "U072")
                                     {
                                         split[10] = "J181";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "Z001" && EdadUsuario > 4 && UnidadMedidaEdad == "1")
+                                    {
+                                        split[10] = "Z002";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
@@ -917,6 +1043,12 @@ namespace FilesFolders
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
+                                    if (split[10] == "N184")
+                                    {
+                                        split[10] = "N188";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                     if (split[10] == "N188")
                                     {
                                         split[10] = "N189";
@@ -976,9 +1108,21 @@ namespace FilesFolders
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
+                                    if (split[11] == "I482")
+                                    {
+                                        split[11] = "I48X";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                     if (split[11] == "K649")
                                     {
-                                        split[11] = "I842";
+                                        split[11] = "I84X";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[11] == "I482")
+                                    {
+                                        split[11] = "I48X";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
@@ -988,9 +1132,21 @@ namespace FilesFolders
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
-                                    if (split[9] == "U072")
+                                    if (split[11] == "U072")
                                     {
-                                        split[9] = "J22X";
+                                        split[11] = "J22X";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[11] == "N181")
+                                    {
+                                        split[11] = "N188";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[11] == "N184")
+                                    {
+                                        split[11] = "N188";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
@@ -1054,15 +1210,33 @@ namespace FilesFolders
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
+                                    if (split[12] == "I480")
+                                    {
+                                        split[12] = "I48X";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[12] == "I482")
+                                    {
+                                        split[12] = "I48X";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                     if (split[12] == "K649")
                                     {
-                                        split[12] = "I842";
+                                        split[12] = "I48X";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
                                     if (split[12] == "I489")
                                     {
                                         split[12] = "I48X";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[12] == "N184")
+                                    {
+                                        split[12] = "N188";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
@@ -1084,6 +1258,18 @@ namespace FilesFolders
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
+                                    if (split[12] == "N184")
+                                    {
+                                        split[12] = "N188";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[12] == "N182")
+                                    {
+                                        split[12] = "N188";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                 }
                                 #endregion
 
@@ -1093,7 +1279,7 @@ namespace FilesFolders
                                 // Tipo de diagnóstico principal - Posicion 13
                                 if (split[13] == "")
                                 {
-                                    split[13] = "2";
+                                    split[13] = "1";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -1295,6 +1481,16 @@ namespace FilesFolders
                                 #region Número de autorización
                                 // Número de autorización - Posición 5
 
+                                autorizacion = split[5];
+                                autorizacion = RemoveNonAlphanumeric(autorizacion);
+
+                                if (chkBoxAutNueva.CheckState == CheckState.Checked)
+                                {
+                                    split[5] = autorizacion;
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
                                 if (chkBoxAutCapita.CheckState == CheckState.Checked)
                                 {
                                     if (split[5] == "")
@@ -1317,6 +1513,27 @@ namespace FilesFolders
                                 split[6] = Correcciones.CorregirCUPS(ref line, 6);
                                 line = String.Join(",", split);
 
+                                if (chkBoxCUPSSSA.CheckState == CheckState.Checked)
+                                {
+                                    if (split[6] == "997002")
+                                    {
+                                        split[6] = "997310";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[6] == "995202")
+                                    {
+                                        split[6] = "995201";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[6] == "997107")
+                                    {
+                                        split[6] = "997102";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                }
                                 #endregion
 
                                 #region Ambito
@@ -1384,9 +1601,33 @@ namespace FilesFolders
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
+                                    if (split[10] == "I10X" && EdadUsuario < 15 && UnidadMedidaEdad == "1")
+                                    {
+                                        split[10] = "R101";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                     if (split[10] == "I489")
                                     {
                                         split[10] = "I48X";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "K051" && EdadUsuario < 12 && UnidadMedidaEdad == "2")
+                                    {
+                                        split[10] = "K004";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "N184")
+                                    {
+                                        split[10] = "N188";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "M154")
+                                    {
+                                        split[10] = "L932";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
@@ -1399,6 +1640,30 @@ namespace FilesFolders
                                     if (split[10] == "U072")
                                     {
                                         split[10] = "J181";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "Z001" && EdadUsuario > 4 && UnidadMedidaEdad == "1")
+                                    {
+                                        split[10] = "Z000";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "Z271" && EdadUsuario > 4 && UnidadMedidaEdad == "1")
+                                    {
+                                        split[10] = "Z000";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "Z240" && EdadUsuario > 4 && UnidadMedidaEdad == "1")
+                                    {
+                                        split[10] = "Z000";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "Z274" && EdadUsuario < 6 && UnidadMedidaEdad == "1")
+                                    {
+                                        split[10] = "Z000";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
@@ -1445,6 +1710,7 @@ namespace FilesFolders
                                         split[6].Substring(0, 2) == "87" ||
                                         split[6].Substring(0, 2) == "89" ||
                                         split[6].Substring(0, 2) == "90" ||
+                                        split[6].Substring(0, 2) == "91" ||
                                         split[6].Substring(0, 2) == "95" ||
                                         split[6].Substring(0, 2) == "96" ||
                                         split[6].Substring(0, 2) == "97" ||
@@ -1727,10 +1993,13 @@ namespace FilesFolders
                                         split[6].Substring(0, 2) == "67" ||
                                         split[6].Substring(0, 2) == "69" ||
                                         split[6].Substring(0, 2) == "73" ||
+                                        split[6].Substring(0, 2) == "79" ||
+                                        split[6].Substring(0, 2) == "86" ||
                                         split[6].Substring(0, 2) == "87" ||
                                         split[6].Substring(0, 2) == "89" ||
                                         split[6].Substring(0, 2) == "90" ||
                                         split[6].Substring(0, 2) == "91" ||
+                                        split[6].Substring(0, 2) == "92" ||
                                         split[6].Substring(0, 2) == "95" ||
                                         split[6].Substring(0, 2) == "96" ||
                                         split[6].Substring(0, 2) == "97" ||
@@ -2235,13 +2504,30 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-                                if (split[5] == "4" && split[6] == "5DSB01")
+                                if ((split[5] == "4" || split[5] == "") && split[6] == "5DSB01")
                                 {
                                     split[5] = "3";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-
+                                if (split[5] == "" && split[6] == "5DS002")
+                                {
+                                    split[5] = "3";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[5] == "" && split[6] == "5DS003")
+                                {
+                                    split[5] = "3";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                if (split[5] == "" && split[6] == "5DS004")
+                                {
+                                    split[5] = "3";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 #endregion
 
                                 #region Codigo Servicio
@@ -2587,6 +2873,15 @@ namespace FilesFolders
                                 #region Autorizacion
 
                                 // Autorizacion - Posición 6
+                                autorizacion = split[6];
+                                autorizacion = RemoveNonAlphanumeric(autorizacion);
+
+                                if (chkBoxAutNueva.CheckState == CheckState.Checked)
+                                {
+                                    split[6] = autorizacion;
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
 
                                 if (chkBoxAutCapita.CheckState == CheckState.Checked)
                                 {
@@ -2905,14 +3200,17 @@ namespace FilesFolders
                                 #endregion
 
                                 #region Número de autorización
-                                // Número de autorización - Posición 7
+                                // Autorizacion - Posición 7
 
-                                // Numero Autorizacion
-                                //string numeroAutorizacion = split[7];
-                                //split[7] = Regex.Replace(numeroAutorizacion, @"[^0-9]", "");
-
-                                //line = String.Join(",", split);
-                                //contadorErrores++;
+                                if (chkBoxAutCapita.CheckState == CheckState.Checked)
+                                {
+                                    if (split[7] == "")
+                                    {
+                                        split[7] = "1-1";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                }
                                 #endregion
 
                                 #region #region Diagnóstico Relacionado 1 de Egreso
@@ -2985,6 +3283,7 @@ namespace FilesFolders
         {
             bgwAF.ODoWorker(BgwAF_DoWork, BgwAF_ProgressChanged, BgwAF_RunWorkerCompleted);
         }
+
         private void BgwAF_DoWork(object sender, DoWorkEventArgs e)
         {
             DirectoryInfo di = new DirectoryInfo(dirPath);
@@ -3027,7 +3326,7 @@ namespace FilesFolders
                                 // Numero Factura - Posicion 4
                                 string numeroFactura = split[4];
 
-                                if (!numeroFactura.Contains("FE"))
+                                if (chkBoxPrefijoFE.CheckState == CheckState.Checked && !numeroFactura.Contains("FE"))
                                 {
                                     numeroFactura = String.Concat("FE", numeroFactura);
                                     split[4] = numeroFactura;
@@ -3040,9 +3339,16 @@ namespace FilesFolders
                                 #region CodigoEntidad
 
                                 // Codigo entidad administradora - Posición 8
-                                if (chkBoxAFSSSA.CheckState == CheckState.Checked)
+                                if (chkBoxAFSSSA.CheckState == CheckState.Checked && (split[8] == "DLS001" || split[8] == "36937"))
                                 {
                                     split[8] = "05091";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                if (chkBoxAFSSSAValdivia.CheckState == CheckState.Checked && (split[8] == "FMS001" || split[8] == "4000" || split[8] == "5002" || split[8] == "5005" || split[8] == "6002" || split[8] == "6003" || split[8] == "6007" || split[8] == "6011" || split[8] == "9001" || split[8] == "9004" || split[8] == "9007" || split[8] == "9011" || split[8] == "9015" || split[8] == "9017" || split[8] == "10034"))
+                                {
+                                    split[8] = "05854";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -3374,6 +3680,13 @@ namespace FilesFolders
                     }
                 }
             }
+        }
+        #endregion
+
+        #region Utilidades
+        static string RemoveNonAlphanumeric(string input)
+        {
+            return Regex.Replace(input, @"[^a-zA-Z0-9]", "");
         }
         #endregion
 

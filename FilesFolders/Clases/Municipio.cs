@@ -25,6 +25,12 @@ namespace FilesFolders.Clases
 
             municipios.Add(new Municipio
             {
+                municipioViejo = "534",
+                municipioNuevo = "091"
+            });
+
+            municipios.Add(new Municipio
+            {
                 municipioViejo = "999",
                 municipioNuevo = "091"
             });
@@ -38,6 +44,12 @@ namespace FilesFolders.Clases
             municipios.Add(new Municipio
             {
                 municipioViejo = "005",
+                municipioNuevo = "091"
+            });
+
+            municipios.Add(new Municipio
+            {
+                municipioViejo = "34",
                 municipioNuevo = "091"
             });
 

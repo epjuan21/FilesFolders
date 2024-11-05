@@ -63,5 +63,11 @@ namespace FilesFolders
             Version version = Assembly.GetExecutingAssembly().GetName().Version;
             tsslVersion.Text = version.ToString();
         }
+
+        private void unirRIPSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmUnirRIPS frmUnirRIPS = new FrmUnirRIPS();
+            frmUnirRIPS.ShowDialog();
+        }
     }
 }

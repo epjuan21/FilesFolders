@@ -26,7 +26,7 @@ namespace FilesFolders.Clases
         {
             string[] split = line.Split(',');
 
-            string TipoIdUsuario = split[tipoIdUsuarioPos];
+            string TipoIdUsuario = split[tipoIdUsuarioPos]; // tipoIdUsuarioPos: Posición del Tipo de Id del Usuadio
             //int Edad = int.Parse(split[edadPos]);
             int Edad = (edadPos != -1) ? int.Parse(split[edadPos]) : EdadUsuario;
             string UnidadMedidaEdad = (unidadMedidaEdadPos != -1) ? split[unidadMedidaEdadPos] : UnidadMedidaEdadUsuario;
@@ -124,11 +124,11 @@ namespace FilesFolders.Clases
 
             // Corregir Tipo de Documento PT
 
-            if (TipoIdUsuario == "PT" && Edad > 17)
+            if (TipoIdUsuario == "PT" && Edad > 17 && UnidadMedidaEdad == "1")
             {
                 documentoCorrecto = "AS";
             }
-            if (TipoIdUsuario == "PT" && Edad < 18)
+            if (TipoIdUsuario == "PT" && Edad < 18 && UnidadMedidaEdad == "1")
             {
                 documentoCorrecto = "MS";
             }
@@ -177,6 +177,16 @@ namespace FilesFolders.Clases
             string codigoCUPS = split[codigoPos];
             string codigoCUPSCorregido = codigoCUPS;
 
+            if (codigoCUPS == "0001")
+            {
+                codigoCUPSCorregido = "895004";
+            }
+
+            if (codigoCUPS == "00022" || codigoCUPS == "0019")
+            {
+                codigoCUPSCorregido = "869501";
+            }
+
             if (codigoCUPS == "02")
             {
                 codigoCUPSCorregido = "973800";
@@ -206,6 +216,10 @@ namespace FilesFolders.Clases
             {
                 codigoCUPSCorregido = "232101";
             }
+            if (codigoCUPS == "232102")
+            {
+                codigoCUPSCorregido = "232101";
+            }
             if (codigoCUPS == "542801")
             {
                 codigoCUPSCorregido = "542700";
@@ -225,6 +239,14 @@ namespace FilesFolders.Clases
             if (codigoCUPS == "673411")
             {
                 codigoCUPSCorregido = "863101";
+            }
+            if (codigoCUPS == "8618AC")
+            {
+                codigoCUPSCorregido = "861801";
+            }
+            if (codigoCUPS == "8618AD")
+            {
+                codigoCUPSCorregido = "861801";
             }
             if (codigoCUPS == "873123")
             {
@@ -284,6 +306,10 @@ namespace FilesFolders.Clases
             if (codigoCUPS == "995200")
             {
                 codigoCUPSCorregido = "993122";
+            }
+            if (codigoCUPS == "997107")
+            {
+                codigoCUPSCorregido = "997301";
             }
             if (codigoCUPS == "997300")
             {
@@ -351,19 +377,35 @@ namespace FilesFolders.Clases
                 {
                     finalidadCorregida = "10";
                 }
+                if (codigoCUPS == "890201" && finalidad == "42")
+                {
+                    finalidadCorregida = "03";
+                }
                 if (codigoCUPS == "890203" && finalidad == "")
                 {
                     finalidadCorregida = "10";
+                }
+                if (codigoCUPS == "890205" && finalidad == "20")
+                {
+                    finalidadCorregida = "03";
                 }
                 if (codigoCUPS == "890301" && finalidad == "")
                 {
                     finalidadCorregida = "10";
                 }
+                if (codigoCUPS == "890301" && finalidad == "42")
+                {
+                    finalidadCorregida = "03";
+                }
                 if (codigoCUPS == "890305" && finalidad == "")
                 {
                     finalidadCorregida = "04";
                 }
-                if (codigoCUPS == "890305" && finalidad == "" && diagnostico == "Z300")
+                if (codigoCUPS == "890305" && finalidad == "" && (diagnostico == "Z300" || diagnostico == "Z304"))
+                {
+                    finalidadCorregida = "03";
+                }
+                if (codigoCUPS == "890305" && finalidad == "42" && (diagnostico == "Z300" || diagnostico == "Z304"))
                 {
                     finalidadCorregida = "03";
                 }
@@ -414,7 +456,13 @@ namespace FilesFolders.Clases
                     finalidadCorregida = "2";
                 }
 
-                    // 38 PROCEDIMIENTOS EN VASOS SANGUINEOS (INCISION, ESCISION Y OCLUSION)
+                if (codigoCUPS == "232102" && finalidad == "")
+                {
+                    finalidadCorregida = "2";
+                }
+
+
+                // 38 PROCEDIMIENTOS EN VASOS SANGUINEOS (INCISION, ESCISION Y OCLUSION)
 
                 if (codigoCUPS == "389900" && finalidad == "")
                 {
@@ -457,13 +505,24 @@ namespace FilesFolders.Clases
                     finalidadCorregida = "3";
                 }
 
-                    // 86 PROCEDIMIENTOS EN PIEL Y TEJIDO CELULAR SUBCUTANEO
+
+                if (codigoCUPS == "797100" && finalidad == "")
+                {
+                    finalidadCorregida = "2";
+                }
+
+
+                // 86 PROCEDIMIENTOS EN PIEL Y TEJIDO CELULAR SUBCUTANEO
 
                 if (codigoCUPS == "861101" && finalidad == "")
                 {
                     finalidadCorregida = "2";
                 }
                 if (codigoCUPS == "861201" && finalidad == "")
+                {
+                    finalidadCorregida = "2";
+                }
+                if (codigoCUPS == "861203" && finalidad == "")
                 {
                     finalidadCorregida = "2";
                 }
@@ -654,16 +713,32 @@ namespace FilesFolders.Clases
                     finalidadCorregida = "4";
                 }
 
-                        // 892 MEDICIONES ANATOMICAS, FISIOLOGICAS Y EXAMENES MANUALES DE APARATO GENITOURINARIO
+                if (codigoCUPS == "890303" && finalidad == "")
+                {
+                    finalidadCorregida = "2";
+                }
+
+                // 892 MEDICIONES ANATOMICAS, FISIOLOGICAS Y EXAMENES MANUALES DE APARATO GENITOURINARIO
 
                 if (codigoCUPS == "892901" && finalidad == "")
                 {
                     finalidadCorregida = "4";
                 }
 
-                        // 895 OTROS PROCEDIMIENTOS DIAGNOSTICOS CARDIACOS Y VASCULARES NO QUIRURGICOS
+                // 893 OTRAS MEDICIONES ANATÓMICAS, FISIOLÓGICAS Y EXÁMENES MANUALES
+
+                if (codigoCUPS == "893100" && finalidad == "")
+                {
+                    finalidadCorregida = "4";
+                }
+
+                // 895 OTROS PROCEDIMIENTOS DIAGNOSTICOS CARDIACOS Y VASCULARES NO QUIRURGICOS
 
                 if (codigoCUPS == "895001" && finalidad == "")
+                {
+                    finalidadCorregida = "1";
+                }
+                if (codigoCUPS == "895004" && finalidad == "")
                 {
                     finalidadCorregida = "1";
                 }
@@ -685,9 +760,20 @@ namespace FilesFolders.Clases
 
                 // CapItulo 17 LABORATORIO CLINICO
 
-                    // 90 LABORATORIO CLINICO
-
+                // 90 LABORATORIO CLINICO
+                if (codigoCUPS == "903016" && finalidad == "")
+                {
+                    finalidadCorregida = "1";
+                }
                 if (codigoCUPS == "903426" && finalidad == "")
+                {
+                    finalidadCorregida = "1";
+                }
+                if (codigoCUPS == "903813" && finalidad == "")
+                {
+                    finalidadCorregida = "1";
+                }
+                if (codigoCUPS == "903883" && finalidad == "")
                 {
                     finalidadCorregida = "1";
                 }
@@ -731,6 +817,10 @@ namespace FilesFolders.Clases
                 {
                     finalidadCorregida = "1";
                 }
+                if (codigoCUPS == "901303" && finalidad == "")
+                {
+                    finalidadCorregida = "1";
+                }
                 if (codigoCUPS == "901304" && finalidad == "")
                 {
                     finalidadCorregida = "1";
@@ -751,6 +841,10 @@ namespace FilesFolders.Clases
                 {
                     finalidadCorregida = "1";
                 }
+                if (codigoCUPS == "902210" && finalidad == "")
+                {
+                    finalidadCorregida = "1";
+                }
                 if (codigoCUPS == "902208" && finalidad == "")
                 {
                     finalidadCorregida = "1";
@@ -760,6 +854,14 @@ namespace FilesFolders.Clases
                     finalidadCorregida = "1";
                 }
                 if (codigoCUPS == "903026" && finalidad == "")
+                {
+                    finalidadCorregida = "1";
+                }
+                if (codigoCUPS == "903028" && finalidad == "")
+                {
+                    finalidadCorregida = "1";
+                }
+                if (codigoCUPS == "903513" && finalidad == "")
                 {
                     finalidadCorregida = "1";
                 }
@@ -779,7 +881,23 @@ namespace FilesFolders.Clases
                 {
                     finalidadCorregida = "1";
                 }
+                if (codigoCUPS == "903815" && finalidad == "")
+                {
+                    finalidadCorregida = "1";
+                }
+                if (codigoCUPS == "903816" && finalidad == "")
+                {
+                    finalidadCorregida = "1";
+                }
+                if (codigoCUPS == "903818" && finalidad == "")
+                {
+                    finalidadCorregida = "1";
+                }
                 if (codigoCUPS == "903841" && finalidad == "")
+                {
+                    finalidadCorregida = "1";
+                }
+                if (codigoCUPS == "903846" && finalidad == "")
                 {
                     finalidadCorregida = "1";
                 }
@@ -795,6 +913,14 @@ namespace FilesFolders.Clases
                 {
                     finalidadCorregida = "1";
                 }
+                if (codigoCUPS == "903868" && finalidad == "")
+                {
+                    finalidadCorregida = "1";
+                }
+                if (codigoCUPS == "903869" && finalidad == "")
+                {
+                    finalidadCorregida = "1";
+                }
                 if (codigoCUPS == "903895" && finalidad == "")
                 {
                     finalidadCorregida = "1";
@@ -807,7 +933,15 @@ namespace FilesFolders.Clases
                 {
                     finalidadCorregida = "1";
                 }
+                if (codigoCUPS == "904902" && finalidad == "")
+                {
+                    finalidadCorregida = "1";
+                }
                 if (codigoCUPS == "906127" && finalidad == "")
+                {
+                    finalidadCorregida = "1";
+                }
+                if (codigoCUPS == "906128" && finalidad == "")
                 {
                     finalidadCorregida = "1";
                 }
@@ -816,6 +950,10 @@ namespace FilesFolders.Clases
                     finalidadCorregida = "1";
                 }
                 if (codigoCUPS == "906317" && finalidad == "")
+                {
+                    finalidadCorregida = "1";
+                }
+                if (codigoCUPS == "906913" && finalidad == "")
                 {
                     finalidadCorregida = "1";
                 }
@@ -960,9 +1098,17 @@ namespace FilesFolders.Clases
                 {
                     finalidadCorregida = "2";
                 }
+                if (codigoCUPS == "993106" && finalidad == "")
+                {
+                    finalidadCorregida = "2";
+                }
                 if (codigoCUPS == "993120" && finalidad == "")
                 {
                     finalidadCorregida = "2";
+                }
+                if (codigoCUPS == "993130" && finalidad == "")
+                {
+                    finalidadCorregida = "3";
                 }
                 if (codigoCUPS == "993122" && finalidad == "")
                 {
@@ -972,7 +1118,39 @@ namespace FilesFolders.Clases
                 {
                     finalidadCorregida = "3";
                 }
+                if (codigoCUPS == "993502" && finalidad == "")
+                {
+                    finalidadCorregida = "3";
+                }
+                if (codigoCUPS == "993503" && finalidad == "")
+                {
+                    finalidadCorregida = "3";
+                }
+                if (codigoCUPS == "993504" && finalidad == "")
+                {
+                    finalidadCorregida = "2";
+                }
+                if (codigoCUPS == "993505" && finalidad == "")
+                {
+                    finalidadCorregida = "2";
+                }
+                if (codigoCUPS == "993512" && finalidad == "")
+                {
+                    finalidadCorregida = "2";
+                }
+                if (codigoCUPS == "993513" && finalidad == "")
+                {
+                    finalidadCorregida = "2";
+                }
                 if (codigoCUPS == "993520" && finalidad == "")
+                {
+                    finalidadCorregida = "3";
+                }
+                if (codigoCUPS == "995201" && finalidad == "")
+                {
+                    finalidadCorregida = "3";
+                }
+                if (codigoCUPS == "995202" && finalidad == "")
                 {
                     finalidadCorregida = "3";
                 }
@@ -1014,6 +1192,10 @@ namespace FilesFolders.Clases
             {
                 ambitoCorregido = "1";
             }
+            if (codigoCUPS == "861203" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
             if (codigoCUPS == "869500" && ambito == "")
             {
                 ambitoCorregido = "1";
@@ -1027,6 +1209,10 @@ namespace FilesFolders.Clases
                 ambitoCorregido = "1";
             }
             if (codigoCUPS == "870112" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
+            if (codigoCUPS == "871121" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
@@ -1054,7 +1240,19 @@ namespace FilesFolders.Clases
             {
                 ambitoCorregido = "1";
             }
+            if (codigoCUPS == "893100" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
             if (codigoCUPS == "895001" && ambito == "")
+            {
+                ambitoCorregido = "2";
+            }
+            if (codigoCUPS == "895004" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
+            if (codigoCUPS == "895100" && ambito == "")
             {
                 ambitoCorregido = "2";
             }
@@ -1086,7 +1284,15 @@ namespace FilesFolders.Clases
             {
                 ambitoCorregido = "1";
             }
+            if (codigoCUPS == "902210" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
             if (codigoCUPS == "902221" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
+            if (codigoCUPS == "903016" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
@@ -1094,7 +1300,19 @@ namespace FilesFolders.Clases
             {
                 ambitoCorregido = "1";
             }
+            if (codigoCUPS == "903028" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
             if (codigoCUPS == "903426" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
+            if (codigoCUPS == "993503" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
+            if (codigoCUPS == "993505" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
@@ -1104,7 +1322,47 @@ namespace FilesFolders.Clases
             }
             if (codigoCUPS == "903703" && ambito == "")
             {
-                ambitoCorregido = "3";
+                ambitoCorregido = "1";
+            }
+            if (codigoCUPS == "903815" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
+            if (codigoCUPS == "903816" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
+            if (codigoCUPS == "903818" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
+            if (codigoCUPS == "903841" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
+            if (codigoCUPS == "903846" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
+            if (codigoCUPS == "903868" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
+            if (codigoCUPS == "903869" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
+            if (codigoCUPS == "903883" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
+            if (codigoCUPS == "903895" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
+            if (codigoCUPS == "904902" && ambito == "")
+            {
+                ambitoCorregido = "1";
             }
             if (codigoCUPS == "906039" && ambito == "")
             {
@@ -1122,7 +1380,19 @@ namespace FilesFolders.Clases
             {
                 ambitoCorregido = "1";
             }
+            if (codigoCUPS == "906913" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
+            if (codigoCUPS == "907002" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
             if (codigoCUPS == "907004" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
+            if (codigoCUPS == "907106" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
@@ -1154,6 +1424,10 @@ namespace FilesFolders.Clases
             {
                 ambitoCorregido = "1";
             }
+            if (codigoCUPS == "993513" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
             if (codigoCUPS == "973800" && ambito == "")
             {
                 ambitoCorregido = "1";
@@ -1170,6 +1444,10 @@ namespace FilesFolders.Clases
             {
                 ambitoCorregido = "1";
             }
+            if (codigoCUPS == "993106" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
             if (codigoCUPS == "993120" && ambito == "")
             {
                 ambitoCorregido = "1";
@@ -1178,7 +1456,23 @@ namespace FilesFolders.Clases
             {
                 ambitoCorregido = "1";
             }
+            if (codigoCUPS == "993130" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
             if (codigoCUPS == "993501" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
+            if (codigoCUPS == "993502" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
+            if (codigoCUPS == "993504" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
+            if (codigoCUPS == "993512" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
@@ -1187,6 +1481,14 @@ namespace FilesFolders.Clases
                 ambitoCorregido = "1";
             }
             if (codigoCUPS == "993522" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
+            if (codigoCUPS == "995201" && ambito == "")
+            {
+                ambitoCorregido = "1";
+            }
+            if (codigoCUPS == "995202" && ambito == "")
             {
                 ambitoCorregido = "1";
             }
@@ -1252,19 +1554,6 @@ namespace FilesFolders.Clases
             {
                 split[10] = "CADA BOLSA POR 100 M";
             }
-
-            // MEDROXIPROGESTERONA Y ESTROGEN
-            if (codigoCUM == "20002868-3"  && Entidad == "SAVIASALUD")
-            {
-                codigoCUMCorregido = "19999216-1";
-            }
-
-            // CALCIO CARBONATO
-            if (codigoCUM == "19965399-4" && Entidad == "SAVIASALUD")
-            {
-                codigoCUMCorregido = "207110-1";
-            }
-
             //  SUCCINILCOLINA 40MG/2ML
             if (codigoCUM == "J07AM01" && Entidad == "SSSA")
             {
@@ -1285,20 +1574,145 @@ namespace FilesFolders.Clases
             {
                 codigoCUMCorregido = "20090031-1";
             }
+            // AMPICILINA + SULBACTAM 1.5 G
+            if (codigoCUM == "218004-19" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "19931216-5";
+            }
+            // ALBENDAZOL 400MG/20ML SUSPENSI
+            if (codigoCUM == "230417-6" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "230417-1";
+            }
+            // AMLODIPINO 10 MG
+            if (codigoCUM == "55894-16" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "55895-6";
+            }
+            // LEVETIRACETAM 1000 MG (CEUMID)
+            if (codigoCUM == "20007895-10" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "20007896-1";
+            }
+            // ACETATO DE MEDROXIPROGESTERONA
+            if (codigoCUM == "20175926-1" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "13854-2";
+            }
+            // OXACILINA 1 G POLVO EST?RIL PA
+            if (codigoCUM == "20080533-2" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "19953925-7";
+            }
+            // LEVODOPA
+            if (codigoCUM == "48898-23" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "1980397-1";
+            }
+            // LANSOPRAZOL CAPSULAS DE LIBERA
+            if (codigoCUM == "226859-10" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "19989033-3";
+            }
+            // ESOMEPRAZOL
+            if (codigoCUM == "19960407-13" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "19960407-9";
+            }
+            // ESOPRONT 40 MG TABLETAS RECU
+            if (codigoCUM == "20197137-5" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "20037098-12";
+            }
+            // DICLOFENACO SODICO 75 MG/ 3 ML
+            if (codigoCUM == "19986823-5" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "29151-2";
+            }
             // VACUNA ANTITETANICA
             if (codigoCUM == "19940997-05" && Entidad == "SSSA")
             {
                 codigoCUMCorregido = "29151-2";
+            }
+            // MIDAZOLAN 5MG/5ML (CTROL)
+            if (codigoCUM == "20198543-2" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "19940108-12";
+            }
+            // ERGOTAMINA TARTRATO 1MG + CAFE
+            if ((codigoCUM == "19912966-16" || codigoCUM == "20077272-7") && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "20077272-5";
+            }
+            // CLINDAMICINA 600 MG / 4 ML SOL
+            if (codigoCUM == "19943350-28" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "19943350-5";
+            }
+            // LEVOTIROXINA 25 MCG TABLETAS
+            if (codigoCUM == "20027645-37" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "20009747-7";
+            }
+            // LEVOTIROXINA SODICA 50 MCG (TIR,TABLETA
+            if (codigoCUM == "19960116-16" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "42722-2";
+            }
+            // EUTIROX 50 MCG
+            if (codigoCUM == "19976365-9" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "206776-12";
+            }
+            // SALES DE REHIDRATACION ORAL 20
+            if (codigoCUM == "19976587-3" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "20055558-7";
             }
             // DEXAMETASONA FOSFATO 8MG / 2 M
             if (codigoCUM == "19997625-07" && Entidad == "SSSA")
             {
                 codigoCUMCorregido = "28346-16";
             }
+            // LEVETIRACETAM 500 MG (CEUMID)
+            if (codigoCUM == "20007896-10" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "206776-12";
+            }
+            // CLOPIDOGREL 75 MG (PLATEMAX)
+            if (codigoCUM == "20056052-22" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "20011353-1";
+            }
             // SODIO CLORURO AL 0.9%
             if (codigoCUM == "20055558-07" && Entidad == "SSSA")
             {
                 codigoCUMCorregido = "51076-2";
+            }
+            // METOCLOPRAMIDA CLORHIDRATO SOLUCION
+            if (codigoCUM == "19903576-03" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "19903576-3";
+            }
+            // METOCLOPRAMIDA 10 MG/2 ML
+            if (codigoCUM == "20162259-4" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "19903576-3";
+            }
+            // ATORVASTATINA 40 MG TABLETAS
+            if (codigoCUM == "20007896-10" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "20085383-15";
+            }
+            // ESTROGENOS CONJUGADOS 0.625 MG
+            if (codigoCUM == "20157781-1" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "19963293-4";
+            }
+            // ILEINE,SUSPENSION INYECTABL
+            if (codigoCUM == "20175926-2" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "20007675-2";
             }
             // METAMIZOL SODICO( DIPIRONA)1G
             if ((codigoCUM == "19907058-02" || split[5] == "20055558-02") && Entidad == "SSSA")
@@ -1331,7 +1745,7 @@ namespace FilesFolders.Clases
                 codigoCUMCorregido = "20155033-1";
             }
             // HIDROCORTISONA 100 MG
-            if (codigoCUM == "19940721-05" && (Entidad == "SSSA" || Entidad == "SAVIASALUD"))
+            if (codigoCUM == "19940721-05" && Entidad == "SSSA")
             {
                 codigoCUMCorregido = "19940721-12";
             }
@@ -1346,74 +1760,54 @@ namespace FilesFolders.Clases
                 codigoCUMCorregido = "32606-1";
             }
             // ACIDO TRANEXAMICO 500 MG TABLE
-            if (codigoCUM == "20138453-1" && Entidad == "SSSA")
+            if (codigoCUM == "20138453-01" && Entidad == "SSSA")
             {
                 codigoCUMCorregido = "20072679-1";
-            }
-            // CLOZAPINA
-            if (codigoCUM == "19955124-1" && Entidad == "SAVIASALUD")
-            {
-                codigoCUMCorregido = "19974655-1";
-            }
-            // VALPROICO ACIDO
-            if (codigoCUM == "19956468-1" && Entidad == "SAVIASALUD")
-            {
-                codigoCUMCorregido = "20205262-1";
-            }
-            // ACETILSALICILICO ACIDO
-            if (codigoCUM == "19936296-8" && Entidad == "SAVIASALUD")
-            {
-                codigoCUMCorregido = "57642-1";
-            }
-            // IBUPROFENO
-            if (codigoCUM == "19980114-8" && Entidad == "SAVIASALUD")
-            {
-                codigoCUMCorregido = "51330-12";
-            }
-            // AMOXICILINA
-            if (codigoCUM == "20100042-1" && Entidad == "SAVIASALUD")
-            {
-                codigoCUMCorregido = "19957924-1";
-            }
-            // CLOPIDOGREL
-            if (codigoCUM == "20011353-1" && Entidad == "SAVIASALUD")
-            {
-                codigoCUMCorregido = "19933487-1";
-            }
-            // ALPRAZOLAM
-            if (codigoCUM == "20012839-1" && Entidad == "SAVIASALUD")
-            {
-                codigoCUMCorregido = "13874-1";
-            }
-            // TETANOS TOXOIDE
-            if (codigoCUM == "19940997-5" && Entidad == "SAVIASALUD")
-            {
-                codigoCUMCorregido = "29151-2";
-            }
-            // METILPREDNISOLONA
-            if (codigoCUM == "202576-1" && Entidad == "SAVIASALUD")
-            {
-                codigoCUMCorregido = "19990590-16";
             }
             // BETAMETASONA 4 MG/ML SOLUCION I
             if (codigoCUM == "19980025-14" && Entidad == "SSSA")
             {
                 codigoCUMCorregido = "19938121-3";
             }
-            // NISTATINA
-            if (codigoCUM == "19997076-2" && Entidad == "SAVIASALUD")
+            // OXIGENO MEDICINAL 1M3
+            if (codigoCUM == "20191559-31" && Entidad == "SSSA")
             {
-                codigoCUMCorregido = "19984679-4";
+                codigoCUMCorregido = "20011125-3";
             }
-            // GENTAMICINA
-            if (codigoCUM == "19997076-2" && Entidad == "SAVIASALUD")
+            // OXIGENO MEDICINAL 0.5 M3
+            if (codigoCUM == "20191559-10" && Entidad == "SSSA")
             {
-                codigoCUMCorregido = "28035-5";
+                codigoCUMCorregido = "20011125-3";
             }
-            // NIFEDIPINA
-            if (codigoCUM == "51316-2" && Entidad == "SAVIASALUD")
+            // OXIGENO MEDICINAL 6 M3
+            if (codigoCUM == "20191559-20" && Entidad == "SSSA")
             {
-                codigoCUMCorregido = "20025310-19";
+                codigoCUMCorregido = "19952050-9";
+            }
+            // VITAMINA A 50.000 UI
+            if (codigoCUM == "19960905-12" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "19924907-11";
+            }
+            // FEVENY CREMA 0.625MG/G VAGINA
+            if (codigoCUM == "19993161-4" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "19993239-1";
+            }
+            // VITAMIX 15
+            if (codigoCUM == "11781-21" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "19960905-11";
+            }
+            // PASTA DE CACAHUETE LECHE Y AZU
+            if (codigoCUM == "20113506-1" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "19960905-11";
+            }
+            // OXIGENO MEDICINAL 3.5 M3
+            if (codigoCUM == "20191559-16" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "20011125-3";
             }
             return codigoCUMCorregido;
         }
