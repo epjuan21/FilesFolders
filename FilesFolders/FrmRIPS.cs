@@ -1964,6 +1964,7 @@ namespace FilesFolders
                                         split[6].Substring(0, 2) == "67" ||
                                         split[6].Substring(0, 2) == "69" ||
                                         split[6].Substring(0, 2) == "73" ||
+                                        split[6].Substring(0, 2) == "83" ||
                                         split[6].Substring(0, 2) == "86" ||
                                         split[6].Substring(0, 2) == "87" ||
                                         split[6].Substring(0, 2) == "89" ||
@@ -1994,6 +1995,7 @@ namespace FilesFolders
                                         split[6].Substring(0, 2) == "69" ||
                                         split[6].Substring(0, 2) == "73" ||
                                         split[6].Substring(0, 2) == "79" ||
+                                        split[6].Substring(0, 2) == "83" ||
                                         split[6].Substring(0, 2) == "86" ||
                                         split[6].Substring(0, 2) == "87" ||
                                         split[6].Substring(0, 2) == "89" ||
