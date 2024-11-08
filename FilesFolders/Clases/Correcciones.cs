@@ -63,7 +63,7 @@ namespace FilesFolders.Clases
             if (TipoIdUsuario == "CE" && Edad > 17)
             {
                 documentoCorrecto = "AS";
-               
+
             }
             if (TipoIdUsuario == "CE" && Edad < 18)
             {
@@ -71,7 +71,7 @@ namespace FilesFolders.Clases
             }
 
             // Corregir Tipo de Documento CN
-            
+
             if (TipoIdUsuario == "CN" && Edad < 17)
             {
                 documentoCorrecto = "MS";
@@ -327,7 +327,7 @@ namespace FilesFolders.Clases
         /// <param name="codigoCUPSPos">Posición del Código CUPS en la línea evaluada</param>
         /// <param name="tipoArchivo">Indica el tipo de archivo Evaluado, las opciones son AC o AP</param>
         /// <returns>Retorna la Finalidad Corregida</returns>
-        public string CorregirFinalidad(ref string line, int codigoCUPSPos, int finalidadPos,  int diagnosticoPos, string tipoArchivo)
+        public string CorregirFinalidad(ref string line, int codigoCUPSPos, int finalidadPos, int diagnosticoPos, string tipoArchivo)
         {
             /*
                 Finalidades del Archivo AP
@@ -360,7 +360,7 @@ namespace FilesFolders.Clases
 
             string[] split = line.Split(',');
             string finalidad = split[finalidadPos];
-            string codigoCUPS  = split[codigoCUPSPos];
+            string codigoCUPS = split[codigoCUPSPos];
             string diagnostico = split[diagnosticoPos];
             string finalidadCorregida = finalidad;
 
@@ -369,9 +369,9 @@ namespace FilesFolders.Clases
             {
                 // CapItulo 16 CONSULTA, MONITORIZACION Y PROCEDIMIENTOS DIAGNOSTICOS
 
-                    // 89 CONSULTA, MEDICIONES ANATOMICAS, FISIOLOGICAS, EXAMENES MANUALES Y ANATOMOPATOLOGICOS
+                // 89 CONSULTA, MEDICIONES ANATOMICAS, FISIOLOGICAS, EXAMENES MANUALES Y ANATOMOPATOLOGICOS
 
-                        // 890 ENTREVISTA, CONSULTA Y EVALUACION [VALORACION]
+                // 890 ENTREVISTA, CONSULTA Y EVALUACION [VALORACION]
 
                 if (codigoCUPS == "890201" && finalidad == "")
                 {
@@ -421,25 +421,15 @@ namespace FilesFolders.Clases
                 {
                     finalidadCorregida = "10";
                 }
-
-                // Finalidad 07 Detección de alteraciones del adulto
-
-                if (finalidad != "" && diagnostico != "")
-                {
-                    if (finalidad != "10" && (diagnostico.Substring(0, 1) != "Z"))
-                    {
-                        finalidadCorregida = "10";
-                    }
-                }
             }
             #endregion
 
             #region AP
-            if(tipoArchivo == "AP")
+            if (tipoArchivo == "AP")
             {
                 // CapItulo 05 NARIZ, BOCA Y FARINGE
 
-                    // 21 PROCEDIMIENTOS EN NARIZ
+                // 21 PROCEDIMIENTOS EN NARIZ
 
                 if (codigoCUPS == "210200" && finalidad == "")
                 {
@@ -449,7 +439,7 @@ namespace FilesFolders.Clases
                 {
                     finalidadCorregida = "2";
                 }
-                    // 23 PROCEDIMIENTOS EN DIENTES
+                // 23 PROCEDIMIENTOS EN DIENTES
 
                 if (codigoCUPS == "232101" && finalidad == "")
                 {
@@ -468,7 +458,7 @@ namespace FilesFolders.Clases
                 {
                     finalidadCorregida = "2";
                 }
-                    // 54 OTROS PROCEDIMIENTOS EN ABDOMEN
+                // 54 OTROS PROCEDIMIENTOS EN ABDOMEN
 
                 if (codigoCUPS == "542700" && finalidad == "")
                 {
@@ -479,9 +469,9 @@ namespace FilesFolders.Clases
                     finalidadCorregida = "2";
                 }
 
-                    // 57 PROCEDIMIENTOS EN VEJIGA
+                // 57 PROCEDIMIENTOS EN VEJIGA
 
-                        // 579 OTROS PROCEDIMIENTOS EN VEJIGA
+                // 579 OTROS PROCEDIMIENTOS EN VEJIGA
 
                 if (codigoCUPS == "579401" && finalidad == "")
                 {
@@ -496,9 +486,9 @@ namespace FilesFolders.Clases
                     finalidadCorregida = "2";
                 }
 
-                    // 69 OTROS PROCEDIMIENTOS EN UTERO Y ESTRUCTURAS DE SOPORTE
+                // 69 OTROS PROCEDIMIENTOS EN UTERO Y ESTRUCTURAS DE SOPORTE
 
-                        // 697 INSERCION DE DISPOSITIVOS INTRAUTERINOS ANTICONCEPTIVOS
+                // 697 INSERCION DE DISPOSITIVOS INTRAUTERINOS ANTICONCEPTIVOS
 
                 if (codigoCUPS == "697101" && finalidad == "")
                 {
@@ -545,9 +535,9 @@ namespace FilesFolders.Clases
 
                 // Seccion 01 PROCEDIMIENTOS NO QUIRURGICOS
 
-                    // CapItulo 15 IMAGENOLOGIA
+                // CapItulo 15 IMAGENOLOGIA
 
-                        // 87 IMAGENOLOGIA RADIOLOGICA
+                // 87 IMAGENOLOGIA RADIOLOGICA
 
                 if (codigoCUPS == "870001" && finalidad == "")
                 {
@@ -704,9 +694,9 @@ namespace FilesFolders.Clases
 
                 // CapItulo 16 CONSULTA, MONITORIZACION Y PROCEDIMIENTOS DIAGNOSTICOS
 
-                    // 89 CONSULTA, MEDICIONES ANATOMICAS, FISIOLOGICAS, EXAMENES MANUALES Y ANATOMOPATOLOGICOS
+                // 89 CONSULTA, MEDICIONES ANATOMICAS, FISIOLOGICAS, EXAMENES MANUALES Y ANATOMOPATOLOGICOS
 
-                        // 890 ENTREVISTA, CONSULTA Y EVALUACION [VALORACION]
+                // 890 ENTREVISTA, CONSULTA Y EVALUACION [VALORACION]
 
                 if (codigoCUPS == "890301" && finalidad == "")
                 {
@@ -747,7 +737,7 @@ namespace FilesFolders.Clases
                     finalidadCorregida = "1";
                 }
 
-                        // 897 MONITORIZACION DE FETO
+                // 897 MONITORIZACION DE FETO
 
                 if (codigoCUPS == "897011" && finalidad == "")
                 {
@@ -984,7 +974,7 @@ namespace FilesFolders.Clases
 
                 // CapItulo 18 MEDICINA TRANSFUSIONAL Y BANCO DE SANGRE
 
-                    // 91 BANCO DE SANGRE Y MEDICINA TRANSFUSIONAL
+                // 91 BANCO DE SANGRE Y MEDICINA TRANSFUSIONAL
 
                 if (codigoCUPS == "911018" && finalidad == "")
                 {
@@ -997,7 +987,7 @@ namespace FilesFolders.Clases
 
                 // CapItulo 20 DESEMPEÑO FUNCIONAL Y REHABILITACION
 
-                    // 93 PROCEDIMIENTOS E INTERVENCIONES EN DESEMPEÑO FUNCIONAL, REHABILITACION Y RELACIONADOS
+                // 93 PROCEDIMIENTOS E INTERVENCIONES EN DESEMPEÑO FUNCIONAL, REHABILITACION Y RELACIONADOS
 
                 if (codigoCUPS == "935301" && finalidad == "")
                 {
@@ -1034,7 +1024,7 @@ namespace FilesFolders.Clases
 
                 // CapItulo 22 DIAGNOSTICO Y TRATAMIENTO EN SISTEMAS VISUAL Y AUDITIVO
 
-                    // 95 PROCEDIMIENTOS E INTERVENCIONES NO QUIRURGICOS RELACIONADOS CON EL OJO Y OIDO
+                // 95 PROCEDIMIENTOS E INTERVENCIONES NO QUIRURGICOS RELACIONADOS CON EL OJO Y OIDO
 
                 if (codigoCUPS == "950601" && finalidad == "")
                 {
@@ -1043,7 +1033,7 @@ namespace FilesFolders.Clases
 
                 // CapItulo 23 OTROS PROCEDIMIENTOS NO QUIRURGICOS
 
-                    // 96 INTUBACION E IRRIGACION NO QUIRURGICOS
+                // 96 INTUBACION E IRRIGACION NO QUIRURGICOS
 
                 if (codigoCUPS == "963300" && finalidad == "")
                 {
@@ -1062,7 +1052,7 @@ namespace FilesFolders.Clases
                     finalidadCorregida = "2";
                 }
 
-                    // 97 SUSTITUCION Y EXTRACCION DE DISPOSITIVOS TERAPEUTICOS
+                // 97 SUSTITUCION Y EXTRACCION DE DISPOSITIVOS TERAPEUTICOS
 
                 if (codigoCUPS == "977100" && finalidad == "")
                 {
@@ -1088,7 +1078,7 @@ namespace FilesFolders.Clases
 
                 // CapItulo 24 PROCEDIMIENTOS MISCELANEOS
 
-                    // 99 PROCEDIMIENTOS PROFILACTICOS, TERAPEUTICOS Y OTROS PROCEDIMIENTOS MISCELANEOS
+                // 99 PROCEDIMIENTOS PROFILACTICOS, TERAPEUTICOS Y OTROS PROCEDIMIENTOS MISCELANEOS
 
                 if (codigoCUPS == "992901" && finalidad == "")
                 {
@@ -1183,314 +1173,39 @@ namespace FilesFolders.Clases
                 Posición 7
             */
 
+            // Mapeo de los primeros tres caracteres de código CUPS a los valores de ambitoCorregido
+            var ambitoMap = new Dictionary<string, string>
+                    {
+                        { "230", "1" }, { "232", "1" }, { "697", "1" }, 
+                        { "861", "1" }, { "869", "1" }, { "865", "3" }, 
+                        { "862", "1" }, { "870", "1" }, { "871", "1" }, 
+                        { "872", "1" }, { "873", "1" }, { "890", "1" }, 
+                        { "892", "1" }, { "893", "1" }, { "895", "2" }, 
+                        { "897", "2" }, { "898", "2" }, { "901", "1" },
+                        { "902", "1" }, { "903", "1" }, { "904", "1" }, { "906", "1" },
+                        { "907", "1" }, { "908", "1" }, { "936", "1" },
+                        { "950", "1" }, { "911", "1" }, { "935", "1" },
+                        { "993", "1" }, { "963", "1" }, { "973", "1" },
+                        { "981", "3" }, { "982", "3" }, { "992", "1" },
+                        { "995", "1" }, { "997", "1" }
+                    };
+
+            // Dividir la línea en partes
             string[] split = line.Split(',');
+
+            // Obtener los valores de los índices proporcionados
             string codigoCUPS = split[codigoCUPSPos];
             string ambito = split[ambitoPos];
             string ambitoCorregido = ambito;
 
-            if (codigoCUPS == "232101" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "861203" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "869500" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "865101" && ambito == "")
-            {
-                ambitoCorregido = "3";
-            }
-            if (codigoCUPS == "862701" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "870112" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "871121" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "872011" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "873111" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }   
-            if (codigoCUPS == "873112" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "873422" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "890301" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "892901" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "893100" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "895001" && ambito == "")
-            {
-                ambitoCorregido = "2";
-            }
-            if (codigoCUPS == "895004" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "895100" && ambito == "")
-            {
-                ambitoCorregido = "2";
-            }
-            if (codigoCUPS == "897011" && ambito == "")
-            {
-                ambitoCorregido = "2";
-            }
-            if (codigoCUPS == "897012" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "901107" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "901235" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "901236" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "901237" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "901305" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "902210" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "902221" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "903016" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "903026" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "903028" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "903426" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "993503" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "993505" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "903604" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "903703" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "903815" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "903816" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "903818" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "903841" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "903846" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "903868" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "903869" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "903883" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "903895" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "904902" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "906039" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "906127" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "906129" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "906440" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "906913" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "907002" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "907004" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "907106" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "908856" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "936800" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "950601" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "911018" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "935302" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "993102" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "963300" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "993513" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "973800" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "981100" && ambito == "")
-            {
-                ambitoCorregido = "3";
-            }
-            if (codigoCUPS == "982102" && ambito == "")
-            {
-                ambitoCorregido = "3";
-            }
-            if (codigoCUPS == "992101" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "993106" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "993120" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "993122" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "993130" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "993501" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "993502" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "993504" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "993512" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "993520" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "993522" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "995201" && ambito == "")
-            {
-                ambitoCorregido = "1";
-            }
-            if (codigoCUPS == "995202" && ambito == "")
-            {
-                ambitoCorregido = "1";
+            // Verificar si el código CUPS está vacío y si los primeros tres caracteres coinciden en el diccionario
+            if (ambito == "" && codigoCUPS.Length >= 3)
+            {
+                string codigoCUPSKey = codigoCUPS.Substring(0, 3);
+                if (ambitoMap.TryGetValue(codigoCUPSKey, out string nuevoAmbito))
+                {
+                    ambitoCorregido = nuevoAmbito;
+                }
             }
             return ambitoCorregido;
         }
