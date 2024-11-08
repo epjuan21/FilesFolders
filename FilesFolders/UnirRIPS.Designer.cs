@@ -32,8 +32,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnRuta = new System.Windows.Forms.Button();
             this.txtRuta = new System.Windows.Forms.TextBox();
-            this.lblStatus = new System.Windows.Forms.Label();
-            this.prgBarNE = new System.Windows.Forms.ProgressBar();
             this.btnIniciar = new System.Windows.Forms.Button();
             this.fbdUnir = new System.Windows.Forms.FolderBrowserDialog();
             this.btnRutaDestino = new System.Windows.Forms.Button();
@@ -85,25 +83,9 @@
             this.txtRuta.Size = new System.Drawing.Size(330, 20);
             this.txtRuta.TabIndex = 4;
             // 
-            // lblStatus
-            // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(105, 281);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(37, 13);
-            this.lblStatus.TabIndex = 11;
-            this.lblStatus.Text = "Status";
-            // 
-            // prgBarNE
-            // 
-            this.prgBarNE.Location = new System.Drawing.Point(159, 277);
-            this.prgBarNE.Name = "prgBarNE";
-            this.prgBarNE.Size = new System.Drawing.Size(279, 23);
-            this.prgBarNE.TabIndex = 10;
-            // 
             // btnIniciar
             // 
-            this.btnIniciar.Location = new System.Drawing.Point(12, 271);
+            this.btnIniciar.Location = new System.Drawing.Point(12, 231);
             this.btnIniciar.Name = "btnIniciar";
             this.btnIniciar.Size = new System.Drawing.Size(84, 23);
             this.btnIniciar.TabIndex = 9;
@@ -168,15 +150,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(461, 306);
+            this.ClientSize = new System.Drawing.Size(461, 274);
             this.Controls.Add(this.txtCodigoHabilitacion);
             this.Controls.Add(this.lblCodigoHabilitacion);
             this.Controls.Add(this.lblNombreArchivos);
             this.Controls.Add(this.txtNombreArchivos);
             this.Controls.Add(this.txtRutaDestino);
             this.Controls.Add(this.btnRutaDestino);
-            this.Controls.Add(this.lblStatus);
-            this.Controls.Add(this.prgBarNE);
             this.Controls.Add(this.btnIniciar);
             this.Controls.Add(this.txtRuta);
             this.Controls.Add(this.btnRuta);
@@ -197,8 +177,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnRuta;
         private System.Windows.Forms.TextBox txtRuta;
-        private System.Windows.Forms.Label lblStatus;
-        private System.Windows.Forms.ProgressBar prgBarNE;
         private System.Windows.Forms.Button btnIniciar;
         private System.Windows.Forms.FolderBrowserDialog fbdUnir;
         private System.Windows.Forms.Button btnRutaDestino;
