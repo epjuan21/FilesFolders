@@ -526,7 +526,6 @@ namespace FilesFolders.Clases
             {
                 codigo = codigo.Substring(0, guionIndex);
             }
-
             return codigo;
         }
 
@@ -674,7 +673,7 @@ namespace FilesFolders.Clases
                 codigoCUMCorregido = "42722-2";
             }
             // EUTIROX 50 MCG
-            if (codigoCUM == "19976365-9" && Entidad == "SSSA")
+            if ((codigoCUM == "19976365-9" || codigoCUM == "19976365-10") && Entidad == "SSSA")
             {
                 codigoCUMCorregido = "206776-12";
             }
@@ -744,7 +743,7 @@ namespace FilesFolders.Clases
                 codigoCUMCorregido = "51716-1";
             }
             // ACETAMINOFEN 500 MG
-            if (codigoCUM == "19935303-04" && Entidad == "SSSA")
+            if ((codigoCUM == "19935303-04" || split[5] == "19986458-9") && Entidad == "SSSA")
             {
                 codigoCUMCorregido = "53560-3";
             }
@@ -774,7 +773,7 @@ namespace FilesFolders.Clases
                 codigoCUMCorregido = "32606-1";
             }
             // ACIDO TRANEXAMICO 500 MG TABLE
-            if (codigoCUM == "20138453-01" && Entidad == "SSSA")
+            if ((codigoCUM == "20138453-01" || split[5] == "20203819-1") && Entidad == "SSSA")
             {
                 codigoCUMCorregido = "20072679-1";
             }
