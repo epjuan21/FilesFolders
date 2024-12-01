@@ -189,7 +189,7 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
 
-                                if (chkBoxAFSSSAValdivia.CheckState == CheckState.Checked && (split[2] == "4000" || split[2] == "5002" || split[2] == "5005" || split[2] == "6002" || split[2] == "6003" || split[2] == "6007" || split[2] == "6011" || split[2] == "9001" || split[2] == "9004" || split[2] == "9007" || split[2] == "9011" || split[2] == "9015" || split[2] == "10034"))
+                                if (chkBoxAFSSSAValdivia.CheckState == CheckState.Checked && (split[2] == "4000" || split[2] == "5002" || split[2] == "5005" || split[2] == "6002" || split[2] == "6003" || split[2] == "6007" || split[2] == "6008" || split[2] == "6011" || split[2] == "9001" || split[2] == "9004" || split[2] == "9007" || split[2] == "9011" || split[2] == "9013" || split[2] == "9015" || split[2] == "9017" || split[2] == "10034"))
                                 {
                                     split[2] = "05854";
                                     line = String.Join(",", split);
@@ -512,6 +512,13 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "890201" && split[7] == "06" && split[8] == "27" && split[9].StartsWith("Z"))
+                                {
+                                    split[8] = "15";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
                                 if (split[6] == "890203" && split[8] == "")
                                 {
                                     split[8] = "13";
@@ -644,12 +651,32 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
 
+                                // M150 (OSTEO)ARTROSIS PRIMARIA GENERALIZADA
+                                // M983 OTRAS OSTEOCONDROPATIAS ESPECIFICADAS
+                                if (split[9] == "M150" && EdadUsuario < 15 && UnidadMedidaEdad == "1")
+                                {
+                                    split[9] = "M938";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
                                 if (split[9] == "M329")
                                 {
                                     split[9] = "M331";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+
+                                // M913 PSEUDOCOXALGIA
+
+                                if (split[9] == "M150" && EdadUsuario < 10 && EdadUsuario > 17 && UnidadMedidaEdad == "1")
+                                {
+                                    split[9] = "M153";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+
                                 if (split[9] == "")
                                 {
                                     split[9] = "R101";
@@ -703,6 +730,12 @@ namespace FilesFolders
                                     if (split[9] == "K649")
                                     {
                                         split[9] = "I48X";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[9] == "M150")
+                                    {
+                                        split[9] = "M199";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
@@ -1595,6 +1628,14 @@ namespace FilesFolders
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
+
+                                    if (split[10] == "E640" && EdadUsuario <= 11 && UnidadMedidaEdad == "2")
+                                    {
+                                        split[10] = "E649";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+
                                     if (split[10] == "K649")
                                     {
                                         split[10] = "I842";
@@ -3348,7 +3389,7 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
 
-                                if (chkBoxAFSSSAValdivia.CheckState == CheckState.Checked && (split[8] == "FMS001" || split[8] == "4000" || split[8] == "5002" || split[8] == "5005" || split[8] == "6002" || split[8] == "6003" || split[8] == "6007" || split[8] == "6011" || split[8] == "9001" || split[8] == "9004" || split[8] == "9007" || split[8] == "9011" || split[8] == "9015" || split[8] == "9017" || split[8] == "10034"))
+                                if (chkBoxAFSSSAValdivia.CheckState == CheckState.Checked && (split[8] == "FMS001" || split[8] == "4000" || split[8] == "5002" || split[8] == "5005" || split[8] == "6002" || split[8] == "6003" || split[8] == "6007" || split[8] == "6008" || split[8] == "6011" || split[8] == "9001" || split[8] == "9004" || split[8] == "9007" || split[8] == "9011" || split[8] == "9013" || split[8] == "9015" || split[8] == "9017" || split[8] == "10034"))
                                 {
                                     split[8] = "05854";
                                     line = String.Join(",", split);
