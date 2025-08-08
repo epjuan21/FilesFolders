@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -180,7 +181,11 @@ namespace FilesFolders.Clases
             {
                 codigoCUPSCorregido = "895004";
             }
-
+            // I30103 ADMINISTRACION [APLICACION] DE INTERVENCION BREVE
+            if (codigoCUPS == "I30103")
+            {
+                codigoCUPSCorregido = "869501";
+            }
             if (codigoCUPS == "00022" || codigoCUPS == "0019")
             {
                 codigoCUPSCorregido = "869501";
@@ -318,143 +323,6 @@ namespace FilesFolders.Clases
         }
 
         /// <summary>
-        /// Corrige Finalidad en AP y AC
-        /// </summary>
-        /// <param name="line">Indica la linea en la que se encuentra el ciclo</param>
-        /// <param name="finalidadPos">Posición la finalidad en la línea evaluada</param>
-        /// <param name="diagnosticoPos">Posición del Diagnóstico Principal en la línea evaluada</param>
-        /// <param name="codigoCUPSPos">Posición del Código CUPS en la línea evaluada</param>
-        /// <param name="tipoArchivo">Indica el tipo de archivo Evaluado, las opciones son AC o AP</param>
-        /// <returns>Retorna la Finalidad Corregida</returns>
-        public string CorregirFinalidad(ref string line, int codigoCUPSPos, int finalidadPos, int diagnosticoPos, string tipoArchivo)
-        {
-            /*
-                Finalidades del Archivo AP
-
-                1 = Diagnostico
-                2 = Terapeutico
-                3 = Protección Especifica
-                4 = Detección Temprana de Enfermedad General
-                5 = Detección Temprana de Enfermedad Profesinoal
-
-                Posición Finalidad en el AP : 8
-
-                |-------------------------------------------------------------------------------|
-
-                Finalidades del Archvio AC
-
-                01 = Atención del parto (puerperio)
-                02 = Atención del recién nacido
-                03 = Atención de planificación familiar
-                04 = Detección de alteraciones de crecimiento y desarrollo del menor de diez años
-                05 = Detección de alteración de desarrollo joven
-                06 = Detección de alteraciones del embarazo
-                07 = Detección de alteraciones del adulto
-                08 = Detección de alteraciones de agudeza visual
-                09 = Detección de enfermedad profesional
-                10 = No Aplica
-
-                Posición Finalidad en el AC : 7
-            */
-
-            string[] split = line.Split(',');
-            string finalidad = split[finalidadPos];
-            string codigoCUPS = split[codigoCUPSPos];
-            string diagnostico = split[diagnosticoPos];
-            string finalidadCorregida = finalidad;
-
-            #region AC
-            if (tipoArchivo == "AC")
-            {
-                // CapItulo 16 CONSULTA, MONITORIZACION Y PROCEDIMIENTOS DIAGNOSTICOS
-
-                // 89 CONSULTA, MEDICIONES ANATOMICAS, FISIOLOGICAS, EXAMENES MANUALES Y ANATOMOPATOLOGICOS
-
-                // 890 ENTREVISTA, CONSULTA Y EVALUACION [VALORACION]
-
-                if (codigoCUPS == "890201" && finalidad == "")
-                {
-                    finalidadCorregida = "10";
-                }
-                if (codigoCUPS == "890201" && finalidad == "42")
-                {
-                    finalidadCorregida = "03";
-                }
-                if (codigoCUPS == "890203" && finalidad == "")
-                {
-                    finalidadCorregida = "10";
-                }
-                if (codigoCUPS == "890205" && finalidad == "20")
-                {
-                    finalidadCorregida = "03";
-                }
-                if (codigoCUPS == "890301" && finalidad == "")
-                {
-                    finalidadCorregida = "10";
-                }
-                if (codigoCUPS == "890301" && finalidad == "42")
-                {
-                    finalidadCorregida = "03";
-                }
-                if (codigoCUPS == "890305" && finalidad == "")
-                {
-                    finalidadCorregida = "04";
-                }
-                if (codigoCUPS == "890305" && finalidad == "" && (diagnostico == "Z300" || diagnostico == "Z304"))
-                {
-                    finalidadCorregida = "03";
-                }
-                if (codigoCUPS == "890305" && finalidad == "42" && (diagnostico == "Z300" || diagnostico == "Z304"))
-                {
-                    finalidadCorregida = "03";
-                }
-                if (codigoCUPS == "890601" && finalidad == "")
-                {
-                    finalidadCorregida = "10";
-                }
-                if (codigoCUPS == "890701" && finalidad == "")
-                {
-                    finalidadCorregida = "10";
-                }
-                if (codigoCUPS == "890703" && finalidad == "")
-                {
-                    finalidadCorregida = "10";
-                }
-            }
-            #endregion
-
-            #region AP
-            if (tipoArchivo == "AP")
-            {
-                // Diccionario para mapear los primeros tres caracteres de códigos CUPS a la finalidad correspondiente
-                Dictionary<string, string> codigosFinalidad = new Dictionary<string, string>
-                {
-                    { "210", "2" }, { "211", "2" }, { "230", "2" }, { "232", "2" }, 
-                    { "389", "2" },
-                    { "542", "2" }, { "579", "2" }, { "697", "3" }, { "797", "2" },
-                    { "861", "2" }, { "865", "2" }, { "869", "2" }, { "870", "1" },
-                    { "871", "1" }, { "872", "1" }, { "873", "1" }, { "890", "4" },
-                    { "892", "4" }, { "893", "4" }, { "895", "1" }, { "897", "1" },
-                    { "898", "1" }, { "901", "1" }, { "902", "1" }, { "903", "1" }, 
-                    { "904", "1" }, { "906", "1" }, { "907", "1" }, { "908", "1" }, { "911", "1" }, { "931", "2" },
-                    { "990", "3" }, { "993", "1" }, { "997", "1" }
-                };
-
-                // Truncar a los primeros tres caracteres de `codigoCUPS`
-                string codigoCUPSTruncado = codigoCUPS.Length >= 3 ? codigoCUPS.Substring(0, 3) : codigoCUPS;
-
-                // Verificar si la finalidad está vacía y si el código truncado está en el diccionario
-                if (finalidad == "" && codigosFinalidad.TryGetValue(codigoCUPSTruncado, out string nuevaFinalidad))
-                {
-                    return nuevaFinalidad;
-                }
-            }
-            #endregion
-
-            return finalidadCorregida;
-        }
-
-        /// <summary>
         /// Corrige Ambito en AP
         /// </summary>
         /// <param name="line">Indica la linea en la que se encuentra el ciclo</param>
@@ -508,6 +376,221 @@ namespace FilesFolders.Clases
                 }
             }
             return ambitoCorregido;
+        }
+
+        /// <summary>
+        /// Corrige Finalidad en AP y AC
+        /// </summary>
+        /// <param name="line">Indica la linea en la que se encuentra el ciclo</param>
+        /// <param name="finalidadPos">Posición la finalidad en la línea evaluada</param>
+        /// <param name="diagnosticoPos">Posición del Diagnóstico Principal en la línea evaluada</param>
+        /// <param name="codigoCUPSPos">Posición del Código CUPS en la línea evaluada</param>
+        /// <param name="tipoArchivo">Indica el tipo de archivo Evaluado, las opciones son AC o AP</param>
+        /// <param name="edadUsuario">Indica la Edad del Usuario</param>
+        /// <param name="unidadMedidaEdadUsuario">Indica la UNidad de la Edad del Usuario: 1 Años, 2 Meses, 3 Dias</param>
+        /// <returns>Retorna la Finalidad Corregida</returns>
+        public string CorregirFinalidad(ref string line, int codigoCUPSPos, int finalidadPos, int diagnosticoPos, string tipoArchivo, int edadUsuario, string unidadMedidaEdadUsuario)
+        {
+            /*
+                Finalidades del Archivo AP
+
+                1 = Diagnostico
+                2 = Terapeutico
+                3 = Protección Especifica
+                4 = Detección Temprana de Enfermedad General
+                5 = Detección Temprana de Enfermedad Profesinoal
+
+                Posición Finalidad en el AP : 8
+
+                |-------------------------------------------------------------------------------|
+
+                Finalidades del Archvio AC
+
+                01 = Atención del parto (puerperio)
+                02 = Atención del recién nacido
+                03 = Atención de planificación familiar
+                04 = Detección de alteraciones de crecimiento y desarrollo del menor de diez años
+                05 = Detección de alteración de desarrollo joven
+                06 = Detección de alteraciones del embarazo
+                07 = Detección de alteraciones del adulto
+                08 = Detección de alteraciones de agudeza visual
+                09 = Detección de enfermedad profesional
+                10 = No Aplica
+
+                Posición Finalidad en el AC : 7
+            */
+
+            string[] split = line.Split(',');
+            string finalidad = split[finalidadPos];
+            string codigoCUPS = split[codigoCUPSPos];
+            string diagnostico = split[diagnosticoPos];
+            string finalidadCorregida = finalidad;
+
+            #region AC
+            if (tipoArchivo == "AC")
+            {
+                // CapItulo 16 CONSULTA, MONITORIZACION Y PROCEDIMIENTOS DIAGNOSTICOS
+
+                // 89 CONSULTA, MEDICIONES ANATOMICAS, FISIOLOGICAS, EXAMENES MANUALES Y ANATOMOPATOLOGICOS
+
+                // 890 ENTREVISTA, CONSULTA Y EVALUACION [VALORACION]
+
+                if (codigoCUPS == "890114" && finalidad == "11" && (diagnostico == "Z000" || diagnostico == "Z001" || diagnostico == "Z002"))
+                {
+                    finalidadCorregida = "04";
+                }
+
+                if (codigoCUPS == "890114" && finalidad == "11" && (diagnostico == "Z003"))
+                {
+                    finalidadCorregida = "05";
+                }
+
+                if (codigoCUPS == "890114" && finalidad == "11" && (diagnostico == "Z008" || diagnostico == "Z019" || diagnostico == "Z108"))
+                {
+                    finalidadCorregida = "07";
+                }
+
+                // 890201
+
+                // 07 = Detección de alteraciones del adulto
+                if (codigoCUPS == "890201" && finalidad == "11" && (diagnostico == "Z108" || diagnostico == "Z018" || diagnostico == "Z019" ) && edadUsuario >= 18 && unidadMedidaEdadUsuario == "1")
+                {
+                    finalidadCorregida = "07";
+                }
+
+                // 06 = Detección de alteraciones del embarazo
+                if (codigoCUPS == "890201" && finalidad == "21" && diagnostico == "Z321")
+                {
+                    finalidadCorregida = "06";
+                }
+
+                if (codigoCUPS == "890201" && finalidad == "")
+                {
+                    finalidadCorregida = "10";
+                }
+                if (codigoCUPS == "890201" && finalidad == "11" && !diagnostico.StartsWith("Z"))
+                {
+                    finalidadCorregida = "10";
+                }
+                if (codigoCUPS == "890201" && finalidad == "14")
+                {
+                    finalidadCorregida = "10";
+                }
+                if (codigoCUPS == "890201" && finalidad == "42")
+                {
+                    finalidadCorregida = "03";
+                }
+                if (codigoCUPS == "890203" && finalidad == "")
+                {
+                    finalidadCorregida = "10";
+                }
+                if (codigoCUPS == "890203" && finalidad == "4")
+                {
+                    finalidadCorregida = "04";
+                }
+                
+                // 04 = Detección de alteraciones de crecimiento y desarrollo del menor de diez años
+
+                if (codigoCUPS == "890203" && finalidad == "11" && (edadUsuario < 10 && unidadMedidaEdadUsuario == "1") && (diagnostico == "Z002"))
+                {
+                    finalidadCorregida = "04";
+                }
+                if (codigoCUPS == "890203" && finalidad == "11" && (edadUsuario >= 10 && edadUsuario < 18) && unidadMedidaEdadUsuario == "1")
+                {
+                    finalidadCorregida = "05";
+                }
+                if (codigoCUPS == "890203" && finalidad == "11" && edadUsuario > 18 && unidadMedidaEdadUsuario == "1" && (diagnostico == "Z108" || diagnostico == "Z012"))
+                {
+                    finalidadCorregida = "07";
+                }
+                if (codigoCUPS == "890205" && finalidad == "4" && !diagnostico.StartsWith("Z"))
+                {
+                    finalidadCorregida = "10";
+                }
+                if (codigoCUPS == "890205" && finalidad == "20")
+                {
+                    finalidadCorregida = "03";
+                }
+
+                // 890301
+
+                if (codigoCUPS == "890301" && finalidad == "12" && !diagnostico.StartsWith("Z"))
+                {
+                    finalidadCorregida = "10";
+                }
+
+                if (codigoCUPS == "890301" && finalidad == "")
+                {
+                    finalidadCorregida = "10";
+                }
+                if (codigoCUPS == "890301" && finalidad == "42")
+                {
+                    finalidadCorregida = "03";
+                }
+                if (codigoCUPS == "890305" && finalidad == "")
+                {
+                    finalidadCorregida = "04";
+                }
+                if (codigoCUPS == "890305" && finalidad == "" && (diagnostico == "Z300" || diagnostico == "Z304"))
+                {
+                    finalidadCorregida = "03";
+                }
+                if (codigoCUPS == "890305" && finalidad == "42" && (diagnostico == "Z300" || diagnostico == "Z304"))
+                {
+                    finalidadCorregida = "03";
+                }
+                if (codigoCUPS == "890601" && finalidad == "")
+                {
+                    finalidadCorregida = "10";
+                }
+                if (codigoCUPS == "890701" && finalidad == "14")
+                {
+                    finalidadCorregida = "10";
+                }
+                if (codigoCUPS == "890701" && finalidad == "")
+                {
+                    finalidadCorregida = "10";
+                }
+                if (codigoCUPS == "890703" && finalidad == "15")
+                {
+                    finalidadCorregida = "10";
+                }
+                if (codigoCUPS == "890703" && finalidad == "")
+                {
+                    finalidadCorregida = "10";
+                }
+            }
+            #endregion
+
+            #region AP
+            if (tipoArchivo == "AP")
+            {
+                // Diccionario para mapear los primeros tres caracteres de códigos CUPS a la finalidad correspondiente
+                Dictionary<string, string> codigosFinalidad = new Dictionary<string, string>
+                {
+                    { "I30", "2" }, { "210", "2" }, { "211", "2" }, { "230", "2" }, { "232", "2" }, 
+                    { "389", "2" }, { "542", "2" }, { "579", "2" }, { "697", "3" }, 
+                    { "797", "2" }, { "861", "2" }, { "865", "2" }, { "869", "2" }, 
+                    { "870", "1" }, { "871", "1" }, { "872", "1" }, { "873", "1" }, 
+                    { "890", "4" }, { "892", "4" }, { "893", "4" }, { "895", "1" }, 
+                    { "897", "1" }, { "898", "1" }, { "901", "1" }, { "902", "1" }, 
+                    { "903", "1" }, { "904", "1" }, { "906", "1" }, { "907", "1" }, 
+                    { "908", "1" }, { "911", "1" }, { "931", "2" }, { "936", "2" }, { "965", "2" },{ "973", "2" },
+                    { "990", "3" }, { "993", "1" }, { "997", "1" }
+                };
+
+                // Truncar a los primeros tres caracteres de `codigoCUPS`
+                string codigoCUPSTruncado = codigoCUPS.Length >= 3 ? codigoCUPS.Substring(0, 3) : codigoCUPS;
+
+                // Verificar si la finalidad está vacía y si el código truncado está en el diccionario
+                if (finalidad == "" && codigosFinalidad.TryGetValue(codigoCUPSTruncado, out string nuevaFinalidad))
+                {
+                    return nuevaFinalidad;
+                }
+            }
+            #endregion
+
+            return finalidadCorregida;
         }
 
         /// <summary>
@@ -594,7 +677,7 @@ namespace FilesFolders.Clases
                 codigoCUMCorregido = "19931216-5";
             }
             // ALBENDAZOL 400MG/20ML SUSPENSI
-            if (codigoCUM == "230417-6" && Entidad == "SSSA")
+            if ((codigoCUM == "230417-6" || codigoCUM == "19941968-7") && Entidad == "SSSA")
             {
                 codigoCUMCorregido = "230417-1";
             }
@@ -628,6 +711,16 @@ namespace FilesFolders.Clases
             {
                 codigoCUMCorregido = "19989033-3";
             }
+            // OMEPRAZOL 40 MG SOLUCION INYECTABLE
+            if (codigoCUM == "20199295-2" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "19927187-2";
+            }
+            // PIRANTEL PAMOATO 250MG/5ML SUSPENSION
+            if (codigoCUM == "25796-3" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "19936539-3";
+            }
             // ESOMEPRAZOL
             if (codigoCUM == "19960407-13" && Entidad == "SSSA")
             {
@@ -648,10 +741,25 @@ namespace FilesFolders.Clases
             {
                 codigoCUMCorregido = "29151-2";
             }
+            // ZINC-OLICOL SOLUCION ORAL
+            if (codigoCUM == "20011479-7" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "20020942-1";
+            }
+            // NIMODIPINO 30 MG
+            if (codigoCUM == "19976349-11" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "20017240-6";
+            }
             // MIDAZOLAN 5MG/5ML (CTROL)
             if (codigoCUM == "20198543-2" && Entidad == "SSSA")
             {
-                codigoCUMCorregido = "19940108-12";
+                codigoCUMCorregido = "19928176-1";
+            }
+            // CEFALOTINA 1G
+            if (codigoCUM == "20196204-2" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "20077272-5";
             }
             // ERGOTAMINA TARTRATO 1MG + CAFE
             if ((codigoCUM == "19912966-16" || codigoCUM == "20077272-7") && Entidad == "SSSA")
@@ -747,7 +855,7 @@ namespace FilesFolders.Clases
                 codigoCUMCorregido = "33644-4";
             }
             // HIOSCINA N-BUTIL BROMURO + DIP
-            if (codigoCUM == "19926478-03" && Entidad == "SSSA")
+            if ((codigoCUM == "19926478-03" || codigoCUM == "20139178-2") && Entidad == "SSSA")
             {
                 codigoCUMCorregido = "36344-1";
             }
@@ -787,14 +895,34 @@ namespace FilesFolders.Clases
                 codigoCUMCorregido = "32606-1";
             }
             // ACIDO TRANEXAMICO 500 MG TABLE
-            if ((codigoCUM == "20138453-01" || split[5] == "20203819-1") && Entidad == "SSSA")
+            if ((codigoCUM == "20138453-01" || codigoCUM == "20138453-1") && Entidad == "SSSA")
             {
                 codigoCUMCorregido = "20072679-1";
+            }
+            // ACIDO ASCORBICO 100MG/ML SOLUCION
+            if ((codigoCUM == "21740-4") && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "19973813-1";
             }
             // BETAMETASONA 4 MG/ML SOLUCION I
             if (codigoCUM == "19980025-14" && Entidad == "SSSA")
             {
                 codigoCUMCorregido = "19938121-3";
+            }
+            // BETAMETASONA 8MG/2ML SOLUCIN
+            if (codigoCUM == "20178642-3" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "20006939-1";
+            }
+            // FLUOXETINA 20MG
+            if (codigoCUM == "47547-8" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "19969413-3";
+            }
+            // KETOTIFENO
+            if (codigoCUM == "19984823-1" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "19930002-2";
             }
             // OXIGENO MEDICINAL 1M3
             if (codigoCUM == "20191559-31" && Entidad == "SSSA")
@@ -822,7 +950,7 @@ namespace FilesFolders.Clases
                 codigoCUMCorregido = "19993239-1";
             }
             // VITAMIX 15
-            if (codigoCUM == "11781-21" && Entidad == "SSSA")
+            if ((codigoCUM == "11781-21" || codigoCUM == "20199440-88") && Entidad == "SSSA")
             {
                 codigoCUMCorregido = "19960905-11";
             }
@@ -830,6 +958,21 @@ namespace FilesFolders.Clases
             if (codigoCUM == "20113506-1" && Entidad == "SSSA")
             {
                 codigoCUMCorregido = "19960905-11";
+            }
+            // PENICILINA G SODICA 1.000.000
+            if (codigoCUM == "220027-21" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "19932313-1";
+            }
+            // SULFASALAZINA 500 MG
+            if (codigoCUM == "20168960-1" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "17129-1";
+            }
+            // AMOXICLIN DUO
+            if (codigoCUM == "20147981-1" && Entidad == "SSSA")
+            {
+                codigoCUMCorregido = "19949568-1";
             }
             // OXIGENO MEDICINAL 3.5 M3
             if (codigoCUM == "20191559-16" && Entidad == "SSSA")

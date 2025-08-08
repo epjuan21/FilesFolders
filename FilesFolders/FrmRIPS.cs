@@ -199,8 +199,8 @@ namespace FilesFolders
                                 if (
                                         chkBoxEAPBUS.CheckState == CheckState.Checked &&
                                         (codigoEntidadAdministradora == "DLS001" ||
-                                        codigoEntidadAdministradora == "FMS001" || 
-                                        codigoEntidadAdministradora == "AT1501" || 
+                                        codigoEntidadAdministradora == "FMS001" ||
+                                        codigoEntidadAdministradora == "AT1501" ||
                                         codigoEntidadAdministradora == "36906" ||
                                         codigoEntidadAdministradora == "CCF30" ||
                                         codigoEntidadAdministradora == "36937"
@@ -398,6 +398,7 @@ namespace FilesFolders
 
                                 int EdadUsuario = CArchivos.ObtenerEdad(split[3], dirPath);
                                 string UnidadMedidaEdad = CArchivos.ObtenerUnidadMedidaEdad(split[3], dirPath);
+                                string Sexo = CArchivos.ObtenerSexoUsuario(split[3], dirPath);
 
                                 #region Factura
                                 // Número Factura - Posición 0
@@ -476,7 +477,7 @@ namespace FilesFolders
                                         contadorErrores++;
                                     }
                                 }
-                                
+
                                 #endregion
 
                                 #region CUPS
@@ -498,7 +499,7 @@ namespace FilesFolders
 
                                 // Finalidad - Posicion 7
 
-                                split[7] = Correcciones.CorregirFinalidad(ref line, 6, 7, 9, "AC");
+                                split[7] = Correcciones.CorregirFinalidad(ref line, 6, 7, 9, "AC", EdadUsuario, UnidadMedidaEdad);
                                 line = String.Join(",", split);
                                 contadorErrores++;
 
@@ -506,6 +507,34 @@ namespace FilesFolders
 
                                 #region Causa Externa
                                 // Causa Externa - Posicion 8
+
+                                // Si Causa Externa esta vacía y diagnostico no empieza por Z, se asigna 13 - No aplica
+
+                                if (split[8] == "" && !split[9].StartsWith("Z"))
+                                {
+                                    split[8] = "13";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                // Si Causa Externa es igual a 25 y diagnostico empieza por Z, se asigna 15 - Otra
+
+                                if (split[8] == "25" && split[9].StartsWith("Z"))
+                                {
+                                    split[8] = "15";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
+                                // Si Causa Externa es igual a 25 y diagnostico No empieza por Z, se asigna 15 - Otra
+
+                                if (split[8] == "25" && !split[9].StartsWith("Z"))
+                                {
+                                    split[8] = "15";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
                                 if (split[6] == "890201" && split[8] == "")
                                 {
                                     split[8] = "13";
@@ -518,7 +547,6 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-
                                 if (split[6] == "890203" && split[8] == "")
                                 {
                                     split[8] = "13";
@@ -531,12 +559,20 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-                                if (split[6] == "890205" &&split[7] == "04" && split[8] == "")
+                                if (split[6] == "890205" && split[7] == "04" && split[8] == "")
                                 {
                                     split[8] = "15";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+
+                                if (split[6] == "890283" && split[7] == "10" && split[8] == "")
+                                {
+                                    split[8] = "13";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+
                                 if (split[6] == "890301" && split[8] == "")
                                 {
                                     split[8] = "13";
@@ -650,7 +686,6 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-
                                 // M150 (OSTEO)ARTROSIS PRIMARIA GENERALIZADA
                                 // M983 OTRAS OSTEOCONDROPATIAS ESPECIFICADAS
                                 if (split[9] == "M150" && EdadUsuario < 15 && UnidadMedidaEdad == "1")
@@ -666,9 +701,7 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
-
-                                // M913 PSEUDOCOXALGIA
-
+                                // M913 PSEUDOCOXALGIA de 10 a 17 años
                                 if (split[9] == "M150" && EdadUsuario < 10 && EdadUsuario > 17 && UnidadMedidaEdad == "1")
                                 {
                                     split[9] = "M153";
@@ -676,6 +709,14 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
 
+                                // O60X
+                                // O600 TRABAJO DE PARTO PREMATURO SIN PARTO	
+                                if (split[9] == "O60X")
+                                {
+                                    split[9] = "O600";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
 
                                 if (split[9] == "")
                                 {
@@ -739,6 +780,11 @@ namespace FilesFolders
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
+                                    if (split[9] == "M154")
+                                    {
+                                        split[9] = "L932";
+                                        line = String.Join(",", split);
+                                    }
                                     if (split[9] == "M179")
                                     {
                                         split[9] = "L932";
@@ -748,6 +794,13 @@ namespace FilesFolders
                                     if (split[9] == "M321")
                                     {
                                         split[9] = "L932";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    // M911 OSTEOCONDROSIS JUVENIL DE LA CABEZA DEL FEMUR [LEGG-CALVE-PERTHES] 5 a 17 años
+                                    if (split[9] == "M911")
+                                    {
+                                        split[9] = "M429";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
@@ -802,6 +855,13 @@ namespace FilesFolders
                                     if (split[9] == "Z00")
                                     {
                                         split[9] = "Z000";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    // Z380 PRODUCTO UNICO, NACIDO EN HOSPITAL	de 0 a 27 dias
+                                    if (split[9] == "Z380")
+                                    {
+                                        split[9] = "Z001";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
@@ -1183,6 +1243,18 @@ namespace FilesFolders
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
+                                    if (split[11] == "N184")
+                                    {
+                                        split[11] = "N188";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[11] == "N912" && Sexo == "M")
+                                    {
+                                        split[11] = "";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                 }
                                 #endregion
 
@@ -1267,6 +1339,12 @@ namespace FilesFolders
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
+                                    if (split[12] == "N912" && Sexo == "M")
+                                    {
+                                        split[12] = "";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
                                     if (split[12] == "N184")
                                     {
                                         split[12] = "N188";
@@ -1320,8 +1398,7 @@ namespace FilesFolders
 
                                 #region Valor Consulta
 
-                                // Valor consulta - Posición 14
-
+                                // Valor consulta - Posición 1
                                 string valorConsulta = split[14];
 
                                 double valorConsultaDouble;
@@ -1581,7 +1658,7 @@ namespace FilesFolders
                                 #region Finalidad
                                 // Finalidad - Posición 8
 
-                                split[8] = Correcciones.CorregirFinalidad(ref line, 6, 8, 10, "AP");
+                                split[8] = Correcciones.CorregirFinalidad(ref line, 6, 8, 10, "AP", EdadUsuario, UnidadMedidaEdad);
                                 line = String.Join(",", split);
 
                                 #endregion
@@ -1663,6 +1740,12 @@ namespace FilesFolders
                                     if (split[10] == "N184")
                                     {
                                         split[10] = "N188";
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                    if (split[10] == "M165" && EdadUsuario < 15 && UnidadMedidaEdad == "1")
+                                    {
+                                        split[10] = "K004";
                                         line = String.Join(",", split);
                                         contadorErrores++;
                                     }
@@ -2535,6 +2618,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[5] == "" && split[6] == "103104")
+                                {
+                                    split[5] = "1";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[5] == "4" && split[6] == "S11104")
                                 {
                                     split[5] = "3";
@@ -3382,14 +3471,14 @@ namespace FilesFolders
                                 #region CodigoEntidad
 
                                 // Codigo entidad administradora - Posición 8
-                                if (chkBoxAFSSSA.CheckState == CheckState.Checked && (split[8] == "DLS001" || split[8] == "36937"))
+                                if (chkBoxAFSSSA.CheckState == CheckState.Checked && (split[8] == "DLS001" || split[8] == "CCF30" || split[8] == "36937" || split[8] == "FMS001" || split[8] == "1404"))
                                 {
                                     split[8] = "05091";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
 
-                                if (chkBoxAFSSSAValdivia.CheckState == CheckState.Checked && (split[8] == "FMS001" || split[8] == "4000" || split[8] == "5002" || split[8] == "5005" || split[8] == "6002" || split[8] == "6003" || split[8] == "6007" || split[8] == "6008" || split[8] == "6011" || split[8] == "9001" || split[8] == "9004" || split[8] == "9007" || split[8] == "9011" || split[8] == "9013" || split[8] == "9015" || split[8] == "9017" || split[8] == "10034"))
+                                if (chkBoxAFSSSAValdivia.CheckState == CheckState.Checked && (split[8] == "FMS001" || split[8] == "4000" || split[8] == "5002" || split[8] == "5005" || split[8] == "6002" || split[8] == "6003" || split[8] == "6007" || split[8] == "6008" || split[8] == "6011" || split[8] == "9001" || split[8] == "9004" || split[8] == "9007" || split[8] == "9011" || split[8] == "9013" || split[8] == "9015" || split[8] == "9017" || split[8] == "10028" || split[8] == "10034"))
                                 {
                                     split[8] = "05854";
                                     line = String.Join(",", split);

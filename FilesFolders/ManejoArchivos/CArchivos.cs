@@ -275,6 +275,46 @@ namespace FilesFolders.ManejoArchivos
         }
 
         /// <summary>
+        /// Obtiene el Sexo de un Usario segun su numero de documento
+        /// </summary>
+        /// <param name="NumeroDocumento">El número de documento del Usuario</param>
+        /// <param name="dirPath">La ruta del directorio raíz donde se buscarán los archivos</param>
+        /// <returns>Retorna el Sexo del Usuario</returns>
+        public string ObtenerSexoUsuario(string NumeroDocumento, string dirPath)
+        {
+            DirectoryInfo di = new DirectoryInfo(dirPath);
+            string sexo = "";
+            foreach (var fi in di.GetFiles("*US*", SearchOption.AllDirectories))
+            {
+                String path = fi.FullName;
+                List<String> lines = new List<String>();
+                if (File.Exists(path))
+                {
+                    using (StreamReader reader = new StreamReader(path, Encoding.GetEncoding("Windows-1252")))
+                    {
+                        String line;
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            if (line.Contains(","))
+                            {
+                                String[] split = line.Split(',');
+                                // Posición Numero de Documento en el Archivo US
+                                string NumeroDocumentoUS = split[1];
+                                if (NumeroDocumento == NumeroDocumentoUS)
+                                {
+                                    // Sexo - Posición 10 del Archivo US
+                                    sexo = split[10];
+                                }
+                            }
+                            lines.Add(line);
+                        }
+                    }
+                }
+            }
+            return sexo;
+        }
+
+        /// <summary>
         /// Obtiene Valor Neto del AF
         /// </summary>
         /// <param name="directoryPath">La ruta del directorio raíz donde se buscarán los archivos</param>
