@@ -387,7 +387,7 @@ namespace FilesFolders.Clases
         /// <param name="codigoCUPSPos">Posición del Código CUPS en la línea evaluada</param>
         /// <param name="tipoArchivo">Indica el tipo de archivo Evaluado, las opciones son AC o AP</param>
         /// <param name="edadUsuario">Indica la Edad del Usuario</param>
-        /// <param name="unidadMedidaEdadUsuario">Indica la UNidad de la Edad del Usuario: 1 Años, 2 Meses, 3 Dias</param>
+        /// <param name="unidadMedidaEdadUsuario">Indica la Unidad de la Edad del Usuario: 1 Años, 2 Meses, 3 Dias</param>
         /// <returns>Retorna la Finalidad Corregida</returns>
         public string CorregirFinalidad(ref string line, int codigoCUPSPos, int finalidadPos, int diagnosticoPos, string tipoArchivo, int edadUsuario, string unidadMedidaEdadUsuario)
         {
@@ -409,10 +409,10 @@ namespace FilesFolders.Clases
                 01 = Atención del parto (puerperio)
                 02 = Atención del recién nacido
                 03 = Atención de planificación familiar
-                04 = Detección de alteraciones de crecimiento y desarrollo del menor de diez años
-                05 = Detección de alteración de desarrollo joven
+                04 = Detección de alteraciones de crecimiento y desarrollo del menor de diez años (0 a 10 años)
+                05 = Detección de alteración de desarrollo joven (10 a 29 años)
                 06 = Detección de alteraciones del embarazo
-                07 = Detección de alteraciones del adulto
+                07 = Detección de alteraciones del adulto (30 y más años)
                 08 = Detección de alteraciones de agudeza visual
                 09 = Detección de enfermedad profesional
                 10 = No Aplica
@@ -435,7 +435,22 @@ namespace FilesFolders.Clases
 
                 // 890 ENTREVISTA, CONSULTA Y EVALUACION [VALORACION]
 
-                if (codigoCUPS == "890114" && finalidad == "11" && (diagnostico == "Z000" || diagnostico == "Z001" || diagnostico == "Z002"))
+                // 890114 ATENCION (VISITA) DOMICILIARIA POR PROMOTOR DE LA SALUD
+
+                /*
+                    Z000 EXAMEN MEDICO GENERAL
+                    Z001 CONTROL DE SALUD DE RUTINA DEL NIÑO
+                    Z003 EXAMEN DEL ESTADO DE DESARROLLO DEL ADOLESCENTE
+                    Z304 SUPERVISION DEL USO DE DROGAS ANTICONCEPTIVAS
+                    Z008 OTROS EXAMENES GENERALES	
+                    Z108 OTROS CONTROLES GENERALES DE SALUD DE RUTINA DE OTRAS SUBPOBLACIONES DEFINIDAS	
+                    Z019 EXAMEN ESPECIAL NO ESPECIFICADO
+                    Z300 CONSEJO Y ASESORAMIENTO GENERAL SOBRE LA ANTICONCEPCION
+                    Z308 OTRAS ATENCIONES ESPECIFICADAS PARA LA ANTICONCEPCION
+                */
+
+
+                if (codigoCUPS == "890114" && (finalidad == "10" || finalidad == "11") && (diagnostico == "Z000" || diagnostico == "Z001" || diagnostico == "Z002"))
                 {
                     finalidadCorregida = "04";
                 }
@@ -446,6 +461,21 @@ namespace FilesFolders.Clases
                 }
 
                 if (codigoCUPS == "890114" && finalidad == "11" && (diagnostico == "Z008" || diagnostico == "Z019" || diagnostico == "Z108"))
+                {
+                    finalidadCorregida = "07";
+                }
+
+                if(codigoCUPS == "890114" && finalidad == "10" && edadUsuario < 10 && unidadMedidaEdadUsuario == "1" && (diagnostico == "Z000" || diagnostico == "Z008" || diagnostico == "Z019" || diagnostico == "Z108"))
+                {
+                    finalidadCorregida = "04";
+                }
+
+                if (codigoCUPS == "890114" && finalidad == "10" && edadUsuario >= 10 && edadUsuario <= 29 && unidadMedidaEdadUsuario == "1" && (diagnostico == "Z000" || diagnostico == "Z003" || diagnostico == "Z008" || diagnostico == "Z019" || diagnostico == "Z108"))
+                {
+                    finalidadCorregida = "05";
+                }
+
+                if (codigoCUPS == "890114" && finalidad == "10" && edadUsuario >= 30 && unidadMedidaEdadUsuario == "1" && (diagnostico == "Z000" || diagnostico == "Z008" || diagnostico == "Z019" || diagnostico == "Z108"))
                 {
                     finalidadCorregida = "07";
                 }
@@ -507,9 +537,20 @@ namespace FilesFolders.Clases
                 {
                     finalidadCorregida = "10";
                 }
+                if (codigoCUPS == "890205" && finalidad == "4" && (diagnostico == "Z300" || diagnostico == "Z304" || diagnostico == "Z308"))
+                {
+                    finalidadCorregida = "03";
+                }
                 if (codigoCUPS == "890205" && finalidad == "20")
                 {
                     finalidadCorregida = "03";
+                }
+
+                // 890206 CONSULTA DE PRIMERA VEZ POR NUTRICION Y DIETETICA
+
+                if (codigoCUPS == "890206" && finalidad == "10" && (diagnostico == "Z352"))
+                {
+                    finalidadCorregida = "06";
                 }
 
                 // 890301
@@ -555,7 +596,7 @@ namespace FilesFolders.Clases
                 {
                     finalidadCorregida = "10";
                 }
-                if (codigoCUPS == "890703" && finalidad == "")
+                if (codigoCUPS == "890703" && (finalidad == "" || finalidad == "12"))
                 {
                     finalidadCorregida = "10";
                 }

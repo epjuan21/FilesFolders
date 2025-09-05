@@ -517,9 +517,9 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
 
-                                // Si Causa Externa es igual a 25 y diagnostico empieza por Z, se asigna 15 - Otra
+                                // Si Causa Externa es igual a 25 o Vacia y diagnostico empieza por Z, se asigna 15 - Otra
 
-                                if (split[8] == "25" && split[9].StartsWith("Z"))
+                                if ((split[8] == "25" || split[8] == "") && split[9].StartsWith("Z"))
                                 {
                                     split[8] = "15";
                                     line = String.Join(",", split);
