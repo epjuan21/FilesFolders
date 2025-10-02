@@ -547,6 +547,12 @@ namespace FilesFolders
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
+                                if (split[6] == "890201" && split[7] == "02" && split[8] == "40" && split[9].StartsWith("Z"))
+                                {
+                                    split[8] = "15";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
                                 if (split[6] == "890203" && split[8] == "")
                                 {
                                     split[8] = "13";
@@ -1652,6 +1658,7 @@ namespace FilesFolders
                                 // Correcciones Ambito
                                 split[7] = Correcciones.CorregirAmbito(ref line, 6, 7);
                                 line = String.Join(",", split);
+                                contadorErrores++;
 
                                 #endregion
 
@@ -1660,6 +1667,7 @@ namespace FilesFolders
 
                                 split[8] = Correcciones.CorregirFinalidad(ref line, 6, 8, 10, "AP", EdadUsuario, UnidadMedidaEdad);
                                 line = String.Join(",", split);
+                                contadorErrores++;
 
                                 #endregion
 

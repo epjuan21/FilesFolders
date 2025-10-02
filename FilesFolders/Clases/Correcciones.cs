@@ -480,7 +480,7 @@ namespace FilesFolders.Clases
                     finalidadCorregida = "07";
                 }
 
-                // 890201
+                // 890201 CONSULTA DE PRIMERA VEZ POR MEDICINA GENERAL
 
                 // 07 = Detección de alteraciones del adulto
                 if (codigoCUPS == "890201" && finalidad == "11" && (diagnostico == "Z108" || diagnostico == "Z018" || diagnostico == "Z019" ) && edadUsuario >= 18 && unidadMedidaEdadUsuario == "1")
@@ -498,18 +498,13 @@ namespace FilesFolders.Clases
                 {
                     finalidadCorregida = "10";
                 }
-                if (codigoCUPS == "890201" && finalidad == "11" && !diagnostico.StartsWith("Z"))
+                if (codigoCUPS == "890201" && (finalidad == "11" || finalidad == "12" || finalidad == "14" || finalidad == "42") && !diagnostico.StartsWith("Z"))
                 {
                     finalidadCorregida = "10";
                 }
-                if (codigoCUPS == "890201" && finalidad == "14")
-                {
-                    finalidadCorregida = "10";
-                }
-                if (codigoCUPS == "890201" && finalidad == "42")
-                {
-                    finalidadCorregida = "03";
-                }
+
+                // 890203 CONSULTA DE PRIMERA VEZ POR ODONTOLOGIA GENERAL
+
                 if (codigoCUPS == "890203" && finalidad == "")
                 {
                     finalidadCorregida = "10";
@@ -616,15 +611,16 @@ namespace FilesFolders.Clases
                     { "890", "4" }, { "892", "4" }, { "893", "4" }, { "895", "1" }, 
                     { "897", "1" }, { "898", "1" }, { "901", "1" }, { "902", "1" }, 
                     { "903", "1" }, { "904", "1" }, { "906", "1" }, { "907", "1" }, 
-                    { "908", "1" }, { "911", "1" }, { "931", "2" }, { "936", "2" }, { "965", "2" },{ "973", "2" },
-                    { "990", "3" }, { "993", "1" }, { "997", "1" }
+                    { "908", "1" }, { "911", "1" }, { "931", "2" }, { "936", "2" }, 
+                    { "965", "2" }, { "971", "2" }, { "973", "2" }, { "990", "3" }, 
+                    { "993", "1" }, { "997", "1" }
                 };
 
                 // Truncar a los primeros tres caracteres de `codigoCUPS`
                 string codigoCUPSTruncado = codigoCUPS.Length >= 3 ? codigoCUPS.Substring(0, 3) : codigoCUPS;
 
                 // Verificar si la finalidad está vacía y si el código truncado está en el diccionario
-                if (finalidad == "" && codigosFinalidad.TryGetValue(codigoCUPSTruncado, out string nuevaFinalidad))
+                if ((finalidad == "" || finalidad == "0") && codigosFinalidad.TryGetValue(codigoCUPSTruncado, out string nuevaFinalidad))
                 {
                     return nuevaFinalidad;
                 }
