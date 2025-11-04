@@ -446,9 +446,14 @@ namespace FilesFolders.Clases
                     Z108 OTROS CONTROLES GENERALES DE SALUD DE RUTINA DE OTRAS SUBPOBLACIONES DEFINIDAS	
                     Z019 EXAMEN ESPECIAL NO ESPECIFICADO
                     Z300 CONSEJO Y ASESORAMIENTO GENERAL SOBRE LA ANTICONCEPCION
+                    Z305 SUPERVISION DEL USO DE DISPOSITIVO ANTICONCEPTIVO (INTRAUTERINO)	
                     Z308 OTRAS ATENCIONES ESPECIFICADAS PARA LA ANTICONCEPCION
                 */
 
+                if(finalidad == "" && !diagnostico.StartsWith("Z"))
+                {
+                    finalidadCorregida = "10";
+                }
 
                 if (codigoCUPS == "890114" && (finalidad == "10" || finalidad == "11") && (diagnostico == "Z000" || diagnostico == "Z001" || diagnostico == "Z002"))
                 {
@@ -465,7 +470,7 @@ namespace FilesFolders.Clases
                     finalidadCorregida = "07";
                 }
 
-                if(codigoCUPS == "890114" && finalidad == "10" && edadUsuario < 10 && unidadMedidaEdadUsuario == "1" && (diagnostico == "Z000" || diagnostico == "Z008" || diagnostico == "Z019" || diagnostico == "Z108"))
+                if (codigoCUPS == "890114" && finalidad == "10" && edadUsuario < 10 && unidadMedidaEdadUsuario == "1" && (diagnostico == "Z000" || diagnostico == "Z008" || diagnostico == "Z019" || diagnostico == "Z108"))
                 {
                     finalidadCorregida = "04";
                 }
@@ -482,8 +487,14 @@ namespace FilesFolders.Clases
 
                 // 890201 CONSULTA DE PRIMERA VEZ POR MEDICINA GENERAL
 
+                // 04 = Detección de alteraciones de crecimiento y desarrollo del menor de diez años(0 a 10 años)
+                if (codigoCUPS == "890201" && (finalidad == "23" || finalidad == "11" || finalidad == "15") && diagnostico == "Z001")
+                {
+                    finalidadCorregida = "04";
+                }
+
                 // 07 = Detección de alteraciones del adulto
-                if (codigoCUPS == "890201" && finalidad == "11" && (diagnostico == "Z108" || diagnostico == "Z018" || diagnostico == "Z019" ) && edadUsuario >= 18 && unidadMedidaEdadUsuario == "1")
+                if (codigoCUPS == "890201" && finalidad == "11" && (diagnostico == "Z108" || diagnostico == "Z018" || diagnostico == "Z019") && edadUsuario >= 18 && unidadMedidaEdadUsuario == "1")
                 {
                     finalidadCorregida = "07";
                 }
@@ -498,7 +509,7 @@ namespace FilesFolders.Clases
                 {
                     finalidadCorregida = "10";
                 }
-                if (codigoCUPS == "890201" && (finalidad == "11" || finalidad == "12" || finalidad == "14" || finalidad == "42") && !diagnostico.StartsWith("Z"))
+                if (codigoCUPS == "890201" && (finalidad == "11" || finalidad == "12" || finalidad == "14" || finalidad == "15" || finalidad == "42") && !diagnostico.StartsWith("Z"))
                 {
                     finalidadCorregida = "10";
                 }
@@ -513,7 +524,7 @@ namespace FilesFolders.Clases
                 {
                     finalidadCorregida = "04";
                 }
-                
+
                 // 04 = Detección de alteraciones de crecimiento y desarrollo del menor de diez años
 
                 if (codigoCUPS == "890203" && finalidad == "11" && (edadUsuario < 10 && unidadMedidaEdadUsuario == "1") && (diagnostico == "Z002"))
@@ -528,6 +539,19 @@ namespace FilesFolders.Clases
                 {
                     finalidadCorregida = "07";
                 }
+
+                // 890203 CONSULTA DE PRIMERA VEZ POR ENFERMERIA
+                if (codigoCUPS == "890205" && finalidad == "4" && diagnostico == "Z003")
+                {
+                    finalidadCorregida = "05";
+                }
+
+                if (codigoCUPS == "890205" && finalidad == "4" && diagnostico == "Z305")
+                {
+                    finalidadCorregida = "03";
+                }
+
+
                 if (codigoCUPS == "890205" && finalidad == "4" && !diagnostico.StartsWith("Z"))
                 {
                     finalidadCorregida = "10";
@@ -550,7 +574,12 @@ namespace FilesFolders.Clases
 
                 // 890301
 
-                if (codigoCUPS == "890301" && finalidad == "12" && !diagnostico.StartsWith("Z"))
+                if (codigoCUPS == "890301" && finalidad == "11" && (diagnostico == "Z001"))
+                {
+                    finalidadCorregida = "04";
+                }
+
+                if (codigoCUPS == "890301" && (finalidad == "11" || finalidad == "12" || finalidad == "14" || finalidad == "15" || finalidad == "42") && !diagnostico.StartsWith("Z"))
                 {
                     finalidadCorregida = "10";
                 }
@@ -559,13 +588,22 @@ namespace FilesFolders.Clases
                 {
                     finalidadCorregida = "10";
                 }
+
+                if (codigoCUPS == "890301" && finalidad == "15" && (diagnostico == "Z123") && (edadUsuario > 17 && unidadMedidaEdadUsuario == "1"))
+                {
+                    finalidadCorregida = "03";
+                }
+
                 if (codigoCUPS == "890301" && finalidad == "42")
                 {
                     finalidadCorregida = "03";
                 }
-                if (codigoCUPS == "890305" && finalidad == "")
+
+                // 890305 CONSULTA DE CONTROL POR MEDICINA GENERAL
+
+                if (codigoCUPS == "890305" && (finalidad == "11" || finalidad == "12" || finalidad == "14" || finalidad == "15" || finalidad == "42") && !diagnostico.StartsWith("Z"))
                 {
-                    finalidadCorregida = "04";
+                    finalidadCorregida = "10";
                 }
                 if (codigoCUPS == "890305" && finalidad == "" && (diagnostico == "Z300" || diagnostico == "Z304"))
                 {

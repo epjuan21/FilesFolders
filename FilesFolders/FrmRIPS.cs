@@ -517,20 +517,20 @@ namespace FilesFolders
                                     contadorErrores++;
                                 }
 
-                                // Si Causa Externa es igual a 25 o Vacia y diagnostico empieza por Z, se asigna 15 - Otra
+                                // Si Causa Externa es igual a 25 o 40 o Vacia y diagnostico empieza por Z, se asigna 15 - Otra
 
-                                if ((split[8] == "25" || split[8] == "") && split[9].StartsWith("Z"))
+                                if ((split[8] == "25" || split[8] == "38" || split[8] == "40" || split[8] == "") && split[9].StartsWith("Z"))
                                 {
                                     split[8] = "15";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
 
-                                // Si Causa Externa es igual a 25 y diagnostico No empieza por Z, se asigna 15 - Otra
+                                // Si Causa Externa es igual a 25 y diagnostico No empieza por Z, se asigna 13 - No Aplica
 
                                 if (split[8] == "25" && !split[9].StartsWith("Z"))
                                 {
-                                    split[8] = "15";
+                                    split[8] = "13";
                                     line = String.Join(",", split);
                                     contadorErrores++;
                                 }
@@ -1928,6 +1928,20 @@ namespace FilesFolders
                                 #region Diagnostico Relacionado
                                 // Diagnóstico Relacionado - Posición 11
 
+                                // Evaluar si la primera letra es minuscula
+                                // Obtenemos la Primera Letra
+                                if (split[11] != "" && chkBoxDxAxSum.CheckState != CheckState.Checked)
+                                {
+                                    string firstLetter = split[11].Substring(0, 1);
+
+                                    if (char.IsLower(Convert.ToChar(firstLetter)))
+                                    {
+                                        split[11] = split[11].ToUpper();
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                }
+
                                 // Corregir Diagnostico para SAVIASALUD
                                 if (chkBoxDiagSavia.CheckState == CheckState.Checked)
                                 {
@@ -3035,9 +3049,31 @@ namespace FilesFolders
 
                                 #endregion
 
-                                #region Diagnóstico de Salida
+                                #region Causa Externa
+                                // Causa Externa - Posición 7
+                                if (split[7] == "")
+                                {
+                                    split[7] = "13";
+                                    line = String.Join(",", split);
+                                    contadorErrores++;
+                                }
+                                #endregion
 
+                                #region Diagnóstico de Salida
                                 // Diagnóstico de salida - Posición 8
+
+                                // Corregir letras minusculas
+                                if (split[8] != "")
+                                {
+                                    string firstLetter = split[8].Substring(0, 1);
+
+                                    if (char.IsLower(Convert.ToChar(firstLetter)))
+                                    {
+                                        split[8] = split[8].ToUpper();
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                }
 
                                 #region Correcciones para SSSA
                                 if (chkBoxDXSSSA.CheckState == CheckState.Checked)
@@ -3121,6 +3157,19 @@ namespace FilesFolders
 
                                 #region Diagnóstico Relacionado Nro. 1, a la salida
                                 // Diagnóstico relacionado Nro. 1, a la salida - Posición 9
+
+                                // Corregir letras minusculas
+                                if (split[9] != "")
+                                {
+                                    string firstLetter = split[9].Substring(0, 1);
+
+                                    if (char.IsLower(Convert.ToChar(firstLetter)))
+                                    {
+                                        split[9] = split[9].ToUpper();
+                                        line = String.Join(",", split);
+                                        contadorErrores++;
+                                    }
+                                }
 
                                 #region Correcciones para SSSA
                                 if (chkBoxDXSSSA.CheckState == CheckState.Checked)
