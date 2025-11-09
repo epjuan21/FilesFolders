@@ -448,9 +448,12 @@ namespace FilesFolders.Clases
                     Z300 CONSEJO Y ASESORAMIENTO GENERAL SOBRE LA ANTICONCEPCION
                     Z305 SUPERVISION DEL USO DE DISPOSITIVO ANTICONCEPTIVO (INTRAUTERINO)	
                     Z308 OTRAS ATENCIONES ESPECIFICADAS PARA LA ANTICONCEPCION
+                    Z321 EMBARAZO CONFIRMADO
+                    Z359 SUPERVISION DE EMBARAZO DE ALTO RIESGO SIN OTRA ESPECIFICACION
+                    Z950 PRESENCIA DE DISPOSITIVOS CARDIACOS ELECTRONICOS
                 */
 
-                if(finalidad == "" && !diagnostico.StartsWith("Z"))
+                if (finalidad == "" && !diagnostico.StartsWith("Z"))
                 {
                     finalidadCorregida = "10";
                 }
@@ -488,21 +491,21 @@ namespace FilesFolders.Clases
                 // 890201 CONSULTA DE PRIMERA VEZ POR MEDICINA GENERAL
 
                 // 04 = Detección de alteraciones de crecimiento y desarrollo del menor de diez años(0 a 10 años)
-                if (codigoCUPS == "890201" && (finalidad == "23" || finalidad == "11" || finalidad == "15") && diagnostico == "Z001")
+                if (codigoCUPS == "890201" && (finalidad == "23" || finalidad == "10" || finalidad == "11" || finalidad == "15") && diagnostico == "Z001")
                 {
                     finalidadCorregida = "04";
                 }
 
-                // 07 = Detección de alteraciones del adulto
-                if (codigoCUPS == "890201" && finalidad == "11" && (diagnostico == "Z108" || diagnostico == "Z018" || diagnostico == "Z019") && edadUsuario >= 18 && unidadMedidaEdadUsuario == "1")
-                {
-                    finalidadCorregida = "07";
-                }
-
                 // 06 = Detección de alteraciones del embarazo
-                if (codigoCUPS == "890201" && finalidad == "21" && diagnostico == "Z321")
+                if (codigoCUPS == "890201" && (finalidad == "10" || finalidad == "21") && (diagnostico == "Z321" || diagnostico == "Z359"))
                 {
                     finalidadCorregida = "06";
+                }
+
+                // 07 = Detección de alteraciones del adulto
+                if (codigoCUPS == "890201" && finalidad == "11" && (diagnostico == "Z108" || diagnostico == "Z018" || diagnostico == "Z019" || diagnostico == "Z950") && edadUsuario >= 18 && unidadMedidaEdadUsuario == "1")
+                {
+                    finalidadCorregida = "07";
                 }
 
                 if (codigoCUPS == "890201" && finalidad == "")
@@ -649,8 +652,9 @@ namespace FilesFolders.Clases
                     { "890", "4" }, { "892", "4" }, { "893", "4" }, { "895", "1" }, 
                     { "897", "1" }, { "898", "1" }, { "901", "1" }, { "902", "1" }, 
                     { "903", "1" }, { "904", "1" }, { "906", "1" }, { "907", "1" }, 
-                    { "908", "1" }, { "911", "1" }, { "931", "2" }, { "936", "2" }, 
-                    { "965", "2" }, { "971", "2" }, { "973", "2" }, { "990", "3" }, 
+                    { "963", "1" }, { "908", "1" }, { "911", "1" }, { "931", "2" }, 
+                    { "935", "2" }, { "936", "2" }, { "961", "2" }, { "965", "2" }, 
+                    { "971", "2" }, { "973", "2" }, { "982", "3" }, { "990", "3" }, 
                     { "993", "1" }, { "997", "1" }
                 };
 
